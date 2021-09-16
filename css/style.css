@@ -420,6 +420,11 @@ footer .copyright {
 /* Responsive design */
 
 @media only screen and (max-width: 700px) {
+    .article_content img {
+        width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
     body > .header {
         width: 90%;
         padding: 15px 5%;
