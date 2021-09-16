@@ -1,0 +1,18 @@
+.article_content {
+    line-height: 1.75;
+}
+aside {
+    line-height: 1;
+}
+li {
+    margin: .5em 0;
+}
+
+p.caption {
+    text-align: center;
+    color: rgb(97, 97, 97);
+}
+
+.footnotes p, .footnotes li {
+    text-align: left;
+}
