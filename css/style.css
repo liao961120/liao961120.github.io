@@ -72,6 +72,7 @@ p code, li code {
 
 .article_header .titles .subtitle {
     margin-top: .3em;
+    padding-left: 1.2px;
     font-style: italic;
     font-weight: 600;
     font-size: 1.22em;
