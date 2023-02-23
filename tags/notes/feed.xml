@@ -1,1 +1,344 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>notes on Yongfu's Blog</title><link>https://yongfu.name/tags/notes/</link><description>Recent content in notes on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/notes/feed.xml" rel="self" type="application/rss+xml"/><item><title>Constructing Life Tables with R</title><link>https://yongfu.name/2017/12/11/life_tables/</link><pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate><guid>https://yongfu.name/2017/12/11/life_tables/</guid><description>I have been using the package dplyr to handle with data for a while, and I thought I can use it with ease until I was stuck with my homework on contructing a life table. I found spreadsheets (either Excel or Google Spreadsheets) easy for handling this task, but had a hard time dealing with it in R. I think it was due to my unfamiliarity with the built-in functions and insufficient practice in R.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>notes on Yongfu's Blog</title><link>https://yongfu.name/tags/notes/</link><description>Recent content in notes on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 11 Dec 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/notes/feed.xml" rel="self" type="application/rss+xml"/><item><title>Constructing Life Tables with R</title><link>https://yongfu.name/2017/12/11/life_tables/</link><pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate><guid>https://yongfu.name/2017/12/11/life_tables/</guid><description>&lt;p>I have been using the package &lt;code>dplyr&lt;/code> to handle with data for a while, and I thought I can use it with ease until I was stuck with my homework on &lt;strong>contructing a life table&lt;/strong>. I found spreadsheets (either &lt;em>Excel&lt;/em> or &lt;em>Google Spreadsheets&lt;/em>) easy for handling this task, but had a hard time dealing with it in R. I think it was due to my unfamiliarity with the built-in functions and insufficient practice in R. So, I wrote this post as a review and practice of my data-wrangling skills in R.&lt;/p>
+&lt;p>I will illustrate how I constructed a life table with R, and you&amp;rsquo;ll find out how easy it is (and wonder how could I stumble on it).&lt;/p>
+&lt;h2 id="load-packages">Load Packages&lt;/h2>
+&lt;p>I used these packages to construct a Life table.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(readr)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(dplyr)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(knitr)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="load-data">Load data&lt;/h2>
+&lt;p>Load the csv file to &lt;code>life_table&lt;/code>. The raw data contains 3 columns: &lt;strong>Age&lt;/strong>, &lt;strong>Survivorship at Age x ($l_x$)&lt;/strong>, and &lt;strong>Fecundity at Age x ($m_x$)&lt;/strong>. I added &lt;code>options(scipen=999)&lt;/code> to disable scientific notations.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">options&lt;/span>(scipen&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">999&lt;/span>) &lt;span style="color:#75715e"># Disable Scientific Notation&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>life_table &lt;span style="color:#f92672">&amp;lt;-&lt;/span> &lt;span style="color:#a6e22e">read_csv&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;life_table.csv&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>life_table
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre tabindex="0">&lt;code># A tibble: 10 x 3
+Age lx mx
+&amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+1 0 1.0000000 0
+2 1 0.0000620 4600
+3 2 0.0000340 8700
+4 3 0.0000200 11600
+5 4 0.0000155 12700
+6 5 0.0000110 12700
+7 6 0.0000065 12700
+8 7 0.0000020 12700
+9 8 0.0000020 12700
+10 9 0.0000000 0
+&lt;/code>&lt;/pre>&lt;h2 id="variables-to-construct">Variables to Construct&lt;/h2>
+&lt;p>Here are the variables that need to be calculated.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">Statistic&lt;/th>
+&lt;th style="text-align:center">Notation&lt;/th>
+&lt;th style="text-align:center">Calculation Formula&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">$l_x m_x$&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">$x l_x m_x$&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;/td>
+&lt;td style="text-align:center">$l_x m_x e^{-rx}$&lt;/td>
+&lt;td style="text-align:center">&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Average survivorship&lt;!-- raw HTML omitted -->(age class)&lt;/td>
+&lt;td style="text-align:center">$L_x$&lt;/td>
+&lt;td style="text-align:center">&lt;code>$L_x = (l_x + l_{x+1})/2$&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Life expectancy&lt;/td>
+&lt;td style="text-align:center">$e_x$&lt;/td>
+&lt;td style="text-align:center">&lt;code>$e_x = (L_x + L_{x+1} + … + L_{max})/l_x$&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Reproductive value&lt;/td>
+&lt;td style="text-align:center">$V_x$&lt;/td>
+&lt;td style="text-align:center">$\displaystyle \frac{\sum_{y=x}^{max\hspace{0.3mm}x} e^{-ry} l_y m_y}{e^{-rx} l_x}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Net reproductive rate&lt;/td>
+&lt;td style="text-align:center">$R_0$&lt;/td>
+&lt;td style="text-align:center">$\sum_{all \hspace{0.3mm} x} l_x m_x$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Generation time&lt;/td>
+&lt;td style="text-align:center">$G$&lt;/td>
+&lt;td style="text-align:center">$\frac{\sum_{all \hspace{0.3mm} x} x l_x m_x}{R_0}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Intrinsic rate of increase&lt;/td>
+&lt;td style="text-align:center">Approximate $r$&lt;/td>
+&lt;td style="text-align:center">$r \approx \frac{ln(R_0)}{G}$&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">Intrinsic rate of increase&lt;/td>
+&lt;td style="text-align:center">(True) $r$&lt;/td>
+&lt;td style="text-align:center">$\displaystyle \sum_{all \hspace{0.3mm} x} e^{-rx}l_x m_x = 1$&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>$l_xm_xe^{-rx}$ and $V_x$ will be calculated twice for the approximate and the true $r$.&lt;/p>
+&lt;h2 id="constructing-variables">Constructing Variables&lt;/h2>
+&lt;h3 id="mutate-creating-new-columns">&lt;code>mutate&lt;/code>: Creating new columns&lt;/h3>
+&lt;p>Using the pipe &lt;code>%&amp;gt;%&lt;/code> and the function &lt;code>mutate&lt;/code> in package &lt;code>dplyr&lt;/code>, I first constructed 7 new variables. Note the dependencies of the variables, so that I couldn&amp;rsquo;t construct the life tables at once.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span>life_table &lt;span style="color:#f92672">&amp;lt;-&lt;/span> life_table &lt;span style="color:#f92672">%&amp;gt;%&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">mutate&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;lx*mx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>lx&lt;span style="color:#f92672">*&lt;/span>mx,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;x*lx*mx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>Age&lt;span style="color:#f92672">*&lt;/span>lx&lt;span style="color:#f92672">*&lt;/span>mx,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Lx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>(lx&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#a6e22e">lead&lt;/span>(lx))&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Lx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">replace&lt;/span>(Lx, &lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;ex&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">rev&lt;/span>(&lt;span style="color:#a6e22e">cumsum&lt;/span>(&lt;span style="color:#a6e22e">rev&lt;/span>(Lx)))&lt;span style="color:#f92672">/&lt;/span>lx,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;R0&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">sum&lt;/span>(lx&lt;span style="color:#f92672">*&lt;/span>mx),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;G&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">sum&lt;/span>(Age&lt;span style="color:#f92672">*&lt;/span>lx&lt;span style="color:#f92672">*&lt;/span>mx)&lt;span style="color:#f92672">/&lt;/span>R0,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;approx.r&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">log&lt;/span>(R0)&lt;span style="color:#f92672">/&lt;/span>G
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Two things worth noting in the &lt;code>mutate&lt;/code> function:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>The code &lt;code>&amp;quot;Lx&amp;quot;=(lx+lead(lx))/2, &amp;quot;Lx&amp;quot;=replace(Lx, 10, 0)&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>lead(lx)&lt;/code> shifts the whole column of $l_x$ to its next value, i.e. the column $l_x$ becomes $l_{(x+1)}$.&lt;/li>
+&lt;li>Due to &lt;code>lead(lx)&lt;/code>, the last entry of the new column $L_x$ must be a &lt;code>NA&lt;/code>, so I have to assign &lt;code>0&lt;/code> to it (otherwise all calculations based on it will become &lt;code>NA&lt;/code>s).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>The code &lt;code>&amp;quot;ex&amp;quot;=rev(cumsum(rev(Lx)))/lx&lt;/code> (This is where I was stuck)&lt;/p>
+&lt;ol>
+&lt;li>The numerator of &lt;code>ex&lt;/code> is calculated by summing over $L_x$ to $L_{max}$, the maximum age of $L_x$. This is not so intuitive when working with R.&lt;/li>
+&lt;li>&lt;code>rev(Lx)&lt;/code> reverse the order of $L_x$, and &lt;code>cumsum()&lt;/code> is for &lt;em>cummulative sum&lt;/em>. &lt;code>cumsum(rev(Lx))&lt;/code> then is equivalent to &lt;em>summing $L_x$ backwards&lt;/em> (i.e. from $L_{max}$ to $L_x$).&lt;/li>
+&lt;li>But since $L_x$ is reversed in the first place, &lt;code>cumsum(rev(Lx))&lt;/code> is also in reverse order. Reversing &lt;code>cumsum(rev(Lx))&lt;/code> with &lt;code>rev()&lt;/code> then gives what I want.&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="calculating-r-by-while-loop">Calculating $r$ by while loop&lt;/h3>
+&lt;p>By the &lt;strong>Eular-Lotka equation&lt;/strong>, I can calculate $r$.&lt;/p>
+&lt;p>$$\displaystyle \sum_{all \hspace{0.3mm} x} e^{-rx}l_x m_x = 1$$&lt;/p>
+&lt;p>Using &lt;code>while&lt;/code> loop and Approximate $r$ calculated earlier as the starting value for &lt;code>r&lt;/code>, $r$ is calculated as below.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span>df &lt;span style="color:#f92672">&amp;lt;-&lt;/span> &lt;span style="color:#a6e22e">as.data.frame&lt;/span>(life_table)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>r &lt;span style="color:#f92672">&amp;lt;-&lt;/span> &lt;span style="color:#ae81ff">0.0812198&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x &lt;span style="color:#f92672">&amp;lt;-&lt;/span> &lt;span style="color:#a6e22e">sum&lt;/span>(&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>r&lt;span style="color:#f92672">*&lt;/span>df&lt;span style="color:#f92672">$&lt;/span>Age)&lt;span style="color:#f92672">*&lt;/span>df&lt;span style="color:#f92672">$&lt;/span>`lx*mx`)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">while &lt;/span>(&lt;span style="color:#a6e22e">abs&lt;/span>(x&lt;span style="color:#ae81ff">-1&lt;/span>) &lt;span style="color:#f92672">&amp;gt;=&lt;/span> &lt;span style="color:#ae81ff">0.000001&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">if &lt;/span>(x&lt;span style="color:#ae81ff">-1&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">&amp;lt;-&lt;/span> r&lt;span style="color:#ae81ff">+0.00000001&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> else{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r &lt;span style="color:#f92672">&amp;lt;-&lt;/span> r&lt;span style="color:#ae81ff">-0.00000001&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x &lt;span style="color:#f92672">&amp;lt;-&lt;/span> &lt;span style="color:#a6e22e">sum&lt;/span>(&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>r&lt;span style="color:#f92672">*&lt;/span>df&lt;span style="color:#f92672">$&lt;/span>Age)&lt;span style="color:#f92672">*&lt;/span>df&lt;span style="color:#f92672">$&lt;/span>`lx*mx`)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> r
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The rest is simple, and the logic applied is the same.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span>life_table &lt;span style="color:#f92672">&amp;lt;-&lt;/span> life_table &lt;span style="color:#f92672">%&amp;gt;%&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">mutate&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;approx.r&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">log&lt;/span>(R0)&lt;span style="color:#f92672">/&lt;/span>G,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>r,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;Vx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">rev&lt;/span>(&lt;span style="color:#a6e22e">cumsum&lt;/span>(&lt;span style="color:#a6e22e">rev&lt;/span>(&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>r&lt;span style="color:#f92672">*&lt;/span>Age)&lt;span style="color:#f92672">*&lt;/span>lx&lt;span style="color:#f92672">*&lt;/span>mx)))&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>r&lt;span style="color:#f92672">*&lt;/span>Age)&lt;span style="color:#f92672">*&lt;/span>lx,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;lx*mx*e^-rx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span> lx&lt;span style="color:#f92672">*&lt;/span>mx&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>r&lt;span style="color:#f92672">*&lt;/span>Age),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;approx.Vx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">rev&lt;/span>(&lt;span style="color:#a6e22e">cumsum&lt;/span>(&lt;span style="color:#a6e22e">rev&lt;/span>(&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>approx.r&lt;span style="color:#f92672">*&lt;/span>Age)&lt;span style="color:#f92672">*&lt;/span>lx&lt;span style="color:#f92672">*&lt;/span>mx)))&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>approx.r&lt;span style="color:#f92672">*&lt;/span>Age)&lt;span style="color:#f92672">*&lt;/span>lx,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;approx.lx*mx*e^-rx&amp;#34;&lt;/span>&lt;span style="color:#f92672">=&lt;/span> lx&lt;span style="color:#f92672">*&lt;/span>mx&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>approx.r&lt;span style="color:#f92672">*&lt;/span>Age)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> )
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, I&amp;rsquo;m done constructing a life table.&lt;/p>
+&lt;h2 id="printing-pretty-life-table">Printing pretty Life Table&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">kable&lt;/span>(life_table, format&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;markdown&amp;#34;&lt;/span>, align&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;c&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">$Age$&lt;/th>
+&lt;th style="text-align:center">$l_x$&lt;/th>
+&lt;th style="text-align:center">$m_x$&lt;/th>
+&lt;th style="text-align:center">$l_x m_x$&lt;/th>
+&lt;th style="text-align:center">$x l_x m_x$&lt;/th>
+&lt;th style="text-align:center">$L_x$&lt;/th>
+&lt;th style="text-align:center">$e_x$&lt;/th>
+&lt;th style="text-align:center">$R_0$&lt;/th>
+&lt;th style="text-align:center">$G$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$r$&lt;/th>
+&lt;th style="text-align:center">$r$&lt;/th>
+&lt;th style="text-align:center">$V_x$&lt;/th>
+&lt;th style="text-align:center">$l_x m_x e^{-rx}$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$V_x$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$l_x m_x e^{-rx}$&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">0&lt;/td>
+&lt;td style="text-align:center">1.0000000&lt;/td>
+&lt;td style="text-align:center">0&lt;/td>
+&lt;td style="text-align:center">0.00000&lt;/td>
+&lt;td style="text-align:center">0.0000&lt;/td>
+&lt;td style="text-align:center">0.5000310&lt;/td>
+&lt;td style="text-align:center">0.500153&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">1.0000010&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;td style="text-align:center">1.0099103&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">1&lt;/td>
+&lt;td style="text-align:center">0.0000620&lt;/td>
+&lt;td style="text-align:center">4600&lt;/td>
+&lt;td style="text-align:center">0.28520&lt;/td>
+&lt;td style="text-align:center">0.2852&lt;/td>
+&lt;td style="text-align:center">0.0000480&lt;/td>
+&lt;td style="text-align:center">1.967742&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000675&lt;/td>
+&lt;td style="text-align:center">0.2620352&lt;/td>
+&lt;td style="text-align:center">0.0000679&lt;/td>
+&lt;td style="text-align:center">0.2629518&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">2&lt;/td>
+&lt;td style="text-align:center">0.0000340&lt;/td>
+&lt;td style="text-align:center">8700&lt;/td>
+&lt;td style="text-align:center">0.29580&lt;/td>
+&lt;td style="text-align:center">0.5916&lt;/td>
+&lt;td style="text-align:center">0.0000270&lt;/td>
+&lt;td style="text-align:center">2.176471&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000297&lt;/td>
+&lt;td style="text-align:center">0.2497000&lt;/td>
+&lt;td style="text-align:center">0.0000299&lt;/td>
+&lt;td style="text-align:center">0.2514499&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">3&lt;/td>
+&lt;td style="text-align:center">0.0000200&lt;/td>
+&lt;td style="text-align:center">11600&lt;/td>
+&lt;td style="text-align:center">0.23200&lt;/td>
+&lt;td style="text-align:center">0.6960&lt;/td>
+&lt;td style="text-align:center">0.0000178&lt;/td>
+&lt;td style="text-align:center">2.350000&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000126&lt;/td>
+&lt;td style="text-align:center">0.1799362&lt;/td>
+&lt;td style="text-align:center">0.0000126&lt;/td>
+&lt;td style="text-align:center">0.1818310&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">4&lt;/td>
+&lt;td style="text-align:center">0.0000155&lt;/td>
+&lt;td style="text-align:center">12700&lt;/td>
+&lt;td style="text-align:center">0.19685&lt;/td>
+&lt;td style="text-align:center">0.7874&lt;/td>
+&lt;td style="text-align:center">0.0000132&lt;/td>
+&lt;td style="text-align:center">1.887097&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000067&lt;/td>
+&lt;td style="text-align:center">0.1402737&lt;/td>
+&lt;td style="text-align:center">0.0000067&lt;/td>
+&lt;td style="text-align:center">0.1422467&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">5&lt;/td>
+&lt;td style="text-align:center">0.0000110&lt;/td>
+&lt;td style="text-align:center">12700&lt;/td>
+&lt;td style="text-align:center">0.13970&lt;/td>
+&lt;td style="text-align:center">0.6985&lt;/td>
+&lt;td style="text-align:center">0.0000087&lt;/td>
+&lt;td style="text-align:center">1.454546&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000028&lt;/td>
+&lt;td style="text-align:center">0.0914634&lt;/td>
+&lt;td style="text-align:center">0.0000028&lt;/td>
+&lt;td style="text-align:center">0.0930743&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">6&lt;/td>
+&lt;td style="text-align:center">0.0000065&lt;/td>
+&lt;td style="text-align:center">12700&lt;/td>
+&lt;td style="text-align:center">0.08255&lt;/td>
+&lt;td style="text-align:center">0.4953&lt;/td>
+&lt;td style="text-align:center">0.0000042&lt;/td>
+&lt;td style="text-align:center">1.115385&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000008&lt;/td>
+&lt;td style="text-align:center">0.0496567&lt;/td>
+&lt;td style="text-align:center">0.0000008&lt;/td>
+&lt;td style="text-align:center">0.0507081&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">7&lt;/td>
+&lt;td style="text-align:center">0.0000020&lt;/td>
+&lt;td style="text-align:center">12700&lt;/td>
+&lt;td style="text-align:center">0.02540&lt;/td>
+&lt;td style="text-align:center">0.1778&lt;/td>
+&lt;td style="text-align:center">0.0000020&lt;/td>
+&lt;td style="text-align:center">1.500000&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000001&lt;/td>
+&lt;td style="text-align:center">0.0140380&lt;/td>
+&lt;td style="text-align:center">0.0000001&lt;/td>
+&lt;td style="text-align:center">0.0143853&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">8&lt;/td>
+&lt;td style="text-align:center">0.0000020&lt;/td>
+&lt;td style="text-align:center">12700&lt;/td>
+&lt;td style="text-align:center">0.02540&lt;/td>
+&lt;td style="text-align:center">0.2032&lt;/td>
+&lt;td style="text-align:center">0.0000010&lt;/td>
+&lt;td style="text-align:center">0.500000&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000001&lt;/td>
+&lt;td style="text-align:center">0.0128978&lt;/td>
+&lt;td style="text-align:center">0.0000001&lt;/td>
+&lt;td style="text-align:center">0.0132632&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">9&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;td style="text-align:center">0&lt;/td>
+&lt;td style="text-align:center">0.00000&lt;/td>
+&lt;td style="text-align:center">0.0000&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;td style="text-align:center">NaN&lt;/td>
+&lt;td style="text-align:center">1.2829&lt;/td>
+&lt;td style="text-align:center">3.06727&lt;/td>
+&lt;td style="text-align:center">0.0812198&lt;/td>
+&lt;td style="text-align:center">0.0847117&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;td style="text-align:center">0.0000000&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Note that I edited the column names of the table in a text editor to make it display in &lt;strong>LaTeX&lt;/strong> style. There is no simple &lt;code>knitr&lt;/code> function (at least I don&amp;rsquo;t know) that print out pretty displayed style text in a table generated from a data frame&lt;/p></description><category>R</category><category>notes</category></item></channel></rss>

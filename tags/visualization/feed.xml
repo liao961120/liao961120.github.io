@@ -1,2 +1,947 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>visualization on Yongfu's Blog</title><link>https://yongfu.name/tags/visualization/</link><description>Recent content in visualization on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 17 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/visualization/feed.xml" rel="self" type="application/rss+xml"/><item><title>Visualizing Language Loss in Taiwan</title><link>https://yongfu.name/2019/02/17/visualize-language-loss/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/17/visualize-language-loss/</guid><description>Taiwan Language Survey is a small project I worked on during May to June in 2018. The idea was to create a survey that continuously collects data and a web page that visualizes the collected data. The web page is updated weekly using Travis-CI.
-The main purpose of this survey is to raise public awareness of language loss in Taiwan. Hence, the survey is designed to collect data that can provide valuable information about language loss, for example, some questions were asked to gain insight about the change of linguistic competence acoss generations in a family (i.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>visualization on Yongfu's Blog</title><link>https://yongfu.name/tags/visualization/</link><description>Recent content in visualization on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 17 Feb 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/visualization/feed.xml" rel="self" type="application/rss+xml"/><item><title>Visualizing Language Loss in Taiwan</title><link>https://yongfu.name/2019/02/17/visualize-language-loss/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/17/visualize-language-loss/</guid><description>
+&lt;p>&lt;a href="https://twlangsurvey.github.io">Taiwan Language Survey&lt;/a> is a small project I worked on during May to June in 2018. The idea was to create a survey that &lt;strong>continuously&lt;/strong> collects data and a web page that visualizes the collected data. The web page is updated weekly using &lt;a href="https://travis-ci.org/twLangSurvey/twLangSurvey.github.io">Travis-CI&lt;/a>.&lt;/p>
+&lt;p>The main purpose of this survey is to raise public awareness of &lt;strong>language loss&lt;/strong> in Taiwan. Hence, the survey is designed to collect data that can provide valuable information about language loss, for example, some questions were asked to gain insight about the change of linguistic competence acoss generations in a family (i.e. across the subject’s parents, the subject, and the subject’s children). In addition to changes within family, information about the age of the subjects is also colleceted, meaning that we can see how linguistic competence changes among diffrent age groups of subjects in a community, i.e. is a language becoming more dominant or entering the dying process?&lt;/p>
+&lt;p>Visualization is a powerful tool to capture how linguistic competences of different langauges are changing. But creating visualizations necessitates creativity – how can language loss be visualized? Below, I illustrate one of the methods I created for visualizing language loss – a visaulization inspired by the &lt;a href="https://en.wikipedia.org/wiki/Population_pyramid">age-sex pyramid&lt;/a>.&lt;/p>
+&lt;div id="age-sex-pyramid-of-language" class="section level2">
+&lt;h2>Age-Sex Pyramid of Language&lt;/h2>
+&lt;p>The age-sex pyramid is used to visualize the population structure of a community. The vertical axis indicates the age and each horizontal bar represents an age group. The horizontal axis indicates the population size of male or female of a particular age group.&lt;/p>
+&lt;p>The age-sex pyramid is a great tool to visualize the population structure since the ‘shape’ of the pyramid gives readers a lot information. For example, an ‘expansive pyramid’ has longer bars at the bottom of the pyramid, which indicates the population is young and growing. A ‘stationary pyramid’ looks like a rectangular bar, indicating the population sizes of different age groups are about the same. A ‘constructive’ pyramid indicates a shrinking population, which is narrowed at the bottom.&lt;/p>
+&lt;p>Similarly, a &lt;strong>modified&lt;/strong> version of the age-sex pyramid, which I’ll call the ‘&lt;strong>age-sex pyramid of language&lt;/strong>’, can be used to visualize the population structure of a language and predicts the language’s &lt;strong>vitality&lt;/strong>. Instead of visualizing population size, the age-sex pyramid of language visualizes the &lt;strong>average fluency of a language&lt;/strong> on the horizontal axis.&lt;/p>
+&lt;div class="figure">&lt;span id="fig:tw-pyramid">&lt;/span>
+&lt;img src="https://twlangsurvey.github.io/out_graph/Tw_pyramid.png" alt="An age-sex pyramid of Taiwanese. The red bars on the left indicates females of different age groups and the blue bars on the right indicates males. The average fluency (values on the horizontal axis) is calculated from a six-point scale (0-5) on Taiwanese fluency." width="70%" />
+&lt;p class="caption">
+Figure 1: An age-sex pyramid of Taiwanese. The red bars on the left indicates females of different age groups and the blue bars on the right indicates males. The average fluency (values on the horizontal axis) is calculated from a six-point scale (0-5) on Taiwanese fluency.
+&lt;/p>
+&lt;/div>
+&lt;p>As shown in Figure &lt;a href="#fig:tw-pyramid">1&lt;/a>, the shape of the age-sex pyramid of &lt;a href="https://en.wikipedia.org/wiki/Taiwanese_Hokkien">Taiwanese&lt;/a> in Taiwan&lt;a href="#fn1" class="footnote-ref" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a> is an ‘&lt;strong>inverted triangle&lt;/strong>’, which is almost never seen in the conventional population pyramid. However, this inverted triangular shape is expected to appear quite often, since it indicates an ongoing language loss in a community.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>&lt;strong>Vitality of Language&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Shape of Pyramid&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>Shrinking and Dying&lt;/td>
+&lt;td>Inverted Triangle&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Growing&lt;/td>
+&lt;td>Triangle&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>Stable&lt;/td>
+&lt;td>Rectangular Bar&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="drawing-age-sex-pyramid-with-ggplot2" class="section level2">
+&lt;h2>Drawing Age-Sex Pyramid with ggplot2&lt;/h2>
+&lt;p>As complex as it might seem, an age-sex pyramid created with ggplot2 is actually a (modified) bar chart. I learned this on &lt;a href="https://stackoverflow.com/a/36804394">stackoverflow&lt;/a>, and the trick is&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Use &lt;code>ifelse&lt;/code> to flip the value (here, population size) according to the gender of the age group&lt;/li>
+&lt;li>Use &lt;code>geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code> to let the heights of the bars represent values in the data frame, i.e. the value given to &lt;code>y&lt;/code>&lt;/li>
+&lt;li>Use &lt;code>coord_flip()&lt;/code> to make the bars horizontal&lt;/li>
+&lt;/ol>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">set.seed&lt;/span>(&lt;span class="dv">1&lt;/span>)
+df0 &amp;lt;-&lt;span class="st"> &lt;/span>tibble&lt;span class="op">::&lt;/span>&lt;span class="kw">tibble&lt;/span>(
+&lt;span class="dt">Age =&lt;/span> &lt;span class="kw">rep&lt;/span>(&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;10-19&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;20-29&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;30-39&amp;#39;&lt;/span>), &lt;span class="dv">2&lt;/span>),
+&lt;span class="dt">Gender =&lt;/span> &lt;span class="kw">rep&lt;/span>(&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;Female&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Male&amp;#39;&lt;/span>), &lt;span class="dt">each =&lt;/span> &lt;span class="dv">3&lt;/span>),
+&lt;span class="dt">PopSize =&lt;/span> &lt;span class="kw">sample&lt;/span>(&lt;span class="dv">0&lt;/span>&lt;span class="op">:&lt;/span>&lt;span class="dv">100&lt;/span>, &lt;span class="dt">size =&lt;/span> &lt;span class="dv">6&lt;/span>, &lt;span class="dt">replace =&lt;/span> T)
+)
+df0&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">Age&lt;/th>
+&lt;th align="left">Gender&lt;/th>
+&lt;th align="right">PopSize&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">10-19&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">26&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">20-29&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">37&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">30-39&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">57&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">10-19&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">91&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">20-29&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">20&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">30-39&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">90&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">library&lt;/span>(ggplot2)
+pl &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">ggplot&lt;/span>(df0, &lt;span class="kw">aes&lt;/span>(&lt;span class="dt">x =&lt;/span> Age,
+&lt;span class="dt">y =&lt;/span> &lt;span class="kw">ifelse&lt;/span>(Gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Male&amp;#39;&lt;/span>, PopSize, &lt;span class="op">-&lt;/span>PopSize),
+&lt;span class="dt">fill =&lt;/span> Gender)) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">geom_bar&lt;/span>(&lt;span class="dt">stat =&lt;/span> &lt;span class="st">&amp;#39;identity&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">coord_flip&lt;/span>()
+pl&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-1-1.png" width="70%" />&lt;/p>
+&lt;p>To center the plot (i.e. to make the point where population size is zero at the center of the plot), we have to scale the axis of ‘population size’ (&lt;code>y&lt;/code>) with &lt;code>scale_y_continuous&lt;/code>:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">pl &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">scale_y_continuous&lt;/span>(&lt;span class="dt">limits =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">100&lt;/span>, &lt;span class="dv">100&lt;/span>),
+&lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">seq&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">100&lt;/span>, &lt;span class="dv">100&lt;/span>, &lt;span class="dv">25&lt;/span>),
+&lt;span class="dt">labels =&lt;/span> abs) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">labs&lt;/span>(&lt;span class="dt">y =&lt;/span> &lt;span class="st">&amp;#39;Population Size&amp;#39;&lt;/span>)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-2-1.png" width="70%" />&lt;/p>
+&lt;p>where &lt;code>abs&lt;/code> in &lt;code>labels&lt;/code> is the function &lt;code>abs()&lt;/code>. By default, &lt;code>ggplot2&lt;/code> pass the value given in &lt;code>breaks&lt;/code> to the the function specified in &lt;code>labels&lt;/code>.&lt;/p>
+&lt;/div>
+&lt;div id="visualizing-language-loss" class="section level2">
+&lt;h2>Visualizing Language Loss&lt;/h2>
+&lt;p>To create an age-sex pyramid of language, the data structure needed is exactly the same as the one above, except the variable, &lt;code>PopSize&lt;/code>, is replaced by ‘average fluency’ of a language. But since most people in Taiwan can speak more than one language (e.g. Mandarin-Taiwanese, Mandarin-Taiwanese-Hakka, Mandarin-English, etc.), the real data from the survey is a bit more complex Basically, the data structure needed to draw an age-sex pyramid of language looks like:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>&lt;strong>Gender&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Ethnicity&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Age Group&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Avg. Fluency&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>female&lt;/td>
+&lt;td>Mandarin&lt;/td>
+&lt;td>20-24&lt;/td>
+&lt;td>4.53&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>male&lt;/td>
+&lt;td>Taiwanese&lt;/td>
+&lt;td>20-24&lt;/td>
+&lt;td>2.78&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>…&lt;/td>
+&lt;td>…&lt;/td>
+&lt;td>…&lt;/td>
+&lt;td>…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>female&lt;/td>
+&lt;td>Hakka&lt;/td>
+&lt;td>25-29&lt;/td>
+&lt;td>2.23&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>male&lt;/td>
+&lt;td>Taiwanese&lt;/td>
+&lt;td>35-39&lt;/td>
+&lt;td>3.57&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div id="preparation-of-data" class="section level3">
+&lt;h3>Preparation of Data&lt;/h3>
+&lt;p>The raw data of &lt;a href="https://twlangsurvey.github.io/">Taiwan Language Survey&lt;/a> can be retrieved &lt;a href="https://docs.google.com/spreadsheets/d/1NOJ9O_zBR6s-9e1fFGVcRaBjn5qQuVB9ZeSebhBctoM/edit?usp=sharing">here&lt;/a>. The survey and raw data is in traditional Chinese. I’ll skip the step of cleaning raw data (e.g., turn variable names to English) and used the cleaned data &lt;code>survey.rds&lt;/code> instead.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">temp &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">tempfile&lt;/span>()
+&lt;span class="kw">download.file&lt;/span>(&lt;span class="st">&amp;#39;https://raw.githubusercontent.com/twLangSurvey/twLangSurvey.github.io/master/data/survey.rds&amp;#39;&lt;/span>, &lt;span class="dt">destfile =&lt;/span> temp)
+data &amp;lt;-&lt;span class="st"> &lt;/span>readr&lt;span class="op">::&lt;/span>&lt;span class="kw">read_rds&lt;/span>(temp)
+&lt;span class="kw">head&lt;/span>(data, &lt;span class="dv">3&lt;/span>)&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">date&lt;/th>
+&lt;th align="left">curr_resid&lt;/th>
+&lt;th align="right">curr_resid_since&lt;/th>
+&lt;th align="left">settle_5yy&lt;/th>
+&lt;th align="left">home_town&lt;/th>
+&lt;th align="left">gender&lt;/th>
+&lt;th align="right">age&lt;/th>
+&lt;th align="right">kid_num&lt;/th>
+&lt;th align="left">edu_level&lt;/th>
+&lt;th align="left">work&lt;/th>
+&lt;th align="left">income&lt;/th>
+&lt;th align="left">work_hr&lt;/th>
+&lt;th align="left">tribe&lt;/th>
+&lt;th align="right">Mand_listen&lt;/th>
+&lt;th align="right">Mand_speak&lt;/th>
+&lt;th align="right">Tw_listen&lt;/th>
+&lt;th align="right">Tw_speak&lt;/th>
+&lt;th align="right">Hak_listen&lt;/th>
+&lt;th align="right">Hak_speak&lt;/th>
+&lt;th align="right">Ind_listen&lt;/th>
+&lt;th align="right">Ind_speak&lt;/th>
+&lt;th align="right">SEA_listen&lt;/th>
+&lt;th align="right">SEA_speak&lt;/th>
+&lt;th align="right">Eng_listen&lt;/th>
+&lt;th align="right">Eng_speak&lt;/th>
+&lt;th align="left">first_lang&lt;/th>
+&lt;th align="left">when_Mand&lt;/th>
+&lt;th align="left">when_Tw&lt;/th>
+&lt;th align="left">when_Hak&lt;/th>
+&lt;th align="left">when_Ind&lt;/th>
+&lt;th align="left">when_SEA&lt;/th>
+&lt;th align="left">when_Eng&lt;/th>
+&lt;th align="left">m_guard_identity&lt;/th>
+&lt;th align="left">f_guard_identity&lt;/th>
+&lt;th align="right">dad_Mand_speak&lt;/th>
+&lt;th align="right">dad_Tw_speak&lt;/th>
+&lt;th align="right">dad_Hak_speak&lt;/th>
+&lt;th align="right">dad_Eng_speak&lt;/th>
+&lt;th align="right">dad_Ind_speak&lt;/th>
+&lt;th align="right">dad_SEA_speak&lt;/th>
+&lt;th align="right">mom_Mand_speak&lt;/th>
+&lt;th align="right">mom_Tw_speak&lt;/th>
+&lt;th align="right">mom_Hak_speak&lt;/th>
+&lt;th align="right">mom_Eng_speak&lt;/th>
+&lt;th align="right">mom_Ind_speak&lt;/th>
+&lt;th align="right">mom_SEA_speak&lt;/th>
+&lt;th align="left">dad_mom_Mand_fq&lt;/th>
+&lt;th align="left">dad_mom_Tw_fq&lt;/th>
+&lt;th align="left">dad_mom_Hak_fq&lt;/th>
+&lt;th align="left">dad_mom_Ind_fq&lt;/th>
+&lt;th align="left">dad_mom_SEA_fq&lt;/th>
+&lt;th align="left">dad_mom_Other_fq&lt;/th>
+&lt;th align="left">me_dad_Mand_fq&lt;/th>
+&lt;th align="left">me_dad_Tw_fq&lt;/th>
+&lt;th align="left">me_dad_Hak_fq&lt;/th>
+&lt;th align="left">me_dad_Ind_fq&lt;/th>
+&lt;th align="left">me_dad_SEA_fq&lt;/th>
+&lt;th align="left">me_dad_Other_fq&lt;/th>
+&lt;th align="left">me_mom_Mand_fq&lt;/th>
+&lt;th align="left">me_mom_Tw_fq&lt;/th>
+&lt;th align="left">me_mom_Hak_fq&lt;/th>
+&lt;th align="left">me_mom_Ind_fq&lt;/th>
+&lt;th align="left">me_mom_SEA_fq&lt;/th>
+&lt;th align="left">me_mom_Other_fq&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">2018-06-12&lt;/td>
+&lt;td align="left">106&lt;/td>
+&lt;td align="right">1996&lt;/td>
+&lt;td align="left">是&lt;/td>
+&lt;td align="left">428&lt;/td>
+&lt;td align="left">女&lt;/td>
+&lt;td align="right">56&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="left">大學&lt;/td>
+&lt;td align="left">金融業&lt;/td>
+&lt;td align="left">10萬以上&lt;/td>
+&lt;td align="left">45 - 50 小時&lt;/td>
+&lt;td align="left">不具原住民身份&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="left">華語&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">12-15歲&lt;/td>
+&lt;td align="left">父親&lt;/td>
+&lt;td align="left">母親&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">約一半&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">2018-06-13&lt;/td>
+&lt;td align="left">204&lt;/td>
+&lt;td align="right">2004&lt;/td>
+&lt;td align="left">是&lt;/td>
+&lt;td align="left">204&lt;/td>
+&lt;td align="left">女&lt;/td>
+&lt;td align="right">57&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="left">碩士&lt;/td>
+&lt;td align="left">製造業&lt;/td>
+&lt;td align="left">10萬以上&lt;/td>
+&lt;td align="left">50 - 55 小時&lt;/td>
+&lt;td align="left">不具原住民身份&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="left">華語&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">12-15歲&lt;/td>
+&lt;td align="left">父親&lt;/td>
+&lt;td align="left">母親&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">2018-06-13&lt;/td>
+&lt;td align="left">103&lt;/td>
+&lt;td align="right">2013&lt;/td>
+&lt;td align="left">是&lt;/td>
+&lt;td align="left">100&lt;/td>
+&lt;td align="left">男&lt;/td>
+&lt;td align="right">37&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="left">大學&lt;/td>
+&lt;td align="left">金融業&lt;/td>
+&lt;td align="left">55,000 - 60,000&lt;/td>
+&lt;td align="left">25 - 30 小時&lt;/td>
+&lt;td align="left">不具原住民身份&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="left">華語&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">7-12歲&lt;/td>
+&lt;td align="left">父親&lt;/td>
+&lt;td align="left">母親&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">少數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">少數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The survey data, &lt;code>data&lt;/code>, contains 22 variables and 267 observations (subjects). I only need these variables below to create the plot I want:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gender&lt;/code>: The gender of the subject&lt;/li>
+&lt;li>&lt;code>age&lt;/code>: The age of the subject&lt;/li>
+&lt;li>&lt;code>m_guard_identity&lt;/code>: Male guardian of the subject, should be ‘father’ in most cases&lt;/li>
+&lt;li>&lt;code>f_guard_identity&lt;/code>: Female guardian of the subject, should be ‘mother’ in most cases&lt;/li>
+&lt;li>&lt;code>&amp;lt;lang&amp;gt;_speak&lt;/code>: The subject’s fluency of a language. &lt;code>&amp;lt;lang&amp;gt;&lt;/code> is one of ‘Mand’ (Mandarin), ‘Tw’ (Taiwanese), ‘Hak’ (&lt;a href="https://en.wikipedia.org/wiki/Hakka_Chinese">Hakka&lt;/a>), ‘Ind’ (languages of the indigenous peoples, aka &lt;a href="https://en.wikipedia.org/wiki/Formosan_languages">Formosan languages&lt;/a>, belong to Austronesian languages), ‘SEA’ (languages from South Easth Asia), and ‘Eng’ (English)&lt;/li>
+&lt;li>&lt;code>dad_&amp;lt;lang&amp;gt;_speak&lt;/code>: The subject’s male guardian’s fluency of a language. &lt;code>&amp;lt;lang&amp;gt;&lt;/code> is same as above.&lt;/li>
+&lt;li>&lt;code>mom_&amp;lt;lang&amp;gt;_speak&lt;/code>: The subject’s female guardian’s fluency of a language. &lt;code>&amp;lt;lang&amp;gt;&lt;/code> is same as above.&lt;/li>
+&lt;/ul>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">library&lt;/span>(dplyr)
+lang &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;Mand&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Tw&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Hak&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Ind&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;SEA&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Eng&amp;#39;&lt;/span>)
+cols &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;gender&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;age&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;m_guard_identity&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;f_guard_identity&amp;#39;&lt;/span>,
+&lt;span class="kw">paste0&lt;/span>(lang, &lt;span class="st">&amp;#39;_speak&amp;#39;&lt;/span>),
+&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;#39;dad_&amp;#39;&lt;/span>, lang, &lt;span class="st">&amp;#39;_speak&amp;#39;&lt;/span>),
+&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;#39;mom_&amp;#39;&lt;/span>, lang, &lt;span class="st">&amp;#39;_speak&amp;#39;&lt;/span>)
+)
+data &amp;lt;-&lt;span class="st"> &lt;/span>data[, cols] &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;男&amp;#39;&lt;/span> &lt;span class="op">|&lt;/span>&lt;span class="st"> &lt;/span>gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;女&amp;#39;&lt;/span>)&lt;/code>&lt;/pre>
+&lt;p>Since some content of the survey data is in Chinese, the code below is used to translate it to English:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">ch2eng &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(x) {
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;男&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Male&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;女&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Female&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;母親&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Mother&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;父親&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Father&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;無&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;None&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;(外)祖父&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Grandpa&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;(外)祖母&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Grandma&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">%in%&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;阿姨&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;嬸嬸&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;舅媽&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;姑姑&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;伯母&amp;#39;&lt;/span>)) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Aunt&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">%in%&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;叔叔&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;伯伯&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;舅舅&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;姑丈&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;姨丈&amp;#39;&lt;/span>)) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Uncle&amp;#39;&lt;/span>)
+&lt;span class="kw">message&lt;/span>(&lt;span class="st">&amp;#39;No translation found for `&amp;#39;&lt;/span>, x, &lt;span class="st">&amp;#39;`&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;&lt;/span>&lt;span class="ch">\n&lt;/span>&lt;span class="st">&amp;#39;&lt;/span>)
+&lt;span class="kw">return&lt;/span>(x)
+}
+ch2eng_vec &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(vec) {
+new_vec &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">vector&lt;/span>(&lt;span class="kw">typeof&lt;/span>(vec), &lt;span class="kw">length&lt;/span>(vec))
+&lt;span class="cf">for&lt;/span> (i &lt;span class="cf">in&lt;/span> &lt;span class="kw">seq_along&lt;/span>(vec)) {
+new_vec[[i]] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">ch2eng&lt;/span>(vec[[i]])
+}
+&lt;span class="kw">return&lt;/span>(new_vec)
+}
+data &amp;lt;-&lt;span class="st"> &lt;/span>data &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">mutate&lt;/span>(&lt;span class="dt">gender =&lt;/span> &lt;span class="kw">ch2eng_vec&lt;/span>(gender),
+&lt;span class="dt">m_guard_identity =&lt;/span> &lt;span class="kw">ch2eng_vec&lt;/span>(m_guard_identity),
+&lt;span class="dt">f_guard_identity =&lt;/span> &lt;span class="kw">ch2eng_vec&lt;/span>(f_guard_identity))
+&lt;span class="kw">head&lt;/span>(data)&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">gender&lt;/th>
+&lt;th align="right">age&lt;/th>
+&lt;th align="left">m_guard_identity&lt;/th>
+&lt;th align="left">f_guard_identity&lt;/th>
+&lt;th align="right">Mand_speak&lt;/th>
+&lt;th align="right">Tw_speak&lt;/th>
+&lt;th align="right">Hak_speak&lt;/th>
+&lt;th align="right">Ind_speak&lt;/th>
+&lt;th align="right">SEA_speak&lt;/th>
+&lt;th align="right">Eng_speak&lt;/th>
+&lt;th align="right">dad_Mand_speak&lt;/th>
+&lt;th align="right">dad_Tw_speak&lt;/th>
+&lt;th align="right">dad_Hak_speak&lt;/th>
+&lt;th align="right">dad_Ind_speak&lt;/th>
+&lt;th align="right">dad_SEA_speak&lt;/th>
+&lt;th align="right">dad_Eng_speak&lt;/th>
+&lt;th align="right">mom_Mand_speak&lt;/th>
+&lt;th align="right">mom_Tw_speak&lt;/th>
+&lt;th align="right">mom_Hak_speak&lt;/th>
+&lt;th align="right">mom_Ind_speak&lt;/th>
+&lt;th align="right">mom_SEA_speak&lt;/th>
+&lt;th align="right">mom_Eng_speak&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">57&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">37&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">44&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">62&lt;/td>
+&lt;td align="left">None&lt;/td>
+&lt;td align="left">None&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="defining-ethnicity" class="section level4">
+&lt;h4>Defining Ethnicity&lt;/h4>
+&lt;p>You might notice that there is no variable in the data which explicitly indicates the ethnicity of the subject. To serve the purpose of this survey – visualizing the vitality of languages in a community, ethnicity is defined solely by the linguistics competence of a subject’s guardians.
+To give a specific example, let &lt;code>subject A&lt;/code> has a mother who &lt;strong>can speak&lt;/strong>&lt;a href="#fn2" class="footnote-ref" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a> Mandarin and Taiwanese and a father who speaks Mandarin and Hakka, then &lt;code>subject A&lt;/code> is categorized as a Mandarin, a Taiwanese, and a Hakka simultaneously.&lt;/p>
+&lt;p>The function &lt;code>filter_ethnic()&lt;/code> is used to filter out subjects with specified ‘ethnicity’. This function is useful for drawing age-sex pyramid for each of the six languages.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">filter_ethnic &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(df, lang, &lt;span class="dt">lev =&lt;/span> &lt;span class="dv">3&lt;/span>) {
+sp_lang &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">vector&lt;/span>(&lt;span class="st">&amp;quot;character&amp;quot;&lt;/span>, &lt;span class="dv">3&lt;/span>)
+sp_lang[&lt;span class="dv">1&lt;/span>] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;quot;dad_&amp;quot;&lt;/span>, lang, &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)
+sp_lang[&lt;span class="dv">2&lt;/span>] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;quot;mom_&amp;quot;&lt;/span>, lang, &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)
+sp_lang[&lt;span class="dv">3&lt;/span>] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">paste0&lt;/span>(lang, &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)
+df2 &amp;lt;-&lt;span class="st"> &lt;/span>df &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(m_guard_identity &lt;span class="op">!=&lt;/span>&lt;span class="st"> &amp;#39;None&amp;#39;&lt;/span> &lt;span class="op">|&lt;/span>&lt;span class="st"> &lt;/span>f_guard_identity &lt;span class="op">!=&lt;/span>&lt;span class="st"> &amp;#39;None&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(.data[[sp_lang[&lt;span class="dv">1&lt;/span>]]] &lt;span class="op">&amp;gt;=&lt;/span>&lt;span class="st"> &lt;/span>lev &lt;span class="op">|&lt;/span>&lt;span class="st"> &lt;/span>.data[[sp_lang[&lt;span class="dv">2&lt;/span>]]] &lt;span class="op">&amp;gt;=&lt;/span>&lt;span class="st"> &lt;/span>lev) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">select&lt;/span>(age, gender, sp_lang)
+&lt;span class="kw">return&lt;/span>(df2)
+}&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div id="assinging-age-group-to-subjects" class="section level3">
+&lt;h3>Assinging Age Group to Subjects&lt;/h3>
+&lt;p>Remember that the data structure needed for plotting age-sex pyramids requires &lt;strong>age group to be the basic unit&lt;/strong>. &lt;code>data&lt;/code> now consisits of single subjects, and we need information to group subjects together according to their ages. &lt;code>mutate_age_group()&lt;/code> creates a new variable &lt;code>age_group&lt;/code> by the subject’s age.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">mutate_age_group &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(df, &lt;span class="dt">range =&lt;/span> &lt;span class="dv">5&lt;/span>){
+df&lt;span class="op">$&lt;/span>age_group &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">as.character&lt;/span>(
+&lt;span class="kw">cut&lt;/span>(df&lt;span class="op">$&lt;/span>age, &lt;span class="dt">right =&lt;/span> F, &lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">seq&lt;/span>(&lt;span class="dv">10&lt;/span>, &lt;span class="dv">95&lt;/span>, &lt;span class="dt">by =&lt;/span> range))
+)
+&lt;span class="kw">return&lt;/span>(df)
+}&lt;/code>&lt;/pre>
+&lt;p>&lt;code>cut()&lt;/code> takes a numeric vector as its first input, and codes the values of the vector into new values according to the interval they fall into. In &lt;code>mutate_age_group()&lt;/code>, &lt;code>cut()&lt;/code> codes the input vectors according to the intervals specified in the argument &lt;code>breaks&lt;/code>.&lt;/p>
+&lt;p>Now we can use these functions to add more information to the data frame. The idea is to first create a separated data frame for each ethnicity&lt;a href="#fn3" class="footnote-ref" id="fnref3">&lt;sup>3&lt;/sup>&lt;/a> (by &lt;code>filter_ethnic()&lt;/code>), then attact new variables to the data frame that indicate a subject’s ethnicity (&lt;code>ethn_group&lt;/code>) and age group (&lt;code>age_group&lt;/code>).&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">lang &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;Mand&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Tw&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Hak&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Ind&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;SEA&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Eng&amp;#39;&lt;/span>)
+lev &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">0&lt;/span>)
+ethn_list_df &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">vector&lt;/span>(&lt;span class="st">&amp;quot;list&amp;quot;&lt;/span>, &lt;span class="kw">length&lt;/span>(lang))
+&lt;span class="cf">for&lt;/span> (i &lt;span class="cf">in&lt;/span> &lt;span class="kw">seq_along&lt;/span>(lang)){
+ethn_list_df[[i]] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">filter_ethnic&lt;/span>(data,
+&lt;span class="dt">lang =&lt;/span> lang[i],
+&lt;span class="dt">lev =&lt;/span> lev[i]) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">mutate&lt;/span>(&lt;span class="dt">ethn_group =&lt;/span> lang[i]) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">mutate_age_group&lt;/span>() &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">select&lt;/span>(age, gender, age_group, ethn_group,
+&lt;span class="kw">paste0&lt;/span>(lang[i], &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">rename&lt;/span>(&lt;span class="dt">lang_fluency =&lt;/span> &lt;span class="kw">paste0&lt;/span>(lang[i], &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>))
+}&lt;/code>&lt;/pre>
+&lt;p>Then we can recombine these data frames back to a single one, and this new data frame now has information about a subject’s ethinicity and age group he/she belongs to. (Note that the new data frame is &lt;strong>expended&lt;/strong> since one subject can have several ethnicity, i.e. one subject can appear in different rows of the data frame with different ethnicity.)&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">bind_rows&lt;/span>(ethn_list_df) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">head&lt;/span>()&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="right">age&lt;/th>
+&lt;th align="left">gender&lt;/th>
+&lt;th align="left">age_group&lt;/th>
+&lt;th align="left">ethn_group&lt;/th>
+&lt;th align="right">lang_fluency&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[55,60)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="right">57&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[55,60)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="right">37&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="left">[35,40)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="right">44&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[40,45)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[55,60)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="right">53&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="left">[50,55)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;div id="data-for-plotting" class="section level3">
+&lt;h3>Data for Plotting&lt;/h3>
+&lt;p>Finally, we are ready to group the subjects together according to his/her &lt;code>gender&lt;/code>, &lt;code>ethnicity&lt;/code>, and &lt;code>age_group&lt;/code>. After grouping, we can use &lt;code>dplyr::summarise()&lt;/code> to calculate each group’s fluency of the language, which will be used as the variable on the horizontal axis of the age-sex pyramid.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">pl_data &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">bind_rows&lt;/span>(ethn_list_df) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">group_by&lt;/span>(gender, ethn_group, age_group) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">summarise&lt;/span>(&lt;span class="kw">mean&lt;/span>(lang_fluency)) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">rename&lt;/span>(&lt;span class="dt">avg_fluency =&lt;/span> &lt;span class="st">`&lt;/span>&lt;span class="dt">mean(lang_fluency)&lt;/span>&lt;span class="st">`&lt;/span>)
+&lt;span class="kw">head&lt;/span>(pl_data)&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">gender&lt;/th>
+&lt;th align="left">ethn_group&lt;/th>
+&lt;th align="left">age_group&lt;/th>
+&lt;th align="right">avg_fluency&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[15,20)&lt;/td>
+&lt;td align="right">1.750&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[20,25)&lt;/td>
+&lt;td align="right">2.950&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[25,30)&lt;/td>
+&lt;td align="right">2.600&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[30,35)&lt;/td>
+&lt;td align="right">3.000&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[35,40)&lt;/td>
+&lt;td align="right">1.750&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[40,45)&lt;/td>
+&lt;td align="right">2.125&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;div id="plotting-function" class="section level3">
+&lt;h3>Plotting Function&lt;/h3>
+&lt;p>We are going to draw 6 age-sex pyramids, one for each languages. So instead of writing &lt;code>ggplot()&lt;/code> six times, I wrote a plotting function:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">library&lt;/span>(ggplot2)
+pl_pyramid &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(data, &lt;span class="dt">title =&lt;/span> &lt;span class="ot">NULL&lt;/span>) {
+&lt;span class="kw">ggplot&lt;/span>(data,
+&lt;span class="kw">aes&lt;/span>(&lt;span class="dt">x =&lt;/span> age_group,
+&lt;span class="dt">y =&lt;/span> &lt;span class="kw">ifelse&lt;/span>(gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Male&amp;#39;&lt;/span>, avg_fluency, &lt;span class="op">-&lt;/span>avg_fluency),
+&lt;span class="dt">fill =&lt;/span> gender)) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">geom_bar&lt;/span>(&lt;span class="dt">stat =&lt;/span> &lt;span class="st">&amp;quot;identity&amp;quot;&lt;/span>, &lt;span class="dt">width =&lt;/span> &lt;span class="fl">0.7&lt;/span>) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">scale_y_continuous&lt;/span>(&lt;span class="dt">limits =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">5&lt;/span>, &lt;span class="dv">5&lt;/span>),
+&lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">seq&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">5&lt;/span>, &lt;span class="dv">5&lt;/span>, &lt;span class="dv">1&lt;/span>),
+&lt;span class="dt">labels =&lt;/span> &lt;span class="kw">abs&lt;/span>(&lt;span class="kw">seq&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">5&lt;/span>, &lt;span class="dv">5&lt;/span>, &lt;span class="dv">1&lt;/span>))) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">coord_flip&lt;/span>() &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">scale_fill_manual&lt;/span>(&lt;span class="dt">values =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;quot;#E41A1C&amp;quot;&lt;/span>, &lt;span class="st">&amp;quot;#377EB8&amp;quot;&lt;/span>),
+&lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;quot;Female&amp;quot;&lt;/span>, &lt;span class="st">&amp;quot;Male&amp;quot;&lt;/span>)) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">labs&lt;/span>(&lt;span class="dt">x =&lt;/span> &lt;span class="st">&amp;quot;Age&amp;quot;&lt;/span>, &lt;span class="dt">y =&lt;/span> &lt;span class="st">&amp;quot;Fluency&amp;quot;&lt;/span>, &lt;span class="dt">fill =&lt;/span> &lt;span class="st">&amp;quot;&amp;quot;&lt;/span>, &lt;span class="dt">title =&lt;/span> title)
+}&lt;/code>&lt;/pre>
+&lt;p>Now we can start plotting. Let’s try &lt;code>Mand&lt;/code> (Mandarin) and &lt;code>Hak&lt;/code> (Hakka) first. We can use &lt;code>dplyr::filter()&lt;/code> to filter out people speaking these languages:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">tweak &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">theme_bw&lt;/span>() &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">theme&lt;/span>(&lt;span class="dt">axis.text =&lt;/span> &lt;span class="kw">element_text&lt;/span>(&lt;span class="dt">size =&lt;/span> &lt;span class="dv">15&lt;/span>),
+&lt;span class="dt">legend.justification =&lt;/span> &lt;span class="st">&amp;quot;right&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.position =&lt;/span> &lt;span class="st">&amp;quot;bottom&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.box =&lt;/span> &lt;span class="st">&amp;quot;vertical&amp;quot;&lt;/span>)
+pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Mand&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Mandarin&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak
+pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Ind&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Formosan Languages&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-12-1.svg" width="49%" />&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-12-2.svg" width="49%" />&lt;/p>
+&lt;p>Wait! It seems quite strange. The age-sex pyramid of ‘Formosan Languages’ doesn’t look like a pyramid at all!
+This is because there were very few subjects defined as ‘indigenous people’ in the survey. To make plots like this (with only one or two age groups) comparable to others (such as that in ‘Mandarin’), we need one more function to &lt;strong>insert missing age groups&lt;/strong> to the data frame so that ggplot can draw empty bars for us.&lt;/p>
+&lt;p>First, we need to find out &lt;strong>all age groups in the data&lt;/strong>:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">age_groups &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">unique&lt;/span>(pl_data&lt;span class="op">$&lt;/span>age_group)
+age_groups&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight"> [1] &amp;quot;[15,20)&amp;quot; &amp;quot;[20,25)&amp;quot; &amp;quot;[25,30)&amp;quot; &amp;quot;[30,35)&amp;quot; &amp;quot;[35,40)&amp;quot; &amp;quot;[40,45)&amp;quot; &amp;quot;[45,50)&amp;quot;
+[8] &amp;quot;[50,55)&amp;quot; &amp;quot;[55,60)&amp;quot; &amp;quot;[60,65)&amp;quot; &amp;quot;[65,70)&amp;quot;&lt;/code>&lt;/pre>
+&lt;p>Then we can write a function &lt;code>fill_empty_age_group()&lt;/code>, which takes a data frame as its first argument and checks whether there are age groups missing in the data frame (using its second argument, &lt;code>age_group_all&lt;/code>, as comparison). If the age group is missing, &lt;code>fill_empty_age_group()&lt;/code> appends a new row, which has &lt;code>age_group&lt;/code> set to the missing age group and &lt;code>avg_fluency&lt;/code> set to &lt;code>0&lt;/code> (create an empty bar), to the input data frame.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">fill_empty_age_group &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(df, age_group_all) {
+&lt;span class="cf">for&lt;/span> (i &lt;span class="cf">in&lt;/span> &lt;span class="kw">seq_along&lt;/span>(age_group_all)) {
+&lt;span class="cf">if&lt;/span> (&lt;span class="op">!&lt;/span>(age_group_all[i] &lt;span class="op">%in%&lt;/span>&lt;span class="st"> &lt;/span>df&lt;span class="op">$&lt;/span>age_group)) {
+df &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">rbind&lt;/span>(df, &lt;span class="kw">list&lt;/span>(&lt;span class="dt">gender =&lt;/span> &lt;span class="st">&amp;quot;Female&amp;quot;&lt;/span>,
+&lt;span class="dt">ethn_group =&lt;/span> &lt;span class="st">&amp;quot;doesnt_matter&amp;quot;&lt;/span>,
+&lt;span class="dt">age_group =&lt;/span> age_group_all[i],
+&lt;span class="dt">avg_fluency =&lt;/span> &lt;span class="dv">0&lt;/span>))
+}
+}
+&lt;span class="kw">return&lt;/span>(df)
+}&lt;/code>&lt;/pre>
+&lt;p>Now we’re ready to explore language loss in Taiwan. &lt;code>multiplot()&lt;/code> is used to put multiple plots together. The source code of &lt;code>multiplot()&lt;/code> is copied directly from Winston Chang’s &lt;a href="http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)">Cookbook for R&lt;/a>.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">tweak2 &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">theme_bw&lt;/span>() &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">theme&lt;/span>(&lt;span class="dt">legend.justification =&lt;/span> &lt;span class="st">&amp;quot;right&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.position =&lt;/span> &lt;span class="st">&amp;quot;bottom&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.box =&lt;/span> &lt;span class="st">&amp;quot;vertical&amp;quot;&lt;/span>)
+py1 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Mand&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Mandarin&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py2 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Tw&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Taiwanese&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py3 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Hak&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Hakka&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py4 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Ind&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Formosan Languages&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py5 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;SEA&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Languages of South East Asia&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py6 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Eng&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;English&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+&lt;span class="kw">multiplot&lt;/span>(py1, py2, py3, py4, py5, py6, &lt;span class="dt">cols =&lt;/span> &lt;span class="dv">2&lt;/span>)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-16-1.svg" width="100%" />&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;div id="language-loss-in-taiwan" class="section level2">
+&lt;h2>Language Loss in Taiwan&lt;/h2>
+&lt;p>As described in &lt;a href="#age-sex-pyramid-of-language">Age-Sex Pyramid of Language&lt;/a> above, we can learn about a language’s vitality in Taiwan from the age-sex pyramids drawn above.&lt;/p>
+&lt;p>For Formosan and South East Asian languages, there are too few data, and we can’t learn much about these languages from the plots. For Mandarin, the shape of the pyramid is rectangular, indicating the linguistic competence of Mandarin is stable across people of all ages. This is expected as Mandarin, in Taiwan, is the most prevalent language, and most people use it as the primary language in workplace and home.&lt;/p>
+&lt;p>Pyramids of Taiwanese and Hakka have inverted trianglular shapes, indicating lower linguistic competence among yonger people. Indeed, it’s not uncommmon to see the fathers and mothers talk to their children in Mandarin but talk to their parents in Taiwanese. Taiwanese is the second prevalent language in Taiwan, but it is shrinking, particularly among young people. Hakka ranks third in prevalence. It faces similar situation to Taiwanese but the situation is even worse, since the usage of Hakka is mostly restricted to Hakka people whereas usage of Taiwanese is not restricted to particular groups of people (many indigenous and Hakka peoples speak fluent Taiwanese).&lt;/p>
+&lt;p>English has a special status in Taiwan. It is not a native tongue to people born and raised in Taiwan, but many people know at least a little English. This is because formal education and the (awareness of) globalization lead parents to place importance on English education of their children. This also gives the age-sex pyramid of English its appearance – a triangular shape with wider bottom than top. English is the only language that is growing in Taiwan and, arguably, the language with the strongest vitality. &lt;a href="#tab:tw-pyramids">Table 1&lt;/a> summarizes the discussion above.&lt;/p>
+&lt;table>
+&lt;caption>&lt;span id="tab:tw-pyramids">Table 1: &lt;/span> Situations of the four most prevalent languages in Taiwan.&lt;/caption>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>&lt;strong>Vitality of Language&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Shape of Pyramid&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Examples (Taiwan)&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>Shrinking and Dying&lt;/td>
+&lt;td>Inverted Triangle&lt;/td>
+&lt;td>Taiwanese, Hakka&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Growing&lt;/td>
+&lt;td>Triangle&lt;/td>
+&lt;td>English&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>Stable&lt;/td>
+&lt;td>Rectangular Bar&lt;/td>
+&lt;td>Mandarin&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>The samples are not representative though, and it might only reflect the situation in Taipei (see the geographical distribution of the samples below). But I think there are still reasons to believe that other locations in Taiwan have similar phenomena.&lt;/p>
+&lt;p>&lt;img src="https://twlangsurvey.github.io/out_graph/sample_spatial_distr.gif" title="fig:" alt="geo-distribution of samples" style="width: 43%;display:block; margin-left:auto;margin-right:auto" />&lt;a href="#fnref1" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>Defined by scoring 3 or above in a self-reported 6-point scale measuring the fluency of a language spoken by the subject’s parents.&lt;a href="#fnref2" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn3">&lt;p>For English, different from all other languages, the level used to determine ethnicity is &lt;code>0&lt;/code>, i.e. there is no filtering occuring, and all subjects are used. This is because, in Taiwan (and many other non-English speaking communities as well), English is not related to ethnicity and is strongly related to formal education and job requirements.&lt;a href="#fnref3" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2019-04-03
+&lt;/p></description><category>Linguistics</category><category>visualization</category><category>Web Page</category><category>Travis-CI</category><category>R</category><category>R-bloggers</category></item></channel></rss>

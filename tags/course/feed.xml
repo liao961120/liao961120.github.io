@@ -1,20 +1,239 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Course on Yongfu's Blog</title><link>https://yongfu.name/tags/course/</link><description>Recent content in Course on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/course/feed.xml" rel="self" type="application/rss+xml"/><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (108-1) 懶得教1、沒時間教2、沒自信可以教3以及沒有能力教4的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己5。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美6，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。
-這次的課程全部採取事前錄製影片的方式授課，表面上的目的是擔心遠距教學的情形再度出現 (結果真的出現了&amp;hellip;)，實際上的目的則是跟剛剛一樣：我不想要做同樣的事情 (實體授課)，而且這次實體授課大概也不會講得比上次好，所以不如換一種方式授課7。結果無心插柳，最後幾堂課因為突來的疫情改成遠距教學，對我反倒沒造成什麼影響，又是件值得開心的事情。
-在經歷 12 個頗為漫長的週末，終於完成了這個算是完整的 R 語言課程。在這 12 堂課中，或許值得慶幸的一件事情是課程內容主題都不是 state-of-the-art。在能夠選擇時，選擇了去講比較穩定不變的東西、比較不會經過兩三年後就變成歷史名詞的技術或概念。這麼做或許可以讓課程的保鮮期變得比較長，也或許可以讓更多人從這個課程中受惠。這 12 堂課程的完整內容 (影片/簡報/講義/作業/程式碼) 可以在這個頁面取得，歡迎讀者自行使用、分享或是修改並應用於教學之中。
-2021 課程影片 整個學期下來，雖然過得平淡、沒有第一次授課時那種短時間內大量成長的感覺，不過反倒是有種比較完整地完成了一件事情的感覺。這種感覺不會讓人大喜大悲、異常緊張或是過度興奮，但會讓心裡變得厚實舒坦，讓內心安穩一些，然後微微的喜悅就會從心底緩慢而持續地湧出。
-最後，還要特別感謝 Andrea、Yulin、Mao-Chang 以及 Amber 在各個方面的協助，這門課的學生能有你們的照顧真的很幸運。
-Lab01: 路徑、終端機、R101 (絕對與相對路徑 &amp;amp; Terminal)&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-Lab12: 專案成果展示 (Shiny)&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-Lab09: 文本與詞彙的向量表徵 (document-term matrix &amp;amp; latent semantic analysis)&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-Lab06: Simulating Data with R (Causal inference 101)&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-那時多有熱情和自信啊！反觀現在真的很難被激勵，不過往好處想或許這代表掌握情緒的能力有所提昇？&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-像是這次在教 Web API 時拿來示範用的 Public API 在我上傳教學影片之後就關閉服務了&amp;hellip;&amp;#160;&amp;#x21a9;&amp;#xfe0e;
-這樣就不用和過去的自己硬碰硬比較，擔心自己退步了 (反正我有錄影片，觸及的人就是比較廣比較潮啦！108-1 的你輸了啦哈哈哈哈哈)。比較不見得會進步，但一定會帶來傷害，所以換個方式讓自己沒辦法去比較或許也不錯。&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>我的 R 學習歷程</title><link>https://yongfu.name/2018/01/31/rlearningpath/</link><pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/01/31/rlearningpath/</guid><description>接觸 R 的時間大約五個月了，從原本對電腦、程式一竅不通到現在能有效率的 debug、寫出簡潔有條理的 R code、甚至用 R 與 Markdown 架站寫部落格。算一算，我每週通常至少 3 天會用到 R，不是督促自己熟悉 R，是因為它太有魅力了。
-學 R 語言很有趣1，但也相當耗時耗力。我在學習 R 上花了大量的時間，若不是運氣好找到對的方向，我不可能花費那麼多力氣去學 R，甚至可能直接放棄。雖然如此，我還是感到有點可惜，若能更早知道有效率的學習方式，就不必花費如此大量的時間 (及紙張) 在學習上。因此，我希望將學習 R 的心路歷程寫下，給想學 R 的人做為參考，或許可以減短學習初期耗費精神的時期。接下來，我將說明：
-我學習 R 的動力來源
-R 學習路徑：若從頭來過，我會如何學習 R、挑選哪些資源，讓自己更有效率地學習。
-為何我能持續學習 R 而未放棄？其實現在我比較頭大的問題是：要怎麼克制自己不要一直打開 Rstudio？正是因為我學 R 的過程如同打電動一樣歡樂，所以放棄這個問題根本不存在。但事實上，剛開始學 R 時並不如何歡樂，直到上了課才越來越喜歡 R。
-課程回顧 106學年上學期，我最喜歡、也意外收穫最多的課是謝舒凱老師開設的 R 語言與資料科學導論，或許會是我大學生涯最喜歡的課吧。
-起初是抱著學好 R 語言 (加上通識快修不完) 的心情去加簽這門課的，但課堂上 R 語言的語法卻教得不多。然正是這種不聚焦在程式語法的課程安排，讓我把 R 學得非常好。如果課程從頭到尾都在教 R 語言，到期末我一定會受不了越顯複雜的語法，最後便隨意敷衍了事。我在這門課收穫最大的，反而不是課堂學到的技巧，而是老師、助教們傳達的一些概念與想法，以及自己探索這些概念想法的樂趣與收穫：
-Open Source2 以及 R 的生態圈3
-資料科學與 Story telling: Coding 於資料科學中的應用，不僅是傳統所強調的功能性，Coding 亦於美觀及呈現上扮演重要的角色。資料科學透過 Coding 處理、分析資料；同時也透過 Coding 作圖將資料視覺化，好將資料科學上的發現說成故事給其他人聽。</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Course on Yongfu's Blog</title><link>https://yongfu.name/tags/course/</link><description>Recent content in Course on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/course/feed.xml" rel="self" type="application/rss+xml"/><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>&lt;p>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (&lt;a href="https://rlads2019.github.io/lab/">108-1&lt;/a>) 懶得教&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、沒時間教&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、沒自信可以教&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>以及沒有能力教&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。&lt;/p>
+&lt;p>這次的課程全部採取事前錄製影片的方式授課，表面上的目的是擔心遠距教學的情形再度出現 (結果真的出現了&amp;hellip;)，實際上的目的則是跟剛剛一樣：我不想要做同樣的事情 (實體授課)，而且這次實體授課大概也不會講得比上次好，所以不如換一種方式授課&lt;sup id="fnref:7">&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref">7&lt;/a>&lt;/sup>。結果無心插柳，最後幾堂課因為突來的疫情改成遠距教學，對我反倒沒造成什麼影響，又是件值得開心的事情。&lt;/p>
+&lt;p>在經歷 12 個頗為漫長的週末，終於完成了這個算是完整的 R 語言課程。在這 12 堂課中，或許值得慶幸的一件事情是課程內容主題都不是 state-of-the-art。在能夠選擇時，選擇了去講比較穩定不變的東西、比較不會經過兩三年後就變成歷史名詞的技術或概念。這麼做或許可以讓課程的保鮮期變得比較長，也或許可以讓更多人從這個課程中受惠。這 12 堂課程的完整內容 (影片/簡報/講義/作業/程式碼) 可以在這個&lt;a href="https://rlads2021.github.io/archives/">頁面&lt;/a>取得，歡迎讀者自行使用、分享或是修改並應用於教學之中。&lt;/p>
+&lt;p>
+&lt;figure>
+&lt;img src="https://img.yongfu.name/posts/rlads2021.png" alt="2021 課程影片">
+&lt;figcaption>2021 課程影片&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>整個學期下來，雖然過得平淡、沒有第一次授課時那種短時間內大量成長的感覺，不過反倒是有種&lt;strong>比較完整地完成了一件事情&lt;/strong>的感覺。這種感覺不會讓人大喜大悲、異常緊張或是過度興奮，但會讓心裡變得厚實舒坦，讓內心安穩一些，然後微微的喜悅就會從心底緩慢而持續地湧出。&lt;/p>
+&lt;p>最後，還要特別感謝 Andrea、Yulin、Mao-Chang 以及 Amber 在各個方面的協助，這門課的學生能有你們的照顧真的很幸運。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Lab01: &lt;a href="https://rlads2021.github.io/LabBook/ch01">路徑、終端機、R101&lt;/a> (絕對與相對路徑 &amp;amp; Terminal)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Lab12: &lt;a href="https://rlads2021.github.io/LabBook/ch12">專案成果展示&lt;/a> (Shiny)&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>Lab09: &lt;a href="https://rlads2021.github.io/LabBook/ch09">文本與詞彙的向量表徵&lt;/a> (document-term matrix &amp;amp; latent semantic analysis)&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>Lab06: &lt;a href="https://rlads2021.github.io/LabBook/ch06">Simulating Data with R&lt;/a> (Causal inference 101)&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>那時多有熱情和自信啊！反觀現在真的很難被激勵，不過往好處想或許這代表掌握情緒的能力有所提昇？&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:6">
+&lt;p>像是這次在教 Web API 時拿來示範用的 Public API 在我上傳教學影片之後就關閉服務了&amp;hellip;&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:7">
+&lt;p>這樣就不用和過去的自己硬碰硬比較，擔心自己退步了 (反正我有錄影片，觸及的人就是比較廣比較潮啦！108-1 的你輸了啦哈哈哈哈哈)。比較不見得會進步，但一定會帶來傷害，所以換個方式讓自己沒辦法去比較或許也不錯。&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>R</category><category>Course</category><category>experience</category></item><item><title>我的 R 學習歷程</title><link>https://yongfu.name/2018/01/31/rlearningpath/</link><pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/01/31/rlearningpath/</guid><description>&lt;p>接觸 &lt;strong>R&lt;/strong> 的時間大約五個月了，從原本對電腦、程式一竅不通到現在能有效率的 debug、寫出簡潔有條理的 R code、甚至用 R 與 Markdown 架站寫部落格。算一算，我每週通常至少 3 天會用到 R，不是督促自己熟悉 R，是因為它太有魅力了。&lt;/p>
+&lt;p>學 R 語言很有趣&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，但也相當耗時耗力。我在學習 R 上花了大量的時間，若不是運氣好找到對的方向，我不可能花費那麼多力氣去學 R，甚至可能直接放棄。雖然如此，我還是感到有點可惜，若能更早知道有效率的學習方式，就不必花費如此大量的時間 (及紙張) 在學習上。因此，我希望將學習 R 的心路歷程寫下，給想學 R 的人做為參考，或許可以減短學習初期耗費精神的時期。接下來，我將說明：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>我學習 R 的動力來源&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>R 學習路徑：若從頭來過，我會如何學習 R、挑選哪些資源，讓自己更有效率地學習。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>為何我能持續學習 R 而未放棄？其實現在我比較頭大的問題是：&lt;strong>要怎麼克制自己不要一直打開 Rstudio？&lt;strong>正是因為我學 R 的過程如同打電動一樣歡樂，所以&lt;/strong>放棄&lt;/strong>這個問題根本不存在。但事實上，剛開始學 R 時並不如何歡樂，直到上了課才越來越喜歡 R。&lt;/p>
+&lt;h2 id="課程回顧">課程回顧&lt;/h2>
+&lt;p>106學年上學期，我最喜歡、也意外收穫最多的課是謝舒凱老師開設的 &lt;a href="https://nol2.aca.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=142%20U0750&amp;amp;class=&amp;amp;dpt_code=1420&amp;amp;ser_no=76601&amp;amp;semester=106-1&amp;amp;lang=CH">R 語言與資料科學導論&lt;/a>，或許會是我大學生涯最喜歡的課吧。&lt;/p>
+&lt;p>起初是抱著學好 R 語言 (加上通識快修不完) 的心情去加簽這門課的，但課堂上 R 語言的語法卻教得不多。然正是這種&lt;strong>不聚焦在程式語法的課程安排&lt;/strong>，讓我把 R 學得非常好。如果課程從頭到尾都在教 R 語言，到期末我一定會受不了越顯複雜的語法，最後便隨意敷衍了事。我在這門課收穫最大的，反而不是課堂學到的技巧，而是老師、助教們傳達的一些概念與想法，以及自己探索這些概念想法的樂趣與收穫：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Open Source&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> 以及 R 的生態圈&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>資料科學與 Story telling: &lt;strong>Coding&lt;/strong> 於資料科學中的應用，不僅是傳統所強調的&lt;strong>功能性&lt;/strong>，Coding 亦於&lt;strong>美觀及呈現&lt;/strong>上扮演重要的角色。資料科學透過 Coding 處理、分析資料；同時也透過 Coding 作圖將資料視覺化，好將資料科學上的發現&lt;strong>說成故事給其他人聽&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>文本分析: 我本來對這部分最沒有興趣，直到我意識到文本資料是研究人類行為、社會與文化最重要的資料來源之一&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup> &lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Reproducibility: &lt;a href="http://rmarkdown.rstudio.com/">R Markdown&lt;/a> (&lt;code>.Rmd&lt;/code>) 是我見過最強大的文件格式，可以輸出成網頁、投影片、PDF、Word、Markdown 等。這讓使用者可以在一份文件中做事情 (&lt;code>Rmd&lt;/code>)，並依據所需輸出成各種文件，而不用剪剪貼貼 (從 Word 貼到 PPT)，也省下排版所花費的心力。例如，要報告可輸出成投影片 (&lt;code>.html&lt;/code> 或 &lt;code>.pptx&lt;/code>) 、要列印可輸出成 PDF、要放到網路上可輸出成網頁。R Markdown 讓使用者能以簡單有效率的方式工作，這是達到 &lt;a href="https://en.wikipedia.org/wiki/Reproducibility">Reproducibility&lt;/a> 的前提與重要基礎。&lt;/p>
+&lt;p>
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/post_img/reproducible_research.png" alt="Reproducible Research with R">
+&lt;figcaption>Reproducible Research with R&lt;/figcaption>
+&lt;/figure>
+&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="課程起手式">課程起手式&lt;/h3>
+&lt;p>這門課與我個性相符，完全顯現在第一堂課實習課 (Lab Session) 的作業上。作業與 R 並無相關，而是要使用 Markdown 格式撰寫自我介紹。由於我對簡約風有點痴迷&lt;sup id="fnref:7">&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref">7&lt;/a>&lt;/sup> (受 Markdown 影響後更為痴迷)，在 Markdown 上花了一些時間研究。目前，透過 R 與 Pandoc Markdown 語法的整合 (即 R Markdown)，我可以快速簡潔地寫出含有上下標、Footnotes、超連結、citation 的精美文件&lt;sup id="fnref:8">&lt;a href="#fn:8" class="footnote-ref" role="doc-noteref">8&lt;/a>&lt;/sup>或文章 (例如，這篇部落格) 而完全不須使用 html 語法。這讓我在寫許多作業時，效率提高不少。&lt;/p>
+&lt;p>對 R Markdown 的痴迷與熱愛可說是我R語言功力進步的關鍵。&lt;strong>R Markdown 賦予每個人將想法傳達給其他人的能力&lt;/strong>&lt;sup id="fnref:9">&lt;a href="#fn:9" class="footnote-ref" role="doc-noteref">9&lt;/a>&lt;/sup>，因此，&lt;strong>能做出美好的東西並與其他人分享&lt;/strong>成為我學習 R 最強烈的動機之一。例如，當初在做這門課的&lt;a href="https://rlads2017g1.github.io/presentation.html">期末專案&lt;/a> 時，發覺 R 可以畫出很多種&lt;a href="http://gallery.htmlwidgets.org/">互動式圖表&lt;/a> (不須懂 JavaScript)，於是我開始尋找最適合呈現資料的方式。由於不同種類的圖，常有不同資料格式的要求&lt;sup id="fnref:10">&lt;a href="#fn:10" class="footnote-ref" role="doc-noteref">10&lt;/a>&lt;/sup>，因此為了畫出最適合的圖，我反覆整理許多資料以符合格式。這使得我在 data wrangling 上，能力大幅提升。&lt;/p>
+&lt;h2 id="r-學習路徑">R 學習路徑&lt;/h2>
+&lt;h3 id="起步">起步&lt;/h3>
+&lt;p>我剛開始學 R 時不算順遂&lt;sup id="fnref:11">&lt;a href="#fn:11" class="footnote-ref" role="doc-noteref">11&lt;/a>&lt;/sup>。剛進到 R 的世界，一定會被為數眾多的 function&lt;sup id="fnref:12">&lt;a href="#fn:12" class="footnote-ref" role="doc-noteref">12&lt;/a>&lt;/sup> (以及更多的學習資源) 搞得迷失方向，不知從何開始。事實上，這不是我們的錯，因為連 R 的社群內也有相關的爭論：&lt;strong>Base R first vs. Tidyverse first&lt;/strong> (詳細可參考&lt;a href="http://varianceexplained.org/r/teach-tidyverse/">此文&lt;/a>)。R 真的是一個使用門檻不低的軟體，要精通它不是一、兩年內的事情&lt;sup id="fnref:13">&lt;a href="#fn:13" class="footnote-ref" role="doc-noteref">13&lt;/a>&lt;/sup>，所以一定要對 R 有熱情，才可能持續支撐對於 R 的學習&lt;sup id="fnref:14">&lt;a href="#fn:14" class="footnote-ref" role="doc-noteref">14&lt;/a>&lt;/sup>。&lt;/p>
+&lt;p>R 語言的基礎 ─ &lt;strong>Base R&lt;/strong> 是剛開始學 R 的一大障礙，這也是為何會有 &lt;strong>Base R first vs. Tidyverse first debate&lt;/strong>。由於學好 R (更精確地說，是學好 &lt;strong>Base R&lt;/strong>) 需一段時間，我認為 &lt;strong>Base R first&lt;/strong> 的學習方式很容易使初學者放棄。但學習 R 不可能不接觸 &lt;strong>Base R&lt;/strong> ，因為它是 R 語言最重要的基礎。因此，我覺得最好的方式是&lt;strong>交錯並進&lt;/strong>：&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Base R&lt;/strong> 學到一定的基礎後 (不必精通) &lt;sup id="fnref:15">&lt;a href="#fn:15" class="footnote-ref" role="doc-noteref">15&lt;/a>&lt;/sup>，開始學習用&lt;code>tidyverse&lt;/code>套件處理資料。之後隨著時間，自然而然就會熟悉這兩者。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="維持">維持&lt;/h3>
+&lt;p>學習一項新技能最困難的地方大概是要能&lt;strong>持續穩定前進&lt;/strong>。我認為有幾種方法可以幫助自己：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>參考書&lt;/strong>：一本好的參考書，能作為一個參照指標，&lt;strong>幫助自己安排進度&lt;/strong>，也&lt;strong>讓自己知道學到了哪裡&lt;/strong>。參考書指出了一條方向，比較不會在學習的路途中迷失 (相比零散的網路資源)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>修課&lt;/strong>：我非常建議在學校修一門 R 語言的課 (最好 3 學分以上)，但&lt;strong>不建議線上課程&lt;/strong>&lt;sup id="fnref:16">&lt;a href="#fn:16" class="footnote-ref" role="doc-noteref">16&lt;/a>&lt;/sup>。修課的話，有老師和助教提供經驗，能省下許多摸索的時間；每週有固定進度，或多或少可迫使自己持續接觸程式；若有期末專案，這會是 R 功力突飛猛進的最佳機會 (效果比起純粹練習好太多)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>讓自己喜歡 R&lt;/strong>：初學 R 時因為不知道這項的重要性，所以學得有點辛苦。這點真的很微妙，有時候太過專注於學習某項&amp;quot;技能&amp;quot;，反而會&lt;strong>過於專注實用性而忽略了趣味性&lt;/strong>，於是只剩理性說服自己：&lt;em>學這很有用，你一定要堅持下去&lt;/em>。通常開始這樣想，代表離放棄不遠了。這也是為何我很推 &lt;a href="https://nol2.aca.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=142%20U0750&amp;amp;class=&amp;amp;dpt_code=1420&amp;amp;ser_no=76601&amp;amp;semester=106-1&amp;amp;lang=CH">R 語言與資料科學導論&lt;/a> 這門課的原因 ─ 老師真的很有智慧，不斷鼓勵學生們去想&lt;strong>有趣又可用資料科學回答的問題&lt;/strong>，也常介紹一些 R 意想不到的有趣應用，但從未將焦點放在程式的硬實力上。我自己由 R 善於&lt;strong>視覺呈現&lt;/strong>的特質切入 &amp;ndash; 從 R Markdown 開始，擴展到資料視覺化，又到網頁設計 (縱使我&lt;code>html&lt;/code>和&lt;code>css&lt;/code>基礎很差)，每一項對我來說都非常有趣，R 學起來因而樂此不疲。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="實作專案">實作：專案&lt;/h3>
+&lt;p>看再多參考書、修再多課、做再多練習題都比不上實際去完成一個專案。在實作專案的過程中，會&lt;strong>遇到一缸子自己不知如何解決的問題&lt;/strong>，因此過程中就是在不斷吸收新知識、學習如何問問題&lt;sup id="fnref:17">&lt;a href="#fn:17" class="footnote-ref" role="doc-noteref">17&lt;/a>&lt;/sup>，如此的學習效果是零散練習題的好幾倍。此外，做專案是自頭至尾走過一次資料科學的流程，從爬資料、整理、分析到呈現，將先前習得的零碎技巧組織在一起，會讓 R 的功力大增；同時，資料科學專案是在實際解決 (回答) 一個問題，這不僅對於自己，且對於社會有實質的意義與價值。&lt;/p>
+&lt;h4 id="對於專案的一些建議">對於專案的一些建議&lt;/h4>
+&lt;p>我認為要從實作專案收穫那麼多，不可或缺的因素同樣是&lt;strong>興趣與熱情&lt;/strong>。沒有這些一定不可能堅持完美，不能堅持完美，專案就會淪落為練習題 (反正只要跑出東西就好)。題目的選擇因而會是成敗的關鍵；與組員 (若為團體專案) 的溝通與共識更是關鍵中的關鍵，一定要在專案中找到最適合自己的角色，否則專案只是浪費時間。&lt;/p>
+&lt;h2 id="學習資源">學習資源&lt;/h2>
+&lt;p>起初為了學 R 所印的兩本書以及聽的線上課程效果頗糟，讓我覺得自己起步不算順遂。這是因為當時對 R 不太了解，也不知如何觸及其社群，因而並未慎選書籍及課程即步入學習歷程。&lt;/p>
+&lt;h3 id="學習歷程">學習歷程&lt;/h3>
+&lt;p>若回到五個多月前，我會如此安排 R 的學習歷程：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>基礎參考書 (若有餘力的話 + &lt;code>swirl&lt;/code>&lt;sup id="fnref:18">&lt;a href="#fn:18" class="footnote-ref" role="doc-noteref">18&lt;/a>&lt;/sup> 當練習題)&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://rstudio-education.github.io/hopr">Hands-On Programming with R&lt;/a>：這是一本寫得非常好且相當簡單的書，目標讀者是沒有程式經驗的初學者 (雖然我覺得縱使有程式經驗也可看這本書了解 R 的邏輯)。此書內容僅聚焦在非常基礎的 &lt;strong>Base R&lt;/strong>，但重點是其將 R 的邏輯寫得非常清楚。我是在學 R 一陣子之後才看了這本書，對我有莫大的幫助。這本書相當短，可以很快看完，更多資訊請 &lt;a href="https://www.google.com.tw/search?biw=1280&amp;amp;bih=560&amp;amp;ei=rF90WtefO8W48QXcv4y4Dg&amp;amp;q=Hands-On+Programming+with+R&amp;amp;oq=Hands-On+Programming+with+R&amp;amp;gs_l=psy-ab.3...1714146.1714146.0.1714717.1.1.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..1.0.0....0.FFjeBpwN_VQ">google 書名&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://r4ds.had.co.nz">R for Data Science&lt;/a>：這本書應該只會越來越紅。如同其名，這本書就在教 R 於資料科學上的應用。與上本書不同的是，這本書以&lt;code>tidyverse&lt;/code>套件為基礎而非 Base R。雖然如此，此書並不需要 Base R 的基礎 (有的話會更好，所以我才推薦 &lt;strong>Hands-On&lt;/strong>)，需要的基礎書中都有介紹。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>我建議可以先從 &lt;strong>Hands-On Programming with R&lt;/strong> 開始，因為這本書很短可以快速看完。之後再按照章節慢慢看 &lt;strong>R for Data Science&lt;/strong> (可配合學校上課進度，這本書短時間內看不完)，逐步累積自己的功力。&lt;/p>
+&lt;p>上述兩本書都是英文的，或許有些人很抗拒英文，但中文書並非一個好選擇。當 R 學到某個程度後，更進階的資源幾乎全為英文；此外，google 問題解決方法時，用中文十之八九會找不到答案。看英文書可讓自己熟悉 R 的英文用語，而且這些書的英文都很簡單。&lt;/p>
+&lt;ul>
+&lt;li>若有志探索 R 的其它可能性，可以參考 &lt;a href="https://bookdown.org">bookdown.org&lt;/a> 的書 (僅推薦 Star 100 以上，上面還是有一些雷書)。這裡的書都是用&lt;code>bookdown&lt;/code>套件寫的，而且皆為 open source，可以在網頁上看或下載到電腦 (詳見&lt;code>bookdown&lt;/code>套件)。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>學校課程：如&lt;a href="#%E8%AA%B2%E7%A8%8B%E5%9B%9E%E9%A1%A7">課程回顧&lt;/a>所提及，一門 R 的課可以讓自己視野更加廣博。僅是自修閉門造車進步很慢、常常會落掉進度、而且頗為苦悶。有人帶領比較不會走偏方向，同時還能學到許多有趣的東西。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>將 R 當玩具：如果學 R 如同遊戲一般好玩，那就沒有堅不堅持的問題了，這也是我自認學 R 相當成功的地方。以下，我將介紹一些我知道的有趣資源，不見得直接與資料分析相關，但一定可與 R 結合。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://www.r-graph-gallery.com/">R Graph Gallery&lt;/a> 、&lt;a href="http://www.htmlwidgets.org/">htmlwidgets for R&lt;/a> : R 最為吸引人的特徵之一就是其強大的繪圖功能，加上其它套件的擴充，幾乎所有跟資料有關的圖都可以用 R 畫。沒事多多欣賞其他人用 R 畫出的圖，不僅療癒放鬆，同時對 R 的能力有個大概的想像、未來更有可能會有使用需求。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://rmarkdown.rstudio.com/gallery.html">R Markdown&lt;/a> : 先前提過 R Markdown 很強大，可以點進 gallery 感受一下其生產力。我認為不會用 R Markdown 比起不會用 R 還要可惜。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://bookdown.org/yihui/blogdown/">Blogdown&lt;/a> : 我目前的網站 (一部份) 是透過 &lt;code>blogdown&lt;/code> 套件在經營&lt;sup id="fnref:19">&lt;a href="#fn:19" class="footnote-ref" role="doc-noteref">19&lt;/a>&lt;/sup>的。Blogdown 大幅降低了架站的門檻，即使完全不懂 HTML/CSS 也能快速上手，同時配合 Git/GitHub 能讓發表 (及修改) 文章的過程非常有效率。此外，以 &lt;code>blogdown&lt;/code> 架設的網頁是靜態的，不同於 Wordpress 等的動態網頁，靜態網頁的速度要快許多、不需要付費伺服器，而且容易搬遷。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>集大成：專案製作&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>如&lt;a href="#%E5%AF%A6%E4%BD%9C%EF%BC%9A%E5%B0%88%E6%A1%88">實作：專案&lt;/a>所述，專案是讓自己快速進步的最佳方案。同時，結合上述的學習資源：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>資料分析：&lt;strong>R for Data Science&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>視覺化：&lt;strong>R Graph Gallery&lt;/strong>, &lt;strong>htmlwidgets&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>網頁製作：&lt;strong>R Markdown&lt;/strong>, &lt;strong>Blogdown&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>這些都可以透過 R 完成，並且讓自己更有動機實作專案、讓專案看起來更完美。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 id="更上一層樓following-and-followers">更上一層樓：Following and Followers&lt;/h3>
+&lt;p>&lt;strong>Following&lt;/strong> and &lt;strong>Followers&lt;/strong> 是我直接借用 GitHub 上的用詞：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Following: 該用戶追蹤的其他用戶&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Followers: 追蹤該用戶的其他用戶&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>透過追蹤 R 社群是一個讓自己跟上快速成長的 R 的好方法，讓自己每日都長一些知識。例如，我透過臉書追蹤 &lt;a href="https://www.facebook.com/rbloggers/">R bloggers&lt;/a>，裡面常出現優質好文，且內容通常清楚易讀。&lt;/p>
+&lt;p>另一個讓 R 功力快速成長的方式，就是自己成為 R bloggers：我不是指寫的文章要登上 &lt;a href="https://www.facebook.com/rbloggers/">R bloggers&lt;/a>，而是像那些作者一樣在部落格上寫文章。寫文章是一種很好的學習方式，能幫自己重新組織所學，同時也可檢視是否真正了解正在撰寫的主題。文章不見得是寫給別人看的，有時忘記一些東西，透過自己的文字重新學習相當方便。推薦兩篇簡短的優質文說明寫 blog 的好處：&lt;a href="https://bookdown.org/yihui/blogdown/personal-experience.html">Yihui Xie&lt;/a> 、&lt;a href="https://www.r-bloggers.com/advice-to-aspiring-data-scientists-start-a-blog/">David Robertson&lt;/a>。&lt;/p>
+&lt;h2 id="小結">小結&lt;/h2>
+&lt;p>我真的很慶幸能在大三時接觸到 R。以往我都把時間花在讀書上，也不知何時才能用得上。R 讓我發現了自己的嗜好&lt;sup id="fnref:20">&lt;a href="#fn:20" class="footnote-ref" role="doc-noteref">20&lt;/a>&lt;/sup>，也讓我體驗到&lt;strong>為了處理想解決的問題而學習&lt;/strong>的感覺。我也才慢慢體會到為了&lt;strong>興趣&lt;/strong>所學與為了&lt;strong>其它目的&lt;/strong> (競爭力、考試、學分、跟風？) 所學，能帶來的可觀差異。當然，興趣與其它目的並非不能同時存在，只是有時&lt;strong>專注在其它目的會抑制興趣&lt;/strong>，而最能讓學習持續的動力來源卻是興趣。&lt;/p>
+&lt;p>這篇文章的目的，旨在提供有志學 R 卻不確定如何開始的人作參考。文章介紹的學習資源 (或是任何嘮叨的內容)，不只是 (我認為) 有用的，且能強烈引起我的興趣。希望讀過這篇文章的人，不僅僅獲益於文章介紹的學習資源，且能為了興趣而學 R ─ 這是此篇文章最想傳達的想法。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;strong>R 語言&lt;/strong>本身不算有趣，而是 R 及其生態圈所能做到的事。幾乎任何想得到、可用電腦處理的事情，都可找到相關的 R 套件。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>我覺得 Open Source 是一個很強盛且很令人感動的文化。其展現了透過分享與合作，人們能夠創造出多少美好的事物。&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>我常在想，不知何時 &lt;strong>SAS&lt;/strong> 與 &lt;strong>SPSS&lt;/strong> 會被 &lt;strong>R&lt;/strong> 幹掉。由於 SAS 與 SPSS 是私人版權軟體，在網路上的社群資源相當稀少且日漸縮小 (問問題找不到答案)，而 R 社群巨大且快速成長，加上其開放的特性，功能的擴充與成長是 SAS 與 SPSS 等封閉軟體無法企及的。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>至少是資訊量最大的資料來源，比較看看社群網站、網路、書籍 (見 &lt;a href="https://en.wikipedia.org/wiki/Google_Ngram_Viewer">Google Ngram&lt;/a>，體驗一下文本資料的強大) 累積的資料量與心理學實驗累積的資料量。&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>語言學不僅可用於研究語言、還可拿來當作研究人類社會與文化的工具。&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:6">
+&lt;p>圖片擷取自 British Ecological Society 編寫之指南 &lt;a href="https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf">A Guide to Reproducible Code&lt;/a>&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:7">
+&lt;p>我本來對美感、簡約、使用者經驗完全不在乎，但受我好朋友的影響，越來越在意這些東西 (看到乾淨舒服的版面就會很興奮，有點點不和諧就會想修改它)。&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:8">
+&lt;p>見 &lt;a href="http://rmarkdown.rstudio.com/">R Markdown&lt;/a> 了解其強大。&amp;#160;&lt;a href="#fnref:8" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:9">
+&lt;p>Markdown 的學習門檻很低，使大家能簡單地寫出排版整潔漂亮的文章。R Markdown 大幅擴充 Markdown 的功能，秉持著相同的精神，R Markdown 使大家能簡單地寫出排版整潔漂亮 (且含有R跑出之圖表) 的&lt;strong>文章&lt;/strong>、&lt;strong>投影片&lt;/strong>、&lt;strong>書籍&lt;/strong>，甚至&lt;strong>網站&lt;/strong>。&amp;#160;&lt;a href="#fnref:9" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:10">
+&lt;p>例如欲繪製時間序列的資料&lt;code>ggplot2&lt;/code>及&lt;code>dygraphs&lt;/code>對資料就有不同的要求。&amp;#160;&lt;a href="#fnref:10" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:11">
+&lt;p>我在開學前的暑假即開始自學 &lt;strong>R&lt;/strong>，進步相當緩慢，而且語法時常忘記。最重要的是，我必須花心力督促自己才能繼續。開學後在課堂上教導的內容不多，僅做些簡單的介紹，剩下的要靠自己發掘。由於深深感受到 Markdown 的潛力 (見&lt;strong>課程起手式&lt;/strong>，我開始「不務正業」，去學一些和 R (看似) 不怎麼相關的東西 (例如，研究如何用 GitHub Pages 架部落格)，也越來越喜歡 html 格式 (以前偏愛 PDF，但發現 html 能呈現的東西比 PDF 多太多，又比較美觀)。於是，R 成為我處理作業最常使用的程式之一。&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:12">
+&lt;p>R 除了函數非常多，使用起來也非常彈性，對使用者的限制相當少：其它語言很容易跑出 error message，但在 R 卻相對不容易 (例如，輸入&lt;code>c (1, 2, &amp;quot;c&amp;quot;) &lt;/code>不會跑出 error 但會將&lt;code>1&lt;/code>, &lt;code>2&lt;/code>從&lt;strong>數字&lt;/strong>轉換成&lt;strong>字串&lt;/strong>)。這對初學者不見得是好事：初學者常因此難以釐清 R 運作的邏輯。&amp;#160;&lt;a href="#fnref:12" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:13">
+&lt;p>精通 R 應該可算是一輩子的事吧，因為 R 是個不斷在成長的語言。R 的社群與生態圈成長非常迅速 (例如，目前 &lt;a href="https://cran.r-project.org/">CRAN&lt;/a> 有 12,081 個 package)，要精通 R 勢必要與它一起成長。即使只求在傳統的資料分析上熟悉 R，也需要花不少的時間，而且很難在短時間內大幅進步。&amp;#160;&lt;a href="#fnref:13" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:14">
+&lt;p>這裡把 R 說得有點負面。當 R 融入你生活中，你喜歡它都來不及了 (不論是它讓你做事更有效率或它能做出很厲害的東西)，根本就沒有&lt;strong>支撐學習&lt;/strong>的問題，只有&lt;strong>時間不足&lt;/strong>的問題。&amp;#160;&lt;a href="#fnref:14" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:15">
+&lt;p>&lt;strong>一定的基礎&lt;/strong>：了解 R 的&lt;strong>向量式運算邏輯&lt;/strong>、&lt;strong>資料結構&lt;/strong> (vector, list, matrix, dataframe) 、熟悉 &lt;strong>Subsetting&lt;/strong> (&lt;code>object[index]&lt;/code>)。見&lt;strong>學習資源&lt;/strong>了解更多。&amp;#160;&lt;a href="#fnref:15" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:16">
+&lt;p>我覺得學習任何東西，如果有實體 (面對面) 的課程，都比線上課程還好。我自己很難集中注意力在線上課程，加上時間太自由容易怠惰，或有事情時就會將其順位往後挪，因此成效往往不彰。&amp;#160;&lt;a href="#fnref:16" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:17">
+&lt;p>在網路上要輸對關鍵字才找得到答案。起初由於不清楚 R 的運作邏輯，找答案的效率會很低。但隨著功力提升，會越容易知道問題的癥結在哪，找答案 (或是確認問題能否被解決) 也會變得更有效率。&amp;#160;&lt;a href="#fnref:17" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:18">
+&lt;p>swirl 是 R 的套件，可以讓使用者直接在 R 的環境中互動式學習 R。其提供許多課程可供使用者下載，我覺得學完最基礎的課程就夠了，可以熟悉 Base R 的環境。詳細的課程見 &lt;a href="https://github.com/swirldev/swirl_courses#swirl-courses">swirl course&lt;/a>。&amp;#160;&lt;a href="#fnref:18" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:19">
+&lt;p>我是在逛 bookdown.org 的書時，無意間發現 Blogdown 的書，可惜當時我早已用 Jekyll / GitHub Pages 架好網站。Jekyll 的使用門檻相當高，我也並未學會如何使用 (我直接用別人做好的&lt;a href="https://github.com/kitian616/jekyll-TeXt-theme">模板&lt;/a>，因此只要修改一些&lt;code>.html&lt;/code>和&lt;code>.css&lt;/code>)。反之，&lt;code>blogdown&lt;/code>支援的 &lt;a href="https://gohugo.io/">Hugo&lt;/a> 並沒有 Jekyll 那麼多的限制。&lt;code>blogdown&lt;/code>同時大幅降低了架站的難度，例如，&lt;code>blogdown&lt;/code>支援的 Markdown 語法 (Pandoc Markdown) 很豐富且很適合寫部落格，因此用其寫部落格就不必理會 Jekyll 或 Hugo 等網頁產生器所支援的特定 Markdown 語法 (Jekyll 支援&lt;code>kramdown&lt;/code>、Hugo 支援&lt;code>blackfriday&lt;/code>)。&amp;#160;&lt;a href="#fnref:19" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:20">
+&lt;p>大學以前，我很排斥程式 (詳見&lt;a href="https://liao961120.github.io/2017/11/26/mathematics.html">此文&lt;/a>)。後來發覺程式的實用性而開始想學程式語言。學了 R 後發現自己其實有資工魂 (雖然 CS 領域似乎不常用 R ？)，其實很喜歡程式語言、電腦等東西。&amp;#160;&lt;a href="#fnref:20" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>R</category><category>Course</category><category>experience</category><category>中文</category></item></channel></rss>

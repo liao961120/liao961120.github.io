@@ -1,13 +1,1339 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linguistics on Yongfu's Blog</title><link>https://yongfu.name/tags/linguistics/</link><description>Recent content in Linguistics on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 23 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/linguistics/feed.xml" rel="self" type="application/rss+xml"/><item><title>Searching Interlinear Glosses Written in Word Documents</title><link>https://yongfu.name/2020/04/23/gloss-search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/04/23/gloss-search/</guid><description>I am taking the course Linguistic Fieldwork this semester. Each week, we record and transcribe Budai Rukai, an Austronesian language spoken by Rukai people (魯凱族). The resulting data (interlinear glosses) are written in a Word document (.docx) as required by the course instructor. Things get worse as the number of documents accumulates each week, since it becomes harder to locate specific linguistic patterns in the corpus of texts, as they are spread across multiple documents.</description></item><item><title>以 Python 實作 Concordancer</title><link>https://yongfu.name/2020/03/20/building-concordancer/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/03/20/building-concordancer/</guid><description>每次接近學期末的時候，寫程式癮就會開始發作 (可能是不想面對無趣的期末報告)，這時候腦袋會蹦出許多很有趣的想法，然後就會迫不及待地想將這些想法實作出來。這次(2019 年末) 的程式癮刺激來源是實驗室的雲端硬碟裡的某個 (版權封閉) 中文語料庫，雖然該語料庫已有很好的搜尋界面，但我就是想 reinvent the wheel，自己手刻出一個 concordancer。不為了什麼，就只是因為這件事本身就很有樂趣。
-初步嘗試：for loop&amp;hellip; forever 我本來並沒有太大的雄心壯志，就只想快速弄出個程式界面方便我查找 concordance，想說使用 NLTK concordance 應該很快就可以弄出我想的東西。但 NLTK concordance 只能使用 word form (或 pattern) 去搜尋 concordance，我的需求卻是要能使用 word form 或 PoS tag 搜尋語料庫 (類似 Corpus Query Langauge1，但不用這麼複雜)。但要自己用 Python 實作這個功能也頗簡單，於是我就自己手刻了這個功能。然而事實證明我太過天真了。語料庫的大小約 1000 萬個 token，而每次搜尋時，我的程式使用 for 迴圈跑過整個語料，因此要花非常非常非常久的時間才能完成搜尋。對於非資訊背景出生的我，第一次體驗 $O(n)$ 是件不可忽視的問題以及 Database 存在的必要性。
-重新規劃： Database + Python + Vue 為了解決上述問題我暫時擱置了這個專案 (寒假開始到春節期間) 去學習必備的一些知識2，最後比較有系統地重新規劃了這個 concordancer 的架構：
-這個新的架構分成前3、後端，前端不是本文的重點 (原始碼在此)，就不細談。這邊直接舉一個實例說明這個 concordancer 如何運作：
-首先，使用者在前端輸入一個搜尋的字串 (keyword)，這個字串需符特定的格式：[token 1][token 2][token 3]。每對中括號代表一個 token，中括號內則是描述此 token 的特徵，如 word form 與 PoS tag，例如 [word=&amp;quot;打&amp;quot; pos=&amp;quot;V.</description></item><item><title>Recreating Leipizig.js with Vue for Interlinear Glossing</title><link>https://yongfu.name/2020/02/22/leipzigvue/</link><pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/02/22/leipzigvue/</guid><description>I noticed Leipzig.js from George Moroz&amp;rsquo;s GitHub activity (he starred bdchauvette/leipzig.js a few months ago). This JS library is fantastic, and at the moment I saw it, I came up with an idea of building a web app facilitating interlinear glossing. During Chinese New Year, I finally started on the project. I thought it would be easy since I had some experience with Vue.js before1, but it turned out that leipzig.</description></item><item><title>閱讀筆記：Origins of Human Communication</title><link>https://yongfu.name/2019/03/04/originsofhumancommunication/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/04/originsofhumancommunication/</guid><description>去年秋天在準備研究所甄試時，發現市面上的語言學概論課本對於筆試幾乎沒有任何幫助，於是去找認知語言學相關的專著和文章來閱讀。我找的第一本書是 George Lakoff 的 Metaphors We Live By。閱讀此書時，發覺自己又面臨一個陌生、龐大、擁有一堆術語的領域，而且認知語言學中的「認知」似乎和我所熟悉的「認知」心理學不太一樣，很難從自己熟悉的角度去切入作者的想法。於是我換了一本書 – Geeraerts (2006)。這本書由一篇篇獨立的文章組成，每篇文章由一或兩位從事認知語言學相關研究的學者撰寫。在 Geeraerts (2006) 中，我發現一個熟悉的名字 – Michael Tomasello。當時我對 Tomasello 並不熟悉，僅知道他是個有名的心理學家，研究興趣與這些關鍵字有關：Language acquisition, Joint attention, Primate cognition。閱讀 Tomasello 的文章後，我終於開始抓到一點認知語言學的想法。果然，要了解一個陌生的領域最好還是從自己熟悉的思維下手。
-語言到底是什麼？ 這個出現在語概課本第一章的問題，通常會說明人類語言和動物的溝通有什麼本質上的不同，並且指出人類語言具有結構、可組合的特性等等。但這些說明只是描述人類語言的特性，但對於語言是什麼，或更精確地說 – 語言如何產生 (包含認知處理上、生理發展上、演化歷史上)，並未提供有洞見的解釋。
-我想認知語言學的主要貢獻在於，其看見語言以外的世界，強調認知系統對於形塑語言的影響。對於語言的分析，因此需跨出「語言」，擴展到人類的認知系統。這真的是充滿雄心壯志的抱負，但我並不覺得這帶來的影響是全然正面的，因為面對人類心智運作的問題時，事情會變得非常非常非常複雜。特別是語言，從人類語言的相關研究可以發現語言真的很「雜亂 (noisy)」 (相較於視覺系統)。這使將戰線拉得如此廣泛的認知語言學可能變得十分混亂，在沒有透徹理解一個現象中比較基礎的因素前，就直接研究更複雜的整體現象1。這也是為何我對於 語言是什麼 這個問題感到困惑。我一直找不到一個清晰、穩固的基礎，作為評斷各種對語言的看法與理論的基準。我們似乎根本不了解語言是什麼，卻常在很抽象的層次上試圖說明語言是什麼。
-於是，我決定先從 Tomasello 的專著下手，因為他的研究興趣是語言 (甚至是人類) 的演化，而就我所學過的東西而言，演化論應是僅次於數學，最可靠的一種想法。
-看見更基礎的元素 看完 Origins of Human Communication (Tomasello, 2008) 後，不得不佩服 Tomasello 這位學者。剛了解他研究對象是嬰兒與靈長類動物、研究主題是心理學和語言學時，不太能理解為什麼，只以為他是興趣廣泛。讀完書後才了解到，這些內容都與 Tomasello 想回答的問題密切相關 – 語言的起源。
-Tomasello 厲害的地方在於其能夠跳脫「語言」的框架，嘗試找出語言要能運作所需的更基礎的元素。而要找出這些基礎的元素，需要跳脫過去語言相關研究關注的主體 – 成年人類的語言使用，將目光聚焦在「尚未」發展出語言的族群上 – 黑猩猩與人類嬰兒，藉此找出哪些因素造成成年人類和這兩個族群有如此不同的語言表現。
-例如，「口語」在語言學中可說是最受關注的焦點 (相較於「文字」與「手勢」)，所以許多對於語言的研究與分析都是以口語作為基礎。但 Tomasello 強調了「手勢」的重要性。要了解「語言 (language)」，我們應該先了解「溝通 (communication)」，因為語言只是人類溝通的一種形式，而「指向 (pointing)」與「比手畫腳 (pantomiming)」則是人類溝通的另外兩種重要方式。「手勢」( 指向 與 比手畫腳 ) 的重要性在於，由於其所能攜帶的資訊量遠少於語言，其特別容易突顯人類溝通時，溝通者需具備的社會認知結構。這裡以書中提到的例子說明：</description></item><item><title>Visualizing Language Loss in Taiwan</title><link>https://yongfu.name/2019/02/17/visualize-language-loss/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/17/visualize-language-loss/</guid><description>Taiwan Language Survey is a small project I worked on during May to June in 2018. The idea was to create a survey that continuously collects data and a web page that visualizes the collected data. The web page is updated weekly using Travis-CI.
-The main purpose of this survey is to raise public awareness of language loss in Taiwan. Hence, the survey is designed to collect data that can provide valuable information about language loss, for example, some questions were asked to gain insight about the change of linguistic competence acoss generations in a family (i.</description></item><item><title>Easy Linguistics Document Writing with R Markdown</title><link>https://yongfu.name/2018/09/09/linguistics-down/</link><pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/09/linguistics-down/</guid><description>I’ve written a post about rendering IPA symbols properly regardless of the output format of the R Markdown document. I implemented the ideas into an R package, linguisticsdown. linguisticsdown provides a Shiny interface to facilitate inserting IPA symbols in R Markdown. See a quick demo of the current feature of linguisticsdown in the gif at the end of the post.
-A live demo is hosted on shinyapps.io. For more details, visit linguisticsdown.</description></item><item><title>Rendering IPA Symbols in R Markdown</title><link>https://yongfu.name/2018/09/06/ipa-symbols/</link><pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/06/ipa-symbols/</guid><description>I was thinking about promoting reproducible research in Linguistics, or more precisely, how to attract people with no programming skills to have incentives to learn at least a bit programming, so that they have the ability to make their research more reproducible. I arrived at the solution: start by adopting R Markdown to write articles (see the last section for details), but making R Markdown more friendly to novices in a particular field of academia is crucial to enhance their incentives to learn programming.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linguistics on Yongfu's Blog</title><link>https://yongfu.name/tags/linguistics/</link><description>Recent content in Linguistics on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 23 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/linguistics/feed.xml" rel="self" type="application/rss+xml"/><item><title>Searching Interlinear Glosses Written in Word Documents</title><link>https://yongfu.name/2020/04/23/gloss-search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/04/23/gloss-search/</guid><description>&lt;p>I am taking the course &lt;a href="https://nol2.aca.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=142%20M0210&amp;amp;class=&amp;amp;dpt_code=1420&amp;amp;ser_no=10017&amp;amp;semester=108-2&amp;amp;lang=EN">Linguistic Fieldwork&lt;/a> this semester. Each week, we record and transcribe Budai Rukai, an Austronesian language spoken by &lt;a href="https://en.wikipedia.org/wiki/Rukai_people">Rukai people (魯凱族)&lt;/a>. The resulting data (interlinear glosses) are written in a Word document (&lt;code>.docx&lt;/code>) as required by the course instructor. Things get worse as the number of documents accumulates each week, since it becomes harder to locate specific linguistic patterns in the corpus of texts, as they are spread across multiple documents.&lt;/p>
+&lt;p>Inspired by &lt;a href="https://github.com/puerdon/corpus_processor">the work&lt;/a> of my labmate, &lt;a href="https://github.com/puerdon">Don&lt;/a>, I created a web app for searching interlinear glosses, which can search for and locate specific patterns in a collection of Word documents. This post describe the web app&amp;rsquo;s basic design and improvements to &lt;a href="https://github.com/puerdon/corpus_processor">&lt;code>puerdon/corpus_processor&lt;/code>&lt;/a>, the project this web app got inspiration and succeeded from. For instructions about using the app, visit &lt;a href="https://github.com/liao961120/gloss-search">&lt;code>liao961120/gloss-search&lt;/code>&lt;/a> (&lt;a href="https://github.com/liao961120/gloss-search/blob/master/README-en.md">English&lt;/a>) for more details.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="basic-design">Basic Design&lt;/h2>
+&lt;p>The app&amp;rsquo;s frontend was built with &lt;a href="https://vuejs.org">Vue.js&lt;/a>, and the backend was written in &lt;a href="https://python.org">Python 3&lt;/a>. The frontend was designed to ease the search and locating of certain patterns in the Word documents and is the only interface the users need to interact with. The backend is used to (1) parse the glosses written in Word documents into Python objects (dictionaries) and (2) perform the search on these Python objects based on the requests sent from the frontend.&lt;/p>
+&lt;h2 id="backend">Backend&lt;/h2>
+&lt;p>The most challenging part of the backend program is that of (1) since Word is a &lt;a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG&lt;/a> editing software, which means that two Word documents could have the exact same appearance while differ in their underlying structures. In other words, without considering the fact that different users differ in the way they use Word, the naive code used to parse Word documents are doomed to fail, even though the users SEEM to stick to a particular format. In order to deal with this problem, some kind of &lt;em>normalization&lt;/em> needs to be done to all the Word documents such that documents that look the same are INDEED the same. The format of the Word document provided by our course instructor is as below:&lt;/p>
+&lt;pre tabindex="0">&lt;code>[Number].
+[Original language (optional)]
+[EMPTY LINE (optional)]
+[Gloss line 1 (original language)]
+[Gloss line 2 (English)]
+[Gloss line 3 (Mandarin)]
+[EMPTY LINE]
+#e [English translation]
+#c [Chinese translation]
+#n [Notes]
+[EMPTY LINE]
+&lt;/code>&lt;/pre>&lt;p>Below is an illustration of what it &amp;rsquo;looks&amp;rsquo; like in a Word document of interlinear glosses:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>When you press &lt;code>Enter&lt;/code> on the keyboard while editing a Word document, you SEEM to be creating a &lt;strong>line break&lt;/strong>, but, in fact, you are creating a &lt;strong>new paragraph&lt;/strong>. To create a line break without breaking the current paragraph, &lt;code>Shift + Enter&lt;/code> instead of &lt;code>Enter&lt;/code> should be pressed. This is an example of the user behaviors I needed to normalize before I can sucessfully parse the Word documents.&lt;/p>
+&lt;p>To do this in Python, I extract all the paragraphs in a Word document using the module &lt;a href="https://python-docx.readthedocs.io/en/latest">&lt;code>python-docx&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> and concatenate them with newline characters (&lt;code>\n&lt;/code>) into a large string. Then, I split the string by &lt;code>\n&lt;/code> into a list of lines, from which the starting and ending positions (the positions where &lt;code>[gloss num].&lt;/code> is found in the list) of each elicitation could be located by simple pattern matching:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> docx &lt;span style="color:#f92672">import&lt;/span> Document
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">process_doc&lt;/span>(fp&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;corp/20200325.docx&amp;#34;&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Normalize document into a list of lines&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> d &lt;span style="color:#f92672">=&lt;/span> Document(fp)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> a_doc &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join(p&lt;span style="color:#f92672">.&lt;/span>text &lt;span style="color:#66d9ef">for&lt;/span> p &lt;span style="color:#f92672">in&lt;/span> d&lt;span style="color:#f92672">.&lt;/span>paragraphs)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> a_doc &lt;span style="color:#f92672">=&lt;/span> a_doc&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Find the positions of each elicitation&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pat_start &lt;span style="color:#f92672">=&lt;/span> re&lt;span style="color:#f92672">.&lt;/span>compile(&lt;span style="color:#e6db74">&amp;#34;^(\d{1,2})\.\s*$&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> glosses_on &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gloss_num_old &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i, line &lt;span style="color:#f92672">in&lt;/span> enumerate(a_doc):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> pat_start&lt;span style="color:#f92672">.&lt;/span>match(line):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gloss_num_new &lt;span style="color:#f92672">=&lt;/span> i
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Save each elicitation range&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> gloss_num_old &lt;span style="color:#f92672">is&lt;/span> &lt;span style="color:#f92672">not&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> glosses_on&lt;span style="color:#f92672">.&lt;/span>append( (gloss_num_old, gloss_num_new &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gloss_num_old &lt;span style="color:#f92672">=&lt;/span> gloss_num_new
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Save last gloss&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">=&lt;/span> gloss_num_old
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> i &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> a_doc[i]&lt;span style="color:#f92672">.&lt;/span>strip()&lt;span style="color:#f92672">.&lt;/span>startswith(&lt;span style="color:#e6db74">&amp;#39;#&amp;#39;&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> len(a_doc) &lt;span style="color:#f92672">==&lt;/span> i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">or&lt;/span> (&lt;span style="color:#f92672">not&lt;/span> a_doc[i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>strip()&lt;span style="color:#f92672">.&lt;/span>startswith(&lt;span style="color:#e6db74">&amp;#39;#&amp;#39;&lt;/span>)):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> end_idx &lt;span style="color:#f92672">=&lt;/span> i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">break&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> glosses_on&lt;span style="color:#f92672">.&lt;/span>append( (gloss_num_old, i) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Get all elicitations in the document&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> glosses &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> start, end &lt;span style="color:#f92672">in&lt;/span> glosses_on:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gloss_num &lt;span style="color:#f92672">=&lt;/span> int(re&lt;span style="color:#f92672">.&lt;/span>match(&lt;span style="color:#e6db74">&amp;#34;(\d+)\.&amp;#34;&lt;/span>, a_doc[start])[&lt;span style="color:#ae81ff">1&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> gloss_lines &lt;span style="color:#f92672">=&lt;/span> [ l&lt;span style="color:#f92672">.&lt;/span>strip() &lt;span style="color:#66d9ef">for&lt;/span> l &lt;span style="color:#f92672">in&lt;/span> a_doc[(start &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>):end] ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> glosses&lt;span style="color:#f92672">.&lt;/span>append( (gloss_num, gloss_lines) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> glosses
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>One major improvement to &lt;a href="https://github.com/puerdon/corpus_processor">&lt;code>puerdon/corpus_processor&lt;/code>&lt;/a> is dealing with gloss lines that span multiple lines, as exemplified in the code chunk below. This problem can be solved by removing all empty lines between the gloss lines and free lines (those starting with &lt;code>#e&lt;/code>, &lt;code>#c&lt;/code>, and &lt;code>#n&lt;/code>) such that, when the free lines are excluded, the number of gloss lines &lt;strong>must&lt;/strong> be multiples of three (the example below has 6 gloss lines in total). Normalizing each elicitation to this format allows me to concatenate multiple gloss lines into three for all elicitaion examples. The code that deal with this can be found in the function &lt;code>assign_gloss_free_lines()&lt;/code> in &lt;a href="https://github.com/liao961120/gloss-search/blob/master/GlossProcessor.py">&lt;code>GlossProcessor.py&lt;/code>&lt;/a>.&lt;/p>
+&lt;pre tabindex="0">&lt;code>14.
+kay Elrenge watsili kay malri ki lalake ki talialalay
+kay Elrenge w-a-tsili kay malri
+this Elrenge AF-RLS-throw this ball
+這 Elrenge 主焦-實現-丟 這 球
+ki lalake ki talialalay
+OBL kid _ noble
+斜格 小孩 _ 貴族
+#e Elrenge throw a ball to the noble’s kid.
+#c 這 Elrenge 丟一顆球給貴族的小孩
+#n
+&lt;/code>&lt;/pre>&lt;p>After normalizing the Word documents, the documents are parsed and convert into the Python dictionary as shown below:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;20200325.docx&amp;#39;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#ae81ff">1&lt;/span>, {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;ori&amp;#39;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#39;yakay&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ku&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;tatulru&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ku&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ababay&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;ku&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;agili&amp;#39;&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;gloss&amp;#39;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;yakay&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;have&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;有&amp;#39;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;ku&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;three&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;3&amp;#39;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;tatulru&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;female/male&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;女性/男性&amp;#39;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;(ku&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;yonger_brother/sister-1SG.POSS&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;弟妹-我的.第一人稱單數.所有格&amp;#39;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;ababay/sauvalay)&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;_&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;_&amp;#39;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;ku&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;_&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;_&amp;#39;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#e6db74">&amp;#39;agi-li&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;_&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;_&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;free&amp;#39;&lt;/span>: [
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;#e I have 3 younger brother/sister&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;#c 我有 3 個弟弟/妹妹&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;#n yakay ku 可省略&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#f92672">...&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#39;20200408.docx&amp;#39;&lt;/span>: [&lt;span style="color:#f92672">...&lt;/span>],
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="frontend">Frontend&lt;/h2>
+&lt;p>The construction of the frontend was relatively easy, given that the most challenging part was already done in &lt;a href="https://yongfu.name/2020/02/22/leipzigVue.html">my (dead) project on building a web app for interlinear glossing&lt;/a>. In brief, the component &lt;a href="https://github.com/liao961120/gloss-search-frontend/blob/master/src/components/Leipzig.vue">&lt;code>Leipzig.vue&lt;/code>&lt;/a> is used to construct the aligned glosses (see figure below) from the data sent from backend (i.e., the python dictionary in the previous section, converted to JSON format).&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Another relatively challenging part (to me) is implementing the highlighting function, which highlights the matching patterns in the glosses (as in the words with yellow background in the figure above). It was implemented by creating a &lt;a href="https://vuejs.org/v2/guide/computed.html">computed property&lt;/a> that wraps the parts of the data matching the search pattern into HTML &lt;code>&amp;lt;span class=&amp;quot;matchedtoken&amp;quot;&amp;gt;&lt;/code> tags. I can then use CSS to decorate these tags.&lt;/p>
+&lt;p>The remaining parts of the fontend are about communicating with the server, which are relatively easy to set up. I actually just copy-and-pasted the code from my previous &lt;a href="https://github.com/liao961120/kwic/blob/master/src/components/kwic.vue">KWIC concordancer project&lt;/a>.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>I didn&amp;rsquo;t spent much time exploring the API of &lt;a href="https://python-docx.readthedocs.io/en/latest/">&lt;code>python-docx&lt;/code>&lt;/a> thanks to Don&amp;rsquo;s PIONEERING (at least in our university, or even Taiwan, I believe) project &lt;a href="https://github.com/puerdon/corpus_processor">&lt;code>puerdon/corpus_processor&lt;/code>&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>Linguistics</category><category>Python</category><category>vue</category></item><item><title>以 Python 實作 Concordancer</title><link>https://yongfu.name/2020/03/20/building-concordancer/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/03/20/building-concordancer/</guid><description>&lt;p>每次接近學期末的時候，寫程式癮就會開始發作 (可能是不想面對無趣的期末報告)，這時候腦袋會蹦出許多很有趣的想法，然後就會迫不及待地想將這些想法實作出來。這次(2019 年末) 的程式癮刺激來源是實驗室的雲端硬碟裡的某個 (版權封閉) 中文語料庫，雖然該語料庫已有很好的搜尋界面，但&lt;strong>我就是想 reinvent the wheel&lt;/strong>，自己手刻出一個 concordancer。不為了什麼，就只是因為這件事本身就很有樂趣。&lt;/p>
+&lt;h2 id="初步嘗試for-loop-forever">初步嘗試：for loop&amp;hellip; forever&lt;/h2>
+&lt;p>我本來並沒有太大的雄心壯志，就只想快速弄出個程式界面方便我查找 concordance，想說使用 &lt;a href="https://www.nltk.org/book/ch01.html#searching-text">NLTK concordance&lt;/a> 應該很快就可以弄出我想的東西。但 NLTK concordance 只能使用 word form (或 pattern) 去搜尋 concordance，我的需求卻是要能&lt;strong>使用 word form 或 PoS tag&lt;/strong> 搜尋語料庫 (類似 &lt;a href="http://cwb.sourceforge.net/files/CQP_Tutorial/CQP_Tutorial.html">Corpus Query Langauge&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，但不用這麼複雜)。但要自己用 Python 實作這個功能也頗簡單，於是我就自己手刻了這個功能。然而事實證明我太過天真了。語料庫的大小約 1000 萬個 token，而每次搜尋時，我的程式使用 for 迴圈跑過整個語料，因此要花非常非常非常久的時間才能完成搜尋。對於非資訊背景出生的我，第一次體驗 $O(n)$ 是件不可忽視的問題以及 Database 存在的必要性。&lt;/p>
+&lt;h2 id="重新規劃-database--python--vue">重新規劃： Database + Python + Vue&lt;/h2>
+&lt;p>為了解決上述問題我暫時擱置了這個專案 (寒假開始到春節期間) 去學習必備的一些知識&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，最後比較有系統地重新規劃了這個 concordancer 的架構：&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>這個新的架構分成前&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>、後端，前端不是本文的重點 (原始碼&lt;a href="https://github.com/liao961120/kwic">在此&lt;/a>)，就不細談。這邊直接舉一個實例說明這個 concordancer 如何運作：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>首先，使用者在前端輸入一個搜尋的字串 (keyword)，這個字串需符特定的格式：&lt;code>[token 1][token 2][token 3]&lt;/code>。每對中括號代表一個 token，中括號內則是描述此 token 的特徵，如 word form 與 PoS tag，例如 &lt;code>[word=&amp;quot;打&amp;quot; pos=&amp;quot;V.*&amp;quot;]&lt;/code> 即是要搜尋 word form 為 &lt;code>打&lt;/code> 且詞類為動詞&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup> 的 token。這裡的例子使用 &lt;strong>&lt;code>[word.regex=&amp;quot;^[他她]$&amp;quot;][word=&amp;quot;打&amp;quot; pos=&amp;quot;V.*&amp;quot;]&lt;/code>&lt;/strong>，下方的幾個例子都是符合這個搜尋的 2-gram:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>他/Nh 打/VC&lt;/code>&lt;/li>
+&lt;li>&lt;code>她/Nh 打/VC&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;code>[word.regex=&amp;quot;^[他她]$&amp;quot;][word=&amp;quot;打&amp;quot; pos=&amp;quot;V.*&amp;quot;]&lt;/code>&lt;/strong> 在傳給後端後，會先經過一個 &lt;a href="https://yongfu.name/kwic-backend/html/doc/queryParser.html">parser&lt;/a> 處理，讓後端可以將這個 query 轉換成 SQL 去搜尋 database。在搜尋時，這邊僅會在 DB 中以&lt;strong>其中一個 token 的資訊進行搜尋&lt;/strong>，並回傳所有符合的 token 於語料庫中的位置 (所在文件之 id、第幾個句子、token 於句子中的次序)。這些 token 是&lt;strong>可能符合 keyword pattern 的「候選者」&lt;/strong> ，讓接下來的 n-gram 比對可以更快速 (search space 從整個語料庫減少到只剩這些「候選者」所組成的 n-gram)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>透過這些 token 的位置資訊，可以找出含有該 token 的 n-gram。例如，假設這裡使用 &lt;code>[word=&amp;quot;打&amp;quot; pos=&amp;quot;V.*&amp;quot;]&lt;/code> 在 DB 當中搜尋，取得結果後，可以再比對此 token &lt;strong>左邊&lt;/strong>的 token 是否符合 &lt;code>[word.regex=&amp;quot;^[他她]$&amp;quot;]&lt;/code>。若符合，則保留此 2-gram，並取得該 2-gram 左右的 context，作為未來要回傳給使用者的 KWIC concordance。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>跑完所有的「候選者」token，即可取得整個語料庫內，符合 keyword pattern 的 concordance。接下來僅需將資料轉換成 JSON 格式再傳到前端即可。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="database-設計">Database 設計&lt;/h2>
+&lt;p>下圖是 Database&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup> 的 table 設計，共有 3 個 table:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>&lt;strong>Token&lt;/strong>: 將語料庫中的每種 token (即 type) 對應至 id。如此搜尋單一 token 的 word form 時，即可搜尋此較小的 table (列數等於語料庫中 type 的數量)，而不用跑過整個語料庫。&lt;/li>
+&lt;li>&lt;strong>Pos&lt;/strong>: 將語料庫中的每種 PoS tag 對應至 id。同上，可以快速找出符合的 token。&lt;/li>
+&lt;li>&lt;strong>Corpus&lt;/strong>: 保留語料庫 token 位置資訊的 table。搜尋完 &lt;strong>Token&lt;/strong> 以及 &lt;strong>Pos&lt;/strong> 兩 table 之後，即可透過 token 與 pos id 在 &lt;strong>Corpus&lt;/strong> 裡找到符合的列 (e.g., &lt;code>tk_id == 3&lt;/code> (&lt;code>我&lt;/code>) 且 &lt;code>pos_id == 1&lt;/code> (&lt;code>Nh&lt;/code>)。這些列裡面含有這個 token 於語料庫中的位置 (&lt;code>text_id&lt;/code>, &lt;code>sent_idx&lt;/code>, &lt;code>tk_idx&lt;/code>)。&lt;/li>
+&lt;/ul>
+&lt;h2 id="原始碼--使用語料庫">原始碼 / 使用語料庫&lt;/h2>
+&lt;p>這個專案一開始是使用版權封閉的語料庫製作，因此語料庫的資料並未放在 GitHub，但後端的原始碼仍放在 &lt;a href="https://github.com/liao961120/kwic-backend">&lt;code>liao961120/kwic-backend&lt;/code>&lt;/a>。&lt;/p>
+&lt;p>為了讓這個專案至少能被使用，我另外爬了 &lt;a href="https://github.com/liao961120/dcard-corpus">Dcard 作為語料&lt;/a> (500 多萬詞，大小約平衡語料庫的一半)，並包成 docker image，方便有興趣的人使用。要搜尋 Dcard 語料庫僅需依照下方的步驟：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>取得 docker image (僅第一次需執行)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker pull liao961120/dcard
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>執行後端 (執行後，請等待 cmd 出現 &lt;code>Corpus Loaded&lt;/code> 的字串)&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker run -it -p 127.0.0.1:1420:80 liao961120/dcard
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>前往 &lt;a href="https://kwic.yongfu.name">https://kwic.yongfu.name&lt;/a> 使用前端界面&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>一開始曾想過直接使用現成的 corpus framework，例如 &lt;a href="http://cwb.sourceforge.net">CWB&lt;/a>, &lt;a href="https://inl.github.io/BlackLab">BlackLab&lt;/a> 等。但一方面研究這些 framework 要花許多精力，且因為研究的都是別人做好的 API，不容易學到比較低階、處理語料的問題。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>快速掃過 &lt;a href="https://cs50.harvard.edu/x/2019">CS50&lt;/a> 的前 5 堂課 (我還是不會 C/C++)、複習之前&lt;a href="https://cs50.harvard.edu/web/#sql">不怎麼認真看待的 SQL Database&lt;/a>以及閱讀 &lt;a href="https://www.sqlite.org/queryplanner.html">SQLite 關於 indexing 的說明文件&lt;/a> (這最重要)。&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>雖然本來不打算做前端，但由於花了大量時間學習 Database 的概念，多花個幾小時刻個前端相比之下簡單許多 (這邊前端的功能不多)。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>這裡的語料是經&lt;a href="https://github.com/ckiplab/ckiptagger">中研院 ckiptagger&lt;/a> 斷詞，可&lt;a href="https://github.com/ckiplab/ckiptagger/wiki/POS-Tags">於此&lt;/a>檢視其詞類標記集。&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>建立資料庫以及索引的原始碼位於 &lt;a href="https://github.com/liao961120/dcard-corpus/blob/master/indexCorp.py">&lt;code>liao961120/dcard-corpus/indexCorp.py&lt;/code>&lt;/a>。&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>Linguistics</category><category>Python</category><category>vue</category><category>docker</category><category>中文</category></item><item><title>Recreating Leipizig.js with Vue for Interlinear Glossing</title><link>https://yongfu.name/2020/02/22/leipzigvue/</link><pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/02/22/leipzigvue/</guid><description>&lt;p>I noticed &lt;a href="https://bdchauvette.net/leipzig.js">Leipzig.js&lt;/a> from &lt;a href="https://github.com/agricolamz">George Moroz&lt;/a>&amp;rsquo;s GitHub activity (he starred &lt;a href="https://github.com/bdchauvette/leipzig.js/">&lt;code>bdchauvette/leipzig.js&lt;/code>&lt;/a> a few months ago). This JS library is fantastic, and at the moment I saw it, I came up with an idea of building a web app facilitating interlinear glossing.
+During Chinese New Year, I finally started on the project. I thought it would be easy since I had some experience with Vue.js before&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, but it turned out that &lt;code>leipzig.js&lt;/code> wasn&amp;rsquo;t designed to work with Vue.&lt;/p>
+&lt;h2 id="dynamic-input-interface">Dynamic Input Interface&lt;/h2>
+&lt;p>What I had in mind was a web app that, while the user is typing, the rendered glosses get showed &lt;strong>synchronously&lt;/strong> in another panel. Vue&amp;rsquo;s conventional way of doing this is by creating a two-way data binding (&lt;code>v-model&lt;/code>) to capture the user&amp;rsquo;s input and dynamically render the HTML content based on the inputted data. This conflicts with &lt;code>leipzig.js&lt;/code> since it only provides a high level function (&lt;a href="https://github.com/bdchauvette/leipzig.js/wiki/Documentation">&lt;code>Leipzig()&lt;/code>&lt;/a>) to modify existing DOM elements to construct the glosses. Calling &lt;code>Leipzig()&lt;/code> multiple times (without erasing the already rendered HTML) would break the DOM elements, which makes the function hard to work together with Vue&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>After multiple failures of making &lt;code>Leipzig()&lt;/code> to work with Vue, I decided to abandoned &lt;code>leipzig.js&lt;/code> and recreate its functionality with Vue. This wasn&amp;rsquo;t as terrifying as it may seem, since I can use &lt;a href="https://github.com/bdchauvette/leipzig.js/blob/master/dist/leipzig.css">&lt;code>leipzig.js&lt;/code>&amp;rsquo;s CSS rules&lt;/a> directly to help me align the rendered DOM elements by Vue. What I had to do was making sure that Vue generates &lt;a href="https://github.com/bdchauvette/leipzig.js/wiki/Documentation#configclasses">the exact same HTML structure&lt;/a> as &lt;code>leipzig.js&lt;/code>&amp;rsquo;s rendered glosses. The resulting input interface is shown in the GIF below.&lt;/p>
+&lt;p>
+&lt;figure>
+&lt;img src="https://img.yongfu.name/gif/leipzig-vue.gif" alt="Leipzig.js rebuilt with Vue">
+&lt;figcaption>Leipzig.js rebuilt with Vue&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>The source code of this vue component can be found in &lt;a href="https://github.com/liao961120/gloss/blob/master/src/components/Leipzig.vue">&lt;code>Leipzig.vue&lt;/code>&lt;/a>.&lt;/p>
+&lt;h2 id="other-parts-of-the-app">Other Parts of the App&lt;/h2>
+&lt;p>There are several advantages of adopting Vue instead of using traditional JS approaches to build the app. Since what I wanted to build was an app that can also &lt;strong>store, manage, and export glosses&lt;/strong> for the user, I needed a framework to help me manage this complexity (e.g., &lt;a href="https://github.com/liao961120/gloss/blob/master/src/views/Edit.vue">Vuex&lt;/a>), and Vue provides a good and manageable way to build a complex web app. After learning Vuex and experiencing some failures in my previous &lt;a href="https://github.com/liao961120/viewMark">Vue project&lt;/a> (due to increasing complexity as the app grows larger), I&amp;rsquo;m pretty sure that I could build a better app with less complexity this time. But just when I was moving forward to other parts of the app, I was stuck by other work to do, so I&amp;rsquo;m currently not developing this app. Currently, the only usable part of this app is its dynamic input interface for previewing glosses.&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>In 2019 summer, I learned Vue.js on &lt;a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa">The Net Ninja&amp;rsquo;s YouTube channel&lt;/a> and built a &lt;a href="https://viewmark.yongfu.name">markdown editor&lt;/a> for fun.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Though it is possible to create a dynamic input experience with &lt;code>leipizig.js&lt;/code> with a more traditional JS approach. You can read the &lt;a href="https://bdchauvette.net/leipzig.js/theme/js/demo.js">source code&lt;/a> of this &lt;a href="https://bdchauvette.net/leipzig.js/demo/">Live demo of Leipzig.js&lt;/a> to find out how it works!&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>vue</category><category>JavaScript</category><category>Linguistics</category></item><item><title>閱讀筆記：Origins of Human Communication</title><link>https://yongfu.name/2019/03/04/originsofhumancommunication/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/04/originsofhumancommunication/</guid><description>
+&lt;p>去年秋天在準備研究所甄試時，發現市面上的語言學概論課本對於筆試幾乎沒有任何幫助，於是去找認知語言學相關的專著和文章來閱讀。我找的第一本書是 &lt;a href="https://en.wikipedia.org/wiki/George_Lakoff">George Lakoff&lt;/a> 的 &lt;a href="https://en.wikipedia.org/wiki/Metaphors_We_Live_By">&lt;em>Metaphors We Live By&lt;/em>&lt;/a>。閱讀此書時，發覺自己又面臨一個陌生、龐大、擁有一堆術語的領域，而且認知語言學中的「認知」似乎和我所熟悉的「認知」心理學不太一樣，很難從自己熟悉的角度去切入作者的想法。於是我換了一本書 – &lt;span class="citation">Geeraerts (&lt;a href="#ref-geeraerts2006">2006&lt;/a>)&lt;/span>。這本書由一篇篇獨立的文章組成，每篇文章由一或兩位從事認知語言學相關研究的學者撰寫。在 &lt;span class="citation">Geeraerts (&lt;a href="#ref-geeraerts2006">2006&lt;/a>)&lt;/span> 中，我發現一個熟悉的名字 – &lt;a href="https://en.wikipedia.org/wiki/Michael_Tomasello">Michael Tomasello&lt;/a>。當時我對 Tomasello 並不熟悉，僅知道他是個有名的心理學家，研究興趣與這些關鍵字有關：&lt;em>Language acquisition&lt;/em>, &lt;em>Joint attention&lt;/em>, &lt;em>Primate cognition&lt;/em>。閱讀 Tomasello 的文章後，我終於開始抓到一點認知語言學的想法。果然，要了解一個陌生的領域最好還是從自己熟悉的思維下手。&lt;/p>
+&lt;div class="section level2">
+&lt;h2>語言到底是什麼？&lt;/h2>
+&lt;p>這個出現在語概課本第一章的問題，通常會說明人類語言和動物的溝通有什麼&lt;strong>本質上&lt;/strong>的不同，並且指出人類語言具有結構、可組合的特性等等。但這些說明只是描述人類語言的特性，但對於語言是什麼，或更精確地說 – 語言如何產生 (包含認知處理上、生理發展上、演化歷史上)，並未提供有洞見的解釋。&lt;/p>
+&lt;p>我想認知語言學的主要貢獻在於，其看見&lt;strong>語言以外&lt;/strong>的世界，強調認知系統對於形塑語言的影響。對於語言的分析，因此需跨出「語言」，擴展到人類的認知系統。這真的是充滿雄心壯志的抱負，但我並不覺得這帶來的影響是全然正面的，因為面對人類心智運作的問題時，事情會變得&lt;strong>非常非常非常複雜&lt;/strong>。特別是語言，從人類語言的相關研究可以發現語言真的很「雜亂 (noisy)」 (相較於視覺系統)。這使將戰線拉得如此廣泛的認知語言學可能變得十分混亂，在沒有透徹理解一個現象中比較基礎的因素前，就直接研究更複雜的整體現象&lt;a href="#fn1" class="footnote-ref" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>。這也是為何我對於 &lt;strong>&lt;em>語言是什麼&lt;/em>&lt;/strong> 這個問題感到困惑。我一直找不到一個清晰、穩固的基礎，作為評斷各種對語言的看法與理論的基準。我們似乎根本不了解語言是什麼，卻常在很抽象的層次上試圖說明語言是什麼。&lt;/p>
+&lt;p>於是，我決定先從 Tomasello 的專著下手，因為他的研究興趣是語言 (甚至是人類) 的演化，而就我所學過的東西而言，演化論應是僅次於數學，最可靠的一種想法。&lt;/p>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>看見更基礎的元素&lt;/h2>
+&lt;p>看完 &lt;em>Origins of Human Communication&lt;/em> &lt;span class="citation">(Tomasello, &lt;a href="#ref-tomasello2008">2008&lt;/a>)&lt;/span> 後，不得不佩服 Tomasello 這位學者。剛了解他研究對象是嬰兒與靈長類動物、研究主題是心理學和語言學時，不太能理解為什麼，只以為他是興趣廣泛。讀完書後才了解到，這些內容都與 Tomasello 想回答的問題密切相關 – 語言的起源。&lt;/p>
+&lt;p>Tomasello 厲害的地方在於其能夠跳脫「語言」的框架，嘗試找出語言要能運作所需的&lt;strong>更基礎的元素&lt;/strong>。而要找出這些基礎的元素，需要跳脫過去語言相關研究關注的主體 – 成年人類的語言使用，將目光聚焦在「尚未」發展出語言的族群上 – 黑猩猩與人類嬰兒，藉此找出哪些因素造成成年人類和這兩個族群有如此不同的語言表現。&lt;/p>
+&lt;p>例如，「&lt;em>口語&lt;/em>」在語言學中可說是最受關注的焦點 (相較於「文字」與「手勢」)，所以許多對於語言的研究與分析都是以口語作為基礎。但 Tomasello 強調了「手勢」的重要性。要了解「語言 (language)」，我們應該先了解「溝通 (communication)」，因為語言只是人類溝通的一種形式，而「&lt;em>指向 (pointing)&lt;/em>」與「&lt;em>比手畫腳 (pantomiming)&lt;/em>」則是人類溝通的另外兩種重要方式。「手勢」( &lt;em>指向&lt;/em> 與 &lt;em>比手畫腳&lt;/em> ) 的重要性在於，由於其所能攜帶的資訊量遠少於語言，其特別容易突顯人類溝通時，溝通者需具備的社會認知結構。這裡以書中提到的例子說明：&lt;/p>
+&lt;blockquote>
+&lt;p>我和妳正在去圖書館的路上。走到圖書館外面時，我指向停放腳踏車的地方。這時妳應該會感到奇怪，因為妳不知道我要表達什麼。&lt;/p>
+&lt;p>但假設如果妳剛和男朋友分手，而且妳和我都知道這件事，而我指向的地方停有妳男友的腳踏車，那這個手勢就和上一種情況有完全不同的意義 (代表：「妳男友可能在圖書館裡，妳確定要進去嗎？」)。&lt;/p>
+&lt;p>又或者，假設我指向的地方停著妳之前被偷的腳踏車，那這個手勢又代表著完全不一樣的意義。&lt;/p>
+&lt;/blockquote>
+&lt;p>在上述的幾個例子中，同樣的手勢，甚至在同樣的客觀背景 (physical context) 下，表達了相異且十分複雜的意義。這些例子的差異僅來自於&lt;strong>我和妳先前的共同經驗&lt;/strong>。這種現象在人類溝通中 (包含手勢與語言) 隨處可見。因此，這裡需要回答的問題是，&lt;strong>什麼樣的認知結構使得人類在溝通時，能夠自然而然地形成上述的詮釋&lt;/strong>。&lt;/p>
+&lt;/div>
+&lt;div id="chimp" class="section level2">
+&lt;h2>黑猩猩 vs. 人類&lt;/h2>
+&lt;p>關於上述的問題，一個最精簡的答案是溝通者理解彼此是「有意圖 (intentional)」的個體，所以在我指向腳踏車停放處時，妳會進行類似的推論：「他為什麼指向那裡，他&lt;strong>想&lt;/strong>告訴我什麼？」但這只是個過於簡化的答案，因為黑猩猩也能理解溝通的對象是有意圖的，但黑猩猩卻無法發展出人類般複雜的溝通方式。例如，在餵食黑猩猩的情境中，若黑猩猩觀察到實驗者&lt;strong>不願意&lt;/strong> (unwilling) 餵食時，黑猩猩會表現出失望的行為；但如果實驗者是因為其它原因 (例如，餵食孔太小或是因為其它事情分心) &lt;strong>無法&lt;/strong> (unable) 餵食，黑猩猩會持續耐心的等待 &lt;span class="citation">(Call, Hare, Carpenter, &amp;amp; Tomasello, &lt;a href="#ref-call2004">2004&lt;/a>)&lt;/span>。&lt;/p>
+&lt;p>所以，人類溝通運作的關鍵不僅僅是能夠理解彼此具有意圖，還需要其它關鍵因素。Tomasello 在經過大量對於黑猩猩與人類嬰兒手勢溝通 (gestural communication) 的研究後，指出人類與黑猩猩之間存在一項重要的差異 – 人類的溝通本質上是合作性的 (cooperative)，但黑猩猩的溝通幾乎是自我中心與命令式的 (imperative)。換言之，黑猩猩的溝通意圖僅有&lt;strong>要求 (request)&lt;/strong> 其他黑猩猩或人去做自己要他們達成的事情；人類的溝通意圖則不只侷限於要求，更多情況下是為了&lt;strong>提供對方資訊 (inform)&lt;/strong> (例如前述的圖書館例子：我透過手勢告知妳&lt;strong>對妳 (但不是我) 而言&lt;/strong>有用的資訊)，或是單純為了&lt;strong>分享 (sharing)&lt;/strong> (例如：「今天發生了 … ，心情好糟喔！」)。值得注意的是，即使人類意圖要求別人為自己做事情的時候，仍然是以「合作性」的方式提出要求。例如我們通常使用婉轉的方式提出要求 (例如，使用問句)，在對方完成我們的要求後，表達感謝甚至是必須的。&lt;/p>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>溝通的合作性結構&lt;/h2>
+&lt;p>人類溝通中的「合作性」結構與人類的社會認知結構 (social-cognitive infrastructure) 之間關係密不可分。要有合作性的對話產生，溝通者之間必須建立一種抽象、共享的&lt;strong>共同經驗 (common ground)&lt;/strong> – 溝通者彼此都知道，且也都知道「對方知道我知道」的事情。承接上述圖書館的例子：&lt;/p>
+&lt;blockquote>
+&lt;p>妳知道我指向停腳踏車處是為了告訴妳：「妳男友在圖書館裡」。這是因為我知道妳和妳男友分手，而妳也知道我知道這件事。&lt;/p>
+&lt;/blockquote>
+&lt;p>值得注意的是這裡包含所謂&lt;strong>遞迴 (recursive) 的認知結構&lt;/strong>：妳必須知道「我知道妳和妳男友分手」這件事，上述溝通的情況才會產生。換言之，如果妳並未告訴過我妳和妳男友分手這件事，但我從其它管道得知了這件事，妳對我指向圖書館外的腳踏車就不會有「他在告訴我，我男友在圖書館內」這個詮釋 (縱使妳看到了妳男友的腳踏車)&lt;a href="#fn2" class="footnote-ref" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a>。因此，形成共同經驗的前提是，溝通者必須具備一種「遞迴讀心 (recursive mindreading)」的認知能力。&lt;/p>
+&lt;p>當合作性的溝通是建立在共同經驗上，溝通者才能從共同經驗中推斷哪些資訊是對方感興趣的。同時，因為預設溝通者的動機是合作的，日常溝通中，我們才會以這種方式詮釋模糊的訊息：&lt;/p>
+&lt;blockquote>
+&lt;p>某個陌生人拍拍妳的肩膀再指向妳右邊臉頰，妳應該會認為他在告訴妳：「妳臉頰上有東西」。&lt;/p>
+&lt;/blockquote>
+&lt;p>這個手勢明明有千百種詮釋方式，但因為人類會隱性地預設對方是善意的、提供的是對自己有用的訊息，所以會形成這種詮釋。&lt;/p>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>語言的起源&lt;/h2>
+&lt;p>人類的溝通，不論是&lt;em>指向 (pointing)&lt;/em>、&lt;em>比手畫腳 (pantomiming)&lt;/em> 或&lt;em>口語&lt;/em> (spoken language) 皆是建立在上述合作性的溝通結構&lt;a href="#fn3" class="footnote-ref" id="fnref3">&lt;sup>3&lt;/sup>&lt;/a>。基本上，「合作」可說是造成今日語言的面貌的最重要的原因之一。&lt;/p>
+&lt;div class="section level3">
+&lt;h3>句法&lt;/h3>
+&lt;p>人類語言中複雜的句法不會無緣無故出現，一定存在某種使用上的功能性壓力 (functional pressure)，才使語言演化出句法。人類溝通中的合作性結構提供了這種壓力。黑猩猩溝通的意圖僅有&lt;em>要求 (requesting)&lt;/em> ，而要表達要求僅需非常精簡的 (或甚至不需要) 句法：試想祈使句的文法有多精簡 (例如，「(你) 走開」)。這是因為 &lt;em>要求&lt;/em> 的溝通意圖所涉及的情境非常簡單 – 當下 (時間點)、你 (主體)、去做某事 (事件)。但人類的溝通是合作性的，我們溝通的意圖多半是為了&lt;em>提供訊息 (informing) &lt;/em>和&lt;em>分享 (sharing)&lt;/em>。&lt;/p>
+&lt;p>&lt;em>提供訊息&lt;/em> 涉及的情境就比單純要求別人作某事要複雜的多了，因為提供訊息給對方常需涉及&lt;strong>不在當下 (時間上或空間上) 的事件&lt;/strong> (對方不知道的事情，例如，「我在回來的路上看到眼鏡蛇」，常常不是在溝通當下能看到的事情)。&lt;em>提供訊息&lt;/em> 這種溝通上的需求因而就使句法變得必要 – 我們需要標示訊息中&lt;strong>不在對方當下注意力可及範圍內的人或事件&lt;/strong>、需要標示&lt;strong>&lt;em>誰&lt;/em> 對 &lt;em>誰&lt;/em> 做了什麼 &lt;em>事&lt;/em>&lt;/strong>，而句法可以達成這些目的。分享所見所聞又比起提供訊息涉及更為複雜的情境，因為我們需要完整地描述所見所聞或甚至「說故事」。這使得溝通必須仰賴更加複雜句法才能達成目的，所以語言中開始出現更複雜結構，例如，子句結構，以描述許多彼此環環相扣的事件。&lt;/p>
+&lt;/div>
+&lt;div class="section level3">
+&lt;h3>先有手勢，才有口語&lt;/h3>
+&lt;p>語言的相關研究十分強調 &lt;em>口語&lt;/em> 的重要性，甚至有關尼安德塔人是否具備語言能力的爭論都被簡化成尼安德塔人會不會說話的爭論&lt;a href="#fn4" class="footnote-ref" id="fnref4">&lt;sup>4&lt;/sup>&lt;/a> &lt;span class="citation">(Arensburg et al., &lt;a href="#ref-arensburg1989">1989&lt;/a>; D’Anastasio et al., &lt;a href="#ref-danastasio2013">2013&lt;/a>)&lt;/span>。口語固然有其重要性，但 Tomasello 認為口語不是語言的起源。口語是在手語之後 (或伴隨手語）出現的，而手語則是由比手畫腳演變而成。主要論點如下：&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>&lt;p>黑猩猩，目前在演化樹上與人類最接近的親屬，能透過手勢彈性地傳達多種訊息。但黑猩猩的發聲器官卻相當侷限，其發出的聲音僅能用於固定的情緒表達。因此在演化歷史上，「手勢」會是個比較好的材料，較可能作為形塑語言的基礎。&lt;/p>&lt;/li>
+&lt;li>&lt;p>&lt;em>口語&lt;/em> (spoken language) 是約定俗成 (conventionalized) 與專斷的 (arbitrary)。換句話說，同樣的物體，例如「月亮」，在不同語言會有完全不同的形式 (發音)。因此，&lt;strong>除非經過約定&lt;/strong>，口語本身並無法「攜帶」意義。相反地，手勢本身就能蘊含意義：&lt;/p>
+&lt;ul>
+&lt;li>&lt;p>&lt;em>指向 (pointing)&lt;/em> 能透過引導對方的注意力至你我之外的第三個物體，期望對方在看到物體後能做出適當的推論&lt;a href="#fn5" class="footnote-ref" id="fnref5">&lt;sup>5&lt;/sup>&lt;/a>，解讀我欲傳達的訊息。但「未約定俗成的口語」就只是無意義的聲音而已，而聲音無法像「&lt;em>指向&lt;/em>」一般具有彈性操弄對方注意力焦點的功能 (可以指向這裡、那裡、我、你、他)，因為聲音只能將對方注意力吸引到自己身上。&lt;/p>&lt;/li>
+&lt;li>&lt;p>&lt;em>比手畫腳 (pantomiming)&lt;/em> 比起&lt;em>指向 (pointing)&lt;/em> 又更能彈性地傳達意義。&lt;em>比手畫腳&lt;/em> 是透過手勢去模擬真實世界中發生的事情，因此即使溝通者之間的共同經驗 (common ground) 很少，也能透過這種方式溝通 (試想自己是如何在語言不通的外國生存的)。&lt;/p>&lt;/li>
+&lt;/ul>
+&lt;p>因此，演化歷史上比較可能的情況是先有手勢，而手勢中能傳達較豐富意義之 &lt;em>比手畫腳&lt;/em> 逐漸被約定俗成，進而形成了手語&lt;a href="#fn6" class="footnote-ref" id="fnref6">&lt;sup>6&lt;/sup>&lt;/a>。手勢中的 &lt;em>指向&lt;/em> 則保留自今，變成口語的輔助。而口語則是在手語出現之後才演化出來，並取代原本手語的角色。&lt;/p>&lt;/li>
+&lt;li>&lt;p>在適當的環境之下，人類能自然而然發展出手語。手語在各方面都與我們所熟知的「語言」沒有什麼太大的區別 – 使用手語時，大腦語言區或活化；手語和所有語言一樣富含規則，違反句文法的使用也會讓手語使用者覺得「怪怪的」。事實上，&lt;code>語言 = 口語&lt;/code> 的概念似乎太過深植人心，導致許多人在知道「原來使用手語時，大腦語言區會『亮起』」時，感到非常訝異 (包含我)。但如果在演化歷史上，語言本來就是從視覺模態 (visual modality) 轉變成聽覺模態 (auditory modality)，那今日所觀察到的手語現象就有相當自然的解釋。&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>小結&lt;/h2>
+&lt;blockquote>
+&lt;p>Truth is much too complicated to allow anything but approximations.&lt;/p>
+&lt;p>— John von Neumann&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;span class="citation">Tomasello (&lt;a href="#ref-tomasello2008">2008&lt;/a>)&lt;/span> 提供了一篇龐雜，但相當具有說服力的關於語言演化的故事。然而任何理論都是假的，包含 Tomasello 令人印象深刻的故事，有些理論卻是有用的。在這裡，演化論扮演相當好的角色 – 它幫助我們思考、提出合理的猜測，去解釋人類那些看似彼此沒有任何關係的功能如何互相依存與支持，在演化歷史上孕育出新的功能。縱使這個故事是假的，它提供了許多能被驗證的假設。看著假設提出與驗證的過程，我似乎能在複雜到令人絕望的心智科學中，看見一條能夠前進的道路。&lt;/p>
+&lt;/div>
+&lt;div id="references" class="section level2 unnumbered">
+&lt;h2>參考資料&lt;/h2>
+&lt;div id="refs" class="references">
+&lt;div id="ref-arensburg1989">
+&lt;p>Arensburg, B., Tillier, A. M., Vandermeersch, B., Duday, H., Schepartz, L. A., &amp;amp; Rak, Y. (1989). A Middle Palaeolithic human hyoid bone. &lt;em>Nature&lt;/em>, &lt;em>338&lt;/em>, 758. Journal Article. &lt;a href="https://doi.org/10.1038/338758a0">https://doi.org/10.1038/338758a0&lt;/a>&lt;/p>
+&lt;/div>
+&lt;div id="ref-call2004">
+&lt;p>Call, J., Hare, B., Carpenter, M., &amp;amp; Tomasello, M. (2004). “Unwilling” versus “unable”: Chimpanzees’ understanding of human intentional action. &lt;em>Developmental Science&lt;/em>, &lt;em>7&lt;/em>(4), 488–498. &lt;a href="https://doi.org/10.1111/j.1467-7687.2004.00368.x">https://doi.org/10.1111/j.1467-7687.2004.00368.x&lt;/a>&lt;/p>
+&lt;/div>
+&lt;div id="ref-danastasio2013">
+&lt;p>D’Anastasio, R., Wroe, S., Tuniz, C., Mancini, L., Cesana, D. T., Dreossi, D., … Capasso, L. (2013). Micro-Biomechanics of the Kebara 2 Hyoid and Its Implications for Speech in Neanderthals. &lt;em>PLOS ONE&lt;/em>, &lt;em>8&lt;/em>(12), e82261. Journal Article. &lt;a href="https://doi.org/10.1371/journal.pone.0082261">https://doi.org/10.1371/journal.pone.0082261&lt;/a>&lt;/p>
+&lt;/div>
+&lt;div id="ref-geeraerts2006">
+&lt;p>Geeraerts, D. (Ed.). (2006). &lt;em>Cognitive linguistics: Basic readings&lt;/em>. Berlin: Walter de Gruyter.&lt;/p>
+&lt;/div>
+&lt;div id="ref-tomasello2008">
+&lt;p>Tomasello, M. (2008). &lt;em>Origins of human communication&lt;/em>. Cambridge, Massachusetts: MIT Press.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>我覺得這是人類心智科學普遍的情況，因為人類大腦非常複雜、難以窺視其運作，不像物理、化學等基礎學科，我們難以知曉心智的哪些功能與現象是基礎的，哪些是複雜的。&lt;a href="#fnref1" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>或是另一種更複雜的情況：妳並未告訴過我妳和妳男友分手這件事，但我從其它管道得知了這件事，而妳又從某個管道得知「我從其它管道得知妳和妳男友分手」這件事。換言之，我知道妳和妳男友分手，妳也知道我知道這件事 (這種結構還能持續無限遞迴下去)，但因為我們從未將此事納入我們的共同經驗 (common ground) 中，亦即這件事並未在我們過去的互動中「公開」(妳並未告訴我)，這件事就不會造成妳認為我是在告訴妳「妳男友在圖書館」。&lt;a href="#fnref2" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn3">&lt;p>值得注意的是，當溝通中的合作性結構消失時，可能代表著非常可怕的事情即將發生。試想自己見過最火爆的爭吵，對話者說話 (「吼」話或許比較貼切) 不是為了提供訊息或分享，而是單純希望壓制對方、讓對方閉嘴。若透過聲音彰顯的怒氣不足以抑制對方，甚至可能使用肢體暴力。&lt;a href="#fnref3" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn4">&lt;p>當然，若尼安德塔人確實會說話，那確實 (至少從 &lt;span class="citation">Tomasello (&lt;a href="#ref-tomasello2008">2008&lt;/a>)&lt;/span> 的理論) 能證實其擁有語言能力。但這裡想強調的是，縱使尼安德塔人不會說話，&lt;strong>並不代表尼安德塔人不具有語言能力&lt;/strong>。&lt;a href="#fnref4" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn5">&lt;p>&lt;em>指向 (pointing)&lt;/em> 所能傳達之訊息的複雜程度，受到溝通者之間的共同經驗 (common ground) 影響。摯友、家人之間有很許多共同經驗，所以一個 &lt;em>指向&lt;/em> 就能傳達含有非常複雜意義的訊息。相反的，陌生人，或甚至是來自不同國家的陌生人，彼此的共同經驗就很少，因此無法透過 &lt;em>指向&lt;/em> 傳達太過複雜的訊息。&lt;a href="#fnref5" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn6">&lt;p>有趣的是，&lt;em>口語&lt;/em> (spoken language) 與 &lt;em>比手畫腳 (pantomiming)&lt;/em> 之間的對應關係也可在發展語言中的嬰兒身上見到。嬰兒在 1 歲到 2 歲的過程中，使用 &lt;em>指向 (pointing)&lt;/em> 的頻率逐漸攀升，但使用 &lt;em>比手畫腳 (pantomiming)&lt;/em> 與固定手勢 (conventional gestures) 的頻率卻持續下降。換句話說，&lt;em>口語&lt;/em> 的功能在嬰兒語言發展過程中，逐漸取代了 &lt;em>比手畫腳&lt;/em> 與固定手勢 &lt;span class="citation">(Tomasello, &lt;a href="#ref-tomasello2008">2008&lt;/a>, p. 145 - 153)&lt;/span>。&lt;a href="#fnref6" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2019-03-07
+&lt;/p></description><category>Linguistics</category><category>Psychology</category><category>Evolution</category><category>中文</category></item><item><title>Visualizing Language Loss in Taiwan</title><link>https://yongfu.name/2019/02/17/visualize-language-loss/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/17/visualize-language-loss/</guid><description>
+&lt;p>&lt;a href="https://twlangsurvey.github.io">Taiwan Language Survey&lt;/a> is a small project I worked on during May to June in 2018. The idea was to create a survey that &lt;strong>continuously&lt;/strong> collects data and a web page that visualizes the collected data. The web page is updated weekly using &lt;a href="https://travis-ci.org/twLangSurvey/twLangSurvey.github.io">Travis-CI&lt;/a>.&lt;/p>
+&lt;p>The main purpose of this survey is to raise public awareness of &lt;strong>language loss&lt;/strong> in Taiwan. Hence, the survey is designed to collect data that can provide valuable information about language loss, for example, some questions were asked to gain insight about the change of linguistic competence acoss generations in a family (i.e. across the subject’s parents, the subject, and the subject’s children). In addition to changes within family, information about the age of the subjects is also colleceted, meaning that we can see how linguistic competence changes among diffrent age groups of subjects in a community, i.e. is a language becoming more dominant or entering the dying process?&lt;/p>
+&lt;p>Visualization is a powerful tool to capture how linguistic competences of different langauges are changing. But creating visualizations necessitates creativity – how can language loss be visualized? Below, I illustrate one of the methods I created for visualizing language loss – a visaulization inspired by the &lt;a href="https://en.wikipedia.org/wiki/Population_pyramid">age-sex pyramid&lt;/a>.&lt;/p>
+&lt;div id="age-sex-pyramid-of-language" class="section level2">
+&lt;h2>Age-Sex Pyramid of Language&lt;/h2>
+&lt;p>The age-sex pyramid is used to visualize the population structure of a community. The vertical axis indicates the age and each horizontal bar represents an age group. The horizontal axis indicates the population size of male or female of a particular age group.&lt;/p>
+&lt;p>The age-sex pyramid is a great tool to visualize the population structure since the ‘shape’ of the pyramid gives readers a lot information. For example, an ‘expansive pyramid’ has longer bars at the bottom of the pyramid, which indicates the population is young and growing. A ‘stationary pyramid’ looks like a rectangular bar, indicating the population sizes of different age groups are about the same. A ‘constructive’ pyramid indicates a shrinking population, which is narrowed at the bottom.&lt;/p>
+&lt;p>Similarly, a &lt;strong>modified&lt;/strong> version of the age-sex pyramid, which I’ll call the ‘&lt;strong>age-sex pyramid of language&lt;/strong>’, can be used to visualize the population structure of a language and predicts the language’s &lt;strong>vitality&lt;/strong>. Instead of visualizing population size, the age-sex pyramid of language visualizes the &lt;strong>average fluency of a language&lt;/strong> on the horizontal axis.&lt;/p>
+&lt;div class="figure">&lt;span id="fig:tw-pyramid">&lt;/span>
+&lt;img src="https://twlangsurvey.github.io/out_graph/Tw_pyramid.png" alt="An age-sex pyramid of Taiwanese. The red bars on the left indicates females of different age groups and the blue bars on the right indicates males. The average fluency (values on the horizontal axis) is calculated from a six-point scale (0-5) on Taiwanese fluency." width="70%" />
+&lt;p class="caption">
+Figure 1: An age-sex pyramid of Taiwanese. The red bars on the left indicates females of different age groups and the blue bars on the right indicates males. The average fluency (values on the horizontal axis) is calculated from a six-point scale (0-5) on Taiwanese fluency.
+&lt;/p>
+&lt;/div>
+&lt;p>As shown in Figure &lt;a href="#fig:tw-pyramid">1&lt;/a>, the shape of the age-sex pyramid of &lt;a href="https://en.wikipedia.org/wiki/Taiwanese_Hokkien">Taiwanese&lt;/a> in Taiwan&lt;a href="#fn1" class="footnote-ref" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a> is an ‘&lt;strong>inverted triangle&lt;/strong>’, which is almost never seen in the conventional population pyramid. However, this inverted triangular shape is expected to appear quite often, since it indicates an ongoing language loss in a community.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>&lt;strong>Vitality of Language&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Shape of Pyramid&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>Shrinking and Dying&lt;/td>
+&lt;td>Inverted Triangle&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Growing&lt;/td>
+&lt;td>Triangle&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>Stable&lt;/td>
+&lt;td>Rectangular Bar&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="drawing-age-sex-pyramid-with-ggplot2" class="section level2">
+&lt;h2>Drawing Age-Sex Pyramid with ggplot2&lt;/h2>
+&lt;p>As complex as it might seem, an age-sex pyramid created with ggplot2 is actually a (modified) bar chart. I learned this on &lt;a href="https://stackoverflow.com/a/36804394">stackoverflow&lt;/a>, and the trick is&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Use &lt;code>ifelse&lt;/code> to flip the value (here, population size) according to the gender of the age group&lt;/li>
+&lt;li>Use &lt;code>geom_bar(stat = &amp;quot;identity&amp;quot;)&lt;/code> to let the heights of the bars represent values in the data frame, i.e. the value given to &lt;code>y&lt;/code>&lt;/li>
+&lt;li>Use &lt;code>coord_flip()&lt;/code> to make the bars horizontal&lt;/li>
+&lt;/ol>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">set.seed&lt;/span>(&lt;span class="dv">1&lt;/span>)
+df0 &amp;lt;-&lt;span class="st"> &lt;/span>tibble&lt;span class="op">::&lt;/span>&lt;span class="kw">tibble&lt;/span>(
+&lt;span class="dt">Age =&lt;/span> &lt;span class="kw">rep&lt;/span>(&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;10-19&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;20-29&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;30-39&amp;#39;&lt;/span>), &lt;span class="dv">2&lt;/span>),
+&lt;span class="dt">Gender =&lt;/span> &lt;span class="kw">rep&lt;/span>(&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;Female&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Male&amp;#39;&lt;/span>), &lt;span class="dt">each =&lt;/span> &lt;span class="dv">3&lt;/span>),
+&lt;span class="dt">PopSize =&lt;/span> &lt;span class="kw">sample&lt;/span>(&lt;span class="dv">0&lt;/span>&lt;span class="op">:&lt;/span>&lt;span class="dv">100&lt;/span>, &lt;span class="dt">size =&lt;/span> &lt;span class="dv">6&lt;/span>, &lt;span class="dt">replace =&lt;/span> T)
+)
+df0&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">Age&lt;/th>
+&lt;th align="left">Gender&lt;/th>
+&lt;th align="right">PopSize&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">10-19&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">26&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">20-29&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">37&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">30-39&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">57&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">10-19&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">91&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">20-29&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">20&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">30-39&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">90&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">library&lt;/span>(ggplot2)
+pl &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">ggplot&lt;/span>(df0, &lt;span class="kw">aes&lt;/span>(&lt;span class="dt">x =&lt;/span> Age,
+&lt;span class="dt">y =&lt;/span> &lt;span class="kw">ifelse&lt;/span>(Gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Male&amp;#39;&lt;/span>, PopSize, &lt;span class="op">-&lt;/span>PopSize),
+&lt;span class="dt">fill =&lt;/span> Gender)) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">geom_bar&lt;/span>(&lt;span class="dt">stat =&lt;/span> &lt;span class="st">&amp;#39;identity&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">coord_flip&lt;/span>()
+pl&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-1-1.png" width="70%" />&lt;/p>
+&lt;p>To center the plot (i.e. to make the point where population size is zero at the center of the plot), we have to scale the axis of ‘population size’ (&lt;code>y&lt;/code>) with &lt;code>scale_y_continuous&lt;/code>:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">pl &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">scale_y_continuous&lt;/span>(&lt;span class="dt">limits =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">100&lt;/span>, &lt;span class="dv">100&lt;/span>),
+&lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">seq&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">100&lt;/span>, &lt;span class="dv">100&lt;/span>, &lt;span class="dv">25&lt;/span>),
+&lt;span class="dt">labels =&lt;/span> abs) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">labs&lt;/span>(&lt;span class="dt">y =&lt;/span> &lt;span class="st">&amp;#39;Population Size&amp;#39;&lt;/span>)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-2-1.png" width="70%" />&lt;/p>
+&lt;p>where &lt;code>abs&lt;/code> in &lt;code>labels&lt;/code> is the function &lt;code>abs()&lt;/code>. By default, &lt;code>ggplot2&lt;/code> pass the value given in &lt;code>breaks&lt;/code> to the the function specified in &lt;code>labels&lt;/code>.&lt;/p>
+&lt;/div>
+&lt;div id="visualizing-language-loss" class="section level2">
+&lt;h2>Visualizing Language Loss&lt;/h2>
+&lt;p>To create an age-sex pyramid of language, the data structure needed is exactly the same as the one above, except the variable, &lt;code>PopSize&lt;/code>, is replaced by ‘average fluency’ of a language. But since most people in Taiwan can speak more than one language (e.g. Mandarin-Taiwanese, Mandarin-Taiwanese-Hakka, Mandarin-English, etc.), the real data from the survey is a bit more complex Basically, the data structure needed to draw an age-sex pyramid of language looks like:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>&lt;strong>Gender&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Ethnicity&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Age Group&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Avg. Fluency&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>female&lt;/td>
+&lt;td>Mandarin&lt;/td>
+&lt;td>20-24&lt;/td>
+&lt;td>4.53&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>male&lt;/td>
+&lt;td>Taiwanese&lt;/td>
+&lt;td>20-24&lt;/td>
+&lt;td>2.78&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>…&lt;/td>
+&lt;td>…&lt;/td>
+&lt;td>…&lt;/td>
+&lt;td>…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>female&lt;/td>
+&lt;td>Hakka&lt;/td>
+&lt;td>25-29&lt;/td>
+&lt;td>2.23&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>male&lt;/td>
+&lt;td>Taiwanese&lt;/td>
+&lt;td>35-39&lt;/td>
+&lt;td>3.57&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div id="preparation-of-data" class="section level3">
+&lt;h3>Preparation of Data&lt;/h3>
+&lt;p>The raw data of &lt;a href="https://twlangsurvey.github.io/">Taiwan Language Survey&lt;/a> can be retrieved &lt;a href="https://docs.google.com/spreadsheets/d/1NOJ9O_zBR6s-9e1fFGVcRaBjn5qQuVB9ZeSebhBctoM/edit?usp=sharing">here&lt;/a>. The survey and raw data is in traditional Chinese. I’ll skip the step of cleaning raw data (e.g., turn variable names to English) and used the cleaned data &lt;code>survey.rds&lt;/code> instead.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">temp &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">tempfile&lt;/span>()
+&lt;span class="kw">download.file&lt;/span>(&lt;span class="st">&amp;#39;https://raw.githubusercontent.com/twLangSurvey/twLangSurvey.github.io/master/data/survey.rds&amp;#39;&lt;/span>, &lt;span class="dt">destfile =&lt;/span> temp)
+data &amp;lt;-&lt;span class="st"> &lt;/span>readr&lt;span class="op">::&lt;/span>&lt;span class="kw">read_rds&lt;/span>(temp)
+&lt;span class="kw">head&lt;/span>(data, &lt;span class="dv">3&lt;/span>)&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">date&lt;/th>
+&lt;th align="left">curr_resid&lt;/th>
+&lt;th align="right">curr_resid_since&lt;/th>
+&lt;th align="left">settle_5yy&lt;/th>
+&lt;th align="left">home_town&lt;/th>
+&lt;th align="left">gender&lt;/th>
+&lt;th align="right">age&lt;/th>
+&lt;th align="right">kid_num&lt;/th>
+&lt;th align="left">edu_level&lt;/th>
+&lt;th align="left">work&lt;/th>
+&lt;th align="left">income&lt;/th>
+&lt;th align="left">work_hr&lt;/th>
+&lt;th align="left">tribe&lt;/th>
+&lt;th align="right">Mand_listen&lt;/th>
+&lt;th align="right">Mand_speak&lt;/th>
+&lt;th align="right">Tw_listen&lt;/th>
+&lt;th align="right">Tw_speak&lt;/th>
+&lt;th align="right">Hak_listen&lt;/th>
+&lt;th align="right">Hak_speak&lt;/th>
+&lt;th align="right">Ind_listen&lt;/th>
+&lt;th align="right">Ind_speak&lt;/th>
+&lt;th align="right">SEA_listen&lt;/th>
+&lt;th align="right">SEA_speak&lt;/th>
+&lt;th align="right">Eng_listen&lt;/th>
+&lt;th align="right">Eng_speak&lt;/th>
+&lt;th align="left">first_lang&lt;/th>
+&lt;th align="left">when_Mand&lt;/th>
+&lt;th align="left">when_Tw&lt;/th>
+&lt;th align="left">when_Hak&lt;/th>
+&lt;th align="left">when_Ind&lt;/th>
+&lt;th align="left">when_SEA&lt;/th>
+&lt;th align="left">when_Eng&lt;/th>
+&lt;th align="left">m_guard_identity&lt;/th>
+&lt;th align="left">f_guard_identity&lt;/th>
+&lt;th align="right">dad_Mand_speak&lt;/th>
+&lt;th align="right">dad_Tw_speak&lt;/th>
+&lt;th align="right">dad_Hak_speak&lt;/th>
+&lt;th align="right">dad_Eng_speak&lt;/th>
+&lt;th align="right">dad_Ind_speak&lt;/th>
+&lt;th align="right">dad_SEA_speak&lt;/th>
+&lt;th align="right">mom_Mand_speak&lt;/th>
+&lt;th align="right">mom_Tw_speak&lt;/th>
+&lt;th align="right">mom_Hak_speak&lt;/th>
+&lt;th align="right">mom_Eng_speak&lt;/th>
+&lt;th align="right">mom_Ind_speak&lt;/th>
+&lt;th align="right">mom_SEA_speak&lt;/th>
+&lt;th align="left">dad_mom_Mand_fq&lt;/th>
+&lt;th align="left">dad_mom_Tw_fq&lt;/th>
+&lt;th align="left">dad_mom_Hak_fq&lt;/th>
+&lt;th align="left">dad_mom_Ind_fq&lt;/th>
+&lt;th align="left">dad_mom_SEA_fq&lt;/th>
+&lt;th align="left">dad_mom_Other_fq&lt;/th>
+&lt;th align="left">me_dad_Mand_fq&lt;/th>
+&lt;th align="left">me_dad_Tw_fq&lt;/th>
+&lt;th align="left">me_dad_Hak_fq&lt;/th>
+&lt;th align="left">me_dad_Ind_fq&lt;/th>
+&lt;th align="left">me_dad_SEA_fq&lt;/th>
+&lt;th align="left">me_dad_Other_fq&lt;/th>
+&lt;th align="left">me_mom_Mand_fq&lt;/th>
+&lt;th align="left">me_mom_Tw_fq&lt;/th>
+&lt;th align="left">me_mom_Hak_fq&lt;/th>
+&lt;th align="left">me_mom_Ind_fq&lt;/th>
+&lt;th align="left">me_mom_SEA_fq&lt;/th>
+&lt;th align="left">me_mom_Other_fq&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">2018-06-12&lt;/td>
+&lt;td align="left">106&lt;/td>
+&lt;td align="right">1996&lt;/td>
+&lt;td align="left">是&lt;/td>
+&lt;td align="left">428&lt;/td>
+&lt;td align="left">女&lt;/td>
+&lt;td align="right">56&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="left">大學&lt;/td>
+&lt;td align="left">金融業&lt;/td>
+&lt;td align="left">10萬以上&lt;/td>
+&lt;td align="left">45 - 50 小時&lt;/td>
+&lt;td align="left">不具原住民身份&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="left">華語&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">12-15歲&lt;/td>
+&lt;td align="left">父親&lt;/td>
+&lt;td align="left">母親&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">約一半&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">2018-06-13&lt;/td>
+&lt;td align="left">204&lt;/td>
+&lt;td align="right">2004&lt;/td>
+&lt;td align="left">是&lt;/td>
+&lt;td align="left">204&lt;/td>
+&lt;td align="left">女&lt;/td>
+&lt;td align="right">57&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="left">碩士&lt;/td>
+&lt;td align="left">製造業&lt;/td>
+&lt;td align="left">10萬以上&lt;/td>
+&lt;td align="left">50 - 55 小時&lt;/td>
+&lt;td align="left">不具原住民身份&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="left">華語&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">12-15歲&lt;/td>
+&lt;td align="left">父親&lt;/td>
+&lt;td align="left">母親&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">2018-06-13&lt;/td>
+&lt;td align="left">103&lt;/td>
+&lt;td align="right">2013&lt;/td>
+&lt;td align="left">是&lt;/td>
+&lt;td align="left">100&lt;/td>
+&lt;td align="left">男&lt;/td>
+&lt;td align="right">37&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="left">大學&lt;/td>
+&lt;td align="left">金融業&lt;/td>
+&lt;td align="left">55,000 - 60,000&lt;/td>
+&lt;td align="left">25 - 30 小時&lt;/td>
+&lt;td align="left">不具原住民身份&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="left">華語&lt;/td>
+&lt;td align="left">7歲前&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">未學會&lt;/td>
+&lt;td align="left">7-12歲&lt;/td>
+&lt;td align="left">父親&lt;/td>
+&lt;td align="left">母親&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">少數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">多數使用&lt;/td>
+&lt;td align="left">少數使用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎全用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;td align="left">幾乎不用&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;p>The survey data, &lt;code>data&lt;/code>, contains 22 variables and 267 observations (subjects). I only need these variables below to create the plot I want:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gender&lt;/code>: The gender of the subject&lt;/li>
+&lt;li>&lt;code>age&lt;/code>: The age of the subject&lt;/li>
+&lt;li>&lt;code>m_guard_identity&lt;/code>: Male guardian of the subject, should be ‘father’ in most cases&lt;/li>
+&lt;li>&lt;code>f_guard_identity&lt;/code>: Female guardian of the subject, should be ‘mother’ in most cases&lt;/li>
+&lt;li>&lt;code>&amp;lt;lang&amp;gt;_speak&lt;/code>: The subject’s fluency of a language. &lt;code>&amp;lt;lang&amp;gt;&lt;/code> is one of ‘Mand’ (Mandarin), ‘Tw’ (Taiwanese), ‘Hak’ (&lt;a href="https://en.wikipedia.org/wiki/Hakka_Chinese">Hakka&lt;/a>), ‘Ind’ (languages of the indigenous peoples, aka &lt;a href="https://en.wikipedia.org/wiki/Formosan_languages">Formosan languages&lt;/a>, belong to Austronesian languages), ‘SEA’ (languages from South Easth Asia), and ‘Eng’ (English)&lt;/li>
+&lt;li>&lt;code>dad_&amp;lt;lang&amp;gt;_speak&lt;/code>: The subject’s male guardian’s fluency of a language. &lt;code>&amp;lt;lang&amp;gt;&lt;/code> is same as above.&lt;/li>
+&lt;li>&lt;code>mom_&amp;lt;lang&amp;gt;_speak&lt;/code>: The subject’s female guardian’s fluency of a language. &lt;code>&amp;lt;lang&amp;gt;&lt;/code> is same as above.&lt;/li>
+&lt;/ul>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">library&lt;/span>(dplyr)
+lang &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;Mand&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Tw&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Hak&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Ind&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;SEA&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Eng&amp;#39;&lt;/span>)
+cols &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;gender&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;age&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;m_guard_identity&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;f_guard_identity&amp;#39;&lt;/span>,
+&lt;span class="kw">paste0&lt;/span>(lang, &lt;span class="st">&amp;#39;_speak&amp;#39;&lt;/span>),
+&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;#39;dad_&amp;#39;&lt;/span>, lang, &lt;span class="st">&amp;#39;_speak&amp;#39;&lt;/span>),
+&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;#39;mom_&amp;#39;&lt;/span>, lang, &lt;span class="st">&amp;#39;_speak&amp;#39;&lt;/span>)
+)
+data &amp;lt;-&lt;span class="st"> &lt;/span>data[, cols] &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;男&amp;#39;&lt;/span> &lt;span class="op">|&lt;/span>&lt;span class="st"> &lt;/span>gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;女&amp;#39;&lt;/span>)&lt;/code>&lt;/pre>
+&lt;p>Since some content of the survey data is in Chinese, the code below is used to translate it to English:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">ch2eng &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(x) {
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;男&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Male&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;女&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Female&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;母親&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Mother&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;父親&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Father&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;無&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;None&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;(外)祖父&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Grandpa&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;(外)祖母&amp;#39;&lt;/span>) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Grandma&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">%in%&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;阿姨&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;嬸嬸&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;舅媽&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;姑姑&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;伯母&amp;#39;&lt;/span>)) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Aunt&amp;#39;&lt;/span>)
+&lt;span class="cf">if&lt;/span> (x &lt;span class="op">%in%&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;叔叔&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;伯伯&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;舅舅&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;姑丈&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;姨丈&amp;#39;&lt;/span>)) &lt;span class="kw">return&lt;/span>(&lt;span class="st">&amp;#39;Uncle&amp;#39;&lt;/span>)
+&lt;span class="kw">message&lt;/span>(&lt;span class="st">&amp;#39;No translation found for `&amp;#39;&lt;/span>, x, &lt;span class="st">&amp;#39;`&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;&lt;/span>&lt;span class="ch">\n&lt;/span>&lt;span class="st">&amp;#39;&lt;/span>)
+&lt;span class="kw">return&lt;/span>(x)
+}
+ch2eng_vec &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(vec) {
+new_vec &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">vector&lt;/span>(&lt;span class="kw">typeof&lt;/span>(vec), &lt;span class="kw">length&lt;/span>(vec))
+&lt;span class="cf">for&lt;/span> (i &lt;span class="cf">in&lt;/span> &lt;span class="kw">seq_along&lt;/span>(vec)) {
+new_vec[[i]] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">ch2eng&lt;/span>(vec[[i]])
+}
+&lt;span class="kw">return&lt;/span>(new_vec)
+}
+data &amp;lt;-&lt;span class="st"> &lt;/span>data &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">mutate&lt;/span>(&lt;span class="dt">gender =&lt;/span> &lt;span class="kw">ch2eng_vec&lt;/span>(gender),
+&lt;span class="dt">m_guard_identity =&lt;/span> &lt;span class="kw">ch2eng_vec&lt;/span>(m_guard_identity),
+&lt;span class="dt">f_guard_identity =&lt;/span> &lt;span class="kw">ch2eng_vec&lt;/span>(f_guard_identity))
+&lt;span class="kw">head&lt;/span>(data)&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">gender&lt;/th>
+&lt;th align="right">age&lt;/th>
+&lt;th align="left">m_guard_identity&lt;/th>
+&lt;th align="left">f_guard_identity&lt;/th>
+&lt;th align="right">Mand_speak&lt;/th>
+&lt;th align="right">Tw_speak&lt;/th>
+&lt;th align="right">Hak_speak&lt;/th>
+&lt;th align="right">Ind_speak&lt;/th>
+&lt;th align="right">SEA_speak&lt;/th>
+&lt;th align="right">Eng_speak&lt;/th>
+&lt;th align="right">dad_Mand_speak&lt;/th>
+&lt;th align="right">dad_Tw_speak&lt;/th>
+&lt;th align="right">dad_Hak_speak&lt;/th>
+&lt;th align="right">dad_Ind_speak&lt;/th>
+&lt;th align="right">dad_SEA_speak&lt;/th>
+&lt;th align="right">dad_Eng_speak&lt;/th>
+&lt;th align="right">mom_Mand_speak&lt;/th>
+&lt;th align="right">mom_Tw_speak&lt;/th>
+&lt;th align="right">mom_Hak_speak&lt;/th>
+&lt;th align="right">mom_Ind_speak&lt;/th>
+&lt;th align="right">mom_SEA_speak&lt;/th>
+&lt;th align="right">mom_Eng_speak&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">57&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">37&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">2&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">3&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">44&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Male&lt;/td>
+&lt;td align="right">62&lt;/td>
+&lt;td align="left">None&lt;/td>
+&lt;td align="left">None&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Father&lt;/td>
+&lt;td align="left">Mother&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">1&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;td align="right">0&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div id="defining-ethnicity" class="section level4">
+&lt;h4>Defining Ethnicity&lt;/h4>
+&lt;p>You might notice that there is no variable in the data which explicitly indicates the ethnicity of the subject. To serve the purpose of this survey – visualizing the vitality of languages in a community, ethnicity is defined solely by the linguistics competence of a subject’s guardians.
+To give a specific example, let &lt;code>subject A&lt;/code> has a mother who &lt;strong>can speak&lt;/strong>&lt;a href="#fn2" class="footnote-ref" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a> Mandarin and Taiwanese and a father who speaks Mandarin and Hakka, then &lt;code>subject A&lt;/code> is categorized as a Mandarin, a Taiwanese, and a Hakka simultaneously.&lt;/p>
+&lt;p>The function &lt;code>filter_ethnic()&lt;/code> is used to filter out subjects with specified ‘ethnicity’. This function is useful for drawing age-sex pyramid for each of the six languages.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">filter_ethnic &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(df, lang, &lt;span class="dt">lev =&lt;/span> &lt;span class="dv">3&lt;/span>) {
+sp_lang &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">vector&lt;/span>(&lt;span class="st">&amp;quot;character&amp;quot;&lt;/span>, &lt;span class="dv">3&lt;/span>)
+sp_lang[&lt;span class="dv">1&lt;/span>] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;quot;dad_&amp;quot;&lt;/span>, lang, &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)
+sp_lang[&lt;span class="dv">2&lt;/span>] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">paste0&lt;/span>(&lt;span class="st">&amp;quot;mom_&amp;quot;&lt;/span>, lang, &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)
+sp_lang[&lt;span class="dv">3&lt;/span>] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">paste0&lt;/span>(lang, &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)
+df2 &amp;lt;-&lt;span class="st"> &lt;/span>df &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(m_guard_identity &lt;span class="op">!=&lt;/span>&lt;span class="st"> &amp;#39;None&amp;#39;&lt;/span> &lt;span class="op">|&lt;/span>&lt;span class="st"> &lt;/span>f_guard_identity &lt;span class="op">!=&lt;/span>&lt;span class="st"> &amp;#39;None&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(.data[[sp_lang[&lt;span class="dv">1&lt;/span>]]] &lt;span class="op">&amp;gt;=&lt;/span>&lt;span class="st"> &lt;/span>lev &lt;span class="op">|&lt;/span>&lt;span class="st"> &lt;/span>.data[[sp_lang[&lt;span class="dv">2&lt;/span>]]] &lt;span class="op">&amp;gt;=&lt;/span>&lt;span class="st"> &lt;/span>lev) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">select&lt;/span>(age, gender, sp_lang)
+&lt;span class="kw">return&lt;/span>(df2)
+}&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div id="assinging-age-group-to-subjects" class="section level3">
+&lt;h3>Assinging Age Group to Subjects&lt;/h3>
+&lt;p>Remember that the data structure needed for plotting age-sex pyramids requires &lt;strong>age group to be the basic unit&lt;/strong>. &lt;code>data&lt;/code> now consisits of single subjects, and we need information to group subjects together according to their ages. &lt;code>mutate_age_group()&lt;/code> creates a new variable &lt;code>age_group&lt;/code> by the subject’s age.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">mutate_age_group &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(df, &lt;span class="dt">range =&lt;/span> &lt;span class="dv">5&lt;/span>){
+df&lt;span class="op">$&lt;/span>age_group &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">as.character&lt;/span>(
+&lt;span class="kw">cut&lt;/span>(df&lt;span class="op">$&lt;/span>age, &lt;span class="dt">right =&lt;/span> F, &lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">seq&lt;/span>(&lt;span class="dv">10&lt;/span>, &lt;span class="dv">95&lt;/span>, &lt;span class="dt">by =&lt;/span> range))
+)
+&lt;span class="kw">return&lt;/span>(df)
+}&lt;/code>&lt;/pre>
+&lt;p>&lt;code>cut()&lt;/code> takes a numeric vector as its first input, and codes the values of the vector into new values according to the interval they fall into. In &lt;code>mutate_age_group()&lt;/code>, &lt;code>cut()&lt;/code> codes the input vectors according to the intervals specified in the argument &lt;code>breaks&lt;/code>.&lt;/p>
+&lt;p>Now we can use these functions to add more information to the data frame. The idea is to first create a separated data frame for each ethnicity&lt;a href="#fn3" class="footnote-ref" id="fnref3">&lt;sup>3&lt;/sup>&lt;/a> (by &lt;code>filter_ethnic()&lt;/code>), then attact new variables to the data frame that indicate a subject’s ethnicity (&lt;code>ethn_group&lt;/code>) and age group (&lt;code>age_group&lt;/code>).&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">lang &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;#39;Mand&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Tw&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Hak&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Ind&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;SEA&amp;#39;&lt;/span>, &lt;span class="st">&amp;#39;Eng&amp;#39;&lt;/span>)
+lev &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">c&lt;/span>(&lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">3&lt;/span>, &lt;span class="dv">0&lt;/span>)
+ethn_list_df &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">vector&lt;/span>(&lt;span class="st">&amp;quot;list&amp;quot;&lt;/span>, &lt;span class="kw">length&lt;/span>(lang))
+&lt;span class="cf">for&lt;/span> (i &lt;span class="cf">in&lt;/span> &lt;span class="kw">seq_along&lt;/span>(lang)){
+ethn_list_df[[i]] &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">filter_ethnic&lt;/span>(data,
+&lt;span class="dt">lang =&lt;/span> lang[i],
+&lt;span class="dt">lev =&lt;/span> lev[i]) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">mutate&lt;/span>(&lt;span class="dt">ethn_group =&lt;/span> lang[i]) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">mutate_age_group&lt;/span>() &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">select&lt;/span>(age, gender, age_group, ethn_group,
+&lt;span class="kw">paste0&lt;/span>(lang[i], &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>)) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">rename&lt;/span>(&lt;span class="dt">lang_fluency =&lt;/span> &lt;span class="kw">paste0&lt;/span>(lang[i], &lt;span class="st">&amp;quot;_speak&amp;quot;&lt;/span>))
+}&lt;/code>&lt;/pre>
+&lt;p>Then we can recombine these data frames back to a single one, and this new data frame now has information about a subject’s ethinicity and age group he/she belongs to. (Note that the new data frame is &lt;strong>expended&lt;/strong> since one subject can have several ethnicity, i.e. one subject can appear in different rows of the data frame with different ethnicity.)&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">bind_rows&lt;/span>(ethn_list_df) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>&lt;span class="kw">head&lt;/span>()&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="right">age&lt;/th>
+&lt;th align="left">gender&lt;/th>
+&lt;th align="left">age_group&lt;/th>
+&lt;th align="left">ethn_group&lt;/th>
+&lt;th align="right">lang_fluency&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[55,60)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">4&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="right">57&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[55,60)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="right">37&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="left">[35,40)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="right">44&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[40,45)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="right">56&lt;/td>
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">[55,60)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="right">53&lt;/td>
+&lt;td align="left">Male&lt;/td>
+&lt;td align="left">[50,55)&lt;/td>
+&lt;td align="left">Mand&lt;/td>
+&lt;td align="right">5&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;div id="data-for-plotting" class="section level3">
+&lt;h3>Data for Plotting&lt;/h3>
+&lt;p>Finally, we are ready to group the subjects together according to his/her &lt;code>gender&lt;/code>, &lt;code>ethnicity&lt;/code>, and &lt;code>age_group&lt;/code>. After grouping, we can use &lt;code>dplyr::summarise()&lt;/code> to calculate each group’s fluency of the language, which will be used as the variable on the horizontal axis of the age-sex pyramid.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">pl_data &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">bind_rows&lt;/span>(ethn_list_df) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">group_by&lt;/span>(gender, ethn_group, age_group) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">summarise&lt;/span>(&lt;span class="kw">mean&lt;/span>(lang_fluency)) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">rename&lt;/span>(&lt;span class="dt">avg_fluency =&lt;/span> &lt;span class="st">`&lt;/span>&lt;span class="dt">mean(lang_fluency)&lt;/span>&lt;span class="st">`&lt;/span>)
+&lt;span class="kw">head&lt;/span>(pl_data)&lt;/code>&lt;/pre>
+&lt;div class="kable-table">
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="left">gender&lt;/th>
+&lt;th align="left">ethn_group&lt;/th>
+&lt;th align="left">age_group&lt;/th>
+&lt;th align="right">avg_fluency&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[15,20)&lt;/td>
+&lt;td align="right">1.750&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[20,25)&lt;/td>
+&lt;td align="right">2.950&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[25,30)&lt;/td>
+&lt;td align="right">2.600&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[30,35)&lt;/td>
+&lt;td align="right">3.000&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[35,40)&lt;/td>
+&lt;td align="right">1.750&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="left">Female&lt;/td>
+&lt;td align="left">Eng&lt;/td>
+&lt;td align="left">[40,45)&lt;/td>
+&lt;td align="right">2.125&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;div id="plotting-function" class="section level3">
+&lt;h3>Plotting Function&lt;/h3>
+&lt;p>We are going to draw 6 age-sex pyramids, one for each languages. So instead of writing &lt;code>ggplot()&lt;/code> six times, I wrote a plotting function:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">&lt;span class="kw">library&lt;/span>(ggplot2)
+pl_pyramid &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(data, &lt;span class="dt">title =&lt;/span> &lt;span class="ot">NULL&lt;/span>) {
+&lt;span class="kw">ggplot&lt;/span>(data,
+&lt;span class="kw">aes&lt;/span>(&lt;span class="dt">x =&lt;/span> age_group,
+&lt;span class="dt">y =&lt;/span> &lt;span class="kw">ifelse&lt;/span>(gender &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Male&amp;#39;&lt;/span>, avg_fluency, &lt;span class="op">-&lt;/span>avg_fluency),
+&lt;span class="dt">fill =&lt;/span> gender)) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">geom_bar&lt;/span>(&lt;span class="dt">stat =&lt;/span> &lt;span class="st">&amp;quot;identity&amp;quot;&lt;/span>, &lt;span class="dt">width =&lt;/span> &lt;span class="fl">0.7&lt;/span>) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">scale_y_continuous&lt;/span>(&lt;span class="dt">limits =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">5&lt;/span>, &lt;span class="dv">5&lt;/span>),
+&lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">seq&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">5&lt;/span>, &lt;span class="dv">5&lt;/span>, &lt;span class="dv">1&lt;/span>),
+&lt;span class="dt">labels =&lt;/span> &lt;span class="kw">abs&lt;/span>(&lt;span class="kw">seq&lt;/span>(&lt;span class="op">-&lt;/span>&lt;span class="dv">5&lt;/span>, &lt;span class="dv">5&lt;/span>, &lt;span class="dv">1&lt;/span>))) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">coord_flip&lt;/span>() &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">scale_fill_manual&lt;/span>(&lt;span class="dt">values =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;quot;#E41A1C&amp;quot;&lt;/span>, &lt;span class="st">&amp;quot;#377EB8&amp;quot;&lt;/span>),
+&lt;span class="dt">breaks =&lt;/span> &lt;span class="kw">c&lt;/span>(&lt;span class="st">&amp;quot;Female&amp;quot;&lt;/span>, &lt;span class="st">&amp;quot;Male&amp;quot;&lt;/span>)) &lt;span class="op">+&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">labs&lt;/span>(&lt;span class="dt">x =&lt;/span> &lt;span class="st">&amp;quot;Age&amp;quot;&lt;/span>, &lt;span class="dt">y =&lt;/span> &lt;span class="st">&amp;quot;Fluency&amp;quot;&lt;/span>, &lt;span class="dt">fill =&lt;/span> &lt;span class="st">&amp;quot;&amp;quot;&lt;/span>, &lt;span class="dt">title =&lt;/span> title)
+}&lt;/code>&lt;/pre>
+&lt;p>Now we can start plotting. Let’s try &lt;code>Mand&lt;/code> (Mandarin) and &lt;code>Hak&lt;/code> (Hakka) first. We can use &lt;code>dplyr::filter()&lt;/code> to filter out people speaking these languages:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">tweak &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">theme_bw&lt;/span>() &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">theme&lt;/span>(&lt;span class="dt">axis.text =&lt;/span> &lt;span class="kw">element_text&lt;/span>(&lt;span class="dt">size =&lt;/span> &lt;span class="dv">15&lt;/span>),
+&lt;span class="dt">legend.justification =&lt;/span> &lt;span class="st">&amp;quot;right&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.position =&lt;/span> &lt;span class="st">&amp;quot;bottom&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.box =&lt;/span> &lt;span class="st">&amp;quot;vertical&amp;quot;&lt;/span>)
+pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Mand&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Mandarin&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak
+pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Ind&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Formosan Languages&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-12-1.svg" width="49%" />&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-12-2.svg" width="49%" />&lt;/p>
+&lt;p>Wait! It seems quite strange. The age-sex pyramid of ‘Formosan Languages’ doesn’t look like a pyramid at all!
+This is because there were very few subjects defined as ‘indigenous people’ in the survey. To make plots like this (with only one or two age groups) comparable to others (such as that in ‘Mandarin’), we need one more function to &lt;strong>insert missing age groups&lt;/strong> to the data frame so that ggplot can draw empty bars for us.&lt;/p>
+&lt;p>First, we need to find out &lt;strong>all age groups in the data&lt;/strong>:&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">age_groups &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">unique&lt;/span>(pl_data&lt;span class="op">$&lt;/span>age_group)
+age_groups&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight"> [1] &amp;quot;[15,20)&amp;quot; &amp;quot;[20,25)&amp;quot; &amp;quot;[25,30)&amp;quot; &amp;quot;[30,35)&amp;quot; &amp;quot;[35,40)&amp;quot; &amp;quot;[40,45)&amp;quot; &amp;quot;[45,50)&amp;quot;
+[8] &amp;quot;[50,55)&amp;quot; &amp;quot;[55,60)&amp;quot; &amp;quot;[60,65)&amp;quot; &amp;quot;[65,70)&amp;quot;&lt;/code>&lt;/pre>
+&lt;p>Then we can write a function &lt;code>fill_empty_age_group()&lt;/code>, which takes a data frame as its first argument and checks whether there are age groups missing in the data frame (using its second argument, &lt;code>age_group_all&lt;/code>, as comparison). If the age group is missing, &lt;code>fill_empty_age_group()&lt;/code> appends a new row, which has &lt;code>age_group&lt;/code> set to the missing age group and &lt;code>avg_fluency&lt;/code> set to &lt;code>0&lt;/code> (create an empty bar), to the input data frame.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">fill_empty_age_group &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="cf">function&lt;/span>(df, age_group_all) {
+&lt;span class="cf">for&lt;/span> (i &lt;span class="cf">in&lt;/span> &lt;span class="kw">seq_along&lt;/span>(age_group_all)) {
+&lt;span class="cf">if&lt;/span> (&lt;span class="op">!&lt;/span>(age_group_all[i] &lt;span class="op">%in%&lt;/span>&lt;span class="st"> &lt;/span>df&lt;span class="op">$&lt;/span>age_group)) {
+df &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">rbind&lt;/span>(df, &lt;span class="kw">list&lt;/span>(&lt;span class="dt">gender =&lt;/span> &lt;span class="st">&amp;quot;Female&amp;quot;&lt;/span>,
+&lt;span class="dt">ethn_group =&lt;/span> &lt;span class="st">&amp;quot;doesnt_matter&amp;quot;&lt;/span>,
+&lt;span class="dt">age_group =&lt;/span> age_group_all[i],
+&lt;span class="dt">avg_fluency =&lt;/span> &lt;span class="dv">0&lt;/span>))
+}
+}
+&lt;span class="kw">return&lt;/span>(df)
+}&lt;/code>&lt;/pre>
+&lt;p>Now we’re ready to explore language loss in Taiwan. &lt;code>multiplot()&lt;/code> is used to put multiple plots together. The source code of &lt;code>multiplot()&lt;/code> is copied directly from Winston Chang’s &lt;a href="http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)">Cookbook for R&lt;/a>.&lt;/p>
+&lt;pre class="language-r">&lt;code class="language-r">tweak2 &amp;lt;-&lt;span class="st"> &lt;/span>&lt;span class="kw">theme_bw&lt;/span>() &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">theme&lt;/span>(&lt;span class="dt">legend.justification =&lt;/span> &lt;span class="st">&amp;quot;right&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.position =&lt;/span> &lt;span class="st">&amp;quot;bottom&amp;quot;&lt;/span>,
+&lt;span class="dt">legend.box =&lt;/span> &lt;span class="st">&amp;quot;vertical&amp;quot;&lt;/span>)
+py1 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Mand&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>&lt;span class="st"> &lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Mandarin&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py2 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Tw&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Taiwanese&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py3 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Hak&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Hakka&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py4 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Ind&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Formosan Languages&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py5 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;SEA&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;Languages of South East Asia&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+py6 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">filter&lt;/span>(ethn_group &lt;span class="op">==&lt;/span>&lt;span class="st"> &amp;#39;Eng&amp;#39;&lt;/span>) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">fill_empty_age_group&lt;/span>(age_groups) &lt;span class="op">%&amp;gt;%&lt;/span>
+&lt;span class="st"> &lt;/span>&lt;span class="kw">pl_pyramid&lt;/span>(&lt;span class="dt">title =&lt;/span> &lt;span class="st">&amp;#39;English&amp;#39;&lt;/span>) &lt;span class="op">+&lt;/span>&lt;span class="st"> &lt;/span>tweak2
+&lt;span class="kw">multiplot&lt;/span>(py1, py2, py3, py4, py5, py6, &lt;span class="dt">cols =&lt;/span> &lt;span class="dv">2&lt;/span>)&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/visualize-language-loss/unnamed-chunk-16-1.svg" width="100%" />&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;div id="language-loss-in-taiwan" class="section level2">
+&lt;h2>Language Loss in Taiwan&lt;/h2>
+&lt;p>As described in &lt;a href="#age-sex-pyramid-of-language">Age-Sex Pyramid of Language&lt;/a> above, we can learn about a language’s vitality in Taiwan from the age-sex pyramids drawn above.&lt;/p>
+&lt;p>For Formosan and South East Asian languages, there are too few data, and we can’t learn much about these languages from the plots. For Mandarin, the shape of the pyramid is rectangular, indicating the linguistic competence of Mandarin is stable across people of all ages. This is expected as Mandarin, in Taiwan, is the most prevalent language, and most people use it as the primary language in workplace and home.&lt;/p>
+&lt;p>Pyramids of Taiwanese and Hakka have inverted trianglular shapes, indicating lower linguistic competence among yonger people. Indeed, it’s not uncommmon to see the fathers and mothers talk to their children in Mandarin but talk to their parents in Taiwanese. Taiwanese is the second prevalent language in Taiwan, but it is shrinking, particularly among young people. Hakka ranks third in prevalence. It faces similar situation to Taiwanese but the situation is even worse, since the usage of Hakka is mostly restricted to Hakka people whereas usage of Taiwanese is not restricted to particular groups of people (many indigenous and Hakka peoples speak fluent Taiwanese).&lt;/p>
+&lt;p>English has a special status in Taiwan. It is not a native tongue to people born and raised in Taiwan, but many people know at least a little English. This is because formal education and the (awareness of) globalization lead parents to place importance on English education of their children. This also gives the age-sex pyramid of English its appearance – a triangular shape with wider bottom than top. English is the only language that is growing in Taiwan and, arguably, the language with the strongest vitality. &lt;a href="#tab:tw-pyramids">Table 1&lt;/a> summarizes the discussion above.&lt;/p>
+&lt;table>
+&lt;caption>&lt;span id="tab:tw-pyramids">Table 1: &lt;/span> Situations of the four most prevalent languages in Taiwan.&lt;/caption>
+&lt;thead>
+&lt;tr class="header">
+&lt;th>&lt;strong>Vitality of Language&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Shape of Pyramid&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Examples (Taiwan)&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td>Shrinking and Dying&lt;/td>
+&lt;td>Inverted Triangle&lt;/td>
+&lt;td>Taiwanese, Hakka&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td>Growing&lt;/td>
+&lt;td>Triangle&lt;/td>
+&lt;td>English&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td>Stable&lt;/td>
+&lt;td>Rectangular Bar&lt;/td>
+&lt;td>Mandarin&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>The samples are not representative though, and it might only reflect the situation in Taipei (see the geographical distribution of the samples below). But I think there are still reasons to believe that other locations in Taiwan have similar phenomena.&lt;/p>
+&lt;p>&lt;img src="https://twlangsurvey.github.io/out_graph/sample_spatial_distr.gif" title="fig:" alt="geo-distribution of samples" style="width: 43%;display:block; margin-left:auto;margin-right:auto" />&lt;a href="#fnref1" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>Defined by scoring 3 or above in a self-reported 6-point scale measuring the fluency of a language spoken by the subject’s parents.&lt;a href="#fnref2" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn3">&lt;p>For English, different from all other languages, the level used to determine ethnicity is &lt;code>0&lt;/code>, i.e. there is no filtering occuring, and all subjects are used. This is because, in Taiwan (and many other non-English speaking communities as well), English is not related to ethnicity and is strongly related to formal education and job requirements.&lt;a href="#fnref3" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2019-04-03
+&lt;/p></description><category>Linguistics</category><category>visualization</category><category>Web Page</category><category>Travis-CI</category><category>R</category><category>R-bloggers</category></item><item><title>Easy Linguistics Document Writing with R Markdown</title><link>https://yongfu.name/2018/09/09/linguistics-down/</link><pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/09/linguistics-down/</guid><description>
+&lt;p>I’ve written &lt;a href="https://liao961120.github.io/2018/09/06/ipa-symbols.html">a post&lt;/a> about rendering IPA symbols properly regardless of the output format of the R Markdown document. I implemented the ideas into an R package, &lt;strong>linguisticsdown&lt;/strong>. &lt;/p>
+&lt;p>&lt;strong>linguisticsdown&lt;/strong> provides a Shiny interface to facilitate inserting IPA symbols in R Markdown. See a quick demo of the current feature of &lt;strong>linguisticsdown&lt;/strong> in the gif at the end of the post.&lt;/p>
+&lt;p>A &lt;a href="https://liao961120.shinyapps.io/IPA-Easily-Written/">live demo&lt;/a> is hosted on shinyapps.io. For more details, visit &lt;a href="https://liao961120.github.io/linguisticsdown/">&lt;strong>linguisticsdown&lt;/strong>&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://liao961120.github.io/linguisticsdown/man/figs/features.gif" />&lt;/p>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2019-03-07
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>R-bloggers</category></item><item><title>Rendering IPA Symbols in R Markdown</title><link>https://yongfu.name/2018/09/06/ipa-symbols/</link><pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/06/ipa-symbols/</guid><description>
+&lt;p>I was thinking about promoting reproducible research in Linguistics, or more precisely, how to attract people with no programming skills to have incentives to learn at least a bit programming, so that they have the ability to make their research more reproducible. &lt;/p>
+&lt;p>I arrived at the solution: start by adopting R Markdown to write articles (see &lt;a href="#obstacles-to-adopting-a-reproducible-workflow">the last section&lt;/a> for details), but making R Markdown more friendly to novices in a particular field of academia is crucial to enhance their incentives to learn programming.&lt;/p>
+&lt;div id="tasks-specific-to-linguistics" class="section level2">
+&lt;h2>Tasks Specific to Linguistics&lt;/h2>
+&lt;p>I came out with some common tasks related to document writing in Linguistics (I will thank you if you tell me other tasks I missed):&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Typing IPA symbols.&lt;/li>
+&lt;li>Drawing syntax trees.&lt;/li>
+&lt;/ol>
+&lt;p>To enhance R Markdown’s ability to do these tasks without compromising one of it’s great feature: render nicely to both HTML and PDF with the same source, one needs to consider the incompatiblity of LaTeX and HTML code.&lt;/p>
+&lt;p>Solving the first problem (IPA symbol) is easy, draing syntax trees is hard and I haven’t have a solution yet&lt;a href="#fn1" class="footnote-ref" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>.&lt;/p>
+&lt;/div>
+&lt;div id="typing-ipa-symbols" class="section level2">
+&lt;h2>Typing IPA Symbols&lt;/h2>
+&lt;p>There are two problems to be solved in order to facilitate using IPA symbols in R Markdown:&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Input method&lt;/li>
+&lt;li>Font support (only related to PDF output)&lt;/li>
+&lt;/ol>
+&lt;p>The first one is essentially about mapping some combination of keys to unicode strings. This post demenstates how to solve the second, which is more fundamental.&lt;/p>
+&lt;p>After doing a little research, I came out with a quick solution which stems from the combination of &lt;a href="http://www.languagebits.com/phonetics-english/ipa-symbols-in-r/">IPA Symbols in R&lt;/a>, &lt;a href="https://tex.stackexchange.com/questions/25249/how-do-i-use-a-particular-font-for-a-small-section-of-text-in-my-document">How do I use a particular font for a small section of text in my document?&lt;/a>, and &lt;a href="https://github.com/rstudio/bookdown/issues/168">Conditional compilation of book chunks to ensure compatibility with both HTML and XeLaTeX&lt;/a>.&lt;/p>
+&lt;p>The solution is very simple: define a new font family that supports IPA symbols in LaTeX and use conditional compilation to render the document: when compiled to HTML, use raw unicode string; when compiled to PDF, wrap LaTeX code around IPA unicode strings.&lt;/p>
+&lt;p>To define a new font family for IPA symbols, set &lt;code>header.tex&lt;/code> and include it by setting the yaml header of R Markdown document:&lt;/p>
+&lt;pre class="yaml">&lt;code>output:
+bookdown::pdf_document2:
+includes:
+in_header: header.tex&lt;/code>&lt;/pre>
+&lt;p>Here’s &lt;code>header.tex&lt;/code>:&lt;/p>
+&lt;pre class="latex">&lt;code>% Set font size
+\usepackage[fontsize=12pt]{scrextend}
+% Set font family
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setmainfont{Calibri}
+\setCJKmainfont[
+BoldFont={HanWangHeiHeavy}
+]{HanWangHeiLight}
+% IPA font
+\newfontfamily\ipa{Doulos SIL}
+\DeclareTextFontCommand{\ipatext}{\ipa}&lt;/code>&lt;/pre>
+&lt;p>The font, &lt;a href="https://software.sil.org/doulos/">Doulos SIL&lt;/a>, which supports IPA symbols can be freely dowloaded.&lt;/p>
+&lt;p>The code chunk below is for conditional compilation:&lt;/p>
+&lt;pre>&lt;code class="r">ipa &amp;lt;- c('e\u026A', 'a\u026A', '\u0254\u026A')
+if (knitr::opts_knit$get('rmarkdown.pandoc.to') == &amp;quot;latex&amp;quot;) {
+ipa &amp;lt;- paste0(&amp;quot;\\ipatext{&amp;quot;, ipa, &amp;quot;}&amp;quot;)
+}&lt;/code>&lt;/pre>
+&lt;p>The IPA symbols are set in the variable &lt;code>ipa&lt;/code> and can be access inline in R Markdown with, e.g., &lt;code>r ipa&lt;/code> or &lt;code>r ipa[3]&lt;/code>, which renders to &lt;strong>eɪ, aɪ, ɔɪ&lt;/strong> and &lt;strong>ɔɪ&lt;/strong>, respectively.&lt;/p>
+&lt;p>The source of this post is in my &lt;a href="https://github.com/liao961120/blog/tree/master/post_source/ipa-symbols">GitHub repo&lt;/a>. You can reproduce it locally to see the differnce between HTML and PDF output of this post.&lt;/p>
+&lt;/div>
+&lt;div id="obstacles-to-adopting-a-reproducible-workflow" class="section level2">
+&lt;h2>Obstacles to Adopting a Reproducible Workflow&lt;/h2>
+&lt;p>&lt;em>Skip this section if you’re tired of stuff about reproducibility and R Markdown.&lt;/em>&lt;/p>
+&lt;p>Reproducible research not only enhance scientific progress but also saves researchers a great deal of time, by automating repetitive and error-prone tasks in research. So if there are good reasons to adopt a reproducible workflow in research, saving time (in the long run) might be a good one.&lt;/p>
+&lt;p>Programming skill is fundamental to automating repetitive tasks, which saves one’s time. However, learning programming to save time makes no sense to many people, since it is terrifying, hard, and time consumming&lt;a href="#fn2" class="footnote-ref" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a>. So the problem now becomes:&lt;/p>
+&lt;blockquote>
+&lt;p>How to reinforce the incentive to learn programming?&lt;/p>
+&lt;/blockquote>
+&lt;p>Again, by showing people how to save time, but this time, programming skill is not required.&lt;/p>
+&lt;p>I think R Markdown is a very promising starting point, since writing is necessary for researcheres, and one can use RStudio without any knowledge of R. When becoming familiar with R Markdown, one begins to adopt a reproducible workflow and might notice the capability of R language, hence gaining more incentive to learn R.&lt;/p>
+&lt;p>Many people in academia uses Microsoft Word to write articles and papers. However, R Markdown has several advantages over MS Word:&lt;/p>
+&lt;ul>
+&lt;li>Easy to inserting images and tables in documents.&lt;/li>
+&lt;li>Values of variables (e.g. values in tables or &lt;em>p&lt;/em>-values) are automatically updated when raw data changes.&lt;/li>
+&lt;li>Easy citation using citation keys (&lt;a href="https://www.zotero.org/">Zotero&lt;/a> + &lt;a href="https://github.com/retorquere/zotero-better-bibtex">Better BibTeX&lt;/a> greatly facilitates this).&lt;/li>
+&lt;li>Mutiple output format, e.g. LaTeX, PDF, Web Page, Book, etc.&lt;/li>
+&lt;li>&lt;a href="https://github.com/rstudio/rticles">Template support&lt;/a> for Journel articles, such as Elsevier, Sage, Springer, so no formatting is needed.&lt;/li>
+&lt;/ul>
+&lt;p>But I think all benefits about R Markdown mentioned above aren’t enough to persuade people into giving up MS Word, since people are conservative in adoping new things.&lt;/p>
+&lt;p>If using R Markdown (or R) has benefits specific to the field related to the researcher, it greatly enhances the chance of adopting R Markdown. Hence, if I want to persuade people to use R Markdown, I can first build R packages that enhances the ability of R Markdown in that field.&lt;/p>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>There are LaTeX packages supporting drawing syntax tree, but LaTeX package is not compatible with HTML output.&lt;a href="#fnref1" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>I actually stared and gave up learning programming languages three times (C++, C, and then Python) before I successfully learned R.&lt;a href="#fnref2" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2019-03-07
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>LaTeX</category><category>R-bloggers</category></item></channel></rss>

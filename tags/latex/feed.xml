@@ -1,1 +1,80 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on Yongfu's Blog</title><link>https://yongfu.name/tags/latex/</link><description>Recent content in LaTeX on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 06 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/latex/feed.xml" rel="self" type="application/rss+xml"/><item><title>Rendering IPA Symbols in R Markdown</title><link>https://yongfu.name/2018/09/06/ipa-symbols/</link><pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/06/ipa-symbols/</guid><description>I was thinking about promoting reproducible research in Linguistics, or more precisely, how to attract people with no programming skills to have incentives to learn at least a bit programming, so that they have the ability to make their research more reproducible. I arrived at the solution: start by adopting R Markdown to write articles (see the last section for details), but making R Markdown more friendly to novices in a particular field of academia is crucial to enhance their incentives to learn programming.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on Yongfu's Blog</title><link>https://yongfu.name/tags/latex/</link><description>Recent content in LaTeX on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 06 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/latex/feed.xml" rel="self" type="application/rss+xml"/><item><title>Rendering IPA Symbols in R Markdown</title><link>https://yongfu.name/2018/09/06/ipa-symbols/</link><pubDate>Thu, 06 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/06/ipa-symbols/</guid><description>
+&lt;p>I was thinking about promoting reproducible research in Linguistics, or more precisely, how to attract people with no programming skills to have incentives to learn at least a bit programming, so that they have the ability to make their research more reproducible. &lt;/p>
+&lt;p>I arrived at the solution: start by adopting R Markdown to write articles (see &lt;a href="#obstacles-to-adopting-a-reproducible-workflow">the last section&lt;/a> for details), but making R Markdown more friendly to novices in a particular field of academia is crucial to enhance their incentives to learn programming.&lt;/p>
+&lt;div id="tasks-specific-to-linguistics" class="section level2">
+&lt;h2>Tasks Specific to Linguistics&lt;/h2>
+&lt;p>I came out with some common tasks related to document writing in Linguistics (I will thank you if you tell me other tasks I missed):&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Typing IPA symbols.&lt;/li>
+&lt;li>Drawing syntax trees.&lt;/li>
+&lt;/ol>
+&lt;p>To enhance R Markdown’s ability to do these tasks without compromising one of it’s great feature: render nicely to both HTML and PDF with the same source, one needs to consider the incompatiblity of LaTeX and HTML code.&lt;/p>
+&lt;p>Solving the first problem (IPA symbol) is easy, draing syntax trees is hard and I haven’t have a solution yet&lt;a href="#fn1" class="footnote-ref" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>.&lt;/p>
+&lt;/div>
+&lt;div id="typing-ipa-symbols" class="section level2">
+&lt;h2>Typing IPA Symbols&lt;/h2>
+&lt;p>There are two problems to be solved in order to facilitate using IPA symbols in R Markdown:&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>Input method&lt;/li>
+&lt;li>Font support (only related to PDF output)&lt;/li>
+&lt;/ol>
+&lt;p>The first one is essentially about mapping some combination of keys to unicode strings. This post demenstates how to solve the second, which is more fundamental.&lt;/p>
+&lt;p>After doing a little research, I came out with a quick solution which stems from the combination of &lt;a href="http://www.languagebits.com/phonetics-english/ipa-symbols-in-r/">IPA Symbols in R&lt;/a>, &lt;a href="https://tex.stackexchange.com/questions/25249/how-do-i-use-a-particular-font-for-a-small-section-of-text-in-my-document">How do I use a particular font for a small section of text in my document?&lt;/a>, and &lt;a href="https://github.com/rstudio/bookdown/issues/168">Conditional compilation of book chunks to ensure compatibility with both HTML and XeLaTeX&lt;/a>.&lt;/p>
+&lt;p>The solution is very simple: define a new font family that supports IPA symbols in LaTeX and use conditional compilation to render the document: when compiled to HTML, use raw unicode string; when compiled to PDF, wrap LaTeX code around IPA unicode strings.&lt;/p>
+&lt;p>To define a new font family for IPA symbols, set &lt;code>header.tex&lt;/code> and include it by setting the yaml header of R Markdown document:&lt;/p>
+&lt;pre class="yaml">&lt;code>output:
+bookdown::pdf_document2:
+includes:
+in_header: header.tex&lt;/code>&lt;/pre>
+&lt;p>Here’s &lt;code>header.tex&lt;/code>:&lt;/p>
+&lt;pre class="latex">&lt;code>% Set font size
+\usepackage[fontsize=12pt]{scrextend}
+% Set font family
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setmainfont{Calibri}
+\setCJKmainfont[
+BoldFont={HanWangHeiHeavy}
+]{HanWangHeiLight}
+% IPA font
+\newfontfamily\ipa{Doulos SIL}
+\DeclareTextFontCommand{\ipatext}{\ipa}&lt;/code>&lt;/pre>
+&lt;p>The font, &lt;a href="https://software.sil.org/doulos/">Doulos SIL&lt;/a>, which supports IPA symbols can be freely dowloaded.&lt;/p>
+&lt;p>The code chunk below is for conditional compilation:&lt;/p>
+&lt;pre>&lt;code class="r">ipa &amp;lt;- c('e\u026A', 'a\u026A', '\u0254\u026A')
+if (knitr::opts_knit$get('rmarkdown.pandoc.to') == &amp;quot;latex&amp;quot;) {
+ipa &amp;lt;- paste0(&amp;quot;\\ipatext{&amp;quot;, ipa, &amp;quot;}&amp;quot;)
+}&lt;/code>&lt;/pre>
+&lt;p>The IPA symbols are set in the variable &lt;code>ipa&lt;/code> and can be access inline in R Markdown with, e.g., &lt;code>r ipa&lt;/code> or &lt;code>r ipa[3]&lt;/code>, which renders to &lt;strong>eɪ, aɪ, ɔɪ&lt;/strong> and &lt;strong>ɔɪ&lt;/strong>, respectively.&lt;/p>
+&lt;p>The source of this post is in my &lt;a href="https://github.com/liao961120/blog/tree/master/post_source/ipa-symbols">GitHub repo&lt;/a>. You can reproduce it locally to see the differnce between HTML and PDF output of this post.&lt;/p>
+&lt;/div>
+&lt;div id="obstacles-to-adopting-a-reproducible-workflow" class="section level2">
+&lt;h2>Obstacles to Adopting a Reproducible Workflow&lt;/h2>
+&lt;p>&lt;em>Skip this section if you’re tired of stuff about reproducibility and R Markdown.&lt;/em>&lt;/p>
+&lt;p>Reproducible research not only enhance scientific progress but also saves researchers a great deal of time, by automating repetitive and error-prone tasks in research. So if there are good reasons to adopt a reproducible workflow in research, saving time (in the long run) might be a good one.&lt;/p>
+&lt;p>Programming skill is fundamental to automating repetitive tasks, which saves one’s time. However, learning programming to save time makes no sense to many people, since it is terrifying, hard, and time consumming&lt;a href="#fn2" class="footnote-ref" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a>. So the problem now becomes:&lt;/p>
+&lt;blockquote>
+&lt;p>How to reinforce the incentive to learn programming?&lt;/p>
+&lt;/blockquote>
+&lt;p>Again, by showing people how to save time, but this time, programming skill is not required.&lt;/p>
+&lt;p>I think R Markdown is a very promising starting point, since writing is necessary for researcheres, and one can use RStudio without any knowledge of R. When becoming familiar with R Markdown, one begins to adopt a reproducible workflow and might notice the capability of R language, hence gaining more incentive to learn R.&lt;/p>
+&lt;p>Many people in academia uses Microsoft Word to write articles and papers. However, R Markdown has several advantages over MS Word:&lt;/p>
+&lt;ul>
+&lt;li>Easy to inserting images and tables in documents.&lt;/li>
+&lt;li>Values of variables (e.g. values in tables or &lt;em>p&lt;/em>-values) are automatically updated when raw data changes.&lt;/li>
+&lt;li>Easy citation using citation keys (&lt;a href="https://www.zotero.org/">Zotero&lt;/a> + &lt;a href="https://github.com/retorquere/zotero-better-bibtex">Better BibTeX&lt;/a> greatly facilitates this).&lt;/li>
+&lt;li>Mutiple output format, e.g. LaTeX, PDF, Web Page, Book, etc.&lt;/li>
+&lt;li>&lt;a href="https://github.com/rstudio/rticles">Template support&lt;/a> for Journel articles, such as Elsevier, Sage, Springer, so no formatting is needed.&lt;/li>
+&lt;/ul>
+&lt;p>But I think all benefits about R Markdown mentioned above aren’t enough to persuade people into giving up MS Word, since people are conservative in adoping new things.&lt;/p>
+&lt;p>If using R Markdown (or R) has benefits specific to the field related to the researcher, it greatly enhances the chance of adopting R Markdown. Hence, if I want to persuade people to use R Markdown, I can first build R packages that enhances the ability of R Markdown in that field.&lt;/p>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>There are LaTeX packages supporting drawing syntax tree, but LaTeX package is not compatible with HTML output.&lt;a href="#fnref1" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>I actually stared and gave up learning programming languages three times (C++, C, and then Python) before I successfully learned R.&lt;a href="#fnref2" class="footnote-back">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2019-03-07
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>LaTeX</category><category>R-bloggers</category></item></channel></rss>

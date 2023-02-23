@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jupyter Notebook on Yongfu's Blog</title><link>https://yongfu.name/tags/jupyter-notebook/</link><description>Recent content in Jupyter Notebook on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 11 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/jupyter-notebook/feed.xml" rel="self" type="application/rss+xml"/><item><title>將 Jupyter Notebook 整理成一本書</title><link>https://yongfu.name/2019/05/11/jupyter-book/</link><pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/05/11/jupyter-book/</guid><description>從學期初修 Python1 就一直在吃老本，直到最近學到物件導向2才開始認真思索寫筆記這件事。就寫筆記而言，我最熟悉的工具3當然是 R Markdown，而 RStudio 目前對 Python 也有不錯的支援。但我平常把 JupyterLab 當成 Python 的 IDE 在使用，自然比較習慣這個環境，因此就決定使用 Jupyter Notebook 來寫筆記。我第一個想到的問題就是：R Markdown 的世界裡有 bookdown 將多個 .Rmd 變成一本書 (網頁)，但 Jupyter Notebook 似乎沒有這麼方便的工具4。我錯了。好概念傳播的很快，受到 bookdown 的啟發，Jupyter 的世界裡也出現了一套類似的工具 &amp;mdash; Jupyter Book。
-What is Jupyter Book? 其實 Jupyter Book 的概念非常簡單：
-將 Jupyter Notebook (.ipynb) 轉換成 markdown (.md) 使用 Jekyll (靜態網頁產生器) 生成網頁 但它真正厲害的地方在於它的靜態網頁模板 (範例)：
-版面風格與 Jupyter Notebook 類似 網頁模板添加許多功能 .ipynb 下載連結 binder 連結 直接執行程式碼 (by Thebe Lab) Jupyter Book 的 Jekyll 模板 Jupyter Book 提供了相當清楚易懂的說明文件。唯一需要注意的是，Jupyter Book 必須使用 Jekyll 才能在個人電腦上預覽網頁，而安裝 Jekyll 是非常麻煩的事 (尤其在 Windows 上)。為解決這麻煩，Jupyter Book 很細心的提供了以 docker 使用 Jekyll 的方式，減少安裝 Jekyll 的麻煩 (但學習使用 docker 又是另一個麻煩事)。如果對於 Jekyll 運作了然於心，其實可以不用在個人電腦上安裝 Jekyll 預覽網頁，直接將生成的檔案丟到 GitHub 上讓 GitHub Pages 生成網頁。</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jupyter Notebook on Yongfu's Blog</title><link>https://yongfu.name/tags/jupyter-notebook/</link><description>Recent content in Jupyter Notebook on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 11 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/jupyter-notebook/feed.xml" rel="self" type="application/rss+xml"/><item><title>將 Jupyter Notebook 整理成一本書</title><link>https://yongfu.name/2019/05/11/jupyter-book/</link><pubDate>Sat, 11 May 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/05/11/jupyter-book/</guid><description>&lt;p>從學期初修 Python&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 就一直在吃老本，直到最近學到物件導向&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>才開始認真思索寫筆記這件事。就寫筆記而言，我最熟悉的工具&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>當然是 R Markdown，而 RStudio 目前&lt;a href="https://rstudio.github.io/reticulate">對 Python 也有不錯的支援&lt;/a>。但我平常把 &lt;a href="https://github.com/jupyterlab/jupyterlab">JupyterLab&lt;/a> 當成 Python 的 IDE 在使用，自然比較習慣這個環境，因此就決定使用 Jupyter Notebook 來寫筆記。我第一個想到的問題就是：R Markdown 的世界裡有 &lt;a href="https://bookdown.org/yihui/bookdown">bookdown&lt;/a> 將多個 &lt;code>.Rmd&lt;/code> 變成一本書 (網頁)，但 Jupyter Notebook 似乎沒有這麼方便的工具&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>。&lt;strong>我錯了&lt;/strong>。好概念傳播的很快，受到 bookdown 的啟發，Jupyter 的世界裡也出現了一套類似的工具 &amp;mdash; &lt;a href="https://jupyter.org/jupyter-book/intro.html">Jupyter Book&lt;/a>。&lt;/p>
+&lt;h2 id="what-is-jupyter-book">What is Jupyter Book?&lt;/h2>
+&lt;p>其實 Jupyter Book 的概念非常簡單：&lt;/p>
+&lt;ol>
+&lt;li>將 Jupyter Notebook (&lt;code>.ipynb&lt;/code>) 轉換成 markdown (&lt;code>.md&lt;/code>)&lt;/li>
+&lt;li>使用 Jekyll (靜態網頁產生器) 生成網頁&lt;/li>
+&lt;/ol>
+&lt;p>但它真正厲害的地方在於它的靜態網頁模板 (&lt;a href="https://jupyter.org/jupyter-book/features/hiding.html">範例&lt;/a>)：&lt;/p>
+&lt;ol>
+&lt;li>版面風格與 Jupyter Notebook 類似&lt;/li>
+&lt;li>網頁模板添加許多功能
+&lt;ul>
+&lt;li>&lt;code>.ipynb&lt;/code> 下載連結&lt;/li>
+&lt;li>&lt;a href="https://mybinder.org">binder&lt;/a> 連結&lt;/li>
+&lt;li>直接執行程式碼 (by &lt;a href="https://minrk.github.io/thebelab">Thebe Lab&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="jupyter-book-的-jekyll-模板">Jupyter Book 的 Jekyll 模板&lt;/h2>
+&lt;p>Jupyter Book 提供了相當清楚易懂的&lt;a href="https://jupyter.org/jupyter-book/intro.html">說明文件&lt;/a>。唯一需要注意的是，Jupyter Book 必須使用 Jekyll 才能在個人電腦上預覽網頁，而安裝 Jekyll 是非常麻煩的事 (尤其在 Windows 上)。為解決這麻煩，Jupyter Book 很細心的提供了&lt;a href="https://jupyter.org/jupyter-book/guide/03_build.html#build-the-books-site-html-locally">以 docker 使用 Jekyll 的方式&lt;/a>，減少安裝 Jekyll 的麻煩 (但學習使用 docker 又是另一個麻煩事)。如果對於 Jekyll 運作了然於心，其實可以不用在個人電腦上安裝 Jekyll 預覽網頁，直接將生成的檔案丟到 GitHub 上讓 GitHub Pages 生成網頁。&lt;/p>
+&lt;p>但對多數人最頭痛的應該是 Jekyll 模板的結構，這邊提供快速上手的說明 (換言之，在不懂 Jekyll 下使用 Jupyter Book 的模板)。&lt;/p>
+&lt;h2 id="使用-jupter-book">使用 Jupter Book&lt;/h2>
+&lt;ol>
+&lt;li>安裝&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pip install jupyter-book
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>匯入模板&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>jupyter-book create mybookname
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>這個指令會匯入 Jupyter Book 的 Jekyll 模板 (簡化)：
+```
+mybookname/
+├── _config.yml
+├── content
+│ ├── images
+│ │ └── logo
+│ │ └── favicon.ico
+│ └── notebook.ipynb
+└── _data
+└── toc.yml
+```
+在這模板裡面，
+- **`content/`**
+存放 Jupyter Notebook 的地方，可依照自己喜好使用任意檔案結構 (e.g. `content/01/` 裡面放多個 notebook，如 `content/01/intro.ipynb`, `content/01/hello-world.ipynb`；或是直接將 notebook 丟在 `content/` 之下)。
+- **`_data/toc.yml`**
+`content/` 中的檔案結構可有很大彈性，因為網頁的目錄 (左欄) 連結是在 `_data/toc.yml` 中**手動設定**的。例如，要將 `content/01/intro.ipynb` 生成之網頁的連結放在目錄上 ，得在 `_data/toc.yml` 設定：
+```yaml
+- title: Introduction
+url: /01/intro
+not_numbered: false
+expand_sections: false
+```
+- **`_config.yml`**
+這裡是設定 Jekyll 網頁的一些資訊，例如網站名稱和作者等。特別需要注意的是 `baseurl` 和 `url` 這兩個項目。如果你的網頁是透過 GitHub Pages 產生的 (假設這份 Jekyll 模板上傳到 GitHub 的 `mybookname` repo)，那 baseurl 就會是 `/mybookname`：
+&lt;/code>&lt;/pre>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">baseurl&lt;/span>: &lt;span style="color:#ae81ff">/mybookname&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">url&lt;/span>: &lt;span style="color:#ae81ff">https://&amp;lt;user&amp;gt;.github.io&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>輸出 (不需 Jekyll)：將 Working directory 設成 &lt;code>mybookname/&lt;/code>，執行下方指令&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python scripts/clean.py &lt;span style="color:#75715e"># 清理之前產生的檔案&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>jupyter-book build ./ &lt;span style="color:#75715e"># 從 `contents/` 產生 Jekyll 能處理的檔案&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
+&lt;li>上傳至 GitHub (記得到 Repo 的 Settings 裡設定，讓 GitHub Pages 使用 master branch 生成網頁)&lt;/li>
+&lt;/ol>
+&lt;p>這樣就大功告成了！&lt;/p>
+&lt;h3 id="my-python-note">My Python Note&lt;/h3>
+&lt;p>&lt;a href="https://github.com/liao961120/pynote">liao961120/pynote&lt;/a> 是我透過 Jupyter Book 設置的 &lt;a href="https://github.com/liao961120/pynote">Python 筆記&lt;/a>，與上面介紹不同的是，我使用的是 &lt;a href="https://www.netlify.com">netlify&lt;/a> 而非 GitHub Pages；另外，我也透過 Travis-CI &lt;a href="https://github.com/liao961120/pynote/blob/master/.travis.yml">幫我執行 &lt;code>python scripts/clean.py&lt;/code> 與 &lt;code>jupyter-book build ./&lt;/code>&lt;/a>，所以就不用在每次修改筆記後，還得在電腦上跑這些指令。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>本來沒預計要修，沒想到選上了又加上學分不足，想趁這個機會逼自己熟悉一下 Python。&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>去年七月的時候，開始栽入 R 套件開發的世界。這讓我比較深入的接觸 R 語言，同時也讓我更深刻體驗到「(一段時間後) 看不懂自己程式碼」的感覺。一方面，我覺得 R 向量式的思維習慣，讓我在學 Python (不使用 numpy, pandas 等套件) 的過程中有點卡；另一方面，我過去一直不太能掌握的物件導向的概念，但最近&lt;a href="https://www.coursera.org/learn/pbc3/home/week/1">聽完課&lt;/a>後竟然有頓悟的感覺。我猜原因不是因為老師講得特別好，單純是因為&lt;strong>自己寫過太多 buggy 的程式&lt;/strong>，所以現在開始比較能體會 OOP 的思維方式如何減輕程式開發時的認知負擔。以前程式還寫得不夠多的時候，OOP 對我而言只是一堆生澀的術語和概念，反而造成學習上的困難。&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>我認為一個&lt;strong>好的筆記&lt;/strong>需要具備這些特徵：&lt;/p>
+&lt;ol>
+&lt;li>能長存 (i.e. 不會被資源回收掉、不小心殺掉或遺忘在電腦與雲端硬碟的某個資料夾裡)&lt;/li>
+&lt;li>方便瀏覽，包含能快速找到筆記的位置 (我放在哪裡) 以及特定內容 (OO 概念寫在哪裡？)&lt;/li>
+&lt;/ol>
+&lt;p>換言之，好的筆記意味著&lt;strong>好的檔案管理與搜尋方式&lt;/strong>。在這個時代下，(靜態) 網頁正是管理筆記的好工具：它能長存且方便瀏覽 (i.e. 能輕易的在頁面間切換、在頁面內搜尋文字，找到所需資訊)。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>當下的直覺想法是使用 &lt;a href="https://github.com/jupyter/nbconvert">nbconvert&lt;/a> 將 &lt;code>.ipynb&lt;/code> 轉換成 &lt;code>.md&lt;/code>，把這些 &lt;code>.md&lt;/code> 丟到一個網頁模板，再用靜態網頁產生器 (Jekyll 或 Hugo) 生成網頁。於是我開始這樣做，但試了一陣子之後就發現這些&lt;strong>網頁模板都太複雜了&lt;/strong>，光是要研究它們就要花上不少時間。另外，使用這些模板還有一個缺點 &amp;mdash; 人們喜歡熟悉的東西，換言之，常用 Jupyter Notebook 的人會習慣它的界面 (白、橘色)，但使用網頁模板會破壞這個習慣，讓使用者產生不適感。&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>Jupyter Notebook</category><category>notetaking</category><category>中文</category></item></channel></rss>

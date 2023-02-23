@@ -1,5 +1,112 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hardware on Yongfu's Blog</title><link>https://yongfu.name/tags/hardware/</link><description>Recent content in Hardware on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 02 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/hardware/feed.xml" rel="self" type="application/rss+xml"/><item><title>安裝 UEFI 開機功能之 Windows To Go</title><link>https://yongfu.name/2019/03/02/wintogo/</link><pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/02/wintogo/</guid><description>這學期修課 (地圖與地理資訊系統) 需要使用 ArcGIS。由於 ArcGIS 僅能運行於 Windows 上，加上
-我真的受不了 Virtualbox 跑 Windows 的速度 我不想在我的電腦 dual boot Windows 因此我用了 Windows To Go，將 Windows 10 安裝於外接硬碟，讓電腦可以透過外接硬碟直接運行 Windows10。
-因為我對電腦硬體沒什麼概念，安裝 Windows To Go 花了我一大堆時間。這個筆記主要參考 Macbook Air 2013 製作 UEFI 引導的 Windows To Go 和 將Windows 10打包至USB裝置帶著跑 這兩篇文章撰寫而成，這裡僅是快速記下我在 Windows 上使用 Diskpart 安裝 Windows To Go 至外接硬碟的過程，若有問題&amp;hellip;不要問我。
-順便在這裡呼籲老師們，站在教育者的立場，應該少使用閉源、不支援跨平台的軟體。當然，我理解每個領域有自己傳統、預設的系統，但世界正在改變，而且學生的就業也越來越廣泛，這些「傳統」的系統常常價格昂貴，不會是學生未來會使用到的軟體。
-事前準備 Windows 10 ISO 安裝檔 (我從學校的授權軟體下載) 一台已安裝 Windows 10 的電腦 一個外接硬碟 先將 ISO 檔複製到 Windows 10 的電腦上，按右鍵掛載。其會以 CD ROM 的形式出現在本機 (e.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hardware on Yongfu's Blog</title><link>https://yongfu.name/tags/hardware/</link><description>Recent content in Hardware on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 02 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/hardware/feed.xml" rel="self" type="application/rss+xml"/><item><title>安裝 UEFI 開機功能之 Windows To Go</title><link>https://yongfu.name/2019/03/02/wintogo/</link><pubDate>Sat, 02 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/02/wintogo/</guid><description>&lt;p>這學期修課 (地圖與地理資訊系統) 需要使用 &lt;a href="https://zh.wikipedia.org/wiki/ArcGIS">ArcGIS&lt;/a>。由於 ArcGIS 僅能運行於 Windows 上，加上&lt;/p>
+&lt;ol>
+&lt;li>我真的受不了 Virtualbox 跑 Windows 的速度&lt;/li>
+&lt;li>我不想在我的電腦 dual boot Windows&lt;/li>
+&lt;/ol>
+&lt;p>因此我用了 &lt;a href="https://zh.wikipedia.org/wiki/Windows_To_Go">Windows To Go&lt;/a>，將 Windows 10 安裝於外接硬碟，讓電腦可以透過外接硬碟直接運行 Windows10。&lt;/p>
+&lt;p>因為我對電腦硬體沒什麼概念，安裝 Windows To Go 花了我一大堆時間。這個筆記主要參考
+&lt;a href="https://www.mobile01.com/topicdetail.php?f=481&amp;amp;t=3598474">Macbook Air 2013 製作 UEFI 引導的 Windows To Go&lt;/a> 和 &lt;a href="https://www.kocpc.com.tw/archives/96445">將Windows 10打包至USB裝置帶著跑&lt;/a> 這兩篇文章撰寫而成，這裡僅是快速記下我在 Windows 上使用 &lt;a href="https://en.wikipedia.org/wiki/Diskpart">Diskpart&lt;/a> 安裝 Windows To Go 至外接硬碟的過程，若有問題&amp;hellip;不要問我。&lt;/p>
+&lt;p>順便在這裡呼籲老師們，站在教育者的立場，應該少使用閉源、不支援跨平台的軟體。當然，我理解每個領域有自己傳統、預設的系統，但世界正在改變，而且學生的就業也越來越廣泛，這些「傳統」的系統常常價格昂貴，不會是學生未來會使用到的軟體。&lt;/p>
+&lt;h2 id="事前準備">事前準備&lt;/h2>
+&lt;ol>
+&lt;li>Windows 10 ISO 安裝檔 (我從學校的授權軟體下載)&lt;/li>
+&lt;li>一台已安裝 Windows 10 的電腦&lt;/li>
+&lt;li>一個外接硬碟&lt;/li>
+&lt;/ol>
+&lt;p>先將 ISO 檔複製到 Windows 10 的電腦上，按右鍵掛載。其會以 CD ROM 的形式出現在本機 (e.g. &lt;code>V:&lt;/code> 槽)&lt;/p>
+&lt;h2 id="diskpart-建立磁區">Diskpart 建立磁區&lt;/h2>
+&lt;p>以系統管理員權限執行命令提示字元，依序執行以下指令：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>diskpart&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>list disk&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>select disk #&lt;/code>: &lt;code>#&lt;/code> 是數字，為要安裝 Windows To Go 的外接硬碟&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>clean&lt;/code>: 清除硬碟上所有 partition&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>convert GPT&lt;/code>: 使用 GPT partition table&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>create partition EFI size=300&lt;/code>: 建立 EFI 開機磁區 (300 MB)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>list partition&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>select partition #&lt;/code>: &lt;code>#&lt;/code> 是數字，選擇剛建立的 EFI 磁區&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>format quick fs=fat32&lt;/code>: 將 EFI 磁區格式化&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>assign letter=S&lt;/code>: 將 EFI 磁區掛載於 &lt;code>S&lt;/code> 槽&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>exit&lt;/code>: 離開 diskpart&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="使用-gui-建立磁區">使用 GUI 建立磁區&lt;/h2>
+&lt;p>理論上這邊也可以用 Diskpart 建立，但我沒 (興趣) 試過，所以依照我原來看到的教學寫下。&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>打開 &lt;code>電腦管理&lt;/code> (可用搜尋)，會出現下圖&lt;/p>
+&lt;p>
+&lt;img src="https://attach.mobile01.com/attach/201310/mobile01-e1a97e2bc92d451f77a9eca571e142a5.png" alt="">
+&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在左欄點選 &lt;code>磁碟管理&lt;/code>，即可在中間下方看到剛建立的 EFI 磁區以及未配置的磁碟空間&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>右鍵點選未配置空間 &amp;gt; &lt;code>新增簡單磁區&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>建立 NTFS 分割 (格式化)，可以自行決定要多大的空間 (我設 150 GB)。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>記下此新增的磁區掛在哪個槽 (e.g. &lt;code>E:&lt;/code>)&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="將-iso-檔安裝到外接硬碟">將 ISO 檔安裝到外接硬碟&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>回到命令提示字元，輸入：&lt;/p>
+&lt;p>&lt;code>dism /apply-image /imagefile:V:\sources\install.wim /index:1 /applydir:E:\&lt;/code>&lt;/p>
+&lt;p>其中，&lt;code>V&lt;/code> 是掛載之 Windows ISO 檔，&lt;code>E&lt;/code> 是剛劃分之 150 GB 外接硬碟中的磁區。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>在上述指令跑完後，使用&lt;/p>
+&lt;p>&lt;code>bcdboot E:\Windows /s S: /f UEFI&lt;/code>&lt;/p>
+&lt;p>將開機檔案從 Windows To Go 的磁區 (&lt;code>E:&lt;/code>) 複製到 EFI 磁區 (&lt;code>S:&lt;/code>) 中。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="在外接硬碟安裝-windows-to-go">在外接硬碟安裝 Windows To Go&lt;/h2>
+&lt;p>接下來，就可以拿著這個外接硬碟去開機了。找一台支援 UEFI 開機的電腦，開機前先將外接硬碟插入，開機時按快捷鍵進入開機選單，選擇以外接硬碟開機。若不想每次開機都要進入開機選單，可修改 Boot option priority (見下圖)，將此外接硬碟設為第一優先，電腦內建作業系統開機設為第二。如此，在每次開機時，若外接硬碟是插著的，那就會以 Windows To Go 開機；若未插入外接硬碟，則會進入電腦原本的作業系統。&lt;/p>
+&lt;p>
+&lt;img src="https://i0.wp.com/image.walker-a.com/2016/01/ros/ros-19.jpg" alt="">
+&lt;/p>
+&lt;p>第一次開機時，會跑出安裝 Windows 的畫面。安裝好之後，就完成了 Windows To Go 的設定。&lt;/p>
+&lt;h2 id="參考資料">參考資料&lt;/h2>
+&lt;p>上文中的兩張圖片分別取自 1. 和 2.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a href="https://www.mobile01.com/topicdetail.php?f=481&amp;amp;t=3598474">Macbook Air 2013 製作 UEFI 引導的 Windows To Go + Time Machine的外接硬碟&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.kocpc.com.tw/archives/96445">將 Windows 10打包至USB裝置帶著跑&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://blog.ilc.edu.tw/blog/index.php?op=printView&amp;amp;articleId=505798&amp;amp;blogId=25793">diskpart 硬碟分割指令&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.lifewire.com/efi-file-2620983">What Is an EFI File?&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol></description><category>Hardware</category><category>中文</category></item></channel></rss>

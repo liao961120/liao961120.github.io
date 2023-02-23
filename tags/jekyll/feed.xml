@@ -1,2 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jekyll on Yongfu's Blog</title><link>https://yongfu.name/tags/jekyll/</link><description>Recent content in Jekyll on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/jekyll/feed.xml" rel="self" type="application/rss+xml"/><item><title>Making Jekyll Blog Suitable for R-bloggers</title><link>https://yongfu.name/2018/08/02/rblogger-criteria/</link><pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/08/02/rblogger-criteria/</guid><description>
-&lt;p>According to the post &lt;a href="https://www.r-bloggers.com/add-your-blog/page/5/">add your blog&lt;/a>, adding one’s blog to &lt;a href="https://www.r-bloggers.com/">R-bloggers&lt;/a> isn’t easy at all, especially for people who use &lt;a href="https://rmarkdown.rstudio.com">R Markdown&lt;/a> to write posts and use &lt;a href="https://jekyllrb.com/">Jekyll&lt;/a> to generate static web page on GitHub.</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jekyll on Yongfu's Blog</title><link>https://yongfu.name/tags/jekyll/</link><description>Recent content in Jekyll on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 02 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/jekyll/feed.xml" rel="self" type="application/rss+xml"/><item><title>Making Jekyll Blog Suitable for R-bloggers</title><link>https://yongfu.name/2018/08/02/rblogger-criteria/</link><pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/08/02/rblogger-criteria/</guid><description>&lt;/p>
+&lt;p>Two reasons make it difficult:&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>&lt;blockquote>
+&lt;p>The &lt;strong>feed&lt;/strong> you submit &lt;strong>should ONLY be about R&lt;/strong> (e.g: with R code, or directly related to the R world/community).&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>This causes problem because most bloggers write posts spanning several topics, and some blogging platform doesn’t support RSS feed for a particular category of posts.&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>&lt;blockquote>
+&lt;p>Make sure the HTML of your feed’s content is well formatted – otherwise it would not be able to load on r-bloggers. This includes to NOT copy-pasting from RStudio’s notebook extension – the feed &lt;strong>should NOT include “base64” images&lt;/strong>, make sure your images are saved as png or similar file formats.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>For posts written with &lt;a href="https://rmarkdown.rstudio.com">R Markdown&lt;/a> and &lt;a href="https://rmarkdown.rstudio.com/html_fragment_format.html">HTML Fragment&lt;/a> output format, the embedded images generated from code chunks (such as outputs from &lt;code>plot()&lt;/code>) are &lt;strong>base64 images&lt;/strong>.&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ol>
+&lt;div id="fixing-the-first-problem" class="section level2">
+&lt;h2>Fixing the First Problem&lt;/h2>
+&lt;p>For &lt;strong>Jekyll&lt;/strong> sites using &lt;a href="https://github.com/jekyll/jekyll-feed">jekyll-feed&lt;/a> plugin to generate sitemaps, it is not possible to have RSS feed for a particular tag or category of posts. However there’s a workaround using &lt;strong>Jekyll&lt;/strong>’s &lt;a href="https://shopify.github.io/liquid/">Liquid syntax&lt;/a> to write an RSS template, as indicated by &lt;a href="https://devblog.dymel.pl/2017/02/09/category-rss-feed-in-jekyll/">this post&lt;/a>. I modified the template to make it suitable for the criteria set by R-bloggers, you can take a look at the file &lt;a href="https://github.com/liao961120/blog/blob/master/feed.rbloggers.xml">feed.rbloggers.xml&lt;/a>.&lt;/p>
+&lt;/div>
+&lt;div id="fixing-the-second-problem" class="section level2">
+&lt;h2>Fixing the Second Problem&lt;/h2>
+&lt;p>To fix the second problem, set &lt;code>self_contained: false&lt;/code> in the yaml header of the R Markdown document. With this setting, plots from code chunks are automatically generated in a figure directory, and the &lt;code>.html&lt;/code> output uses &lt;code>&amp;lt;img&amp;gt;&lt;/code> tags to source the plots in that figure directory.&lt;/p>
+&lt;pre class="yaml">&lt;code>---
+output:
+html_fragment:
+self_contained: false
+---&lt;/code>&lt;/pre>
+&lt;p>However, this creates a problem since the relative path in the &lt;code>&amp;lt;img&amp;gt;&lt;/code> tags probably won’t work in the remote directory that hosts your site. To overcome this problem, you have to &lt;strong>change the default figure directory&lt;/strong> and &lt;strong>post-process the output &lt;code>.html&lt;/code> file&lt;/strong>.&lt;/p>
+&lt;p>For example, the source of this post(&lt;code>rblogger-criteria.rmd&lt;/code>) is two layers under the root dir of the web site.&lt;/p>
+&lt;pre>&lt;code class="nohighlight">+---assets/
+| +---rblogger-criteria-img/
++---_includes/
++---_plugins/
++---_posts/
++---post_source/
+| +---rblogger-criteria/
+| | +---rblogger-criteria.rmd
+| | +---rblogger-criteria.html
++---index.html
++---_config.yml&lt;/code>&lt;/pre>
+&lt;p>I set my figure directory to &lt;code>assets/rblogger-criteria-img/&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="r">```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+fig.path = &amp;quot;../..https://img.yongfu.name/assets/rblogger-criteria-img/&amp;quot;
+)
+```&lt;/code>&lt;/pre>
+&lt;p>so when the site is rendered, the image would be in &lt;code>https://liao961120.github.io/assets/rblogger-criteria-img/&lt;/code>&lt;/p>
+&lt;p>The last thing to do is processing the output &lt;code>rblogger-criteria.html&lt;/code> and replacing &lt;code>&amp;lt;img src=&amp;quot;../../assets&lt;/code> with &lt;code>&amp;lt;img src=&amp;quot;/assets&lt;/code> in the &lt;code>&amp;lt;img&amp;gt;&lt;/code> tag. I do this with a simple bash script:&lt;/p>
+&lt;pre>&lt;code class="bash">sed &amp;quot;s#&amp;lt;img src=\&amp;quot;../../assets#&amp;lt;img src=\&amp;quot;/assets#g&amp;quot; rblogger-criteria.html &amp;gt; temp
+cat temp &amp;gt; rblogger-criteria.html&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div id="a-demo" class="section level2">
+&lt;h2>A Demo&lt;/h2>
+&lt;p>Below is a plot generated from an R Markdown code chunk, you can look at the path in &lt;code>&amp;lt;img&amp;gt;&lt;/code> tag with the developer’s tool or the &lt;a href="https://img.yongfu.name/assets/rblogger-criteria-img/iris-1.png">image source&lt;/a> to confirm the path of the image is just as mentioned above.&lt;/p>
+&lt;pre>&lt;code class="r">library(ggplot2)
+ggplot(iris, aes(Sepal.Length, Petal.Width)) +
+geom_point(aes(color = Species))&lt;/code>&lt;/pre>
+&lt;p>&lt;img src="https://img.yongfu.name/assets/rblogger-criteria-img/iris-1.png" width="100%" />&lt;/p>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+&lt;a href="https://www.r-bloggers.com/">Visit R-bloggers&lt;/a>&lt;br>
+Last updated: 2018-11-07
+&lt;/p></description><category>R-bloggers</category><category>Jekyll</category><category>R Markdown</category><category>Web Page</category></item></channel></rss>
