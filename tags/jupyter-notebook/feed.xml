@@ -23,11 +23,11 @@
 &lt;ol>
 &lt;li>安裝&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>pip install jupyter-book
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>pip install jupyter-book
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
 &lt;li>匯入模板&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>jupyter-book create mybookname
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>jupyter-book create mybookname
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>這個指令會匯入 Jupyter Book 的 Jekyll 模板 (簡化)：
 ```
 mybookname/
@@ -54,13 +54,13 @@ expand_sections: false
 - **`_config.yml`**
 這裡是設定 Jekyll 網頁的一些資訊，例如網站名稱和作者等。特別需要注意的是 `baseurl` 和 `url` 這兩個項目。如果你的網頁是透過 GitHub Pages 產生的 (假設這份 Jekyll 模板上傳到 GitHub 的 `mybookname` repo)，那 baseurl 就會是 `/mybookname`：
 &lt;/code>&lt;/pre>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">baseurl&lt;/span>: &lt;span style="color:#ae81ff">/mybookname&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">url&lt;/span>: &lt;span style="color:#ae81ff">https://&amp;lt;user&amp;gt;.github.io&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#f92672">baseurl&lt;/span>: &lt;span style="color:#ae81ff">/mybookname&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#f92672">url&lt;/span>: &lt;span style="color:#ae81ff">https://&amp;lt;user&amp;gt;.github.io&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
 &lt;li>輸出 (不需 Jekyll)：將 Working directory 設成 &lt;code>mybookname/&lt;/code>，執行下方指令&lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python scripts/clean.py &lt;span style="color:#75715e"># 清理之前產生的檔案&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>jupyter-book build ./ &lt;span style="color:#75715e"># 從 `contents/` 產生 Jekyll 能處理的檔案&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>python scripts/clean.py &lt;span style="color:#75715e"># 清理之前產生的檔案&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>jupyter-book build ./ &lt;span style="color:#75715e"># 從 `contents/` 產生 Jekyll 能處理的檔案&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="4">
 &lt;li>上傳至 GitHub (記得到 Repo 的 Settings 裡設定，讓 GitHub Pages 使用 master branch 生成網頁)&lt;/li>
 &lt;/ol>

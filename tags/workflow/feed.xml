@@ -55,20 +55,20 @@ from &lt;code>resources/&lt;/code>. The genius of this structure is that it elim
 of worrying about where to place newly arrived data, as commonly encountered in
 real-world situations (e.g., an analysis might require data that you did not
 foresee).&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>├── .gitignore
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── README.md
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── workflow
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├── rules
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| │ ├── module1.smk
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| │ └── module2.smk
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ ├── scripts
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| │ ├── script1.py
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| │ └── script2.R
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>| └── Snakefile
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── config
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│ └── config.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── results
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── resources
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>├── .gitignore
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>├── README.md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span>├── workflow
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4&lt;/span>&lt;span>│ ├── rules
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5&lt;/span>&lt;span>| │ ├── module1.smk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6&lt;/span>&lt;span>| │ └── module2.smk
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7&lt;/span>&lt;span>│ ├── scripts
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8&lt;/span>&lt;span>| │ ├── script1.py
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9&lt;/span>&lt;span>| │ └── script2.R
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10&lt;/span>&lt;span>| └── Snakefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11&lt;/span>&lt;span>├── config
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12&lt;/span>&lt;span>│ └── config.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13&lt;/span>&lt;span>├── results
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14&lt;/span>&lt;span>└── resources
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="an-enhanced-snakemake-workflow">An Enhanced Snakemake Workflow&lt;/h2>
 &lt;p>I adopted the workflow above in my work. It was great, but I still found &lt;strong>two
 annoying drawbacks&lt;/strong>.&lt;/p>
@@ -95,11 +95,11 @@ between the reference points of relative paths while writing the
 &lt;/ol>
 &lt;p>To deal with the aforementioned problems, I modified the recommended directory
 structure and arrived at the structure below:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>├── README.md
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── Snakefile
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── made
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── raw
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── src
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>├── README.md
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>├── Snakefile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>├── made
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>├── raw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>└── src
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
 &lt;li>
 &lt;p>&lt;strong>Simplified directory names&lt;/strong>&lt;/p>
@@ -130,10 +130,10 @@ out to be quite simple. Just put the code below at the top of the &lt;code>Snake
 and place the path to Git-Bash executable in &lt;code>shell.executable()&lt;/code>. This will
 allow the identical &lt;code>Snakefile&lt;/code> to be used on both Windows and Unix-like
 computers without additional configurations.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Additional setup for running with git-bash on Windows&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>name &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;nt&amp;#39;&lt;/span>:
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">from&lt;/span> snakemake.shell &lt;span style="color:#f92672">import&lt;/span> shell
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> shell&lt;span style="color:#f92672">.&lt;/span>executable(&lt;span style="color:#e6db74">r&lt;/span>&lt;span style="color:#e6db74">&amp;#39;C:\Users\rd\AppData\Local\Programs\Git\bin\bash.exe&amp;#39;&lt;/span>)
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Additional setup for running with git-bash on Windows&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>name &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;nt&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> &lt;span style="color:#f92672">from&lt;/span> snakemake.shell &lt;span style="color:#f92672">import&lt;/span> shell
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span> shell&lt;span style="color:#f92672">.&lt;/span>executable(&lt;span style="color:#e6db74">r&lt;/span>&lt;span style="color:#e6db74">&amp;#39;C:\Users\rd\AppData\Local\Programs\Git\bin\bash.exe&amp;#39;&lt;/span>)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
