@@ -338,7 +338,7 @@ body {
     font-family: 'EngCustom', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 code {
-    font-family: "Lucida Console", 'Andale Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace;
+    font-family: Monaco, Monego, "Cascadia Mono", "Cascadia Code", "Lucida Console", 'Andale Mono', 'STKaiti', 'KaiTi', 'SimKai', monospace;
 }
 pre code {
     font-family: monego, Monaco, Consolas, "Lucida Console", 'STKaiti', 'KaiTi', 'SimKai', monospace;
