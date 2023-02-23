@@ -46,10 +46,10 @@ p code, li code {
 
 .main article.post {
     width: 70%;
-    max-width: 83ch;
+    max-width: 75ch;
     margin: 0;
-    padding-left: 9%;
-    padding-right: 2%;
+    padding-left: 8%;
+    padding-right: 3%;
 }
 
 .main aside {
@@ -100,7 +100,6 @@ p code, li code {
 }
 .article_content figure > figcaption {
     text-align: center;
-    font-style: italic;
     padding-top: .4em;
 }
 
