@@ -2314,7 +2314,7 @@ display:none;
 &lt;h2 id="小結">小結&lt;/h2>
 &lt;p>我真的很慶幸能在大三時接觸到 R。以往我都把時間花在讀書上，也不知何時才能用得上。R 讓我發現了自己的嗜好&lt;sup id="fnref:20">&lt;a href="#fn:20" class="footnote-ref" role="doc-noteref">20&lt;/a>&lt;/sup>，也讓我體驗到&lt;strong>為了處理想解決的問題而學習&lt;/strong>的感覺。我也才慢慢體會到為了&lt;strong>興趣&lt;/strong>所學與為了&lt;strong>其它目的&lt;/strong> (競爭力、考試、學分、跟風？) 所學，能帶來的可觀差異。當然，興趣與其它目的並非不能同時存在，只是有時&lt;strong>專注在其它目的會抑制興趣&lt;/strong>，而最能讓學習持續的動力來源卻是興趣。&lt;/p>
 &lt;p>這篇文章的目的，旨在提供有志學 R 卻不確定如何開始的人作參考。文章介紹的學習資源 (或是任何嘮叨的內容)，不只是 (我認為) 有用的，且能強烈引起我的興趣。希望讀過這篇文章的人，不僅僅獲益於文章介紹的學習資源，且能為了興趣而學 R ─ 這是此篇文章最想傳達的想法。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -2431,7 +2431,7 @@ Age lx mx
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:center">Average survivorship&lt;!-- raw HTML omitted -->(age class)&lt;/td>
+&lt;td style="text-align:center">Average survivorship&lt;br>(age class)&lt;/td>
 &lt;td style="text-align:center">$L_x$&lt;/td>
 &lt;td style="text-align:center">&lt;code>$L_x = (l_x + l_{x+1})/2$&lt;/code>&lt;/td>
 &lt;/tr>
@@ -2541,12 +2541,12 @@ Age lx mx
 &lt;th style="text-align:center">$e_x$&lt;/th>
 &lt;th style="text-align:center">$R_0$&lt;/th>
 &lt;th style="text-align:center">$G$&lt;/th>
-&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$r$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;br>$r$&lt;/th>
 &lt;th style="text-align:center">$r$&lt;/th>
 &lt;th style="text-align:center">$V_x$&lt;/th>
 &lt;th style="text-align:center">$l_x m_x e^{-rx}$&lt;/th>
-&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$V_x$&lt;/th>
-&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$l_x m_x e^{-rx}$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;br>$V_x$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;br>$l_x m_x e^{-rx}$&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>

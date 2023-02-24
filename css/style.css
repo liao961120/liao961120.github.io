@@ -46,7 +46,7 @@ p code, li code {
 
 .main article.post {
     width: 70%;
-    max-width: 75ch;
+    max-width: 79ch;
     margin: 0;
     padding-left: 8%;
     padding-right: 3%;
@@ -91,16 +91,21 @@ p code, li code {
     line-height: 1.57;
 }
 
+.article_content figure {
+    margin: 0 0 2.2em 0;
+}
 .article_content figure, .article_content img {
     /* max-width: 100%; */
     width: 100%;
     display: block;
-    margin: 0;
     padding: 0;
 }
 .article_content figure > figcaption {
     text-align: center;
-    padding-top: .4em;
+    width: 90%;
+    font-size: 0.94em;
+    margin: 1em auto 0 auto;
+    padding: 0 auto;
 }
 
 blockquote {
@@ -326,7 +331,7 @@ body > .header>.site_nav>span a:hover {
 
 /* Special DOM elements */
 table {
-    display: block;
+    /* display: block; */
     border-collapse: collapse;
     width: 100%;
     /* margin: 1em auto; */
@@ -334,29 +339,33 @@ table {
 }
 table td, table th {
     border: 2px solid rgba(170, 170, 170, 0.274);
-    padding: 4px;
+    /* padding: 3px; */
     text-align: center;
 }
-/* table tr:nth-child(odd) {
+table tr:nth-child(even) {
     background-color: var(--landing-section-skin);
-} */
+}
 
 table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 2px;
+    padding-bottom: 2px;
     text-align: left;
     background-color: var(--header-background);
     color: white;
 }
-pre {
+.highlight pre {
     max-width: 100%;
     overflow-x: auto;
-    background: #F5F2F0;
-    padding: 0.3em 0.55em;
-    border-radius: 0.37em;
-}
-pre code {
+    padding: .7em .5em;
+    border-radius: 0.35em;
+    line-height: 1.45;
     font-size: 0.85em;
+}
+pre {
+    line-height: 1.22;
+    font-size: 0.85em;
+    padding-left: 1.5em;
+    color: rgb(33, 33, 33);
 }
 
 /* Footer */
@@ -427,6 +436,13 @@ footer .theme_info {
 footer .copyright {
     letter-spacing: .5px;
 }
+
+/* GOAT Diagram */
+.goat.svg-container > svg {
+    display: inline;
+    max-height: 185px;
+}
+
 
 /* Responsive design */
 

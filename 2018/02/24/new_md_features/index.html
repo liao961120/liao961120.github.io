@@ -22,7 +22,11 @@ Error Text.
 {:height=&ldquo;80px&rdquo; width=&ldquo;80px&rdquo;}
 {:.circle}</p><h4 id=code-1>Code</h4><pre tabindex=0><code class=language-kramdown data-lang=kramdown>![](path-to-image){:height=&#34;80px&#34; width=&#34;80px&#34;} 
 {:.circle}
-</code></pre><h2 id=mermaid>mermaid</h2><p><a href=https://github.com/knsv/mermaid>mermaid</a> is a script language for generating charts from simple text. Below is an example of drawing a flow chart using <strong>mermaid</strong>. <a href=https://mermaidjs.github.io>Documentation for Mermaid</a>{: target="_blank&rdquo;}.</p><h4 id=code-2>Code</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;mermaid&#34;</span>&gt;
+</code></pre><h2 id=mermaid>mermaid</h2><p><a href=https://github.com/knsv/mermaid>mermaid</a> is a script language for generating charts from simple text. Below is an example of drawing a flow chart using <strong>mermaid</strong>. <a href=https://mermaidjs.github.io>Documentation for Mermaid</a>{: target="_blank&rdquo;}.</p><div class=mermaid>graph TD;
+A(text)-->B(rounded);
+A-->C;
+B-->D;
+C-->D;</div><h4 id=code-2>Code</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>&lt;<span style=color:#f92672>div</span> <span style=color:#a6e22e>class</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;mermaid&#34;</span>&gt;
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>graph TD;
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>    A(text)--&gt;B(rounded);
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>    A--&gt;C;

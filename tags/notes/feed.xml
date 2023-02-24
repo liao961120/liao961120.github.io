@@ -50,7 +50,7 @@ Age lx mx
 &lt;td style="text-align:center">&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td style="text-align:center">Average survivorship&lt;!-- raw HTML omitted -->(age class)&lt;/td>
+&lt;td style="text-align:center">Average survivorship&lt;br>(age class)&lt;/td>
 &lt;td style="text-align:center">$L_x$&lt;/td>
 &lt;td style="text-align:center">&lt;code>$L_x = (l_x + l_{x+1})/2$&lt;/code>&lt;/td>
 &lt;/tr>
@@ -160,12 +160,12 @@ Age lx mx
 &lt;th style="text-align:center">$e_x$&lt;/th>
 &lt;th style="text-align:center">$R_0$&lt;/th>
 &lt;th style="text-align:center">$G$&lt;/th>
-&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$r$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;br>$r$&lt;/th>
 &lt;th style="text-align:center">$r$&lt;/th>
 &lt;th style="text-align:center">$V_x$&lt;/th>
 &lt;th style="text-align:center">$l_x m_x e^{-rx}$&lt;/th>
-&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$V_x$&lt;/th>
-&lt;th style="text-align:center">$Approximate$ &lt;!-- raw HTML omitted -->$l_x m_x e^{-rx}$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;br>$V_x$&lt;/th>
+&lt;th style="text-align:center">$Approximate$ &lt;br>$l_x m_x e^{-rx}$&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>

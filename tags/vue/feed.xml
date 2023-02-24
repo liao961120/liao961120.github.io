@@ -8,10 +8,13 @@ GitHub Pages is used to host my app (&lt;a href="https://github.com/liao961120/g
 &lt;li>&lt;strong>Google Drive&lt;/strong>&lt;br>
 Users are provided a GD folder to upload their Word documents&lt;/li>
 &lt;li>&lt;strong>Travis CI&lt;/strong>&lt;br>
-After uploading their Word documents to GD, users can &lt;a href="https://docs.travis-ci.com/user/triggering-builds">trigger a Travis CI build&lt;/a> by clicking &lt;!-- raw HTML omitted --> on the bottom-left corner of the &lt;a href="https://glosss.yongfu.name">app&lt;/a> (password needed). Under the hood, I encrypted my Travis CI&amp;rsquo;s API token so that when the user enters the correct password, a POST request (containing the decrypted token) is sent to Travis CI to trigger a build. During the build, the Word documents saved in Google Drive are download and processed into JSON format and then pushed back to a GitHub repo that hosts the data.&lt;/li>
+After uploading their Word documents to GD, users can &lt;a href="https://docs.travis-ci.com/user/triggering-builds">trigger a Travis CI build&lt;/a> by clicking &lt;img src="https://bit.ly/2X2r1aQ" style="display:inline;height:1em;width:auto;margin:0"> on the bottom-left corner of the &lt;a href="https://glosss.yongfu.name">app&lt;/a> (password needed). Under the hood, I encrypted my Travis CI&amp;rsquo;s API token so that when the user enters the correct password, a POST request (containing the decrypted token) is sent to Travis CI to trigger a build. During the build, the Word documents saved in Google Drive are download and processed into JSON format and then pushed back to a GitHub repo that hosts the data.&lt;/li>
 &lt;/ul>
 &lt;p>The figure below summarizes the flow of the app&amp;rsquo;s data:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;div class="figure">
+&lt;img src="https://img.yongfu.name/posts/gloss-search-webbased.png" style="width:100%">
+&lt;p class="caption">Figure 1: The numbers annotated to the arrows indicate the order of the execution. Processes with annotated text appended with &lt;img src="https://img.yongfu.name/icon/user.png" style="display:inline;height:1em;width:auto;margin:0"> indicate that they are triggered by the user. Other processes proceed automatically.&lt;/p>
+&lt;/div>
 &lt;h2 id="configuration-of-the-travis-build">Configuration of the Travis build&lt;/h2>
 &lt;p>Below is the partial configuration&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> of the Travis build that:&lt;/p>
 &lt;ol>
@@ -87,7 +90,7 @@ The encryption and decryption of the API token is done with &lt;a href="https://
 &lt;/ol>
 &lt;/div></description><category>Travis-CI</category><category>JavaScript</category><category>vue</category></item><item><title>Searching Interlinear Glosses Written in Word Documents</title><link>https://yongfu.name/2020/04/23/gloss-search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/04/23/gloss-search/</guid><description>&lt;p>I am taking the course &lt;a href="https://nol2.aca.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=142%20M0210&amp;amp;class=&amp;amp;dpt_code=1420&amp;amp;ser_no=10017&amp;amp;semester=108-2&amp;amp;lang=EN">Linguistic Fieldwork&lt;/a> this semester. Each week, we record and transcribe Budai Rukai, an Austronesian language spoken by &lt;a href="https://en.wikipedia.org/wiki/Rukai_people">Rukai people (魯凱族)&lt;/a>. The resulting data (interlinear glosses) are written in a Word document (&lt;code>.docx&lt;/code>) as required by the course instructor. Things get worse as the number of documents accumulates each week, since it becomes harder to locate specific linguistic patterns in the corpus of texts, as they are spread across multiple documents.&lt;/p>
 &lt;p>Inspired by &lt;a href="https://github.com/puerdon/corpus_processor">the work&lt;/a> of my labmate, &lt;a href="https://github.com/puerdon">Don&lt;/a>, I created a web app for searching interlinear glosses, which can search for and locate specific patterns in a collection of Word documents. This post describe the web app&amp;rsquo;s basic design and improvements to &lt;a href="https://github.com/puerdon/corpus_processor">&lt;code>puerdon/corpus_processor&lt;/code>&lt;/a>, the project this web app got inspiration and succeeded from. For instructions about using the app, visit &lt;a href="https://github.com/liao961120/gloss-search">&lt;code>liao961120/gloss-search&lt;/code>&lt;/a> (&lt;a href="https://github.com/liao961120/gloss-search/blob/master/README-en.md">English&lt;/a>) for more details.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/gif/gloss-search.gif" style="width:100%">
 &lt;h2 id="basic-design">Basic Design&lt;/h2>
 &lt;p>The app&amp;rsquo;s frontend was built with &lt;a href="https://vuejs.org">Vue.js&lt;/a>, and the backend was written in &lt;a href="https://python.org">Python 3&lt;/a>. The frontend was designed to ease the search and locating of certain patterns in the Word documents and is the only interface the users need to interact with. The backend is used to (1) parse the glosses written in Word documents into Python objects (dictionaries) and (2) perform the search on these Python objects based on the requests sent from the frontend.&lt;/p>
 &lt;h2 id="backend">Backend&lt;/h2>
@@ -104,7 +107,7 @@ The encryption and decryption of the API token is done with &lt;a href="https://
 #n [Notes]
 [EMPTY LINE]
 &lt;/code>&lt;/pre>&lt;p>Below is an illustration of what it &amp;rsquo;looks&amp;rsquo; like in a Word document of interlinear glosses:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/posts/gloss-example.png" style="width:75%">
 &lt;p>When you press &lt;code>Enter&lt;/code> on the keyboard while editing a Word document, you SEEM to be creating a &lt;strong>line break&lt;/strong>, but, in fact, you are creating a &lt;strong>new paragraph&lt;/strong>. To create a line break without breaking the current paragraph, &lt;code>Shift + Enter&lt;/code> instead of &lt;code>Enter&lt;/code> should be pressed. This is an example of the user behaviors I needed to normalize before I can sucessfully parse the Word documents.&lt;/p>
 &lt;p>To do this in Python, I extract all the paragraphs in a Word document using the module &lt;a href="https://python-docx.readthedocs.io/en/latest">&lt;code>python-docx&lt;/code>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> and concatenate them with newline characters (&lt;code>\n&lt;/code>) into a large string. Then, I split the string by &lt;code>\n&lt;/code> into a list of lines, from which the starting and ending positions (the positions where &lt;code>[gloss num].&lt;/code> is found in the list) of each elicitation could be located by simple pattern matching:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>&lt;span style="color:#f92672">from&lt;/span> docx &lt;span style="color:#f92672">import&lt;/span> Document
@@ -188,7 +191,7 @@ OBL kid _ noble
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25&lt;/span>&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="frontend">Frontend&lt;/h2>
 &lt;p>The construction of the frontend was relatively easy, given that the most challenging part was already done in &lt;a href="https://yongfu.name/2020/02/22/leipzigVue.html">my (dead) project on building a web app for interlinear glossing&lt;/a>. In brief, the component &lt;a href="https://github.com/liao961120/gloss-search-frontend/blob/master/src/components/Leipzig.vue">&lt;code>Leipzig.vue&lt;/code>&lt;/a> is used to construct the aligned glosses (see figure below) from the data sent from backend (i.e., the python dictionary in the previous section, converted to JSON format).&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/posts/leipzig.js.png" style="width: 70%; float: center;">
 &lt;p>Another relatively challenging part (to me) is implementing the highlighting function, which highlights the matching patterns in the glosses (as in the words with yellow background in the figure above). It was implemented by creating a &lt;a href="https://vuejs.org/v2/guide/computed.html">computed property&lt;/a> that wraps the parts of the data matching the search pattern into HTML &lt;code>&amp;lt;span class=&amp;quot;matchedtoken&amp;quot;&amp;gt;&lt;/code> tags. I can then use CSS to decorate these tags.&lt;/p>
 &lt;p>The remaining parts of the fontend are about communicating with the server, which are relatively easy to set up. I actually just copy-and-pasted the code from my previous &lt;a href="https://github.com/liao961120/kwic/blob/master/src/components/kwic.vue">KWIC concordancer project&lt;/a>.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
@@ -203,7 +206,7 @@ OBL kid _ noble
 &lt;p>我本來並沒有太大的雄心壯志，就只想快速弄出個程式界面方便我查找 concordance，想說使用 &lt;a href="https://www.nltk.org/book/ch01.html#searching-text">NLTK concordance&lt;/a> 應該很快就可以弄出我想的東西。但 NLTK concordance 只能使用 word form (或 pattern) 去搜尋 concordance，我的需求卻是要能&lt;strong>使用 word form 或 PoS tag&lt;/strong> 搜尋語料庫 (類似 &lt;a href="http://cwb.sourceforge.net/files/CQP_Tutorial/CQP_Tutorial.html">Corpus Query Langauge&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，但不用這麼複雜)。但要自己用 Python 實作這個功能也頗簡單，於是我就自己手刻了這個功能。然而事實證明我太過天真了。語料庫的大小約 1000 萬個 token，而每次搜尋時，我的程式使用 for 迴圈跑過整個語料，因此要花非常非常非常久的時間才能完成搜尋。對於非資訊背景出生的我，第一次體驗 $O(n)$ 是件不可忽視的問題以及 Database 存在的必要性。&lt;/p>
 &lt;h2 id="重新規劃-database--python--vue">重新規劃： Database + Python + Vue&lt;/h2>
 &lt;p>為了解決上述問題我暫時擱置了這個專案 (寒假開始到春節期間) 去學習必備的一些知識&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，最後比較有系統地重新規劃了這個 concordancer 的架構：&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/posts/concordancer-design.png" style="width:100%">
 &lt;p>這個新的架構分成前&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>、後端，前端不是本文的重點 (原始碼&lt;a href="https://github.com/liao961120/kwic">在此&lt;/a>)，就不細談。這邊直接舉一個實例說明這個 concordancer 如何運作：&lt;/p>
 &lt;ol>
 &lt;li>
@@ -225,7 +228,7 @@ OBL kid _ noble
 &lt;/ol>
 &lt;h2 id="database-設計">Database 設計&lt;/h2>
 &lt;p>下圖是 Database&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup> 的 table 設計，共有 3 個 table:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/posts/db-design.png" style="width:100%">
 &lt;ul>
 &lt;li>&lt;strong>Token&lt;/strong>: 將語料庫中的每種 token (即 type) 對應至 id。如此搜尋單一 token 的 word form 時，即可搜尋此較小的 table (列數等於語料庫中 type 的數量)，而不用跑過整個語料庫。&lt;/li>
 &lt;li>&lt;strong>Pos&lt;/strong>: 將語料庫中的每種 PoS tag 對應至 id。同上，可以快速找出符合的 token。&lt;/li>

@@ -45,11 +45,11 @@ The critics aren&amp;rsquo;t real…&lt;br>
 the customers aren&amp;rsquo;t real…&lt;br>
 because this isn&amp;rsquo;t real.&lt;br>
 You aren&amp;rsquo;t real. &lt;br>
-&lt;!-- raw HTML omitted -->
+&lt;br />
 Derek, why do you care about these people?&lt;br>
 They don&amp;rsquo;t care about you, none of them.&lt;br>
 They don&amp;rsquo;t even know you because you haven&amp;rsquo;t shown them.&lt;br>
-&lt;!-- raw HTML omitted -->
+&lt;br />
 Every day, you wake up and there&amp;rsquo;ll be less of you.&lt;br>
 You live your life for them, and they don&amp;rsquo;t even see you.&lt;br>
 You don&amp;rsquo;t even see yourself.&lt;br>
@@ -78,7 +78,7 @@ We don&amp;rsquo;t get a lot of things to really care about.&lt;sup id="fnref:1"
 and where it leads,&lt;br>
 I embrace it.&lt;br>
 And I welcome every moment of it.&lt;br>
-&lt;!-- raw HTML omitted -->&amp;mdash; Arrival (2016)&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;span style="font-size:0.85em">&amp;mdash; Arrival (2016)&lt;/span>&lt;/p>
 &lt;/blockquote>
 &lt;p>電影《異星入境》中，主角 Louise 即使能預見未來女兒會因罕見疾病而早逝，也知道丈夫會因此而離開，她仍然選擇走上這條路，不去更改她早已預知的未來。為什麼？&lt;/p>
 &lt;p>我起初認為是因為與女兒相處的經驗太過珍貴，讓 Louise 寧願面對失去的疼痛也不願犧牲掉這些&lt;strong>更&lt;/strong>美好的經驗。後來發現，這解釋背後其實有個非常大的假設&amp;mdash;正向經驗比起負向經驗來得「重要」，理性的人們應該會追求「正向 - 負向 &amp;gt; 0」的人生。後來有些長進之後，才發現這個假設應該恰恰與 Louise 的信念完全相反。我想 Louise 相信的是，各種經驗都&lt;strong>同等&lt;/strong>珍貴，不論是歡喜、悲痛、迎接新生命還是面對生命的消亡。即使是心碎之下，還是有感激的時刻。而她是在看遍自己的一生之後，才得出這個結論的。她選擇去用心擁抱生命賜予她的每一個時刻。&lt;/p>
@@ -94,7 +94,7 @@ And I welcome every moment of it.&lt;br>
 &lt;p>然而，社會與家庭告訴我們的，往往是相反的。我們被鼓勵去擁抱「好」的經驗，去避開「不好」的狀態。在我們能真正平等去感受各種經驗之前，早已根深柢固地認為只有正向經驗才可能有意義，負向經驗只會帶來傷害，一遇到就要趕緊逃開、脫離這種狀態。有時候甚至認為自己處在負面狀態時是&lt;strong>不道德&lt;/strong>的，因為這會帶給親友困擾。然而實際的情況是，越是迴避負面經驗，我們越可能因此受害，而這正是&lt;a href="https://en.wikipedia.org/wiki/Experiential_avoidance">經驗性迴避&lt;/a> (Experiential Avoidance) 告訴我們的事情。這概念是指人們企圖去避免感受特定經驗的傾向，例如，面對負面的想法、記憶、情緒以及身體感受時，人們常會去壓抑它們以避免經驗到這些感受。但這麼做卻會帶來更大的傷害。例如，因為失去孩子太過痛苦而透過酒精與藥物麻痺自己的感受；因為認知到自殺念頭的可怕而拼命壓抑它，反而更容易擔心自殺 (白熊效應) (Hayes et al., 1996)。&lt;/p>
 &lt;p>與經驗性迴避相反的概念是接納 (Acceptance)。舉例來說，在面對負向情緒時，接納是去&lt;strong>不帶評價地&lt;/strong>接受自己正處在情緒下，並仔細感受情緒，擁抱當下的感覺，而不去嘗試擺脫它。如果感到悲傷，就好好感受悲傷；如果感到憤怒，就好好感受憤怒
 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。能做到接納，才有辦法平等地面對與擁抱生命裡的各種經驗。而要做到接納，前提是要能盡量不帶評價地面對眼前的事實。所以，在接納的概念裡，本就&lt;strong>沒有好與壞&lt;/strong>，接納就是用人事物原本的樣貌去理解人事物。也因此，接納本身就蘊含著&lt;strong>平等&lt;/strong>的概念，我們無法只接納「好」的而不去接納「不好」的，因為在分辨好壞的同時，我們就已經下了評價，我們就在透過濾鏡看著扭曲的世界，我們就無法如實地體驗活著的感覺。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br >
 &lt;p>&lt;strong>參考資料&lt;/strong>&lt;/p>
 &lt;p>Hayes, S. C., Wilson, K. G., Gifford, E. V., Follette, V. M., &amp;amp; Strosahl, K. (1996). Experiential avoidance and behavioral disorders: A functional dimensional approach to diagnosis and treatment. Journal of Consulting and Clinical Psychology, 64(6), 1152&amp;ndash;1168.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
@@ -184,9 +184,13 @@ And I welcome every moment of it.&lt;br>
 &lt;p>回顧截至目前的人生，有太多時候我都在用膚淺的外在價值傷害真實的內在動機，這幾乎已經變成一種反射動作。最常見的景象就是「為什麼要&lt;strong>學&lt;/strong>英文/拉丁文/數學/程式&amp;hellip;」。大概除了英文&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>之外，每一個我都有個符合功利邏輯的理由&amp;mdash;&amp;mdash;拉丁文是因為有些英文詞彙源於拉丁文，所以學習拉丁文有助於英文學習 (高中)；學習數學是因為統計學、生態演化模型都會用到數學，所以要打好數學基礎 (大一至大三)；&lt;a href="https://yongfu.name/2018/01/31/RlearningPath">學習寫程式&lt;/a> (R 語言) 則是因為曾經在處理統計資料時吃過苦頭。但是到了現在，我保有並持續學習的技能卻只剩寫程式而已。原因並不是因為我常常要跑統計或是程式能力對就業很重要&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>，而是因為在學習寫程式的過程中，我發現這件事&lt;strong>本身&lt;/strong>就能帶給我無止盡的樂趣。其它為了追求社會制約的獎賞而學習的技能，多半淪為三分鐘熱度，沒有在我身上留下任何痕跡，卻佔據了我大半的青春。&lt;/p>
 &lt;p>我想，或許就是這種為了服膺於社會功利邏輯的壓力，讓許多人無暇習得足以自娛的技能，因為所有的精力都耗在將自己塑造成符合社會期待的樣子，深信著這是對自己未來最好的道路。但我們鮮少在真正體驗到平靜、幸福的狀態後，仔細感受它的真實性以及之於自己的意義。&lt;/p>
 &lt;p>這篇文章並非在責怪我們社會的功利，這種功利是當前社會文化發展下的必然結果，厭惡式的批評不會造成任何改變。但可以改變的是我們對自己以及對世界的認識。我們可以選擇不要以社會制約的價值來看待一切事物。我們也可以選擇不要任由容易被利用&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的生理需求擺佈。然這一切需始於對自我意識的掌握，而掌握自我意識，則需始於心流的體驗。&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;style>
+blockquote > p:last-child {
+text-align: right;
+margin-top: 0;
+padding-top: 0;
+}
+&lt;/style>&lt;blockquote>
 &lt;/blockquote>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
@@ -209,7 +213,7 @@ And I welcome every moment of it.&lt;br>
 &lt;p>我本來並沒有太大的雄心壯志，就只想快速弄出個程式界面方便我查找 concordance，想說使用 &lt;a href="https://www.nltk.org/book/ch01.html#searching-text">NLTK concordance&lt;/a> 應該很快就可以弄出我想的東西。但 NLTK concordance 只能使用 word form (或 pattern) 去搜尋 concordance，我的需求卻是要能&lt;strong>使用 word form 或 PoS tag&lt;/strong> 搜尋語料庫 (類似 &lt;a href="http://cwb.sourceforge.net/files/CQP_Tutorial/CQP_Tutorial.html">Corpus Query Langauge&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，但不用這麼複雜)。但要自己用 Python 實作這個功能也頗簡單，於是我就自己手刻了這個功能。然而事實證明我太過天真了。語料庫的大小約 1000 萬個 token，而每次搜尋時，我的程式使用 for 迴圈跑過整個語料，因此要花非常非常非常久的時間才能完成搜尋。對於非資訊背景出生的我，第一次體驗 $O(n)$ 是件不可忽視的問題以及 Database 存在的必要性。&lt;/p>
 &lt;h2 id="重新規劃-database--python--vue">重新規劃： Database + Python + Vue&lt;/h2>
 &lt;p>為了解決上述問題我暫時擱置了這個專案 (寒假開始到春節期間) 去學習必備的一些知識&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，最後比較有系統地重新規劃了這個 concordancer 的架構：&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/posts/concordancer-design.png" style="width:100%">
 &lt;p>這個新的架構分成前&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>、後端，前端不是本文的重點 (原始碼&lt;a href="https://github.com/liao961120/kwic">在此&lt;/a>)，就不細談。這邊直接舉一個實例說明這個 concordancer 如何運作：&lt;/p>
 &lt;ol>
 &lt;li>
@@ -231,7 +235,7 @@ And I welcome every moment of it.&lt;br>
 &lt;/ol>
 &lt;h2 id="database-設計">Database 設計&lt;/h2>
 &lt;p>下圖是 Database&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup> 的 table 設計，共有 3 個 table:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/posts/db-design.png" style="width:100%">
 &lt;ul>
 &lt;li>&lt;strong>Token&lt;/strong>: 將語料庫中的每種 token (即 type) 對應至 id。如此搜尋單一 token 的 word form 時，即可搜尋此較小的 table (列數等於語料庫中 type 的數量)，而不用跑過整個語料庫。&lt;/li>
 &lt;li>&lt;strong>Pos&lt;/strong>: 將語料庫中的每種 PoS tag 對應至 id。同上，可以快速找出符合的 token。&lt;/li>
@@ -1031,8 +1035,14 @@ Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2018. &lt;em>R &lt;span>Markdown&
 &lt;h2 id="上台報告投影片">上台報告(投影片)&lt;/h2>
 &lt;p>上台報告對我來說是個很大的挑戰，因為我會緊張到忘記本來要講演的邏輯。克服這挑戰的關鍵當然是練習 &amp;ndash; &lt;em>寫下報告的講稿反覆練習，直到能自然(自動化)地完成報告&lt;/em>。但除了練習之外，我過去一直忽略&lt;strong>工具&lt;/strong>的重要性。事實上，有了正確的工具後，根本&lt;strong>不需擔心會忘記要講什麼&lt;/strong>。&lt;/p>
 &lt;p>幾乎所有投影片工具 (PowerPoint, Google Slides, &lt;a href="https://revealjs.com">reveal.js&lt;/a>, &lt;a href="https://remarkjs.com">Remark.js&lt;/a>) 都有&lt;strong>簡報者模式 (presenter mode)&lt;/strong>：&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/google_slide.gif" alt="Google Slides Presenter Mode" width='85%'/>
+&lt;figcaption>Google 簡報者模式。左邊是簡報者看到的內容，右邊是觀眾看到的同步內容。&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/remarkjs.gif" alt="Remark.js Presenter Mode" width='85%'/>
+&lt;figcaption>Remark.js 簡報者模式。左邊是簡報者看到的內容，右邊是觀眾看到的同步內容。&lt;/figcaption>
+&lt;/figure>
 &lt;p>但我知道有人因為不知道&lt;strong>簡報者模式需配合&lt;a href="https://support.microsoft.com/zh-tw/help/4340331/windows-10-set-up-dual-monitors">延伸螢幕&lt;/a>使用&lt;/strong>而未曾使用這個功能(對，就是我！)。透過延伸螢幕，可以在自己的電腦與投影幕上同步顯示投影片，只是其中一個是有筆記的簡報者模式，另一個則是給觀眾看的一般模式。&lt;/p>
 &lt;h2 id="電子辭典">電子辭典&lt;/h2>
 &lt;p>在電腦上看英文內容遇到不懂的單字時，往往要開啟瀏覽器去查單字。若有很多單字不懂，就要反覆切換視窗畫面。Mac 內建有辭典工具，透過反白文字就可在小視窗中查詢該單字，並可以&lt;a href="https://diary.taskinghouse.com/posts/2186795-install-traditional-chinese-english-dictionary-to-mac-built-in-dictionary/">安裝第三方字典檔&lt;/a>擴充其詞彙。&lt;/p>
@@ -1041,7 +1051,10 @@ Xie, Yihui, JJ Allaire, and Garrett Grolemund. 2018. &lt;em>R &lt;span>Markdown&
 &lt;ul>
 &lt;li>將字反白後再按快捷鍵 (可自訂)，就會跳出小視窗顯示該字的查詢結果&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/golden_dict.gif" alt="GoldenDict" width='85%'/>
+&lt;figcaption>GoldenDict，開源電子辭典軟體。支援多種字典檔案格式，但本身不含字典檔，需額外下載。&lt;/figcaption>
+&lt;/figure>
 &lt;h2 id="記錄想法">記錄想法&lt;/h2>
 &lt;p>&lt;em>沒有記憶就彷彿不曾存在&lt;/em> 。生活在資訊量爆炸的時代，「記住重要的事情，忽略不重要的刺激」似乎變成一項重要的能力。如果我們不努力記下重要的事情，那這些記憶就會被其它瑣碎的、不重要的刺激&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>洗掉。&lt;/p>
 &lt;p>面對海量的資訊，網路上有許多專案管理軟體可以幫忙記下事情。我自己習慣使用 &lt;a href="https://trello.com">Trello&lt;/a>，因為覺得它使用起來相當順手(筆記可用 Markdown 語法、Board, List, Card 的階層分類方式)。例如，我用一個 Board 記下未來可能會用到的&lt;a href="https://trello.com/b/UerBS2oH/online-resources">線上資源&lt;/a>。除此之外，目前還有其它十幾個 Board，各自管理一個主題。&lt;/p>
@@ -1802,15 +1815,16 @@ Last updated: 2018-11-10
 div.mermaid {
 display:none;
 }
-&lt;/style></description><category>Text Mining</category><category>R</category><category>bash</category><category>中文</category></item><item><title>google 表單即時回饋</title><link>https://yongfu.name/2018/04/20/gsheet_survey/</link><pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/04/20/gsheet_survey/</guid><description>&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;/style></description><category>Text Mining</category><category>R</category><category>bash</category><category>中文</category></item><item><title>google 表單即時回饋</title><link>https://yongfu.name/2018/04/20/gsheet_survey/</link><pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/04/20/gsheet_survey/</guid><description>&lt;style>
+pre > code {white-space: pre-wrap;}
+&lt;/style>
 &lt;p>google 表單大幅降低蒐集問卷資料的難度；此外，表單將回應&lt;strong>自動彙整成試算表&lt;/strong>更使分析資料變得非常容易。然而，google 表單缺乏一項重要的功能：&lt;strong>即時將結果回饋給填寫者&lt;/strong>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
 &lt;p>讓問卷填寫者能馬上知道結果，可以增加其填寫意願，同時也是負責的態度(在回饋不會造成負面影響的前提下)。當然，這在 google 表單本身的限制下無法達成。以下將介紹如何結合 &lt;strong>google 試算表&lt;/strong> 以及 &lt;strong>&lt;a href="https://github.com/datacamp/datacamp-light">DataCamp Light&lt;/a>&lt;/strong>，讓任何人都能製作出一個在&lt;strong>靜態網頁&lt;/strong>上運行的平台，&lt;strong>使填寫者能在此填寫問卷、查詢結果&lt;/strong>。&lt;/p>
 &lt;h2 id="實際操作">實際操作&lt;/h2>
 &lt;p>繼續閱讀下去前，可先至&lt;a href="https://img.yongfu.name/assets/gsheet_post/demo/">回饋功能示範平台&lt;/a>操作看看，比較容易理解下文內容。文章中的說明即是依據此&lt;strong>回饋功能示範平台&lt;/strong>。&lt;/p>
 &lt;h2 id="概觀-運作邏輯">概觀: 運作邏輯&lt;/h2>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/assets/images/post_img/gsheet_mermaid.png" alt="運作邏輯" style="width:32em">
+&lt;!-- see `https://img.yongfu.name/assets/images/post_img/gsheet_mermaid.mermaid.txt` -->
 &lt;p>上圖的每個方塊(除了左圖的&lt;strong>試算表&lt;/strong>)名稱，皆對應到&lt;strong>回饋功能示範平台&lt;/strong>背後運作的檔案。圖需要分&lt;strong>左&lt;/strong>、&lt;strong>右&lt;/strong>來看：&lt;/p>
 &lt;ul>
 &lt;li>
@@ -2042,13 +2056,13 @@ DataCamp Light &lt;strong>僅能正常顯示英文&lt;/strong>，因此需確定
 &lt;h4 id="r-使用者">R 使用者&lt;/h4>
 &lt;p>會用 Rmarkdown 的人，可直接&lt;a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/liao961120/blog/tree/masterhttps://img.yongfu.name/assets/gsheet_post/demo">下載&lt;/a>&lt;strong>回饋功能示範平台&lt;/strong>製作網頁(需額外安裝一些 package)，不須使用上述資料夾內的檔案。這能省下許多製作網頁(&lt;code>index.html&lt;/code>)的時間。&lt;/p>
 &lt;p>R markdown 是 Markdown 的擴充，其輸出的 HTML 格式已經過簡單的排版，同時也支援 Bootstrap (&lt;strong>Minimal Web Page&lt;/strong> 裡的 HTML 也有匯入 Bootstrap)，因此能夠輕易地製作出&lt;strong>美觀&lt;/strong>的網頁。Rmarkdown 可輸出許多格式，其中 &lt;a href="https://rmarkdown.rstudio.com/html_document_format.html">html_document&lt;/a> 最為簡單。Rmarkdown 的語法(&lt;a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Cheat Sheet&lt;/a>)即為 Markdown 語法加上許多額外的功能(透過 R 實現)。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;div id="privacy">&lt;/div>
 &lt;h2 id="隱私問題">隱私問題&lt;/h2>
 &lt;p>在此需特別提醒問卷填寫者隱私的問題。由於查詢個人的問卷回饋需透過 DataCamp Light，其&lt;strong>由雲端讀取之試算表(&lt;code>結果查找&lt;/code>)是公開的&lt;/strong>。縱使網頁表面看不見&lt;code>結果查找&lt;/code>的網址，但只要檢視網頁的原始碼(透過瀏覽器的開發人員工具，或至 GitHub 直接下載&lt;code>search.html&lt;/code>)，即可取得&lt;code>結果查找&lt;/code>的網址，並下載整份資料&lt;sup id="fnref:11">&lt;a href="#fn:11" class="footnote-ref" role="doc-noteref">11&lt;/a>&lt;/sup>。&lt;/p>
 &lt;p>以這裡的例子說明，&lt;code>結果查找&lt;/code>僅含有 3 欄：時間戳記、Token、分數。這 3 欄是任何人都能看見的內容，其中 &lt;strong>Token 是由問卷填寫者直接填寫&lt;/strong>，因此&lt;/p>
 &lt;p>在設計問卷時，需於 Token 那題特別提醒填寫者：&lt;strong>不能填寫能關聯到個人身份的內容，如學號、e-mail 等&lt;/strong>。&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;div style="font-size:10pt; text-align:right">Last updated: Apr 27, 2018&lt;/div>
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -2083,7 +2097,7 @@ DataCamp Light &lt;strong>僅能正常顯示英文&lt;/strong>，因此需確定
 &lt;p>這是自行在 GitHub Pages 上架設部落格最困難的地方：使用者需對 Jekyll 有一定程度的理解。這同時也是我推薦 &lt;a href="https://github.com/rstudio/blogdown">blogdown&lt;/a> 的原因，其讓使用者略過理解複雜的靜態網頁產生器，而能專心在網頁的內容上。&amp;#160;&lt;a href="#fnref:10" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:11">
-&lt;p>然&lt;code>結果查找&lt;/code>透過&lt;code>IMPORTRANGE&lt;/code>匯入的試算表只要&lt;strong>未開放共用連結&lt;/strong>，仍是安全的。這也是為何即使僅需 2 個(或甚至 1 個)試算表和 DataCamp Light 即可做到問卷回饋，但我仍使用了 3 個試算表。&lt;!-- raw HTML omitted -->(另一原因是考量 google 及 DataCamp Light 的運算資源及時間。縱使我較喜歡，也應該要用 R 語言處理資料，考量到 google 擁有較強大及穩定的運算資源，多數的運算因此交給 google 試算表，而 DataCamp Light 僅用來讀取資料。)&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>然&lt;code>結果查找&lt;/code>透過&lt;code>IMPORTRANGE&lt;/code>匯入的試算表只要&lt;strong>未開放共用連結&lt;/strong>，仍是安全的。這也是為何即使僅需 2 個(或甚至 1 個)試算表和 DataCamp Light 即可做到問卷回饋，但我仍使用了 3 個試算表。&lt;br>(另一原因是考量 google 及 DataCamp Light 的運算資源及時間。縱使我較喜歡，也應該要用 R 語言處理資料，考量到 google 擁有較強大及穩定的運算資源，多數的運算因此交給 google 試算表，而 DataCamp Light 僅用來讀取資料。)&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>Web Page</category><category>中文</category></item><item><title>我的 R 學習歷程</title><link>https://yongfu.name/2018/01/31/rlearningpath/</link><pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/01/31/rlearningpath/</guid><description>&lt;p>接觸 &lt;strong>R&lt;/strong> 的時間大約五個月了，從原本對電腦、程式一竅不通到現在能有效率的 debug、寫出簡潔有條理的 R code、甚至用 R 與 Markdown 架站寫部落格。算一算，我每週通常至少 3 天會用到 R，不是督促自己熟悉 R，是因為它太有魅力了。&lt;/p>
@@ -2223,7 +2237,7 @@ DataCamp Light &lt;strong>僅能正常顯示英文&lt;/strong>，因此需確定
 &lt;h2 id="小結">小結&lt;/h2>
 &lt;p>我真的很慶幸能在大三時接觸到 R。以往我都把時間花在讀書上，也不知何時才能用得上。R 讓我發現了自己的嗜好&lt;sup id="fnref:20">&lt;a href="#fn:20" class="footnote-ref" role="doc-noteref">20&lt;/a>&lt;/sup>，也讓我體驗到&lt;strong>為了處理想解決的問題而學習&lt;/strong>的感覺。我也才慢慢體會到為了&lt;strong>興趣&lt;/strong>所學與為了&lt;strong>其它目的&lt;/strong> (競爭力、考試、學分、跟風？) 所學，能帶來的可觀差異。當然，興趣與其它目的並非不能同時存在，只是有時&lt;strong>專注在其它目的會抑制興趣&lt;/strong>，而最能讓學習持續的動力來源卻是興趣。&lt;/p>
 &lt;p>這篇文章的目的，旨在提供有志學 R 卻不確定如何開始的人作參考。文章介紹的學習資源 (或是任何嘮叨的內容)，不只是 (我認為) 有用的，且能強烈引起我的興趣。希望讀過這篇文章的人，不僅僅獲益於文章介紹的學習資源，且能為了興趣而學 R ─ 這是此篇文章最想傳達的想法。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

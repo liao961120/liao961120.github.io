@@ -1013,7 +1013,7 @@ Last updated: 2019-04-03
 &lt;/li>
 &lt;/ol>
 &lt;h3 id="directory-tree">Directory Tree&lt;/h3>
-&lt;p>Below is the directory structure (simplified) after adding RSS templates to &lt;strong>Hugo Acadimic theme&lt;/strong>. I added and modified &lt;code>rss.xml&lt;/code> in &lt;code>/layouts/post/&lt;/code> and &lt;code>/layouts/categories/&lt;/code>. Then &lt;code>/docs/post/index.xml&lt;/code> and &lt;!-- raw HTML omitted -->/docs/categories/&lt;!-- raw HTML omitted -->r&lt;!-- raw HTML omitted -->/index.xml&lt;!-- raw HTML omitted --> get generated according to &lt;code>/layouts/post/rss.xml&lt;/code> and &lt;code>/layouts/categories/rss.xml&lt;/code>, respectively.&lt;/p>
+&lt;p>Below is the directory structure (simplified) after adding RSS templates to &lt;strong>Hugo Acadimic theme&lt;/strong>. I added and modified &lt;code>rss.xml&lt;/code> in &lt;code>/layouts/post/&lt;/code> and &lt;code>/layouts/categories/&lt;/code>. Then &lt;code>/docs/post/index.xml&lt;/code> and &lt;code>/docs/categories/&lt;b>r&lt;/b>/index.xml&lt;/code> get generated according to &lt;code>/layouts/post/rss.xml&lt;/code> and &lt;code>/layouts/categories/rss.xml&lt;/code>, respectively.&lt;/p>
 &lt;p>Note that &lt;code>/docs&lt;/code> is &lt;code>/public&lt;/code> by default, when &lt;code>publishDir = &amp;quot;docs&amp;quot;&lt;/code> is not set in &lt;code>/config.toml&lt;/code>. Using &lt;code>/docs&lt;/code> allows me to &lt;a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">publish Hugo blog on GitHub Pages&lt;/a>. &lt;strong>DO NOT add &lt;code>publishDir = &amp;quot;docs&amp;quot;&lt;/code> in &lt;code>config.toml&lt;/code> if you&amp;rsquo;re serving the site with netlify&lt;/strong>.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>&lt;span style="color:#ae81ff">/&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>&lt;span style="color:#ae81ff">├── index.Rmd&lt;/span>
@@ -1124,15 +1124,16 @@ geom_point(aes(color = Species))&lt;/code>&lt;/pre>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 &lt;a href="https://www.r-bloggers.com/">Visit R-bloggers&lt;/a>&lt;br>
 Last updated: 2018-11-07
-&lt;/p></description><category>R-bloggers</category><category>Jekyll</category><category>R Markdown</category><category>Web Page</category></item><item><title>google 表單即時回饋</title><link>https://yongfu.name/2018/04/20/gsheet_survey/</link><pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/04/20/gsheet_survey/</guid><description>&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;/p></description><category>R-bloggers</category><category>Jekyll</category><category>R Markdown</category><category>Web Page</category></item><item><title>google 表單即時回饋</title><link>https://yongfu.name/2018/04/20/gsheet_survey/</link><pubDate>Fri, 20 Apr 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/04/20/gsheet_survey/</guid><description>&lt;style>
+pre > code {white-space: pre-wrap;}
+&lt;/style>
 &lt;p>google 表單大幅降低蒐集問卷資料的難度；此外，表單將回應&lt;strong>自動彙整成試算表&lt;/strong>更使分析資料變得非常容易。然而，google 表單缺乏一項重要的功能：&lt;strong>即時將結果回饋給填寫者&lt;/strong>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p>
 &lt;p>讓問卷填寫者能馬上知道結果，可以增加其填寫意願，同時也是負責的態度(在回饋不會造成負面影響的前提下)。當然，這在 google 表單本身的限制下無法達成。以下將介紹如何結合 &lt;strong>google 試算表&lt;/strong> 以及 &lt;strong>&lt;a href="https://github.com/datacamp/datacamp-light">DataCamp Light&lt;/a>&lt;/strong>，讓任何人都能製作出一個在&lt;strong>靜態網頁&lt;/strong>上運行的平台，&lt;strong>使填寫者能在此填寫問卷、查詢結果&lt;/strong>。&lt;/p>
 &lt;h2 id="實際操作">實際操作&lt;/h2>
 &lt;p>繼續閱讀下去前，可先至&lt;a href="https://img.yongfu.name/assets/gsheet_post/demo/">回饋功能示範平台&lt;/a>操作看看，比較容易理解下文內容。文章中的說明即是依據此&lt;strong>回饋功能示範平台&lt;/strong>。&lt;/p>
 &lt;h2 id="概觀-運作邏輯">概觀: 運作邏輯&lt;/h2>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;img src="https://img.yongfu.name/assets/images/post_img/gsheet_mermaid.png" alt="運作邏輯" style="width:32em">
+&lt;!-- see `https://img.yongfu.name/assets/images/post_img/gsheet_mermaid.mermaid.txt` -->
 &lt;p>上圖的每個方塊(除了左圖的&lt;strong>試算表&lt;/strong>)名稱，皆對應到&lt;strong>回饋功能示範平台&lt;/strong>背後運作的檔案。圖需要分&lt;strong>左&lt;/strong>、&lt;strong>右&lt;/strong>來看：&lt;/p>
 &lt;ul>
 &lt;li>
@@ -1364,13 +1365,13 @@ DataCamp Light &lt;strong>僅能正常顯示英文&lt;/strong>，因此需確定
 &lt;h4 id="r-使用者">R 使用者&lt;/h4>
 &lt;p>會用 Rmarkdown 的人，可直接&lt;a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/liao961120/blog/tree/masterhttps://img.yongfu.name/assets/gsheet_post/demo">下載&lt;/a>&lt;strong>回饋功能示範平台&lt;/strong>製作網頁(需額外安裝一些 package)，不須使用上述資料夾內的檔案。這能省下許多製作網頁(&lt;code>index.html&lt;/code>)的時間。&lt;/p>
 &lt;p>R markdown 是 Markdown 的擴充，其輸出的 HTML 格式已經過簡單的排版，同時也支援 Bootstrap (&lt;strong>Minimal Web Page&lt;/strong> 裡的 HTML 也有匯入 Bootstrap)，因此能夠輕易地製作出&lt;strong>美觀&lt;/strong>的網頁。Rmarkdown 可輸出許多格式，其中 &lt;a href="https://rmarkdown.rstudio.com/html_document_format.html">html_document&lt;/a> 最為簡單。Rmarkdown 的語法(&lt;a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Cheat Sheet&lt;/a>)即為 Markdown 語法加上許多額外的功能(透過 R 實現)。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;div id="privacy">&lt;/div>
 &lt;h2 id="隱私問題">隱私問題&lt;/h2>
 &lt;p>在此需特別提醒問卷填寫者隱私的問題。由於查詢個人的問卷回饋需透過 DataCamp Light，其&lt;strong>由雲端讀取之試算表(&lt;code>結果查找&lt;/code>)是公開的&lt;/strong>。縱使網頁表面看不見&lt;code>結果查找&lt;/code>的網址，但只要檢視網頁的原始碼(透過瀏覽器的開發人員工具，或至 GitHub 直接下載&lt;code>search.html&lt;/code>)，即可取得&lt;code>結果查找&lt;/code>的網址，並下載整份資料&lt;sup id="fnref:11">&lt;a href="#fn:11" class="footnote-ref" role="doc-noteref">11&lt;/a>&lt;/sup>。&lt;/p>
 &lt;p>以這裡的例子說明，&lt;code>結果查找&lt;/code>僅含有 3 欄：時間戳記、Token、分數。這 3 欄是任何人都能看見的內容，其中 &lt;strong>Token 是由問卷填寫者直接填寫&lt;/strong>，因此&lt;/p>
 &lt;p>在設計問卷時，需於 Token 那題特別提醒填寫者：&lt;strong>不能填寫能關聯到個人身份的內容，如學號、e-mail 等&lt;/strong>。&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;div style="font-size:10pt; text-align:right">Last updated: Apr 27, 2018&lt;/div>
+&lt;!-- Footnotes -->
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
@@ -1405,7 +1406,7 @@ DataCamp Light &lt;strong>僅能正常顯示英文&lt;/strong>，因此需確定
 &lt;p>這是自行在 GitHub Pages 上架設部落格最困難的地方：使用者需對 Jekyll 有一定程度的理解。這同時也是我推薦 &lt;a href="https://github.com/rstudio/blogdown">blogdown&lt;/a> 的原因，其讓使用者略過理解複雜的靜態網頁產生器，而能專心在網頁的內容上。&amp;#160;&lt;a href="#fnref:10" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:11">
-&lt;p>然&lt;code>結果查找&lt;/code>透過&lt;code>IMPORTRANGE&lt;/code>匯入的試算表只要&lt;strong>未開放共用連結&lt;/strong>，仍是安全的。這也是為何即使僅需 2 個(或甚至 1 個)試算表和 DataCamp Light 即可做到問卷回饋，但我仍使用了 3 個試算表。&lt;!-- raw HTML omitted -->(另一原因是考量 google 及 DataCamp Light 的運算資源及時間。縱使我較喜歡，也應該要用 R 語言處理資料，考量到 google 擁有較強大及穩定的運算資源，多數的運算因此交給 google 試算表，而 DataCamp Light 僅用來讀取資料。)&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>然&lt;code>結果查找&lt;/code>透過&lt;code>IMPORTRANGE&lt;/code>匯入的試算表只要&lt;strong>未開放共用連結&lt;/strong>，仍是安全的。這也是為何即使僅需 2 個(或甚至 1 個)試算表和 DataCamp Light 即可做到問卷回饋，但我仍使用了 3 個試算表。&lt;br>(另一原因是考量 google 及 DataCamp Light 的運算資源及時間。縱使我較喜歡，也應該要用 R 語言處理資料，考量到 google 擁有較強大及穩定的運算資源，多數的運算因此交給 google 試算表，而 DataCamp Light 僅用來讀取資料。)&amp;#160;&lt;a href="#fnref:11" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>Web Page</category><category>中文</category></item><item><title>Some New Features of TeXt Theme</title><link>https://yongfu.name/2018/02/24/new_md_features/</link><pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/02/24/new_md_features/</guid><description>&lt;p>I started customizing my blog template soon after I forked it from &lt;a href="https://github.com/kitian616/jekyll-TeXt-theme/">kitian616&lt;/a>. The downside of customizing is that once started, there&amp;rsquo;s no going back.&lt;/p>
@@ -1449,7 +1450,13 @@ Error Text.
 {:.circle}
 &lt;/code>&lt;/pre>&lt;h2 id="mermaid">mermaid&lt;/h2>
 &lt;p>&lt;a href="https://github.com/knsv/mermaid">mermaid&lt;/a> is a script language for generating charts from simple text. Below is an example of drawing a flow chart using &lt;strong>mermaid&lt;/strong>. &lt;a href="https://mermaidjs.github.io">Documentation for Mermaid&lt;/a>{: target=&amp;quot;_blank&amp;rdquo;}.&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;div class="mermaid">
+graph TD;
+A(text)-->B(rounded);
+A-->C;
+B-->D;
+C-->D;
+&lt;/div>
 &lt;h4 id="code-2">Code&lt;/h4>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;mermaid&amp;#34;&lt;/span>&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>graph TD;
@@ -1501,7 +1508,7 @@ Error Text.
 &lt;p>I added &lt;code>\label{eq:N}&lt;/code> at the end of the equation:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-tex" data-lang="tex">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#e6db74">$$&lt;/span> \frac{d}{d\,t} N_{&lt;span style="color:#ae81ff">1&lt;/span>} &lt;span style="color:#f92672">=&lt;/span>\left&lt;span style="color:#f92672">[&lt;/span> b_{&lt;span style="color:#ae81ff">1&lt;/span>} N_{&lt;span style="color:#ae81ff">1&lt;/span>}\,\left&lt;span style="color:#f92672">(&lt;/span> S_{&lt;span style="color:#ae81ff">2&lt;/span>}\,c_{&lt;span style="color:#ae81ff">12&lt;/span>}&lt;span style="color:#f92672">+&lt;/span>S_{&lt;span style="color:#ae81ff">1&lt;/span>}\,c_{&lt;span style="color:#ae81ff">11&lt;/span>}\right&lt;span style="color:#f92672">)-&lt;/span> d_{&lt;span style="color:#ae81ff">1&lt;/span>} N_{&lt;span style="color:#ae81ff">1&lt;/span>}\, \right&lt;span style="color:#f92672">]&lt;/span> \label{eq:N}&lt;span style="color:#e6db74">$$&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>$$\frac{d}{d\,t} N_{1} =\left[ b_{1} N_{1}\,\left( S_{2}\,c_{12}+S_{1}\,c_{11}\right)- d_{1} N_{1}\, \right] \label{eq:N}$$&lt;/code>&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;p>Now, adding &lt;code>$\eqref{eq:N}$&lt;/code> in the text, e.g,&lt;/p>
 &lt;pre tabindex="0">&lt;code>See $\eqref{eq:N}$ for details.
 &lt;/code>&lt;/pre>&lt;p>, gives &lt;strong>See $\eqref{eq:N}$ for details.&lt;/strong>&lt;/p>

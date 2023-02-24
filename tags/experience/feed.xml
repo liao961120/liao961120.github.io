@@ -45,11 +45,11 @@ The critics aren&amp;rsquo;t real…&lt;br>
 the customers aren&amp;rsquo;t real…&lt;br>
 because this isn&amp;rsquo;t real.&lt;br>
 You aren&amp;rsquo;t real. &lt;br>
-&lt;!-- raw HTML omitted -->
+&lt;br />
 Derek, why do you care about these people?&lt;br>
 They don&amp;rsquo;t care about you, none of them.&lt;br>
 They don&amp;rsquo;t even know you because you haven&amp;rsquo;t shown them.&lt;br>
-&lt;!-- raw HTML omitted -->
+&lt;br />
 Every day, you wake up and there&amp;rsquo;ll be less of you.&lt;br>
 You live your life for them, and they don&amp;rsquo;t even see you.&lt;br>
 You don&amp;rsquo;t even see yourself.&lt;br>
@@ -78,7 +78,7 @@ We don&amp;rsquo;t get a lot of things to really care about.&lt;sup id="fnref:1"
 and where it leads,&lt;br>
 I embrace it.&lt;br>
 And I welcome every moment of it.&lt;br>
-&lt;!-- raw HTML omitted -->&amp;mdash; Arrival (2016)&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;span style="font-size:0.85em">&amp;mdash; Arrival (2016)&lt;/span>&lt;/p>
 &lt;/blockquote>
 &lt;p>電影《異星入境》中，主角 Louise 即使能預見未來女兒會因罕見疾病而早逝，也知道丈夫會因此而離開，她仍然選擇走上這條路，不去更改她早已預知的未來。為什麼？&lt;/p>
 &lt;p>我起初認為是因為與女兒相處的經驗太過珍貴，讓 Louise 寧願面對失去的疼痛也不願犧牲掉這些&lt;strong>更&lt;/strong>美好的經驗。後來發現，這解釋背後其實有個非常大的假設&amp;mdash;正向經驗比起負向經驗來得「重要」，理性的人們應該會追求「正向 - 負向 &amp;gt; 0」的人生。後來有些長進之後，才發現這個假設應該恰恰與 Louise 的信念完全相反。我想 Louise 相信的是，各種經驗都&lt;strong>同等&lt;/strong>珍貴，不論是歡喜、悲痛、迎接新生命還是面對生命的消亡。即使是心碎之下，還是有感激的時刻。而她是在看遍自己的一生之後，才得出這個結論的。她選擇去用心擁抱生命賜予她的每一個時刻。&lt;/p>
@@ -94,7 +94,7 @@ And I welcome every moment of it.&lt;br>
 &lt;p>然而，社會與家庭告訴我們的，往往是相反的。我們被鼓勵去擁抱「好」的經驗，去避開「不好」的狀態。在我們能真正平等去感受各種經驗之前，早已根深柢固地認為只有正向經驗才可能有意義，負向經驗只會帶來傷害，一遇到就要趕緊逃開、脫離這種狀態。有時候甚至認為自己處在負面狀態時是&lt;strong>不道德&lt;/strong>的，因為這會帶給親友困擾。然而實際的情況是，越是迴避負面經驗，我們越可能因此受害，而這正是&lt;a href="https://en.wikipedia.org/wiki/Experiential_avoidance">經驗性迴避&lt;/a> (Experiential Avoidance) 告訴我們的事情。這概念是指人們企圖去避免感受特定經驗的傾向，例如，面對負面的想法、記憶、情緒以及身體感受時，人們常會去壓抑它們以避免經驗到這些感受。但這麼做卻會帶來更大的傷害。例如，因為失去孩子太過痛苦而透過酒精與藥物麻痺自己的感受；因為認知到自殺念頭的可怕而拼命壓抑它，反而更容易擔心自殺 (白熊效應) (Hayes et al., 1996)。&lt;/p>
 &lt;p>與經驗性迴避相反的概念是接納 (Acceptance)。舉例來說，在面對負向情緒時，接納是去&lt;strong>不帶評價地&lt;/strong>接受自己正處在情緒下，並仔細感受情緒，擁抱當下的感覺，而不去嘗試擺脫它。如果感到悲傷，就好好感受悲傷；如果感到憤怒，就好好感受憤怒
 &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。能做到接納，才有辦法平等地面對與擁抱生命裡的各種經驗。而要做到接納，前提是要能盡量不帶評價地面對眼前的事實。所以，在接納的概念裡，本就&lt;strong>沒有好與壞&lt;/strong>，接納就是用人事物原本的樣貌去理解人事物。也因此，接納本身就蘊含著&lt;strong>平等&lt;/strong>的概念，我們無法只接納「好」的而不去接納「不好」的，因為在分辨好壞的同時，我們就已經下了評價，我們就在透過濾鏡看著扭曲的世界，我們就無法如實地體驗活著的感覺。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br >
 &lt;p>&lt;strong>參考資料&lt;/strong>&lt;/p>
 &lt;p>Hayes, S. C., Wilson, K. G., Gifford, E. V., Follette, V. M., &amp;amp; Strosahl, K. (1996). Experiential avoidance and behavioral disorders: A functional dimensional approach to diagnosis and treatment. Journal of Consulting and Clinical Psychology, 64(6), 1152&amp;ndash;1168.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
@@ -220,9 +220,13 @@ And I welcome every moment of it.&lt;br>
 &lt;p>回顧截至目前的人生，有太多時候我都在用膚淺的外在價值傷害真實的內在動機，這幾乎已經變成一種反射動作。最常見的景象就是「為什麼要&lt;strong>學&lt;/strong>英文/拉丁文/數學/程式&amp;hellip;」。大概除了英文&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>之外，每一個我都有個符合功利邏輯的理由&amp;mdash;&amp;mdash;拉丁文是因為有些英文詞彙源於拉丁文，所以學習拉丁文有助於英文學習 (高中)；學習數學是因為統計學、生態演化模型都會用到數學，所以要打好數學基礎 (大一至大三)；&lt;a href="https://yongfu.name/2018/01/31/RlearningPath">學習寫程式&lt;/a> (R 語言) 則是因為曾經在處理統計資料時吃過苦頭。但是到了現在，我保有並持續學習的技能卻只剩寫程式而已。原因並不是因為我常常要跑統計或是程式能力對就業很重要&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>，而是因為在學習寫程式的過程中，我發現這件事&lt;strong>本身&lt;/strong>就能帶給我無止盡的樂趣。其它為了追求社會制約的獎賞而學習的技能，多半淪為三分鐘熱度，沒有在我身上留下任何痕跡，卻佔據了我大半的青春。&lt;/p>
 &lt;p>我想，或許就是這種為了服膺於社會功利邏輯的壓力，讓許多人無暇習得足以自娛的技能，因為所有的精力都耗在將自己塑造成符合社會期待的樣子，深信著這是對自己未來最好的道路。但我們鮮少在真正體驗到平靜、幸福的狀態後，仔細感受它的真實性以及之於自己的意義。&lt;/p>
 &lt;p>這篇文章並非在責怪我們社會的功利，這種功利是當前社會文化發展下的必然結果，厭惡式的批評不會造成任何改變。但可以改變的是我們對自己以及對世界的認識。我們可以選擇不要以社會制約的價值來看待一切事物。我們也可以選擇不要任由容易被利用&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的生理需求擺佈。然這一切需始於對自我意識的掌握，而掌握自我意識，則需始於心流的體驗。&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
-&lt;blockquote>
+&lt;style>
+blockquote > p:last-child {
+text-align: right;
+margin-top: 0;
+padding-top: 0;
+}
+&lt;/style>&lt;blockquote>
 &lt;/blockquote>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
@@ -325,8 +329,8 @@ To be fair, there are great things about making slides with markdown, for exampl
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11&lt;/span>&lt;span>&lt;span style="color:#ae81ff">```&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="complex-markups-in-independent-files">Complex Markups in Independent Files&lt;/h2>
 &lt;p>Sometimes we may want to put cool things in the slides that can only be created from HTML syntax, for example, the table below (generated from &lt;a href="https://www.tablesgenerator.com/html_tables#">TablesGenerator.com&lt;/a>):&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;p>This table looks simple, but it is generated by a 2728-character-long HTML code, which greatly increases the length and complexity of the source document. To make the source document cleaner, you can put code of these kinds in separate text files and include them into the R Markdown source document by &lt;code>knitr::asis_output(readLines('html-table.txt'))&lt;/code>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> and R Markdown &lt;a href="https://rmarkdown.rstudio.com/lesson-4.html">inline code&lt;/a> &lt;!-- raw HTML omitted -->&lt;code>r &lt;/code>&lt;!-- raw HTML omitted -->:&lt;/p>
+&lt;table style="border-collapse:collapse;border-spacing:0;margin:0px auto" class="tg">&lt;tr>&lt;th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;text-align:center" colspan="2" rowspan="2">&lt;/th>&lt;th style="font-family:Arial, sans-serif;font-size:14px;font-weight:bold;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;text-align:center" colspan="2">Heuristic&lt;/th>&lt;/tr>&lt;tr>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#efefef;text-align:center">plausible&lt;/td>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#efefef;text-align:center">implausible&lt;/td>&lt;/tr>&lt;tr>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;font-weight:bold;text-align:center" rowspan="2">Syntax-driven&lt;/td>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#efefef;text-align:center">plausible&lt;/td>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#9abad9;text-align:center">&lt;span style="text-decoration: line-through;">P600&lt;/span>&lt;br>&lt;span style="text-decoration: line-through;">N400&lt;/span>&lt;/td>&lt;td style="font-family:Arial, sans-serif;font-size:medium;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#9abad9;text-align:center">&lt;span style="color:rgb(254, 0, 0)">✗&lt;/span>&lt;/td>&lt;/tr>&lt;tr>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#efefef;text-align:center">implausible&lt;/td>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#9abad9;text-align:center">P600&lt;/td>&lt;td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#343434;background-color:#9abad9;text-align:center">N400&lt;/td>&lt;/tr>&lt;/table>
+&lt;p>This table looks simple, but it is generated by a 2728-character-long HTML code, which greatly increases the length and complexity of the source document. To make the source document cleaner, you can put code of these kinds in separate text files and include them into the R Markdown source document by &lt;code>knitr::asis_output(readLines('html-table.txt'))&lt;/code>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> and R Markdown &lt;a href="https://rmarkdown.rstudio.com/lesson-4.html">inline code&lt;/a> &lt;code>&lt;code>r &lt;/code>&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>A table generated from
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>[&lt;span style="color:#f92672">TablesGenerator.com&lt;/span>](&lt;span style="color:#a6e22e">https://www.tablesgenerator.com/html_tables#&lt;/span>):
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>
@@ -481,8 +485,14 @@ Content appended to template-slide's content.
 &lt;h2 id="上台報告投影片">上台報告(投影片)&lt;/h2>
 &lt;p>上台報告對我來說是個很大的挑戰，因為我會緊張到忘記本來要講演的邏輯。克服這挑戰的關鍵當然是練習 &amp;ndash; &lt;em>寫下報告的講稿反覆練習，直到能自然(自動化)地完成報告&lt;/em>。但除了練習之外，我過去一直忽略&lt;strong>工具&lt;/strong>的重要性。事實上，有了正確的工具後，根本&lt;strong>不需擔心會忘記要講什麼&lt;/strong>。&lt;/p>
 &lt;p>幾乎所有投影片工具 (PowerPoint, Google Slides, &lt;a href="https://revealjs.com">reveal.js&lt;/a>, &lt;a href="https://remarkjs.com">Remark.js&lt;/a>) 都有&lt;strong>簡報者模式 (presenter mode)&lt;/strong>：&lt;/p>
-&lt;!-- raw HTML omitted -->
-&lt;!-- raw HTML omitted -->
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/google_slide.gif" alt="Google Slides Presenter Mode" width='85%'/>
+&lt;figcaption>Google 簡報者模式。左邊是簡報者看到的內容，右邊是觀眾看到的同步內容。&lt;/figcaption>
+&lt;/figure>
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/remarkjs.gif" alt="Remark.js Presenter Mode" width='85%'/>
+&lt;figcaption>Remark.js 簡報者模式。左邊是簡報者看到的內容，右邊是觀眾看到的同步內容。&lt;/figcaption>
+&lt;/figure>
 &lt;p>但我知道有人因為不知道&lt;strong>簡報者模式需配合&lt;a href="https://support.microsoft.com/zh-tw/help/4340331/windows-10-set-up-dual-monitors">延伸螢幕&lt;/a>使用&lt;/strong>而未曾使用這個功能(對，就是我！)。透過延伸螢幕，可以在自己的電腦與投影幕上同步顯示投影片，只是其中一個是有筆記的簡報者模式，另一個則是給觀眾看的一般模式。&lt;/p>
 &lt;h2 id="電子辭典">電子辭典&lt;/h2>
 &lt;p>在電腦上看英文內容遇到不懂的單字時，往往要開啟瀏覽器去查單字。若有很多單字不懂，就要反覆切換視窗畫面。Mac 內建有辭典工具，透過反白文字就可在小視窗中查詢該單字，並可以&lt;a href="https://diary.taskinghouse.com/posts/2186795-install-traditional-chinese-english-dictionary-to-mac-built-in-dictionary/">安裝第三方字典檔&lt;/a>擴充其詞彙。&lt;/p>
@@ -491,7 +501,10 @@ Content appended to template-slide's content.
 &lt;ul>
 &lt;li>將字反白後再按快捷鍵 (可自訂)，就會跳出小視窗顯示該字的查詢結果&lt;/li>
 &lt;/ul>
-&lt;!-- raw HTML omitted -->
+&lt;figure>
+&lt;img src="https://img.yongfu.name/assets/images/golden_dict.gif" alt="GoldenDict" width='85%'/>
+&lt;figcaption>GoldenDict，開源電子辭典軟體。支援多種字典檔案格式，但本身不含字典檔，需額外下載。&lt;/figcaption>
+&lt;/figure>
 &lt;h2 id="記錄想法">記錄想法&lt;/h2>
 &lt;p>&lt;em>沒有記憶就彷彿不曾存在&lt;/em> 。生活在資訊量爆炸的時代，「記住重要的事情，忽略不重要的刺激」似乎變成一項重要的能力。如果我們不努力記下重要的事情，那這些記憶就會被其它瑣碎的、不重要的刺激&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>洗掉。&lt;/p>
 &lt;p>面對海量的資訊，網路上有許多專案管理軟體可以幫忙記下事情。我自己習慣使用 &lt;a href="https://trello.com">Trello&lt;/a>，因為覺得它使用起來相當順手(筆記可用 Markdown 語法、Board, List, Card 的階層分類方式)。例如，我用一個 Board 記下未來可能會用到的&lt;a href="https://trello.com/b/UerBS2oH/online-resources">線上資源&lt;/a>。除此之外，目前還有其它十幾個 Board，各自管理一個主題。&lt;/p>
@@ -649,7 +662,7 @@ Content appended to template-slide's content.
 &lt;h2 id="小結">小結&lt;/h2>
 &lt;p>我真的很慶幸能在大三時接觸到 R。以往我都把時間花在讀書上，也不知何時才能用得上。R 讓我發現了自己的嗜好&lt;sup id="fnref:20">&lt;a href="#fn:20" class="footnote-ref" role="doc-noteref">20&lt;/a>&lt;/sup>，也讓我體驗到&lt;strong>為了處理想解決的問題而學習&lt;/strong>的感覺。我也才慢慢體會到為了&lt;strong>興趣&lt;/strong>所學與為了&lt;strong>其它目的&lt;/strong> (競爭力、考試、學分、跟風？) 所學，能帶來的可觀差異。當然，興趣與其它目的並非不能同時存在，只是有時&lt;strong>專注在其它目的會抑制興趣&lt;/strong>，而最能讓學習持續的動力來源卻是興趣。&lt;/p>
 &lt;p>這篇文章的目的，旨在提供有志學 R 卻不確定如何開始的人作參考。文章介紹的學習資源 (或是任何嘮叨的內容)，不只是 (我認為) 有用的，且能強烈引起我的興趣。希望讀過這篇文章的人，不僅僅獲益於文章介紹的學習資源，且能為了興趣而學 R ─ 這是此篇文章最想傳達的想法。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;br>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

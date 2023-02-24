@@ -52,10 +52,13 @@ GitHub Pages is used to host my app (&lt;a href="https://github.com/liao961120/g
 &lt;li>&lt;strong>Google Drive&lt;/strong>&lt;br>
 Users are provided a GD folder to upload their Word documents&lt;/li>
 &lt;li>&lt;strong>Travis CI&lt;/strong>&lt;br>
-After uploading their Word documents to GD, users can &lt;a href="https://docs.travis-ci.com/user/triggering-builds">trigger a Travis CI build&lt;/a> by clicking &lt;!-- raw HTML omitted --> on the bottom-left corner of the &lt;a href="https://glosss.yongfu.name">app&lt;/a> (password needed). Under the hood, I encrypted my Travis CI&amp;rsquo;s API token so that when the user enters the correct password, a POST request (containing the decrypted token) is sent to Travis CI to trigger a build. During the build, the Word documents saved in Google Drive are download and processed into JSON format and then pushed back to a GitHub repo that hosts the data.&lt;/li>
+After uploading their Word documents to GD, users can &lt;a href="https://docs.travis-ci.com/user/triggering-builds">trigger a Travis CI build&lt;/a> by clicking &lt;img src="https://bit.ly/2X2r1aQ" style="display:inline;height:1em;width:auto;margin:0"> on the bottom-left corner of the &lt;a href="https://glosss.yongfu.name">app&lt;/a> (password needed). Under the hood, I encrypted my Travis CI&amp;rsquo;s API token so that when the user enters the correct password, a POST request (containing the decrypted token) is sent to Travis CI to trigger a build. During the build, the Word documents saved in Google Drive are download and processed into JSON format and then pushed back to a GitHub repo that hosts the data.&lt;/li>
 &lt;/ul>
 &lt;p>The figure below summarizes the flow of the app&amp;rsquo;s data:&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;div class="figure">
+&lt;img src="https://img.yongfu.name/posts/gloss-search-webbased.png" style="width:100%">
+&lt;p class="caption">Figure 1: The numbers annotated to the arrows indicate the order of the execution. Processes with annotated text appended with &lt;img src="https://img.yongfu.name/icon/user.png" style="display:inline;height:1em;width:auto;margin:0"> indicate that they are triggered by the user. Other processes proceed automatically.&lt;/p>
+&lt;/div>
 &lt;h2 id="configuration-of-the-travis-build">Configuration of the Travis build&lt;/h2>
 &lt;p>Below is the partial configuration&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> of the Travis build that:&lt;/p>
 &lt;ol>
