@@ -42,16 +42,15 @@ knitr::opts_chunk$set(
 Mysterious Item Response Theory
 -------------------------------
 
-**Item response theory is _mysterious_ and intimidating to students
-first encountering it.** It is mysterious in the way it is presented in textbooks,
-at least in introductory ones. The text often starts with an ambitious
-conceptual introduction to IRT, which most students would be able to follow, but
-with some confusion. Curious students might bear with the confusion and expect
-it to resolve in the following text, only to find themselves disappointed. At
-the point where the underlying statistical model should be further elaborated,
-the text abruptly stops and tries to convince readers to trust the results from
-black-box IRT software packages. It is fine to leave the model details to domain
-experts and computers.
+**Item response theory is _mysterious_ and intimidating to students.** It is
+mysterious in the way it is presented in textbooks, at least in introductory
+ones. The text often starts with an ambitious conceptual introduction to IRT,
+which most students would be able to follow, but with some confusion. Curious
+students might bear with the confusion and expect it to resolve in the following
+text, only to find themselves disappointed. At the point where the underlying
+statistical model should be further elaborated, the text abruptly stops and
+tries to convince readers to trust the results from black-box IRT software
+packages. It is fine to leave the model details to domain experts and computers.
 
 It isn't that I have trust issues with black-box software, and I would also
 agree that it is impractical to understand all the details of model estimation
