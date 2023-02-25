@@ -299,7 +299,7 @@ distributed as a Bernoulli distribution with parameter $P=0.75$. In
 graphical terms, the distribution is just two bars.&lt;/p>
 &lt;p>&lt;img src="part1_files/figure-commonmark/unnamed-chunk-5-1.png"
 style="width:100.0%" data-fig-align="center" />&lt;/p>
-&lt;p>We have got all we need, let’s construct all the remaining columns to
+&lt;p>We have got all we need, let’s construct the remaining columns to
 complete this simulation. I will compute the probabilities (&lt;code>P&lt;/code>) from
 column &lt;code>Mu&lt;/code>. Column &lt;code>P&lt;/code> could then generate column &lt;code>R&lt;/code>, the item
 responses, through the Bernoulli distribution.&lt;/p>

@@ -294,9 +294,9 @@ axis( 1, at=0:1, padj = .5,
 )
 ```
 
-We have got all we need, let's construct all the remaining columns to complete
-this simulation. I will compute the probabilities (`P`) from column `Mu`. Column
-`P` could then generate column `R`, the item responses, through the Bernoulli
+We have got all we need, let's construct the remaining columns to complete this
+simulation. I will compute the probabilities (`P`) from column `Mu`. Column `P`
+could then generate column `R`, the item responses, through the Bernoulli
 distribution.
 
 ```{r}
