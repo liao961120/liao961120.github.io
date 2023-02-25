@@ -1,0 +1,194 @@
+---
+title: Demystifying Item Response Theory (2/3)
+subtitle: "Generalized Linear Model"
+description: ""
+draft: true
+date: '2023-02-23'
+katex: true
+tags:
+- stats
+- irt
+- Psychology
+- R-bloggers
+format: 
+   gfm:
+      output-file: "index"
+      output-ext: "md"
+      variant: +yaml_metadata_block
+      df-print: tibble
+editor:
+   render-on-save: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	#results = 'hold',
+	out.width = "100%",
+	fig.align = 'center',
+	comment = "",
+	fig.dim = c(10, 5.5),
+   dpi = 300,
+   dev.args = list(bg = "transparent"),
+   NULL
+)
+```
+
+
+
+Equation, Index and Annoying Things
+-----------------------------------
+
+The 1-parameter logistic model (1PL model) is expressed in mathematical form as
+equations in (1).
+
+$$
+\begin{align}
+& R_i \sim Bernoulli( P_i ) \\\\
+& P_i = logistic( \mu_i )   \\\\
+& \mu_i = A_{[T_i]} - D_{[I_i]} 
+\end{align} \tag{1}
+$$
+
+Lots of things are going on here. Don't panic, I'll walk you through step by
+step. First, note the common subscript $_i$ to the variables above. The presence
+of this common $_i$ indicates that the equations can be read at the
+**observational** level. It is easier to think of the **observational** level by
+associating it with the [long data format][long]. In this long form of data,
+each row records an observation and is indexed by the subscript $_i$. Let's look
+at a fictitious example, where the results of 2 testees' performance on 3 items
+are recorded in the long data format below.
+
+| $_i$ | $R$ | $T$  | $I$ | $A$ | $D$ |
+|:----:|:---:|:----:|:---:|:---:|:---:|
+|  1   |  1  | Kate |  A  | .5  | .4  |
+|  2   |  0  | Kate |  B  | .5  | -.3 |
+|  3   |  1  | Kate |  C  | .5  | .0  |
+|  4   |  0  | Joe  |  A  | -.5 | .4  |
+|  5   |  0  | Joe  |  B  | -.5 | -.3 |
+|  6   |  1  | Joe  |  C  | -.5 | .0  |
+
+The first column in the table holds the indices for observations, which
+corresponds to the subscript $_i$. The second column holds the results $R$. The
+third and fourth column corresponds to the id of the testees ($T$) and the items
+($I$), respectively. $T$ and $I$ are known as indicator variables, which could
+be used for referencing other attributes associated with the individual. For the
+sake of demonstration, let us assume here that the exact ability levels of the
+testees ($A$) and the difficulty of the items ($D$) are known. Then $T$ can be
+used here for referencing the ability $A$ of the two testees (hence, the first
+three rows of $A$ have a value of `.5`, which corresponds to the ability of
+`Kate`), and $I$ can be used for referencing the item difficulty $D$ (hence, row
+2 & 5 have a value of `-.3`, which corresponds to the difficulty of item `B`).
+Let's code this in R. As shown in the code below, this is when the subset
+function `[]` is used. If feeling confused, try to run the code line-by-line to
+see the output at each step.
+
+```{r}
+A = c( K = .5, J = -.5          )  # Testee Ability (K for Kate, J for Joe)
+D = c( A = .4, B = -.3,  C = .0 )  # Item Difficulty
+
+dat = data.frame(
+   i = 1:6,  # row ID
+   R = c( 1, 0, 1, 0, 0, 1 ),          # Results
+   T = c( rep("K", 3), rep("J", 3) ),  # Testee ID
+   I = rep( c("A","B","C"), 2 )        # Item ID
+)
+dat
+```
+
+```{r}
+dat$A = A[ dat$T ]
+dat$D = D[ dat$I ]
+dat
+```
+
+Now, let's come back to the equations in (1). The equations should be less
+intimidating after we can relate them to the long data format, so we can shift
+our focus to what the equations are expressing. Let's begin with the bottom
+line. Nothing special, the equation $\mu_i = A_{[T_i]} - D_{[I_i]}$ simply tell
+us how to compute a new variable $\mu$ from the abilities $A$ and $D$. This is
+shown in the column of $\mu$ in the table below. It should be straightforward to
+see how the $\mu_i$s are obtained. Moving up a line in (1), we meet something
+new in $P_i = logistic( \mu_i )$. This equation tells us that the variable $P$
+can be computed from variable $\mu$ by applying a function, $logistic()$, to
+$\mu$. So what is the **logistic function**? The logistic is a function that
+maps a real value $x$ ($[-\infty, \infty]$) to a probability $p$ ($[0, 1]$). In
+short, the logistic function transforms and constrains the $\mu_i$s to values
+between zero and one. Note that the transformation is **monotonic increasing**,
+which means that smaller $\mu_i$s would be transformed into smaller $P_i$s, and
+larger $\mu_i$s would be transformed into larger $P_i$s. The ranks of the values
+before and after the transformation stay the same. To have a feel of what the
+logistic function does, let's code it in R:
+
+```{r}
+#| fig-cap: "A line plot on a polar axis"
+logistic = function(x)
+   1 / ( 1 + exp(-x) )
+
+x = seq( -5, 5, by=0.1 )
+p = logistic( x )
+plot( x, p )
+```
+
+As the plot shows, the logistic transformation results in an S-shaped curve,
+since the transformed values (y) are bounded by 0 and 1, extreme values on the
+poles of the x-axis would be "squeezed" after the transformation. Don't think
+too hard here about the "meaning" of the logistic function. It is just here for
+a practical purpose--we need a way to **link** the $\mu_i$s generated from our
+linear model ($& \mu_i = A_{[T_i]} - D_{[I_i]}$) to the values that are actually
+observed (the scores, $R_i$s). 
+
+There are several kinds of functions similar to the logistic function
+in the GLMs, which all serve the same purpose---to constrain the outcome (y) of
+the linear model to a desirable space. 
+
+In the case here, the possible outcome
+values need to be constrained to zeros (incorrect) and ones (correct). And the
+zeros and ones need to somehow be **linked** to $\mu_i$s (ones should tend to be
+observed when $\mu_i$ are large, and zeros tend to be observed when $\mu_i$s are
+small). To achieve this, the logistic function is used to map the $\mu_i$s to
+the probabilities, and these probabilities could then be used to generate zeros
+and ones, through the use of [Bernoulli distribution][bern]
+
+$$
+\begin{align}
+& R_i \sim Bernoulli( P_i ) \\\\
+& P_i = logistic( \mu_i )   \\\\
+& \mu_i = A_{[T_i]} - D_{[I_i]} 
+\end{align} \tag{1}
+$$
+
+
+| $_i$ | $R$ | $T$  | $I$ | $A$ | $D$ | $\mu$ | $P$ |
+|:----:|:---:|:----:|:---:|:---:|:---:|:-----:|:---:|
+|  1   |  1  | Kate |  A  | .5  | .4  |  .1   | .53 |
+|  2   |  0  | Kate |  B  | .5  | -.3 |  .8   | .69 |
+|  3   |  1  | Kate |  C  | .5  | .0  |  .5   | .62 |
+|  4   |  0  | Joe  |  A  | -.5 | .4  |  -.9  | .29 |
+|  5   |  0  | Joe  |  B  | -.5 | -.3 |  -.2  | .45 |
+|  6   |  1  | Joe  |  C  | -.5 | .0  |  -.5  | .50 |
+
+
+
+[DAG]: https://en.wikipedia.org/wiki/Directed_acyclic_graph
+[long]: https://en.wikipedia.org/wiki/Wide_and_narrow_data
+[bern]: https://en.wikipedia.org/wiki/Bernoulli_distribution
+
+
+
+
+DAG
+
+equation -> index (long-format) -> simulation
+
+
+Simulation
+
+
+
+index, contrasts and annoying things
+GLM
+    linear model
+    link function
+

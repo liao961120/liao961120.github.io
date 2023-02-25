@@ -12,15 +12,11 @@
     --inline-code-skin: #E4CEC0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 18px;
+    font-size: 19px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -78,6 +74,7 @@ p code, li code {
     font-style: italic;
     font-weight: 600;
     font-size: 1.22em;
+    word-spacing: 0.1em;
 }
 
 .article_content h2 {
@@ -98,12 +95,14 @@ p code, li code {
     /* max-width: 100%; */
     width: 100%;
     display: block;
-    padding: 0;
+    padding: 0 auto;
+    margin: 0 auto;
 }
 .article_content figure > figcaption {
     text-align: center;
-    width: 90%;
-    font-size: 0.94em;
+    width: 94%;
+    font-size: .95em;
+    color: rgb(58, 58, 58);
     margin: 1em auto 0 auto;
     padding: 0 auto;
 }
@@ -215,6 +214,7 @@ blockquote p {
     border-left: 1px solid rgb(100, 100, 100);
     padding-left: 5px;
     margin-left: 5px;
+    word-spacing: 0.1em;
 }
 
 /* Posts */
@@ -438,9 +438,18 @@ footer .copyright {
 }
 
 /* GOAT Diagram */
+/* Default size */
 .goat.svg-container > svg {
     display: inline;
     max-height: 185px;
+}
+.lg .goat.svg-container > svg {
+    display: inline;
+    max-height: 300px;
+}
+.sm .goat.svg-container > svg {
+    display: inline;
+    max-height: 100px;
 }
 
 
@@ -468,10 +477,17 @@ footer .copyright {
     }
     .main article.post {
         width: 100%;
+        max-width: 100%;
         margin: 0;
         padding: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
     .main aside {
         display: none;
+    }
+    .article_content p {
+        text-align: left;
+        line-height: 1.57;
     }
 }
