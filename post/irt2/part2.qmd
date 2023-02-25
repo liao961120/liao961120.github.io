@@ -9,7 +9,6 @@ tags:
 - stats
 - irt
 - Psychology
-- R-bloggers
 format: 
    gfm:
       output-file: "index"
