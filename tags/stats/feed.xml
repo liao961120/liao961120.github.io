@@ -337,7 +337,7 @@ to probabilities to make sense of them.&lt;/p>
 give different values of $R$ (unless a random seed is set, or the &lt;code>P&lt;/code>
 column consists solely of zeros and ones). Probability does not
 guarantee the observation of a particular outcome, since it is the exact
-reason why probability is invented—to quantify &lt;em>uncertainty&lt;/em>. The
+reason why probability is invented—to quantify &lt;em>&lt;strong>uncertainty&lt;/strong>&lt;/em>. The
 presence of such uncertainty is the gist of a simulation. We add
 uncertainty to the simulation, mimicking the real world, to know that in
 the presence of such uncertainty, would it still be possible to discover
