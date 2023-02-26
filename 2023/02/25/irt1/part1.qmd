@@ -27,10 +27,12 @@ knitr::opts_chunk$set(
 	fig.align = 'center',
 	comment = "",
 	fig.dim = c(10, 5.5),
-   dpi = 300,
+   #dpi = 300,
+   dev='svg',
    dev.args = list(bg = "transparent"),
    NULL
 )
+options(knitr.svg.object = TRUE)  # Embed svg as raw XML
 ```
 
 
@@ -311,9 +313,9 @@ dat$R = rbern( dat$P )
 dat
 ```
 
-Now, we have a complete table of simulated item responses. A few things to note
-here. First, look at the fourth row of the data frame, where the response of
-testee T (Tom) on item B is recorded. Column `Mu` has a value of zero since
+Now, we have a complete table of simulated item responses. A few things to
+notice here. First, look at the fourth row of the data frame, where the response
+of testee T (Tom) on item B is recorded. Column `Mu` has a value of zero since
 Tom's ability level is identical to the difficulty of item B. What does it mean
 to be "identical"? "Identical" implies that Tom is neither more likely to
 succeed nor to fail on item B. Hence, you can see that Tom has a 50% of getting
@@ -321,16 +323,99 @@ item B correct in the $P$ column. This is how the ability/difficulty levels and
 $\mu$ are interpreted. They are on an abstract scale of real numbers. We need to
 convert them to probabilities to make sense of them.
 
-The second thing to note is column `R`. This is the only column that is
-**_stochastic_** in the table. Every run of the simulation would likely give
+The second thing to notice is column `R`. This is the only column that has 
+**_randomness_** introduced. Every run of the simulation would likely give
 different values of $R$ (unless a random seed is set, or the `P` column consists
-solely of zeros and ones). Probability does not guarantee the observation of a
-particular outcome, since it is the exact reason why probability is
-invented---to quantify **_uncertainty_**. 
-The presence of such uncertainty is the gist of a simulation. We add uncertainty
-to the simulation, mimicking the real world, to know that in the presence of
-such uncertainty, would it still be possible to discover targets of interest
-with a statistical model. 
+solely of zeros and ones). The outcomes are not guaranteed, probability is at 
+work. 
+
+The presence of such randomness is the gist of simulations and statistical
+models. We add uncertainty to the simulation, mimicking the real world, to know
+that in the presence of such uncertainty, would it still be possible to discover
+targets of interest with a statistical model. Randomness, however, poses some 
+challenges for coding. We need to equip ourselves for those challenges.
+
+
+Coding Randomness
+-----------------
+
+Randomness is inherent in simulations and statistical models, so it is
+impossible to run away from it. It is everywhere. The problem with randomness is
+that it introduces uncertainty in the outcome produced. Thus, it would be hard
+to spot any errors just by **eyeballing the results**.
+
+Take `rbern()` for instance. Given a parameter $P=0.5$, we can repeatedly run
+`rbern(0.5)` a couple of times to produce zeros and ones. But these zeros and
+ones cannot tell us whether `rbern(0.5)` is working properly. `rbern(0.5)` might
+be broken somehow, and instead generates the ones with, e.g., $P=0.53$.
+
+The [law of large numbers][large-num] can help us here. Since `rbern()`
+generates one with probability $P$, if we run `rbern()` many times, the
+proportion of one in the outcomes should converge to $P$. The second argument
+`n` in `rbern()` is a handy way to achieve this. You can increase `n` to see if
+the result would come closer to $0.5$.
+
+```{r}
+outcomes = rbern( p=0.5, n=1e4 )  # Run rbern with P=0.5 10,000 times
+mean(outcomes)
+```
+
+A more general way to rerun chunks of code is through the for loop or convenient
+wrappers such as the `replicate()` function.
+
+```{r}
+outcomes = replicate( n=1e4, expr={ rbern( p=0.5 ) } )
+mean(outcomes)
+```
+
+```r
+# See if several runs of rbern( p=0.5, n=1e4 ) give results around 0.5
+Ps = replicate( n=100, expr={
+   outcomes = rbern( p=0.5, n=1e4 )
+   mean(outcomes)
+})
+
+# Plot Ps to see if they scatter around 0.5
+plot( 1, type="n", xlim=c(0, 100), ylim=c(0.47, 0.53), ylab="P" )
+abline( h=0.5, lty="dashed" )
+points( Ps, pch=19, col=2 )
+```
+
+```{r fig.dim=c(8.5, 4)}
+#| echo: false
+#par( mar = c(bottom, left, top, right) )
+par(oma=c(0,0,0,0))  # outer margin
+par(mar=c(3, 4, 1, 1.6) )  # margin
+# See if several runs of rbern( p=0.5, n=1e4 ) give results around 0.5
+Ps = replicate( n=100, expr={
+   outcomes = rbern( p=0.5, n=1e4 )
+   mean(outcomes)
+})
+
+# Plot Ps to see if they scatter around 0.5
+plot( 1, type="n", xlim=c(0, 100), ylim=c(0.48, 0.52), ylab="P" )
+abline( h=0.5, lty="dashed" )
+points( Ps, pch=19, col=2 )
+```
+
+
+
+### Randomness in Models
+
+The method described above works only for simple cases. What about complex
+statistical models? How do we test that they are working as they claim to? Guess
+what? **_Simulation_** is the answer. 
+
+We simulate data based on the assumptions of the statistical model and see if it
+indeed returns what it claims to estimate. The simulation can be repeated
+several times, each with different parameter values set. If the parameters are
+always recovered by the statistical model, we can then be confident that the
+model is properly constructed and correctly coded. So **simulation is really not
+an option when doing statistics**. It is the only safety that helps us guard
+against bugs in our statistical models, both programmatical and theoretical
+ones. Without first testing the statistical model on simulated data, any
+inferences about the empirical data are in doubt.
+
 
 
 ## What's next?
@@ -351,6 +436,7 @@ information of $R$, $I$, and $T$. See you there!
 [basic-level]: https://en.wikipedia.org/wiki/Basic_category
 [bern]: https://en.wikipedia.org/wiki/Bernoulli_distribution
 [fun-logistic]: https://en.wikipedia.org/wiki/Logistic_function
+[large-num]: https://en.wikipedia.org/wiki/Law_of_large_numbers
 
 [^jml]: I mean, what the hack is *Joint/Conditional Maximum Likelihood
     Estimation*? These are methods developed in psychometrics and are hardly

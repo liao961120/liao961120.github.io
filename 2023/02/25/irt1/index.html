@@ -180,7 +180,7 @@ function does, let’s transform some values with the logistic.</p><div class=hi
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>x <span style=color:#f92672>=</span> <span style=color:#a6e22e>seq</span>( <span style=color:#ae81ff>-5</span>, <span style=color:#ae81ff>5</span>, by<span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span> )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>p <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( x )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span><span style=color:#a6e22e>plot</span>( x, p )
-</span></span></code></pre></div><p><img src=part1_files/figure-commonmark/unnamed-chunk-4-1.png style=width:100% data-fig-align=center></p><p>As the plot shows, the logistic transformation results in an S-shaped
+</span></span></code></pre></div><p><img src=part1_files/figure-commonmark/unnamed-chunk-4-1.svg style=width:100% data-fig-align=center></p><p>As the plot shows, the logistic transformation results in an S-shaped
 curve. Since the transformed values (p) are bounded by 0 and 1, extreme
 values on the poles of the x-axis would be “squeezed” after the
 transformation. Real numbers with absolute values greater than 4, after
@@ -207,7 +207,7 @@ the probability $p$ of observing a head equals 0.75 (since the coin is
 imbalanced in some way that the head is more likely observed and we know
 it somehow). Then the distribution of the outcomes (zero and one) is
 distributed as a Bernoulli distribution with parameter $P=0.75$. In
-graphical terms, the distribution is just two bars.</p><p><img src=part1_files/figure-commonmark/unnamed-chunk-5-1.png style=width:100% data-fig-align=center></p><p>We have got all we need, let’s construct the remaining columns to
+graphical terms, the distribution is just two bars.</p><p><img src=part1_files/figure-commonmark/unnamed-chunk-5-1.svg style=width:100% data-fig-align=center></p><p>We have got all we need, let’s construct the remaining columns to
 complete this simulation. I will compute the probabilities (<code>P</code>) from
 column <code>Mu</code>. Column <code>P</code> could then generate column <code>R</code>, the item
 responses, through the Bernoulli distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Generating 0/1 from Bernoulli distribution with given probabilites</span>
@@ -228,24 +228,66 @@ responses, through the Bernoulli distribution.</p><div class=highlight><pre tabi
 5 A     J      -0.4   0.4  -0.8 0.310     1
 6 B     J      -0.4   0.1  -0.5 0.378     0
 </code></pre><p>Now, we have a complete table of simulated item responses. A few things
-to note here. First, look at the fourth row of the data frame, where the
-response of testee T (Tom) on item B is recorded. Column <code>Mu</code> has a
+to notice here. First, look at the fourth row of the data frame, where
+the response of testee T (Tom) on item B is recorded. Column <code>Mu</code> has a
 value of zero since Tom’s ability level is identical to the difficulty
 of item B. What does it mean to be “identical”? “Identical” implies that
 Tom is neither more likely to succeed nor to fail on item B. Hence, you
 can see that Tom has a 50% of getting item B correct in the $P$ column.
 This is how the ability/difficulty levels and $\mu$ are interpreted.
 They are on an abstract scale of real numbers. We need to convert them
-to probabilities to make sense of them.</p><p>The second thing to note is column <code>R</code>. This is the only column that is
-<em><strong>stochastic</strong></em> in the table. Every run of the simulation would likely
-give different values of $R$ (unless a random seed is set, or the <code>P</code>
-column consists solely of zeros and ones). Probability does not
-guarantee the observation of a particular outcome, since it is the exact
-reason why probability is invented—to quantify <em><strong>uncertainty</strong></em>. The
-presence of such uncertainty is the gist of a simulation. We add
-uncertainty to the simulation, mimicking the real world, to know that in
-the presence of such uncertainty, would it still be possible to discover
-targets of interest with a statistical model.</p><h2 id=whats-next>What’s next?</h2><p>In a real-world scenario of the example presented here, we would only
+to probabilities to make sense of them.</p><p>The second thing to notice is column <code>R</code>. This is the only column that
+has <em><strong>randomness</strong></em> introduced. Every run of the simulation would
+likely give different values of $R$ (unless a random seed is set, or the
+<code>P</code> column consists solely of zeros and ones). The outcomes are not
+guaranteed, probability is at work.</p><p>The presence of such randomness is the gist of simulations and
+statistical models. We add uncertainty to the simulation, mimicking the
+real world, to know that in the presence of such uncertainty, would it
+still be possible to discover targets of interest with a statistical
+model. Randomness, however, poses some challenges for coding. We need to
+equip ourselves for those challenges.</p><h2 id=coding-randomness>Coding Randomness</h2><p>Randomness is inherent in simulations and statistical models, so it is
+impossible to run away from it. It is everywhere. The problem with
+randomness is that it introduces uncertainty in the outcome produced.
+Thus, it would be hard to spot any errors just by <strong>eyeballing the
+results</strong>.</p><p>Take <code>rbern()</code> for instance. Given a parameter $P=0.5$, we can
+repeatedly run <code>rbern(0.5)</code> a couple of times to produce zeros and ones.
+But these zeros and ones cannot tell us whether <code>rbern(0.5)</code> is working
+properly. <code>rbern(0.5)</code> might be broken somehow, and instead generates
+the ones with, e.g., $P=0.53$.</p><p>The <a href=https://en.wikipedia.org/wiki/Law_of_large_numbers>law of large
+numbers</a> can help us
+here. Since <code>rbern()</code> generates one with probability $P$, if we run
+<code>rbern()</code> many times, the proportion of one in the outcomes should
+converge to $P$. The second argument <code>n</code> in <code>rbern()</code> is a handy way to
+achieve this. You can increase <code>n</code> to see if the result would come
+closer to $0.5$.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>outcomes <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( p<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>, n<span style=color:#f92672>=</span><span style=color:#ae81ff>1e4</span> )  <span style=color:#75715e># Run rbern with P=0.5 10,000 times</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>mean</span>(outcomes)
+</span></span></code></pre></div><pre><code>[1] 0.4991
+</code></pre><p>A more general way to rerun chunks of code is through the for loop or
+convenient wrappers such as the <code>replicate()</code> function.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>outcomes <span style=color:#f92672>=</span> <span style=color:#a6e22e>replicate</span>( n<span style=color:#f92672>=</span><span style=color:#ae81ff>1e4</span>, expr<span style=color:#f92672>=</span>{ <span style=color:#a6e22e>rbern</span>( p<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span> ) } )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>mean</span>(outcomes)
+</span></span></code></pre></div><pre><code>[1] 0.5027
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># See if several runs of rbern( p=0.5, n=1e4 ) give results around 0.5</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>replicate</span>( n<span style=color:#f92672>=</span><span style=color:#ae81ff>100</span>, expr<span style=color:#f92672>=</span>{
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>   outcomes <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( p<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>, n<span style=color:#f92672>=</span><span style=color:#ae81ff>1e4</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>   <span style=color:#a6e22e>mean</span>(outcomes)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>})
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span><span style=color:#75715e># Plot Ps to see if they scatter around 0.5</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>100</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0.47</span>, <span style=color:#ae81ff>0.53</span>), ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;P&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#a6e22e>abline</span>( h<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>points</span>( Ps, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span></code></pre></div><p><img src=part1_files/figure-commonmark/unnamed-chunk-9-1.svg style=width:100% data-fig-align=center></p><h3 id=randomness-in-models>Randomness in Models</h3><p>The method described above works only for simple cases. What about
+complex statistical models? How do we test that they are working as they
+claim to? Guess what? <em><strong>simulation</strong></em> is the answer.</p><p>We simulate data based on the assumptions of the statistical model and
+see if it indeed returns what it claims to estimate. The simulation can
+be repeated several times, each with different parameter values set. If
+the parameters are always recovered by the statistical model, we can
+then be confident that the model is properly constructed and correctly
+coded. So <strong>simulation is really not an option when doing statistics</strong>.
+It is the only safety that helps us guard against bugs in our
+statistical models, both programmatical and theoretical ones. Without
+first testing the statistical model on simulated data, any inferences
+about the empirical data are in doubt.</p><h2 id=whats-next>What’s next?</h2><p>In a real-world scenario of the example presented here, we would only
 observe the score ($R$) of an item ($I$) taken by a testee ($T$). The
 targets of interest are the unobserved item difficulty ($D$) and testee
 ability ($A$). In the next post, we will work in reverse and fit

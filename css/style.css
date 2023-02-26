@@ -356,7 +356,6 @@ table th {
 }
 .highlight pre {
     max-width: 100%;
-    overflow-x: auto;
     padding: .7em .5em;
     border-radius: 0.35em;
     line-height: 1.45;
@@ -367,6 +366,7 @@ pre {
     font-size: 0.85em;
     padding-left: 1.5em;
     color: rgb(33, 33, 33);
+    overflow-x: auto;
 }
 
 /* Footer */
@@ -453,6 +453,31 @@ footer .copyright {
     max-height: 100px;
 }
 
+
+/* Box in article */
+.Box {
+	/* background: rgb(100, 209, 171); */
+	border: 2px solid var(--header-background-darker);
+	padding: .35em 2%;
+    margin: 0;
+	border-radius: 0.3em;
+	width: 96%;
+}
+.Box::before {
+	content: attr(title);
+	font-weight: bold;
+    font-style: italic;
+	font-size: 1.05em;
+}
+.Box p {
+	width: 100%;
+}
+.Box p:nth-child(1) {
+	margin-top: .7em;
+}
+.Box p:last-child() {
+	margin-bottom: 0;
+}
 
 /* Responsive design */
 
