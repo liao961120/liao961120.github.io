@@ -1,10 +1,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>stats on Yongfu's Blog</title><link>https://yongfu.name/tags/stats/</link><description>Recent content in stats on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 25 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/stats/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (Part I)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
 &lt;img src="irt.jpg" style="width:70.0%"
-alt="Ok, so these are item characteristic curves. What then? [img src]" />
-&lt;figcaption aria-hidden="true">&lt;em>Ok, so these are item characteristic
-curves. What then?&lt;/em> &lt;sub>&lt;a
-href="https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715">[img
-src]&lt;/a>&lt;/sub>&lt;/figcaption>
+alt="Ok, so these are the item characteristic curves. What then?" />
+&lt;figcaption aria-hidden="true">&lt;em>Ok, so these are the &lt;a
+href="https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715">item
+characteristic curves&lt;/a>. What then?&lt;/em>&lt;/figcaption>
 &lt;/figure>
 &lt;h2 id="mysterious-item-response-theory">Mysterious Item Response Theory&lt;/h2>
 &lt;p>&lt;strong>Item response theory is &lt;em>mysterious&lt;/em> and intimidating to students.&lt;/strong>

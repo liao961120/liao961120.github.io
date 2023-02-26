@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 ```
 
 
-![*Ok, so these are item characteristic curves. What then?* ~[[img src]][src]~](irt.jpg){width="70%"}
+![*Ok, so these are the [item characteristic curves][src]. What then?*](irt.jpg){width="70%"}
 
 
 [src]: https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715
