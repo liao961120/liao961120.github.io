@@ -279,7 +279,9 @@ to let go of the search for such an interpretation. The logistic
 function is introduced not because it is loaded with some crucial
 mathematical or statistical meaning. Instead, it is used here solely for
 a practical reason: to monotonically map real numbers to probabilities.
-You may well use another function&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> here to achieve the same purpose.&lt;/p>
+You may well use another function here to achieve the same purpose
+(e.g., the &lt;strong>cumulative distribution function&lt;/strong> for the normal
+distribution).&lt;/p>
 &lt;h3 id="generating-responses">Generating Responses&lt;/h3>
 &lt;p>We have gone all the way from ability/difficulty levels to the
 probabilities of success on the items. Since we cannot directly observe
@@ -357,10 +359,6 @@ $T$. See you there!&lt;/p>
 Estimation&lt;/em>? These are methods developed in psychometrics and are
 hardly seen in other fields. Unless obsessed with psychometrics, I
 don’t think one would be able to understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
-&lt;/li>
-&lt;li id="fn:2">
-&lt;p>Such as the &lt;strong>cumulative distribution function&lt;/strong> for the normal
-distribution.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>stats</category><category>irt</category><category>Psychology</category></item></channel></rss>

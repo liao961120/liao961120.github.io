@@ -255,8 +255,9 @@ insightful interpretation of the logistic. A suggestion here is to let go of the
 search for such an interpretation. The logistic function is introduced not
 because it is loaded with some crucial mathematical or statistical meaning.
 Instead, it is used here solely for a practical reason: to monotonically map
-real numbers to probabilities. You may well use another function[^cum-norm] here
-to achieve the same purpose.
+real numbers to probabilities. You may well use another function here to achieve
+the same purpose (e.g., the **cumulative distribution function** for the normal
+distribution).
 
 
 ### Generating Responses
@@ -351,7 +352,6 @@ information of $R$, $I$, and $T$. See you there!
 [bern]: https://en.wikipedia.org/wiki/Bernoulli_distribution
 [fun-logistic]: https://en.wikipedia.org/wiki/Logistic_function
 
-[^cum-norm]: Such as the **cumulative distribution function** for the normal distribution.
 [^jml]: I mean, what the hack is *Joint/Conditional Maximum Likelihood
     Estimation*? These are methods developed in psychometrics and are hardly
     seen in other fields. Unless obsessed with psychometrics, I don't think one
