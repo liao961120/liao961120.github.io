@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Psychology on Yongfu's Blog</title><link>https://yongfu.name/tags/psychology/</link><description>Recent content in Psychology on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 25 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/psychology/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (Part I)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
 &lt;img src="irt.jpg" style="width:70.0%"
-alt="Ok I know it’s the item characteristic curve of the 1PL model. What then? [img src]" />
-&lt;figcaption aria-hidden="true">&lt;em>Ok I know it’s the item
-characteristic curve of the 1PL model. What then?&lt;/em> &lt;sub>&lt;a
+alt="Ok, so these are item characteristic curves. What then? [img src]" />
+&lt;figcaption aria-hidden="true">&lt;em>Ok, so these are item characteristic
+curves. What then?&lt;/em> &lt;sub>&lt;a
 href="https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715">[img
 src]&lt;/a>&lt;/sub>&lt;/figcaption>
 &lt;/figure>
@@ -38,8 +38,8 @@ category&lt;/a>, that when
 reached, allows a student to smoothly adapt the learned skill to a wide
 variety of situations, modifying and extending the skill on demand. And
 I believe that item response theory is &lt;em>&lt;strong>too hard&lt;/strong>&lt;/em> for a student to
-learn and reach this basic level of understanding, due to how it is
-often presented and its historical development&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+learn and reach this basic level of understanding, due to its
+conventional presentation and historical development&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
 &lt;p>There is still hope however, thanks to the development of a very general
 set of statistical models known as the &lt;a href="https://en.wikipedia.org/wiki/Generalized_linear_model">Generalized Linear Models
 (GLM)&lt;/a>. Item
@@ -159,9 +159,9 @@ response theory!&lt;/p>
 &lt;h2 id="simulating-item-responses">Simulating Item Responses&lt;/h2>
 &lt;p>
 &lt;figure>
-&lt;img src="tenet.gif" alt="Simulation is &amp;lt;em&amp;gt;playing god&amp;lt;/em&amp;gt; in a small world. It is similar to model
+&lt;img src="tenet2.gif" alt="Simulation is &amp;lt;em&amp;gt;playing god&amp;lt;/em&amp;gt; in a small world. Similar to model
 fitting, but in &amp;lt;em&amp;gt;reverse&amp;lt;/em&amp;gt; direction.">
-&lt;figcaption>Simulation is &lt;em>playing god&lt;/em> in a small world. It is similar to model
+&lt;figcaption>Simulation is &lt;em>playing god&lt;/em> in a small world. Similar to model
 fitting, but in &lt;em>reverse&lt;/em> direction.&lt;/figcaption>
 &lt;/figure>
 &lt;/p>

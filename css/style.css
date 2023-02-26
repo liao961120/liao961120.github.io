@@ -101,10 +101,11 @@ p code, li code {
 .article_content figure > figcaption {
     text-align: center;
     width: 94%;
-    font-size: .95em;
+    font-size: .97em;
     color: rgb(58, 58, 58);
     margin: 1em auto 0 auto;
     padding: 0 auto;
+    line-height: 1.26;
 }
 
 blockquote {
@@ -149,7 +150,7 @@ blockquote p {
     text-decoration: none;
     display: inline-block;
     vertical-align: top;
-    max-width: 78%;
+    max-width: 85ch;
 }
 
 .article_list li a:hover {

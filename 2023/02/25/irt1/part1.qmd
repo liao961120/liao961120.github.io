@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 ```
 
 
-![*Ok I know it's the item characteristic curve of the 1PL model. What then?* ~[[img src]][src]~](irt.jpg){width="70%"}
+![*Ok, so these are item characteristic curves. What then?* ~[[img src]][src]~](irt.jpg){width="70%"}
 
 
 [src]: https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715
@@ -71,7 +71,7 @@ similar to the concept of [basic-level category][basic-level], that when
 reached, allows a student to smoothly adapt the learned skill to a wide variety
 of situations, modifying and extending the skill on demand. And I believe that
 item response theory is **_too hard_** for a student to learn and reach this
-basic level of understanding, due to how it is often presented and its
+basic level of understanding, due to its conventional presentation and
 historical development[^jml].
 
 There is still hope however, thanks to the development of a very general set of
@@ -155,7 +155,7 @@ let's simulate some data, based on what we know about item response theory!
 Simulating Item Responses
 -------------------------
 
-![Simulation is _playing god_ in a small world. It is similar to model fitting, but in _reverse_ direction.](tenet.gif)
+![Simulation is _playing god_ in a small world. Similar to model fitting, but in _reverse_ direction.](tenet2.gif)
 
 Consider the scenario where 3 students (Rob, Tom, and Joe) took a math test with
 2 items (A and B). Since we play gods during simulations, we know the math
