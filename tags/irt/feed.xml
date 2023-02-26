@@ -80,19 +80,19 @@ factors jointly influence the result&lt;/strong>&lt;/em>:&lt;/p>
 &lt;li>the English ability of a testee&lt;/li>
 &lt;/ol>
 &lt;p>We can express these variables and the relations between them in the
-graphs below. Let’s first put our focus on the left one. Here, $A$
-represents the &lt;strong>ability&lt;/strong> of the testee, $D$ represents the
-&lt;strong>difficulty&lt;/strong> of the item, and $R$ represents the &lt;strong>item response&lt;/strong>, or
-&lt;strong>score&lt;/strong> on the item. A response for an item is coded as &lt;code>1&lt;/code> ($R=1$) if
-it is correctly answered. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The
-arrows $A$ → $R$ and $D$ → $R$ indicate the direction of influence. The
-arrows enter $R$ since item difficulty and testee ability influence the
-score on the item (not the other way around). $A$ and $D$ are drawn as a
-circled node to indicate that they are &lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if
-you prefer a fancier term), whereas uncircled nodes represent directly
-observable variables (i.e., stuff that gets recorded during data
-collection). This graphical representation of the variable and their
-relationships is known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
+graphs below. Let’s focus on the left one first. Here, $A$ represents
+the &lt;strong>ability&lt;/strong> of the testee, $D$ represents the &lt;strong>difficulty&lt;/strong> of the
+item, and $R$ represents the &lt;strong>item response&lt;/strong>, or &lt;strong>score&lt;/strong> on the
+item. A response for an item is coded as &lt;code>1&lt;/code> ($R=1$) if it is correctly
+answered. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A$ → $R$
+and $D$ → $R$ indicate the direction of influence. The arrows enter $R$
+since item difficulty and testee ability influence the score on the item
+(not the other way around). $A$ and $D$ are drawn as a circled node to
+indicate that they are &lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a
+fancier term), whereas uncircled nodes represent directly observable
+variables (i.e., stuff that gets recorded during data collection). This
+graphical representation of the variable and their relationships is
+known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
 (DAG)&lt;/a>.&lt;/p>
 &lt;div class="goat svg-container ">
 &lt;svg
@@ -156,14 +156,13 @@ influences the item score $R$, hence the arrow $P$ → $R$.&lt;/p>
 started. So let’s simulate some data, based on what we know about item
 response theory!&lt;/p>
 &lt;h2 id="simulating-item-responses">Simulating Item Responses&lt;/h2>
-&lt;p>
 &lt;figure>
-&lt;img src="tenet2.gif" alt="Simulation is &amp;lt;em&amp;gt;playing god&amp;lt;/em&amp;gt; in a small world. Similar to model
-fitting, but in &amp;lt;em&amp;gt;reverse&amp;lt;/em&amp;gt; direction.">
-&lt;figcaption>Simulation is &lt;em>playing god&lt;/em> in a small world. Similar to model
-fitting, but in &lt;em>reverse&lt;/em> direction.&lt;/figcaption>
+&lt;img src="tenet2.gif" style="width:85.0%"
+alt="Simulation is playing god in a small world. Similar to model fitting, but in reverse direction." />
+&lt;figcaption aria-hidden="true">Simulation is &lt;em>playing god&lt;/em> in a
+small world. Similar to model fitting, but in &lt;em>reverse&lt;/em>
+direction.&lt;/figcaption>
 &lt;/figure>
-&lt;/p>
 &lt;p>Consider the scenario where 3 students (Rob, Tom, and Joe) took a math
 test with 2 items (A and B). Since we play gods during simulations, we
 know the math ability of the students and the difficulty of the items.
@@ -239,10 +238,9 @@ and small, the item difficulty would be much greater in this case, and
 the testee would likely fail on this item. Hence, $\mu$ is directly
 related to probability, in that $\mu$ of large values result in high
 probabilities of success on the items, whereas $\mu$ of small values
-result in low probabilities of success. Since $\mu$ can range from
-positive infinity to negative infinity, how could we link $\mu$ to
-probability in a principled manner? The solution is to take advantage of
-the &lt;a href="https://en.wikipedia.org/wiki/Logistic_function">logistic
+result in low probabilities of success. But how exactly is $\mu$ linked
+to probability? How could we map $\mu$ to probability in a principled
+manner? The solution is to take advantage of the &lt;a href="https://en.wikipedia.org/wiki/Logistic_function">logistic
 function&lt;/a>.&lt;/p>
 &lt;p>$$
 logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
@@ -359,13 +357,13 @@ numbers&lt;/a> can help us
 here. Since &lt;code>rbern()&lt;/code> generates one with probability $P$, if we run
 &lt;code>rbern()&lt;/code> many times, the proportion of one in the outcomes should
 converge to $P$. The second argument &lt;code>n&lt;/code> in &lt;code>rbern()&lt;/code> is a handy way to
-achieve this. You can increase &lt;code>n&lt;/code> to see if the result would come
+achieve this. You can increase &lt;code>n&lt;/code> to see if the result comes even
 closer to $0.5$.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>outcomes &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>, n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e4&lt;/span> ) &lt;span style="color:#75715e"># Run rbern with P=0.5 10,000 times&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">mean&lt;/span>(outcomes)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 0.4991
 &lt;/code>&lt;/pre>
-&lt;p>A more general way to rerun chunks of code is through the for loop or
+&lt;p>A more general way to rerun a chunk of code is through the for loop or
 convenient wrappers such as the &lt;code>replicate()&lt;/code> function.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>outcomes &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">replicate&lt;/span>( n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e4&lt;/span>, expr&lt;span style="color:#f92672">=&lt;/span>{ &lt;span style="color:#a6e22e">rbern&lt;/span>( p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span> ) } )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">mean&lt;/span>(outcomes)
@@ -386,17 +384,17 @@ style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;h3 id="randomness-in-models">Randomness in Models&lt;/h3>
 &lt;p>The method described above works only for simple cases. What about
 complex statistical models? How do we test that they are working as they
-claim to? Guess what? &lt;em>&lt;strong>simulation&lt;/strong>&lt;/em> is the answer.&lt;/p>
+claim to? Guess what? &lt;em>&lt;strong>Simulation&lt;/strong>&lt;/em> is the answer.&lt;/p>
 &lt;p>We simulate data based on the assumptions of the statistical model and
 see if it indeed returns what it claims to estimate. The simulation can
-be repeated several times, each with different parameter values set. If
-the parameters are always recovered by the statistical model, we can
+be repeated several times, each set to different values of parameters.
+If the parameters are always recovered by the statistical model, we can
 then be confident that the model is properly constructed and correctly
-coded. So &lt;strong>simulation is really not an option when doing statistics&lt;/strong>.
-It is the only safety that helps us guard against bugs in our
-statistical models, both programmatical and theoretical ones. Without
-first testing the statistical model on simulated data, any inferences
-about the empirical data are in doubt.&lt;/p>
+coded. So &lt;strong>simulation is really not an &lt;em>option&lt;/em> when doing
+statistics&lt;/strong>. It is the only safety that helps us guard against bugs in
+our statistical models, both programmatical and theoretical ones.
+Without first testing the statistical model on simulated data, any
+inferences about the empirical data are in doubt.&lt;/p>
 &lt;h2 id="whats-next">What’s next?&lt;/h2>
 &lt;p>In a real-world scenario of the example presented here, we would only
 observe the score ($R$) of an item ($I$) taken by a testee ($T$). The

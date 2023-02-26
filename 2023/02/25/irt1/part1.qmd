@@ -117,7 +117,7 @@ the item correct. Here, **_two factors jointly influence the result_**:
 2) the English ability of a testee
 
 We can express these variables and the relations between them in the graphs
-below. Let's first put our focus on the left one. Here, $A$ represents the
+below. Let's focus on the left one first. Here, $A$ represents the
 **ability** of the testee, $D$ represents the **difficulty** of the item, and
 $R$ represents the **item response**, or **score** on the item. A response for
 an item is coded as `1` ($R=1$) if it is correctly answered. Otherwise, it is
@@ -157,7 +157,7 @@ let's simulate some data, based on what we know about item response theory!
 Simulating Item Responses
 -------------------------
 
-![Simulation is _playing god_ in a small world. Similar to model fitting, but in _reverse_ direction.](tenet2.gif)
+![Simulation is _playing god_ in a small world. Similar to model fitting, but in _reverse_ direction.](tenet2.gif){width="85%"}
 
 Consider the scenario where 3 students (Rob, Tom, and Joe) took a math test with
 2 items (A and B). Since we play gods during simulations, we know the math
@@ -215,10 +215,10 @@ on this item. On the other hand, if $\mu$ is negative and small, the item
 difficulty would be much greater in this case, and the testee would likely fail
 on this item. Hence, $\mu$ is directly related to probability, in that $\mu$ of
 large values result in high probabilities of success on the items, whereas $\mu$
-of small values result in low probabilities of success. Since $\mu$ can range
-from positive infinity to negative infinity, how could we link $\mu$ to
-probability in a principled manner? The solution is to take advantage of the
-[logistic function][fun-logistic].
+of small values result in low probabilities of success. But how exactly is $\mu$
+linked to probability? How could we map $\mu$ to probability in a principled
+manner? The solution is to take advantage of the [logistic
+function][fun-logistic].
 
 $$
 logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
@@ -353,15 +353,15 @@ The [law of large numbers][large-num] can help us here. Since `rbern()`
 generates one with probability $P$, if we run `rbern()` many times, the
 proportion of one in the outcomes should converge to $P$. The second argument
 `n` in `rbern()` is a handy way to achieve this. You can increase `n` to see if
-the result would come closer to $0.5$.
+the result comes even closer to $0.5$.
 
 ```{r}
 outcomes = rbern( p=0.5, n=1e4 )  # Run rbern with P=0.5 10,000 times
 mean(outcomes)
 ```
 
-A more general way to rerun chunks of code is through the for loop or convenient
-wrappers such as the `replicate()` function.
+A more general way to rerun a chunk of code is through the for loop or
+convenient wrappers such as the `replicate()` function.
 
 ```{r}
 outcomes = replicate( n=1e4, expr={ rbern( p=0.5 ) } )
@@ -408,13 +408,13 @@ what? **_Simulation_** is the answer.
 
 We simulate data based on the assumptions of the statistical model and see if it
 indeed returns what it claims to estimate. The simulation can be repeated
-several times, each with different parameter values set. If the parameters are
-always recovered by the statistical model, we can then be confident that the
-model is properly constructed and correctly coded. So **simulation is really not
-an option when doing statistics**. It is the only safety that helps us guard
-against bugs in our statistical models, both programmatical and theoretical
-ones. Without first testing the statistical model on simulated data, any
-inferences about the empirical data are in doubt.
+several times, each set to different values of parameters. If the
+parameters are always recovered by the statistical model, we can then be
+confident that the model is properly constructed and correctly coded. So
+**simulation is really not an _option_ when doing statistics**. It is the only
+safety that helps us guard against bugs in our statistical models, both
+programmatical and theoretical ones. Without first testing the statistical model
+on simulated data, any inferences about the empirical data are in doubt.
 
 
 

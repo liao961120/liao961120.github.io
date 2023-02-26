@@ -77,15 +77,33 @@ p code, li code {
     word-spacing: 0.1em;
 }
 
+.article_content h2, 
+.article_content h3, 
+.article_content h4 {
+    font-style: italic;
+}
+.article_content h4 {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-color: rgba(0, 0, 0, 0.651);
+    text-underline-offset: .25em;
+    /* border-bottom: 1px solid; */
+}
 .article_content h2 {
     display: block;
     padding-bottom: 0.15em;
     border-bottom: 1px solid rgba(199, 199, 199, 0.87);
 }
 
+.article_content h3, .article_content h4 {
+    /* margin-top: 1.5em; */
+    margin-bottom: .45em;
+}
+
 .article_content p {
     text-align: justify;
     line-height: 1.57;
+    margin-top: 0;
 }
 
 .article_content figure {
@@ -103,9 +121,19 @@ p code, li code {
     width: 94%;
     font-size: .97em;
     color: rgb(58, 58, 58);
-    margin: 1em auto 0 auto;
+    margin: 1em auto 1.35em auto;
     padding: 0 auto;
     line-height: 1.26;
+}
+
+div.footnotes::before {
+    content: "Notes";
+    display: block;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.22em;
+    margin-top: 2.5em;
+    margin-bottom: -.4em;
 }
 
 blockquote {
