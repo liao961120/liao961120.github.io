@@ -276,8 +276,8 @@ distribution is just a fancy way of describing this process. Assume that we
 record tails as `0`s and heads as `1`s, and suppose that the probability $p$ of
 observing a head equals 0.75 (since the coin is imbalanced in some way that the
 head is more likely observed and we know it somehow). Then the distribution of
-the outcomes (zero and one) is distributed as a Bernoulli distribution with
-parameter $P=0.75$. In graphical terms, the distribution is just two bars.
+the outcomes (zero and one) is a Bernoulli distribution with parameter $P=0.75$.
+In graphical terms, the distribution is just two bars.
 
 ```{r fig.dim=c(8.2, 4)}
 #| echo: false
@@ -297,19 +297,18 @@ axis( 1, at=0:1, padj = .5,
 )
 ```
 
-We have got all we need, let's construct the remaining columns to complete this
-simulation. I will compute the probabilities (`P`) from column `Mu`. Column `P`
-could then generate column `R`, the item responses, through the Bernoulli
-distribution.
+We've got all we need by now. Let's construct the remaining columns to complete
+this simulation. In the code below, I compute the probabilities (`P`) from
+column `Mu`. Column `P` could then generate column `R`, the item responses,
+through the Bernoulli distribution.
 
 ```{r}
-# Generating 0/1 from Bernoulli distribution with given probabilites
 rbern = function( p, n=length(p) ) 
    rbinom( n=n, size=1, prob=p )
 
 set.seed(13)
 dat$P = logistic( dat$Mu )
-dat$R = rbern( dat$P )
+dat$R = rbern( dat$P ) # Generate 0/1 from Bernoulli distribution
 dat
 ```
 
@@ -404,14 +403,14 @@ points( Ps, pch=19, col=2 )
 
 The method described above works only for simple cases. What about complex
 statistical models? How do we test that they are working as they claim to? Guess
-what? **_Simulation_** is the answer. 
+what? **_Simulation_** is the cure. 
 
 We simulate data based on the assumptions of the statistical model and see if it
 indeed returns what it claims to estimate. The simulation can be repeated
 several times, each set to different values of parameters. If the
 parameters are always recovered by the statistical model, we can then be
 confident that the model is properly constructed and correctly coded. So
-**simulation is really not an _option_ when doing statistics**. It is the only
+**simulation is really _not an option_ when doing statistics**. It is the only
 safety that helps us guard against bugs in our statistical models, both
 programmatical and theoretical ones. Without first testing the statistical model
 on simulated data, any inferences about the empirical data are in doubt.

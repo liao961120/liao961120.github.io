@@ -204,19 +204,18 @@ Bernoulli distribution is just a fancy way of describing this process.
 Assume that we record tails as <code>0</code>s and heads as <code>1</code>s, and suppose that
 the probability $p$ of observing a head equals 0.75 (since the coin is
 imbalanced in some way that the head is more likely observed and we know
-it somehow). Then the distribution of the outcomes (zero and one) is
-distributed as a Bernoulli distribution with parameter $P=0.75$. In
-graphical terms, the distribution is just two bars.</p><p><img src=part1_files/figure-commonmark/unnamed-chunk-5-1.svg style=width:100% data-fig-align=center></p><p>We have got all we need, let’s construct the remaining columns to
-complete this simulation. I will compute the probabilities (<code>P</code>) from
-column <code>Mu</code>. Column <code>P</code> could then generate column <code>R</code>, the item
-responses, through the Bernoulli distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Generating 0/1 from Bernoulli distribution with given probabilites</span>
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>rbern <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p, n<span style=color:#f92672>=</span><span style=color:#a6e22e>length</span>(p) ) 
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>   <span style=color:#a6e22e>rbinom</span>( n<span style=color:#f92672>=</span>n, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>p )
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>13</span>)
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>dat<span style=color:#f92672>$</span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( dat<span style=color:#f92672>$</span>Mu )
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>dat<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( dat<span style=color:#f92672>$</span>P )
-</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>dat
+it somehow). Then the distribution of the outcomes (zero and one) is a
+Bernoulli distribution with parameter $P=0.75$. In graphical terms, the
+distribution is just two bars.</p><p><img src=part1_files/figure-commonmark/unnamed-chunk-5-1.svg style=width:100% data-fig-align=center></p><p>We’ve got all we need by now. Let’s construct the remaining columns to
+complete this simulation. In the code below, I compute the probabilities
+(<code>P</code>) from column <code>Mu</code>. Column <code>P</code> could then generate column <code>R</code>, the
+item responses, through the Bernoulli distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>rbern <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p, n<span style=color:#f92672>=</span><span style=color:#a6e22e>length</span>(p) ) 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>   <span style=color:#a6e22e>rbinom</span>( n<span style=color:#f92672>=</span>n, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>p )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>13</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>dat<span style=color:#f92672>$</span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( dat<span style=color:#f92672>$</span>Mu )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>dat<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( dat<span style=color:#f92672>$</span>P ) <span style=color:#75715e># Generate 0/1 from Bernoulli distribution</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>dat
 </span></span></code></pre></div><pre><code># A tibble: 6 × 7
   I     T         A     D    Mu     P     R
   &lt;fct&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
@@ -277,12 +276,12 @@ convenient wrappers such as the <code>replicate()</code> function.</p><div class
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>points</span>( Ps, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
 </span></span></code></pre></div><p><img src=part1_files/figure-commonmark/unnamed-chunk-9-1.svg style=width:100% data-fig-align=center></p><h3 id=randomness-in-models>Randomness in Models</h3><p>The method described above works only for simple cases. What about
 complex statistical models? How do we test that they are working as they
-claim to? Guess what? <em><strong>Simulation</strong></em> is the answer.</p><p>We simulate data based on the assumptions of the statistical model and
+claim to? Guess what? <em><strong>Simulation</strong></em> is the cure.</p><p>We simulate data based on the assumptions of the statistical model and
 see if it indeed returns what it claims to estimate. The simulation can
 be repeated several times, each set to different values of parameters.
 If the parameters are always recovered by the statistical model, we can
 then be confident that the model is properly constructed and correctly
-coded. So <strong>simulation is really not an <em>option</em> when doing
+coded. So <strong>simulation is really <em>not an option</em> when doing
 statistics</strong>. It is the only safety that helps us guard against bugs in
 our statistical models, both programmatical and theoretical ones.
 Without first testing the statistical model on simulated data, any
