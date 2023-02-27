@@ -114,7 +114,7 @@ p code, li code {
     width: 100%;
     display: block;
     padding: 0 auto;
-    margin: 0 auto;
+    margin: 1.35em auto;
 }
 .article_content figure > figcaption {
     text-align: center;

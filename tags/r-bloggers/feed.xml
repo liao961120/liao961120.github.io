@@ -137,7 +137,7 @@ Content appended to template-slide's content.
 &lt;p>Note that there is only one line in &lt;code>html-table.txt&lt;/code> so &lt;code>readLines()&lt;/code> returns a character vector of length 1. If there are multiple lines in the text file, one needs to use &lt;code>paste(readLines('html-table.txt'), collapse = '\n')&lt;/code> to properly print out the text file.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>experience</category><category>R Markdown</category><category>R-bloggers</category></item><item><title>Wrapper of knitr::include_graphics to Handle URLs &amp; PDF Outputs</title><link>https://yongfu.name/2019/03/10/include_graphics2/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/10/include_graphics2/</guid><description>&lt;p>Those who use &lt;code>knitr::include_graphics()&lt;/code> frequently in their R Markdown files may discover some inconsistencies (from the user point of view) if the same Rmd is used for multiple output formats, especially when PDF (LaTeX) is involved.&lt;/p>
+&lt;/div></description><category>R Markdown</category><category>R-bloggers</category></item><item><title>Wrapper of knitr::include_graphics to Handle URLs &amp; PDF Outputs</title><link>https://yongfu.name/2019/03/10/include_graphics2/</link><pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/10/include_graphics2/</guid><description>&lt;p>Those who use &lt;code>knitr::include_graphics()&lt;/code> frequently in their R Markdown files may discover some inconsistencies (from the user point of view) if the same Rmd is used for multiple output formats, especially when PDF (LaTeX) is involved.&lt;/p>
 &lt;p>The following code works fine for HTML outputs but fails when the outputs are PDFs:&lt;/p>
 &lt;ol>
 &lt;li>
@@ -1124,7 +1124,7 @@ py6 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-04-03
-&lt;/p></description><category>Linguistics</category><category>visualization</category><category>Web Page</category><category>Travis-CI</category><category>R</category><category>R-bloggers</category></item><item><title>Inserting “Edit on GitHub” Buttons in a Single R Markdown Document</title><link>https://yongfu.name/2019/02/10/rmd_edit_btn/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/10/rmd_edit_btn/</guid><description>
+&lt;/p></description><category>R</category><category>Travis-CI</category><category>Linguistics</category><category>R-bloggers</category></item><item><title>Inserting “Edit on GitHub” Buttons in a Single R Markdown Document</title><link>https://yongfu.name/2019/02/10/rmd_edit_btn/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/10/rmd_edit_btn/</guid><description>
 &lt;p>As the R Markdown ecosystem becomes larger, users now may encounter situations where they have to make decisions on which output format of R Markdown to use.
 One may found &lt;strong>none of the formats suitable&lt;/strong> – the features essential to the output document one wants may scatter across different output formats of R Markdown.&lt;/p>
 &lt;p>Here is a real example I encountered. I wanted to create a document that:&lt;/p>
@@ -1329,7 +1329,7 @@ Another build is also triggered to run on &lt;strong>facebook-publish&lt;/strong
 &lt;p>I have to admit that I don&amp;rsquo;t completely understand Hugo&amp;rsquo;s RSS template look up order. I can&amp;rsquo;t predict the behaviors of Hugo precisely.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>Web Page</category><category>blogdown</category><category>R-bloggers</category></item><item><title>Create a Glossary in R Markdown</title><link>https://yongfu.name/2018/10/24/glossary-maker/</link><pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/10/24/glossary-maker/</guid><description>
+&lt;/div></description><category>blogging</category><category>R-bloggers</category></item><item><title>Create a Glossary in R Markdown</title><link>https://yongfu.name/2018/10/24/glossary-maker/</link><pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/10/24/glossary-maker/</guid><description>
 &lt;p>I was thinking about creating a glossary in &lt;a href="https://bookdown.org/yihui/bookdown/">bookdown&lt;/a> and found out that there was already an &lt;a href="https://github.com/rstudio/bookdown/issues/199">issue&lt;/a> about it. I like Yihui’s &lt;a href="https://github.com/rstudio/bookdown/issues/199#issuecomment-246888361">recommendation&lt;/a>: use Pandoc’s &lt;a href="http://pandoc.org/MANUAL.html#definition-lists">definition lists&lt;/a>. This was exactly what I had been doing, but I quickly found out that there was a major drawback – the definition lists &lt;strong>won’t order alphabetically unless written in that way&lt;/strong>.&lt;/p>
 &lt;p>So I wrote an R function to reorder the definition lists written in R Markdown. Note that this functions &lt;strong>only works for R Markdown files containing defintion lists exclusively&lt;/strong>. If the R Markdown files aren’t whole-definition-lists, the function will fail.&lt;/p>
 &lt;div id="usage" class="section level2">
@@ -1473,7 +1473,7 @@ ipa &amp;lt;- paste0(&amp;quot;\\ipatext{&amp;quot;, ipa, &amp;quot;}&amp;quot;)
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-03-07
-&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>LaTeX</category><category>R-bloggers</category></item><item><title>Making Jekyll Blog Suitable for R-bloggers</title><link>https://yongfu.name/2018/08/02/rblogger-criteria/</link><pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/08/02/rblogger-criteria/</guid><description>&lt;/p>
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>R-bloggers</category></item><item><title>Making Jekyll Blog Suitable for R-bloggers</title><link>https://yongfu.name/2018/08/02/rblogger-criteria/</link><pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/08/02/rblogger-criteria/</guid><description>&lt;/p>
 &lt;p>Two reasons make it difficult:&lt;/p>
 &lt;ol style="list-style-type: decimal">
 &lt;li>&lt;blockquote>
@@ -1536,7 +1536,7 @@ geom_point(aes(color = Species))&lt;/code>&lt;/pre>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 &lt;a href="https://www.r-bloggers.com/">Visit R-bloggers&lt;/a>&lt;br>
 Last updated: 2018-11-07
-&lt;/p></description><category>R-bloggers</category><category>Jekyll</category><category>R Markdown</category><category>Web Page</category></item><item><title>My Notes on R Markdown</title><link>https://yongfu.name/2018/07/23/rmd_intro/</link><pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/23/rmd_intro/</guid><description>
+&lt;/p></description><category>blogging</category><category>R-bloggers</category><category>R Markdown</category></item><item><title>My Notes on R Markdown</title><link>https://yongfu.name/2018/07/23/rmd_intro/</link><pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/23/rmd_intro/</guid><description>
 &lt;p>I’ve used &lt;a href="https://rmarkdown.rstudio.com/">R Markdown&lt;/a> to do lots of work, such as writing a &lt;a href="https://liao961120.github.io/MVA/">book&lt;/a>, doing homework on &lt;a href="https://yongfu.name/notes/106-2/multivariate/">statistics&lt;/a> and &lt;a href="https://yongfu.name/notes/106-2/Eco_model/spatial_model.html">ecology&lt;/a>, and making &lt;a href="https://twlangsurvey.github.io/main/">web pages&lt;/a>. &lt;/p>
 &lt;p>The above mentioned are all HTML output formats from R Markdown, but PDF output formats are also possible, such as this &lt;a href="https://yongfu.name/notes/rmd_features.html#12_beamer_slide">Beamer Slide&lt;/a> and an &lt;a href="https://github.com/liao961120/ling-rmd">article about R Markdown&lt;/a>.&lt;/p>
 &lt;p>Because of doing so much work with R Markdown, I write down some of the most common and useful features of R Markdown so I can look it up when I need to&lt;a href="#fn1" class="footnoteRef" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>. I also make it available to everyone by putting the &lt;a href="https://yongfu.name/notes/rmd_features.html">document&lt;/a> on my blog.&lt;/p>

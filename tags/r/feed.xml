@@ -1,4 +1,418 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>R on Yongfu's Blog</title><link>https://yongfu.name/tags/r/</link><description>Recent content in R on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 15 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/r/feed.xml" rel="self" type="application/rss+xml"/><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>R on Yongfu's Blog</title><link>https://yongfu.name/tags/r/</link><description>Recent content in R on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 25 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/r/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (Part I)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
+&lt;img src="irt.jpg" style="width:70.0%"
+alt="Ok, so these are the item characteristic curves. What then?" />
+&lt;figcaption aria-hidden="true">&lt;em>Ok, so these are the &lt;a
+href="https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715">item
+characteristic curves&lt;/a>. What then?&lt;/em>&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="mysterious-item-response-theory">Mysterious Item Response Theory&lt;/h2>
+&lt;p>&lt;strong>Item response theory is &lt;em>mysterious&lt;/em> and intimidating to students.&lt;/strong>
+It is mysterious in the way it is presented in textbooks, at least in
+introductory ones. The text often starts with an ambitious conceptual
+introduction to IRT, which most students would be able to follow, but
+with some confusion. Curious students might bear with the confusion and
+expect it to resolve in the following text, only to find themselves
+disappointed. At the point where the underlying statistical model should
+be further elaborated, the text abruptly stops and tries to convince
+readers to trust the results from black-box IRT software packages. It is
+fine to leave the model details to domain experts and computers.&lt;/p>
+&lt;p>It isn’t that I have trust issues with black-box software, and I would
+also agree that it is impractical to understand all the details of model
+estimation in IRT. Doing so would be similar to coding an IRT program
+from scratch. The issue is that there is a huge gap here, between where
+textbooks stopped explaining and where the confusing details of
+statistical models should be hidden. Hence, students would be tricked
+into believing that they have a &lt;em>sufficient degree of understanding&lt;/em>,
+but in reality, it is just blind faith.&lt;/p>
+&lt;p>A sufficient degree of understanding should allow the student to deploy
+the learned skill to new situations. Therefore, a sufficient degree of
+understanding of IRT models, for instance, should allow students to
+extend and apply the models to analyses of &lt;a href="https://en.wikipedia.org/wiki/Differential_item_functioning">differential item
+functioning
+(DIF)&lt;/a> and
+&lt;strong>differential rater functioning (DRF)&lt;/strong>.&lt;/p>
+&lt;p>I’m arguing here that there is a basic granularity of understanding,
+somewhat similar to the concept of &lt;a href="https://en.wikipedia.org/wiki/Basic_category">basic-level
+category&lt;/a>, that when
+reached, allows a student to smoothly adapt the learned skill to a wide
+variety of situations, modifying and extending the skill on demand. And
+I believe that item response theory is &lt;em>&lt;strong>too hard&lt;/strong>&lt;/em> for a student to
+learn and reach this basic level of understanding, due to its
+conventional presentation and historical development&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>There is still hope however, thanks to the development of a very general
+set of statistical models known as the &lt;a href="https://en.wikipedia.org/wiki/Generalized_linear_model">Generalized Linear Models
+(GLM)&lt;/a>. Item
+response models could be understood in terms of the GLM and its
+extensions
+(&lt;a href="https://en.wikipedia.org/wiki/Generalized_linear_mixed_model">GLMM&lt;/a>
+and non-linear form of GLM/GLMM). To be too particular about the
+details, the results from IRT software packages and GLMs/GLMMs would be
+very close but not identical, since they utilize different estimation
+methods. The strengths of GLM, however, lie in its conceptual simplicity
+and extensibility. Through GLM, IRT and other models such as the T-test,
+ANOVA, and linear regression, are all placed together into the same
+conceptual framework. Furthermore, software packages implementing GLMs
+are widely available. Users can thus experiment with them—simulate a set
+of data based on known parameters, construct the model and feed it the
+data, and see if the fitted model correctly recovers the parameters.
+This technique of learning statistics is probably the only effective way
+for students to understand &lt;em>&lt;strong>a mysterious statistical model&lt;/strong>&lt;/em>.&lt;/p>
+&lt;p>In this series of posts, I will walk the readers through the path of
+understanding item response theory, with help from simulations and
+generalized linear models. No need to worry if you don’t know GLMs yet.
+We have another ally—&lt;a href="https://www.r-project.org">R&lt;/a>, in which we will be
+simulating artificial data and fitting statistical models along the way.
+Although it might seem intimidating at first, coding simulations and
+models in fact provides scaffolding for learning. When feeling unsure or
+confused, you can always resort to these simulation-based experiments to
+resolve the issues at hand. In this very first post, I will start by
+teaching you &lt;em>&lt;strong>simulations&lt;/strong>&lt;/em>.&lt;/p>
+&lt;h2 id="just-enough-theory-to-get-started">Just Enough Theory to Get Started&lt;/h2>
+&lt;p>Jargons aside, the concept behind item response theory is fairly simple.
+Consider the case where 80 testees are taking a 20-item English
+proficiency test. Under this situation, what are the &lt;em>&lt;strong>factors&lt;/strong>&lt;/em> that
+influence whether an item is correctly answered by a testee?
+Straightforward right? If an item is easy and if a testee is proficient
+in English, he/she would probably get the item correct. Here, &lt;em>&lt;strong>two
+factors jointly influence the result&lt;/strong>&lt;/em>:&lt;/p>
+&lt;ol>
+&lt;li>how difficult (or easy) an item is&lt;/li>
+&lt;li>the English ability of a testee&lt;/li>
+&lt;/ol>
+&lt;p>We can express these variables and the relations between them in the
+graphs below. Let’s focus on the left one first. Here, $A$ represents
+the &lt;strong>ability&lt;/strong> of the testee, $D$ represents the &lt;strong>difficulty&lt;/strong> of the
+item, and $R$ represents the &lt;strong>item response&lt;/strong>, or &lt;strong>score&lt;/strong> on the
+item. A response for an item is coded as &lt;code>1&lt;/code> ($R=1$) if it is correctly
+answered. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A$ → $R$
+and $D$ → $R$ indicate the direction of influence. The arrows enter $R$
+since item difficulty and testee ability influence the score on the item
+(not the other way around). $A$ and $D$ are drawn as a circled node to
+indicate that they are &lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a
+fancier term), whereas uncircled nodes represent directly observable
+variables (i.e., stuff that gets recorded during data collection). This
+graphical representation of the variable and their relationships is
+known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
+(DAG)&lt;/a>.&lt;/p>
+&lt;div class="goat svg-container ">
+&lt;svg
+xmlns="http://www.w3.org/2000/svg"
+font-family="Menlo,Lucida Console,monospace"
+viewBox="0 0 328 137"
+>
+&lt;g transform='translate(8,16)'>
+&lt;path d='M 256,16 L 280,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 24,80 L 40,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 200,80 L 216,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 72,48 L 88,80' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 248,48 L 264,80' fill='none' stroke='currentColor'>&lt;/path>
+&lt;polygon points='52.000000,48.000000 40.000000,42.400002 40.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 40.000000, 48.000000)'>&lt;/polygon>
+&lt;polygon points='84.000000,48.000000 72.000000,42.400002 72.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 72.000000, 48.000000)'>&lt;/polygon>
+&lt;path d='M 216,48 L 224,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;polygon points='234.000000,48.000000 222.000000,42.400002 222.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 216.000000, 48.000000)'>&lt;/polygon>
+&lt;path d='M 240,32 L 248,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;polygon points='266.000000,48.000000 254.000000,42.400002 254.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 248.000000, 48.000000)'>&lt;/polygon>
+&lt;polygon points='288.000000,16.000000 276.000000,10.400000 276.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 280.000000, 16.000000)'>&lt;/polygon>
+&lt;path d='M 232,0 A 16,16 0 0,0 216,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 232,0 A 16,16 0 0,1 248,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 216,16 A 16,16 0 0,0 232,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 248,16 A 16,16 0 0,1 232,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 16,80 A 16,16 0 0,0 0,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 16,80 A 16,16 0 0,1 32,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 96,80 A 16,16 0 0,0 80,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 96,80 A 16,16 0 0,1 112,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 192,80 A 16,16 0 0,0 176,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 192,80 A 16,16 0 0,1 208,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 272,80 A 16,16 0 0,0 256,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 272,80 A 16,16 0 0,1 288,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 0,96 A 16,16 0 0,0 16,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 32,96 A 16,16 0 0,1 16,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 80,96 A 16,16 0 0,0 96,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 112,96 A 16,16 0 0,1 96,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 176,96 A 16,16 0 0,0 192,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 208,96 A 16,16 0 0,1 192,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 256,96 A 16,16 0 0,0 272,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 288,96 A 16,16 0 0,1 272,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;text text-anchor='middle' x='16' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
+&lt;text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
+&lt;text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
+&lt;text text-anchor='middle' x='192' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
+&lt;text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>P&lt;/text>
+&lt;text text-anchor='middle' x='272' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
+&lt;text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
+&lt;/g>
+&lt;/svg>
+&lt;/div>
+&lt;p>The DAGs laid out here represent the concept behind the simplest kinds
+of item response models, known as the &lt;strong>1-parameter logistic (1PL)
+model&lt;/strong> (or Rasch Model). In more formal terms, this model posits that
+the &lt;strong>probability&lt;/strong> of correctly answering an item is determined by the
+&lt;strong>difference&lt;/strong> between testee ability and item difficulty. So a more
+precise DAG representation for this model would be the one shown on the
+right above. Here, $P$ is the probability of correctly answering the
+item, which cannot be directly observed. However, $P$ directly
+influences the item score $R$, hence the arrow $P$ → $R$.&lt;/p>
+&lt;p>Believe it or not, the things we have learned so far could get us
+started. So let’s simulate some data, based on what we know about item
+response theory!&lt;/p>
+&lt;h2 id="simulating-item-responses">Simulating Item Responses&lt;/h2>
+&lt;figure>
+&lt;img src="tenet2.gif" style="width:85.0%"
+alt="Simulation is playing god in a small world. Similar to model fitting, but in reverse direction." />
+&lt;figcaption aria-hidden="true">Simulation is &lt;em>playing god&lt;/em> in a
+small world. Similar to model fitting, but in &lt;em>reverse&lt;/em>
+direction.&lt;/figcaption>
+&lt;/figure>
+&lt;p>Consider the scenario where 3 students (Rob, Tom, and Joe) took a math
+test with 2 items (A and B). Since we play gods during simulations, we
+know the math ability of the students and the difficulty of the items.
+These ability/difficulty levels can range from positive to negative
+numbers, unbounded. Larger numbers indicate higher levels of
+difficulty/ability. In addition, the levels of difficulty and ability
+sit on a common scale, and hence could be directly compared. Also, each
+student answers every item, so we get responses from all 6 (3x2)
+combinations of students and items. Let’s code this in R. The function
+&lt;code>expand.grid()&lt;/code> would pair up the 6 combinations for us.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>D &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( A&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.4&lt;/span>, B&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.1&lt;/span> ) &lt;span style="color:#75715e"># Difficulty of item&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>A &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( R&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>, T&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.1&lt;/span>, J&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">-0.4&lt;/span> ) &lt;span style="color:#75715e"># Ability of student (R:Rob, T:Tom, J:Joe)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>dat &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">expand.grid&lt;/span>(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span> I &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( &lt;span style="color:#e6db74">&amp;#34;A&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;B&amp;#34;&lt;/span> ), &lt;span style="color:#75715e"># Item index&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span> T &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( &lt;span style="color:#e6db74">&amp;#34;R&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;T&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;J&amp;#34;&lt;/span> ) &lt;span style="color:#75715e"># Testee index&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>dat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 2
+I T
+&amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;
+1 A R
+2 B R
+3 A T
+4 B T
+5 A J
+6 B J
+&lt;/code>&lt;/pre>
+&lt;p>After having all possible combinations of the students and the items, we
+could collect the values of student ability and item difficulty into the
+data frame.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">=&lt;/span> A[ dat&lt;span style="color:#f92672">$&lt;/span>T ] &lt;span style="color:#75715e"># map ability to df by testee index T&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>D &lt;span style="color:#f92672">=&lt;/span> D[ dat&lt;span style="color:#f92672">$&lt;/span>I ] &lt;span style="color:#75715e"># map difficulty to df by item index I&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>dat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 4
+I T A D
+&amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+1 A R 0.5 0.4
+2 B R 0.5 0.1
+3 A T 0.1 0.4
+4 B T 0.1 0.1
+5 A J -0.4 0.4
+6 B J -0.4 0.1
+&lt;/code>&lt;/pre>
+&lt;p>Now, we’ve got all the data needed for simulation, the only thing left
+is to precisely lay out the &lt;strong>rules for generating the response data
+$R$&lt;/strong>—the scores (zeros and ones) on the items answered by the students.
+We are two steps away.&lt;/p>
+&lt;h3 id="generating-probabilities">Generating Probabilities&lt;/h3>
+&lt;p>When IRT is introduced in the previous section, I mention that the
+probability of success on an item is determined by the &lt;strong>difference
+between testee ability and item difficulty&lt;/strong>. It is straightforward to
+get this difference: simply subtract $D$ from $A$ in the data. This
+would give us a new variable $\mu$. I save the values of $\mu$ to column
+&lt;code>Mu&lt;/code> in the data frame.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>Mu &lt;span style="color:#f92672">=&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">-&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>D
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 5
+I T A D Mu
+&amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+1 A R 0.5 0.4 0.1
+2 B R 0.5 0.1 0.4
+3 A T 0.1 0.4 -0.3
+4 B T 0.1 0.1 0
+5 A J -0.4 0.4 -0.8
+6 B J -0.4 0.1 -0.5
+&lt;/code>&lt;/pre>
+&lt;p>From the way $\mu$ is calculated ($A$ - $D$), we can infer that, for a
+particular observation, if $\mu$ is positive and large, the testee’s
+ability will be much greater than the item’s difficulty, and he would
+probably succeed on this item. On the other hand, if $\mu$ is negative
+and small, the item difficulty would be much greater in this case, and
+the testee would likely fail on this item. Hence, $\mu$ is directly
+related to probability, in that $\mu$ of large values result in high
+probabilities of success on the items, whereas $\mu$ of small values
+result in low probabilities of success. But how exactly is $\mu$ linked
+to probability? How could we map $\mu$ to probability in a principled
+manner? The solution is to take advantage of the &lt;a href="https://en.wikipedia.org/wiki/Logistic_function">logistic
+function&lt;/a>.&lt;/p>
+&lt;p>$$
+logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
+$$&lt;/p>
+&lt;p>The &lt;em>&lt;strong>logistic&lt;/strong>&lt;/em> is a function that maps a real number $x$ to a
+probability $p$. In other words, the logistic function transforms the
+input $x$ and constrains it to a value between zero and one. Note that
+the transformation is &lt;strong>monotonic increasing&lt;/strong>, meaning that a smaller
+$x$ would be mapped onto a smaller $p$, and a larger $x$ would be mapped
+onto a larger $p$. The ranks of the values before and after the
+transformation stay the same. To have a feel of what the logistic
+function does, let’s transform some values with the logistic.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Set plot margins # (b, l, t, r)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">par&lt;/span>(oma&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>)) &lt;span style="color:#75715e"># Outer margin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>&lt;span style="color:#a6e22e">par&lt;/span>(mar&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">4.5&lt;/span>, &lt;span style="color:#ae81ff">4.5&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>) ) &lt;span style="color:#75715e"># margin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>logistic &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">function&lt;/span>(x) &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">/&lt;/span> ( &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>x) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>x &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">seq&lt;/span>( &lt;span style="color:#ae81ff">-5&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, by&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.1&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>p &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( x )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( x, p )
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="part1_files/figure-commonmark/unnamed-chunk-4-1.svg"
+style="width:100.0%" data-fig-align="center" />&lt;/p>
+&lt;p>As the plot shows, the logistic transformation results in an S-shaped
+curve. Since the transformed values (p) are bounded by 0 and 1, extreme
+values on the poles of the x-axis would be “squeezed” after the
+transformation. Real numbers with absolute values greater than 4, after
+transformations, would have probabilities very close to the boundaries.&lt;/p>
+&lt;h4 id="less-math-less-confusion">Less Math, Less Confusion&lt;/h4>
+&lt;p>For many students, the mathematical form of the logistic function leads
+to confusion. Staring at the math symbols hardly enables one to arrive
+at any insightful interpretation of the logistic. A suggestion here is
+to let go of the search for such an interpretation. The logistic
+function is introduced not because it is loaded with some crucial
+mathematical or statistical meaning. Instead, it is used here solely for
+a practical reason: to monotonically map real numbers to probabilities.
+You may well use another function here to achieve the same purpose
+(e.g., the &lt;strong>cumulative distribution function&lt;/strong> for the normal
+distribution).&lt;/p>
+&lt;h3 id="generating-responses">Generating Responses&lt;/h3>
+&lt;p>We have gone all the way from ability/difficulty levels to the
+probabilities of success on the items. Since we cannot directly observe
+probabilities in the real world, the final step is to link these
+probabilities to observable outcomes. In the case here, the outcomes are
+simply item responses of zeros and ones. How do we map probabilities to
+zeros and ones? Coin flips, or &lt;a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli
+distributions&lt;/a>,
+will get us there.&lt;/p>
+&lt;p>Every time a coin is flipped, either a tail or a head is observed. The
+Bernoulli distribution is just a fancy way of describing this process.
+Assume that we record tails as &lt;code>0&lt;/code>s and heads as &lt;code>1&lt;/code>s, and suppose that
+the probability $p$ of observing a head equals 0.75 (since the coin is
+imbalanced in some way that the head is more likely observed and we know
+it somehow). Then the distribution of the outcomes (zero and one) is a
+Bernoulli distribution with parameter $P=0.75$. In graphical terms, the
+distribution is just two bars.&lt;/p>
+&lt;p>&lt;img src="part1_files/figure-commonmark/unnamed-chunk-5-1.svg"
+style="width:100.0%" data-fig-align="center" />&lt;/p>
+&lt;p>We’ve got all we need by now. Let’s construct the remaining columns to
+complete this simulation. In the code below, I compute the probabilities
+(&lt;code>P&lt;/code>) from column &lt;code>Mu&lt;/code>. Column &lt;code>P&lt;/code> could then generate column &lt;code>R&lt;/code>, the
+item responses, through the Bernoulli distribution.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>rbern &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">function&lt;/span>( p, n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">length&lt;/span>(p) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span> &lt;span style="color:#a6e22e">rbinom&lt;/span>( n&lt;span style="color:#f92672">=&lt;/span>n, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>p )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>&lt;span style="color:#a6e22e">set.seed&lt;/span>(&lt;span style="color:#ae81ff">13&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>P &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>Mu )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>R &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>P ) &lt;span style="color:#75715e"># Generate 0/1 from Bernoulli distribution&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>dat
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 7
+I T A D Mu P R
+&amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
+1 A R 0.5 0.4 0.1 0.525 0
+2 B R 0.5 0.1 0.4 0.599 1
+3 A T 0.1 0.4 -0.3 0.426 0
+4 B T 0.1 0.1 0 0.5 0
+5 A J -0.4 0.4 -0.8 0.310 1
+6 B J -0.4 0.1 -0.5 0.378 0
+&lt;/code>&lt;/pre>
+&lt;p>Now, we have a complete table of simulated item responses. A few things
+to notice here. First, look at the fourth row of the data frame, where
+the response of testee T (Tom) on item B is recorded. Column &lt;code>Mu&lt;/code> has a
+value of zero since Tom’s ability level is identical to the difficulty
+of item B. What does it mean to be “identical”? “Identical” implies that
+Tom is neither more likely to succeed nor to fail on item B. Hence, you
+can see that Tom has a 50% of getting item B correct in the $P$ column.
+This is how the ability/difficulty levels and $\mu$ are interpreted.
+They are on an abstract scale of real numbers. We need to convert them
+to probabilities to make sense of them.&lt;/p>
+&lt;p>The second thing to notice is column &lt;code>R&lt;/code>. This is the only column that
+has &lt;em>&lt;strong>randomness&lt;/strong>&lt;/em> introduced. Every run of the simulation would
+likely give different values of $R$ (unless a random seed is set, or the
+&lt;code>P&lt;/code> column consists solely of zeros and ones). The outcomes are not
+guaranteed, probability is at work.&lt;/p>
+&lt;p>The presence of such randomness is the gist of simulations and
+statistical models. We add uncertainty to the simulation, mimicking the
+real world, to know that in the presence of such uncertainty, would it
+still be possible to discover targets of interest with a statistical
+model. Randomness, however, poses some challenges for coding. We need to
+equip ourselves for those challenges.&lt;/p>
+&lt;h2 id="coding-randomness">Coding Randomness&lt;/h2>
+&lt;p>Randomness is inherent in simulations and statistical models, so it is
+impossible to run away from it. It is everywhere. The problem with
+randomness is that it introduces uncertainty in the outcome produced.
+Thus, it would be hard to spot any errors just by &lt;strong>eyeballing the
+results&lt;/strong>.&lt;/p>
+&lt;p>Take &lt;code>rbern()&lt;/code> for instance. Given a parameter $P=0.5$, we can
+repeatedly run &lt;code>rbern(0.5)&lt;/code> a couple of times to produce zeros and ones.
+But these zeros and ones cannot tell us whether &lt;code>rbern(0.5)&lt;/code> is working
+properly. &lt;code>rbern(0.5)&lt;/code> might be broken somehow, and instead generates
+the ones with, say, $P=0.53$.&lt;/p>
+&lt;p>The &lt;a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large
+numbers&lt;/a> can help us
+here. Since &lt;code>rbern()&lt;/code> generates one with probability $P$, if we run
+&lt;code>rbern()&lt;/code> many times, the proportion of one in the outcomes should
+converge to $P$. The second argument &lt;code>n&lt;/code> in &lt;code>rbern()&lt;/code> is a handy way to
+achieve this. You can increase &lt;code>n&lt;/code> to see if the result comes even
+closer to $0.5$.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>outcomes &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>, n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e4&lt;/span> ) &lt;span style="color:#75715e"># Run rbern with P=0.5 10,000 times&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">mean&lt;/span>(outcomes)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 0.4991
+&lt;/code>&lt;/pre>
+&lt;p>A more general way to rerun a chunk of code is through the for loop or
+convenient wrappers such as the &lt;code>replicate()&lt;/code> function.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>outcomes &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">replicate&lt;/span>( n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e4&lt;/span>, expr&lt;span style="color:#f92672">=&lt;/span>{ &lt;span style="color:#a6e22e">rbern&lt;/span>( p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span> ) } )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">mean&lt;/span>(outcomes)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 0.5027
+&lt;/code>&lt;/pre>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>&lt;span style="color:#75715e"># See if several runs of rbern( p=0.5, n=1e4 ) give results around 0.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>Ps &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">replicate&lt;/span>( n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>, expr&lt;span style="color:#f92672">=&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span> outcomes &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>, n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e4&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4&lt;/span>&lt;span> &lt;span style="color:#a6e22e">mean&lt;/span>(outcomes)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5&lt;/span>&lt;span>})
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7&lt;/span>&lt;span>&lt;span style="color:#75715e"># Plot Ps to see if they scatter around 0.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">100&lt;/span>), ylim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0.47&lt;/span>, &lt;span style="color:#ae81ff">0.53&lt;/span>), ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;P&amp;#34;&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9&lt;/span>&lt;span>&lt;span style="color:#a6e22e">abline&lt;/span>( h&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>, lty&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;dashed&amp;#34;&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10&lt;/span>&lt;span>&lt;span style="color:#a6e22e">points&lt;/span>( Ps, pch&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">19&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> )
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="part1_files/figure-commonmark/unnamed-chunk-9-1.svg"
+style="width:100.0%" data-fig-align="center" />&lt;/p>
+&lt;h3 id="randomness-in-models">Randomness in Models&lt;/h3>
+&lt;p>The method described above works only for simple cases. What about
+complex statistical models? How do we test that they are working as they
+claim to? Guess what? &lt;em>&lt;strong>Simulation&lt;/strong>&lt;/em> is the key.&lt;/p>
+&lt;p>We simulate data based on the assumptions of the statistical model and
+see if it indeed returns what it claims to estimate. The simulation can
+be repeated several times, each set to different values of parameters.
+If the parameters are always recovered by the statistical model, we can
+then be confident that the model is properly constructed and correctly
+coded. So &lt;strong>simulation is really &lt;em>not an option&lt;/em> when doing
+statistics&lt;/strong>. It is the only safety that helps us guard against bugs in
+our statistical models, both programmatical and theoretical ones.
+Without first testing the statistical model on simulated data, any
+inferences about the empirical data are in doubt.&lt;/p>
+&lt;h2 id="whats-next">What’s next?&lt;/h2>
+&lt;p>In a real-world scenario of the example presented here, we would only
+observe the score ($R$) of an item ($I$) taken by a testee ($T$). The
+targets of interest are the unobserved item difficulty ($D$) and testee
+ability ($A$). In the next post, we will work in reverse and fit
+statistical models on simulated data. We will see how the models
+discover the true $A$s and $D$s from the information of $R$, $I$, and
+$T$. See you there!&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>I mean, what the hack is &lt;em>Joint/Conditional Maximum Likelihood
+Estimation&lt;/em>? These are methods developed in psychometrics and are
+hardly seen in other fields. Unless obsessed with psychometrics, I
+don’t think one would be able to understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>r</category><category>statistics</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
 reproducibility for some time. I did not incorporate Make into my work however,
 since a simple build script written in Bash was sufficient. Everything was well
 in control, and I could structure the workflow to my will.&lt;/p>
@@ -141,7 +555,7 @@ computers without additional configurations.&lt;/p>
 &lt;p>&amp;ldquo;Good&amp;rdquo; conventions here, as opposed to naturally-resulting conventions without the consideration of reproducibility.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>workflow</category><category>python</category><category>r</category><category>reproducibility</category></item><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>&lt;p>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (&lt;a href="https://rlads2019.github.io/lab/">108-1&lt;/a>) 懶得教&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、沒時間教&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、沒自信可以教&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>以及沒有能力教&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。&lt;/p>
+&lt;/div></description><category>r</category><category>python</category><category>reproducibility</category></item><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>&lt;p>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (&lt;a href="https://rlads2019.github.io/lab/">108-1&lt;/a>) 懶得教&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、沒時間教&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、沒自信可以教&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>以及沒有能力教&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。&lt;/p>
 &lt;p>這次的課程全部採取事前錄製影片的方式授課，表面上的目的是擔心遠距教學的情形再度出現 (結果真的出現了&amp;hellip;)，實際上的目的則是跟剛剛一樣：我不想要做同樣的事情 (實體授課)，而且這次實體授課大概也不會講得比上次好，所以不如換一種方式授課&lt;sup id="fnref:7">&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref">7&lt;/a>&lt;/sup>。結果無心插柳，最後幾堂課因為突來的疫情改成遠距教學，對我反倒沒造成什麼影響，又是件值得開心的事情。&lt;/p>
 &lt;p>在經歷 12 個頗為漫長的週末，終於完成了這個算是完整的 R 語言課程。在這 12 堂課中，或許值得慶幸的一件事情是課程內容主題都不是 state-of-the-art。在能夠選擇時，選擇了去講比較穩定不變的東西、比較不會經過兩三年後就變成歷史名詞的技術或概念。這麼做或許可以讓課程的保鮮期變得比較長，也或許可以讓更多人從這個課程中受惠。這 12 堂課程的完整內容 (影片/簡報/講義/作業/程式碼) 可以在這個&lt;a href="https://rlads2021.github.io/archives/">頁面&lt;/a>取得，歡迎讀者自行使用、分享或是修改並應用於教學之中。&lt;/p>
 &lt;p>
@@ -177,7 +591,7 @@ computers without additional configurations.&lt;/p>
 &lt;p>這樣就不用和過去的自己硬碰硬比較，擔心自己退步了 (反正我有錄影片，觸及的人就是比較廣比較潮啦！108-1 的你輸了啦哈哈哈哈哈)。比較不見得會進步，但一定會帶來傷害，所以換個方式讓自己沒辦法去比較或許也不錯。&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>R</category><category>Course</category><category>experience</category></item><item><title>Getting Tabular Data Through JavaScript in Compiled R Markdown Documents</title><link>https://yongfu.name/2020/09/09/getable/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/09/09/getable/</guid><description>&lt;p>Recently, I have learned more about JavaScript and created a few JS web apps. This gave me the idea that we can separate the &lt;em>content&lt;/em> and the &lt;em>data&lt;/em> in an HTML document to make it more &lt;strong>dynamic&lt;/strong>&amp;mdash;the content stays static while the data could be updated independently without rewriting or recompiling the HTML document. This could be done by utilizing JavaScript&amp;rsquo;s ability to asynchronously fetch data from the web and generate DOM elements based on these data.&lt;/p>
+&lt;/div></description><category>R</category><category>Course</category><category>statistics</category><category>linguistics</category><category>中文</category></item><item><title>Getting Tabular Data Through JavaScript in Compiled R Markdown Documents</title><link>https://yongfu.name/2020/09/09/getable/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/09/09/getable/</guid><description>&lt;p>Recently, I have learned more about JavaScript and created a few JS web apps. This gave me the idea that we can separate the &lt;em>content&lt;/em> and the &lt;em>data&lt;/em> in an HTML document to make it more &lt;strong>dynamic&lt;/strong>&amp;mdash;the content stays static while the data could be updated independently without rewriting or recompiling the HTML document. This could be done by utilizing JavaScript&amp;rsquo;s ability to asynchronously fetch data from the web and generate DOM elements based on these data.&lt;/p>
 &lt;p>I implemented this idea in my new R package &lt;a href="https://github.com/liao961120/getable">&lt;code>getable&lt;/code>&lt;/a>. Basically, &lt;code>getable&lt;/code> lets the user insert &lt;em>dynamic&lt;/em> HTML tables in R Markdown (HTML output only) by providing the URLs to the tables&amp;rsquo; data. Every time when the compiled HTML document is opened, the data are fetched from the web and used to generate the HTML tables. This means that the user can update the data (e.g., hosted in a public GitHub repo) without recompiling the HTML from R Markdown.
 In addition to hosting data in GitHub repos or on static sites, the user could use &lt;strong>Google Spreadsheets&lt;/strong> as the data store, as shown in the GIF below.&lt;/p>
 &lt;p>
@@ -198,7 +612,9 @@ In addition to hosting data in GitHub repos or on static sites, the user could u
 &lt;pre tabindex="0">&lt;code class="language-rmd" data-lang="rmd">```{r results=&amp;#39;asis&amp;#39;}
 getable::renderTable(&amp;#34;https://yongfu.name/getable/demo/data/df.csv&amp;#34;)
 ```
-&lt;/code>&lt;/pre></description><category>R</category><category>R Markdown</category><category>JavaScript</category><category>R-bloggers</category></item><item><title>ntuthesis</title><link>https://yongfu.name/2019/03/07/ntuthesis/</link><pubDate>Thu, 07 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/07/ntuthesis/</guid><description>&lt;p>去年十月份的研究所甄試，實在找不到合乎主題的文章報告可以附在審查資料。想想自己可以拿來說嘴的大概只剩 R Markdown，於是寫了&lt;a href="https://liao961120.github.io/ling-rmd">一篇 (硬是扯上語言學的) 文章&lt;/a>交了上去。為了怕被面試老師問：「你在文章中說的可信嗎？文章中哪裡可看出你的研究能力？」便在文章中引用自己撰寫的&lt;a href="https://liao961120.github.io/linguisticsdown">套件&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。由於還是害怕文章太過空泛，又將文章中的部份想法 &amp;ndash; R Markdown 模板，實作出來以備不時之需，&lt;a href="https://liao961120.github.io/ntuthesis">&lt;code>ntuthesis&lt;/code>&lt;/a> 因而誕生了。結果 &amp;hellip; 面試時，老師們根本沒有問到有關 R Markdown 的問題。&lt;/p>
+&lt;/code>&lt;/pre></description><category>R</category><category>R Markdown</category><category>JavaScript</category><category>R-bloggers</category></item><item><title>ntuthesis</title><link>https://yongfu.name/2019/03/07/ntuthesis/</link><pubDate>Thu, 07 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/07/ntuthesis/</guid><description>&lt;p>2023.2.27 更：下文套件已失修，若有需求，請參考 &lt;a href="https://github.com/liao961120/thesis">thesis&lt;/a>。&lt;/p>
+&lt;hr>
+&lt;p>去年十月份的研究所甄試，實在找不到合乎主題的文章報告可以附在審查資料。想想自己可以拿來說嘴的大概只剩 R Markdown，於是寫了&lt;a href="https://liao961120.github.io/ling-rmd">一篇 (硬是扯上語言學的) 文章&lt;/a>交了上去。為了怕被面試老師問：「你在文章中說的可信嗎？文章中哪裡可看出你的研究能力？」便在文章中引用自己撰寫的&lt;a href="https://liao961120.github.io/linguisticsdown">套件&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。由於還是害怕文章太過空泛，又將文章中的部份想法 &amp;ndash; R Markdown 模板，實作出來以備不時之需，&lt;a href="https://liao961120.github.io/ntuthesis">&lt;code>ntuthesis&lt;/code>&lt;/a> 因而誕生了。結果 &amp;hellip; 面試時，老師們根本沒有問到有關 R Markdown 的問題。&lt;/p>
 &lt;h2 id="緣起">緣起&lt;/h2>
 &lt;p>這個用 R Markdown 寫論文的想法，其實在一年多前&lt;a href="https://yongfu.name/2018/01/31/RlearningPath.html">剛認識 R Markdown 時&lt;/a>時就有了。當時還不太確定是否可行，僅覺得如果可行的話一定會很有趣。現在，我百分百確定這是可行的 、九成九確定它能幫你省下論文排版的功夫。&lt;/p>
 &lt;p>&lt;code>ntuthesis&lt;/code> 原本僅是個 &lt;a href="https://github.com/rstudio/bookdown">bookdown&lt;/a> (R Markdown 的一個擴充) 論文模板，但為了讓其便於使用，我將它作成套件。&lt;code>ntuthesis&lt;/code> 的目的只有一個 &amp;ndash; 讓作者能專注在&lt;strong>論文內容&lt;/strong>的寫作。其它論文寫作的麻煩事：排版、口試委員審定書、目錄、圖目錄、表目錄、文獻引用格式、浮水印，全部都能自動生成。論文模板的概念並不新穎，且現存許多 LaTeX 論文模板。但撰寫 LaTeX 的過程非常辛苦，因為作者必須時時將注意力放在&lt;strong>論文排版&lt;/strong>上。相對的，&lt;code>ntuthesis&lt;/code> 讓作者能用 &lt;a href="https://zh.wikipedia.org/wiki/Markdown#%E7%A4%BA%E4%BE%8B">Markdown&lt;/a> 撰寫論文，甚至可使用 R 語言直接在論文中動態產生結果 (如統計圖、數值與報表)。&lt;/p>
@@ -253,7 +669,7 @@ getable::renderTable(&amp;#34;https://yongfu.name/getable/demo/data/df.csv&amp;#
 &lt;p>&lt;code>ntuthesis&lt;/code> 其實亦可&lt;a href="https://liao961120.github.io/ntuthesis/articles/extend_template.html">撰寫他校論文&lt;/a>，但目前缺乏他校 (封面) 模板。&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>markdown</category><category>R Markdown</category><category>R</category><category>中文</category></item><item><title>Visualizing Language Loss in Taiwan</title><link>https://yongfu.name/2019/02/17/visualize-language-loss/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/17/visualize-language-loss/</guid><description>
+&lt;/div></description><category>R Markdown</category><category>R</category><category>writing-tool</category><category>中文</category></item><item><title>Visualizing Language Loss in Taiwan</title><link>https://yongfu.name/2019/02/17/visualize-language-loss/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/17/visualize-language-loss/</guid><description>
 &lt;p>&lt;a href="https://twlangsurvey.github.io">Taiwan Language Survey&lt;/a> is a small project I worked on during May to June in 2018. The idea was to create a survey that &lt;strong>continuously&lt;/strong> collects data and a web page that visualizes the collected data. The web page is updated weekly using &lt;a href="https://travis-ci.org/twLangSurvey/twLangSurvey.github.io">Travis-CI&lt;/a>.&lt;/p>
 &lt;p>The main purpose of this survey is to raise public awareness of &lt;strong>language loss&lt;/strong> in Taiwan. Hence, the survey is designed to collect data that can provide valuable information about language loss, for example, some questions were asked to gain insight about the change of linguistic competence acoss generations in a family (i.e. across the subject’s parents, the subject, and the subject’s children). In addition to changes within family, information about the age of the subjects is also colleceted, meaning that we can see how linguistic competence changes among diffrent age groups of subjects in a community, i.e. is a language becoming more dominant or entering the dying process?&lt;/p>
 &lt;p>Visualization is a powerful tool to capture how linguistic competences of different langauges are changing. But creating visualizations necessitates creativity – how can language loss be visualized? Below, I illustrate one of the methods I created for visualizing language loss – a visaulization inspired by the &lt;a href="https://en.wikipedia.org/wiki/Population_pyramid">age-sex pyramid&lt;/a>.&lt;/p>
@@ -1199,7 +1615,7 @@ py6 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-04-03
-&lt;/p></description><category>Linguistics</category><category>visualization</category><category>Web Page</category><category>Travis-CI</category><category>R</category><category>R-bloggers</category></item><item><title>Inserting “Edit on GitHub” Buttons in a Single R Markdown Document</title><link>https://yongfu.name/2019/02/10/rmd_edit_btn/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/10/rmd_edit_btn/</guid><description>
+&lt;/p></description><category>R</category><category>Travis-CI</category><category>Linguistics</category><category>R-bloggers</category></item><item><title>Inserting “Edit on GitHub” Buttons in a Single R Markdown Document</title><link>https://yongfu.name/2019/02/10/rmd_edit_btn/</link><pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/02/10/rmd_edit_btn/</guid><description>
 &lt;p>As the R Markdown ecosystem becomes larger, users now may encounter situations where they have to make decisions on which output format of R Markdown to use.
 One may found &lt;strong>none of the formats suitable&lt;/strong> – the features essential to the output document one wants may scatter across different output formats of R Markdown.&lt;/p>
 &lt;p>Here is a real example I encountered. I wanted to create a document that:&lt;/p>
@@ -1437,7 +1853,7 @@ ipa &amp;lt;- paste0(&amp;quot;\\ipatext{&amp;quot;, ipa, &amp;quot;}&amp;quot;)
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-03-07
-&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>LaTeX</category><category>R-bloggers</category></item><item><title>jieba 自訂詞庫斷詞</title><link>https://yongfu.name/2018/07/31/jieba-dict/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/31/jieba-dict/</guid><description>
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>R-bloggers</category></item><item><title>jieba 自訂詞庫斷詞</title><link>https://yongfu.name/2018/07/31/jieba-dict/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/31/jieba-dict/</guid><description>
 &lt;p>在進行中文 Text Mining 前處理時，必須先經過斷詞處理。社群當中存在相當好的斷詞處理工具，如 &lt;a href="https://github.com/fxsjy/jieba">jieba&lt;/a>。但斷詞時常遇到一個問題：&lt;strong>文本中重要的詞彙因為不常見於其它地方而被斷開，像是人物角色名稱&lt;/strong>。要處理這個問題，需將自訂詞庫提供給斷詞套件，才不會將重要詞彙斷開。 &lt;/p>
 &lt;p>這邊將使用 &lt;a href="https://github.com/qinwf/jiebaR">jiebaR&lt;/a>，介紹使用自訂詞庫的斷詞方式，並提供自訂詞庫的製作方式。&lt;/p>
 &lt;div class="section level2">
@@ -1618,7 +2034,7 @@ head() %&amp;gt;% kable(&amp;quot;markdown&amp;quot;, align=&amp;quot;c&amp;quot
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2018-11-10
-&lt;/p></description><category>Text Mining</category><category>R</category><category>中文</category></item><item><title>Text Mining 前處理</title><link>https://yongfu.name/2018/07/28/quanteda-tutorial/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/28/quanteda-tutorial/</guid><description>
+&lt;/p></description><category>R</category><category>linguistics</category><category>中文</category></item><item><title>Text Mining 前處理</title><link>https://yongfu.name/2018/07/28/quanteda-tutorial/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/28/quanteda-tutorial/</guid><description>
 &lt;p>中文 Text Mining 的前處理比起其它以拉丁字母為主的文本困難許多，參考資源也相對龐雜不全。 這裡以較晚近出現的&lt;a href="https://quanteda.io/">&lt;code>quanteda&lt;/code>&lt;/a>套件為根據，依其需求進行中文文本前處理。&lt;/p>
 &lt;p>選擇&lt;code>quanteda&lt;/code>而非其它較流行的套件如&lt;code>tm&lt;/code>的原因是因為其&lt;a href="https://github.com/quanteda/stopwords">多語言支持&lt;/a>較佳，譬如其內建的 tokenizer 能&lt;a href="https://koheiw.net/?p=339">直接對中文進行斷詞&lt;/a>。然而，由於 &lt;a href="https://github.com/fxsjy/jieba">&lt;code>jieba&lt;/code>&lt;/a>的社群資源以及斷詞效果較佳，此文還是以&lt;a href="https://github.com/qinwf/jiebaR">&lt;code>jiebaR&lt;/code>&lt;/a>進行斷詞。&lt;/p>
 &lt;p>此外，因為使用的語料是簡體字，這裡也提到簡體、繁體轉換處理的相關資源。 我希望這篇文章能整理出一套中文文本前處理的架構，試圖減輕未來可能遇到的問題。&lt;/p>
@@ -2177,7 +2593,7 @@ Last updated: 2018-11-10
 div.mermaid {
 display:none;
 }
-&lt;/style></description><category>Text Mining</category><category>R</category><category>bash</category><category>中文</category></item><item><title>我的 R 學習歷程</title><link>https://yongfu.name/2018/01/31/rlearningpath/</link><pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/01/31/rlearningpath/</guid><description>&lt;p>接觸 &lt;strong>R&lt;/strong> 的時間大約五個月了，從原本對電腦、程式一竅不通到現在能有效率的 debug、寫出簡潔有條理的 R code、甚至用 R 與 Markdown 架站寫部落格。算一算，我每週通常至少 3 天會用到 R，不是督促自己熟悉 R，是因為它太有魅力了。&lt;/p>
+&lt;/style></description><category>R</category><category>linguistics</category><category>中文</category></item><item><title>我的 R 學習歷程</title><link>https://yongfu.name/2018/01/31/rlearningpath/</link><pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/01/31/rlearningpath/</guid><description>&lt;p>接觸 &lt;strong>R&lt;/strong> 的時間大約五個月了，從原本對電腦、程式一竅不通到現在能有效率的 debug、寫出簡潔有條理的 R code、甚至用 R 與 Markdown 架站寫部落格。算一算，我每週通常至少 3 天會用到 R，不是督促自己熟悉 R，是因為它太有魅力了。&lt;/p>
 &lt;p>學 R 語言很有趣&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，但也相當耗時耗力。我在學習 R 上花了大量的時間，若不是運氣好找到對的方向，我不可能花費那麼多力氣去學 R，甚至可能直接放棄。雖然如此，我還是感到有點可惜，若能更早知道有效率的學習方式，就不必花費如此大量的時間 (及紙張) 在學習上。因此，我希望將學習 R 的心路歷程寫下，給想學 R 的人做為參考，或許可以減短學習初期耗費精神的時期。接下來，我將說明：&lt;/p>
 &lt;ol>
 &lt;li>
@@ -2379,7 +2795,7 @@ display:none;
 &lt;p>大學以前，我很排斥程式 (詳見&lt;a href="https://liao961120.github.io/2017/11/26/mathematics.html">此文&lt;/a>)。後來發覺程式的實用性而開始想學程式語言。學了 R 後發現自己其實有資工魂 (雖然 CS 領域似乎不常用 R ？)，其實很喜歡程式語言、電腦等東西。&amp;#160;&lt;a href="#fnref:20" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>R</category><category>Course</category><category>experience</category><category>中文</category></item><item><title>Constructing Life Tables with R</title><link>https://yongfu.name/2017/12/11/life_tables/</link><pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate><guid>https://yongfu.name/2017/12/11/life_tables/</guid><description>&lt;p>I have been using the package &lt;code>dplyr&lt;/code> to handle with data for a while, and I thought I can use it with ease until I was stuck with my homework on &lt;strong>contructing a life table&lt;/strong>. I found spreadsheets (either &lt;em>Excel&lt;/em> or &lt;em>Google Spreadsheets&lt;/em>) easy for handling this task, but had a hard time dealing with it in R. I think it was due to my unfamiliarity with the built-in functions and insufficient practice in R. So, I wrote this post as a review and practice of my data-wrangling skills in R.&lt;/p>
+&lt;/div></description><category>R</category><category>Course</category><category>thoughts</category><category>中文</category></item><item><title>Constructing Life Tables with R</title><link>https://yongfu.name/2017/12/11/life_tables/</link><pubDate>Mon, 11 Dec 2017 00:00:00 +0000</pubDate><guid>https://yongfu.name/2017/12/11/life_tables/</guid><description>&lt;p>I have been using the package &lt;code>dplyr&lt;/code> to handle with data for a while, and I thought I can use it with ease until I was stuck with my homework on &lt;strong>contructing a life table&lt;/strong>. I found spreadsheets (either &lt;em>Excel&lt;/em> or &lt;em>Google Spreadsheets&lt;/em>) easy for handling this task, but had a hard time dealing with it in R. I think it was due to my unfamiliarity with the built-in functions and insufficient practice in R. So, I wrote this post as a review and practice of my data-wrangling skills in R.&lt;/p>
 &lt;p>I will illustrate how I constructed a life table with R, and you&amp;rsquo;ll find out how easy it is (and wonder how could I stumble on it).&lt;/p>
 &lt;h2 id="load-packages">Load Packages&lt;/h2>
 &lt;p>I used these packages to construct a Life table.&lt;/p>
@@ -2722,4 +3138,4 @@ Age lx mx
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>Note that I edited the column names of the table in a text editor to make it display in &lt;strong>LaTeX&lt;/strong> style. There is no simple &lt;code>knitr&lt;/code> function (at least I don&amp;rsquo;t know) that print out pretty displayed style text in a table generated from a data frame&lt;/p></description><category>R</category><category>notes</category></item></channel></rss>
+&lt;p>Note that I edited the column names of the table in a text editor to make it display in &lt;strong>LaTeX&lt;/strong> style. There is no simple &lt;code>knitr&lt;/code> function (at least I don&amp;rsquo;t know) that print out pretty displayed style text in a table generated from a data frame&lt;/p></description><category>R</category></item></channel></rss>

@@ -5,9 +5,10 @@ description: "simulation, IRT, Rasch, generalized linear model (GLM), directed a
 date: '2023-02-25'
 katex: true
 tags:
-- stats
-- irt
-- Psychology
+- r
+- statistics
+- psychology
+- reproducibility
 format: 
    gfm:
       output-file: "index"

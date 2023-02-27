@@ -1,4 +1,40 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linguistics on Yongfu's Blog</title><link>https://yongfu.name/tags/linguistics/</link><description>Recent content in Linguistics on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 23 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/linguistics/feed.xml" rel="self" type="application/rss+xml"/><item><title>Searching Interlinear Glosses Written in Word Documents</title><link>https://yongfu.name/2020/04/23/gloss-search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/04/23/gloss-search/</guid><description>&lt;p>I am taking the course &lt;a href="https://nol2.aca.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=142%20M0210&amp;amp;class=&amp;amp;dpt_code=1420&amp;amp;ser_no=10017&amp;amp;semester=108-2&amp;amp;lang=EN">Linguistic Fieldwork&lt;/a> this semester. Each week, we record and transcribe Budai Rukai, an Austronesian language spoken by &lt;a href="https://en.wikipedia.org/wiki/Rukai_people">Rukai people (魯凱族)&lt;/a>. The resulting data (interlinear glosses) are written in a Word document (&lt;code>.docx&lt;/code>) as required by the course instructor. Things get worse as the number of documents accumulates each week, since it becomes harder to locate specific linguistic patterns in the corpus of texts, as they are spread across multiple documents.&lt;/p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linguistics on Yongfu's Blog</title><link>https://yongfu.name/tags/linguistics/</link><description>Recent content in Linguistics on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 03 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/linguistics/feed.xml" rel="self" type="application/rss+xml"/><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>&lt;p>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (&lt;a href="https://rlads2019.github.io/lab/">108-1&lt;/a>) 懶得教&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、沒時間教&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、沒自信可以教&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>以及沒有能力教&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。&lt;/p>
+&lt;p>這次的課程全部採取事前錄製影片的方式授課，表面上的目的是擔心遠距教學的情形再度出現 (結果真的出現了&amp;hellip;)，實際上的目的則是跟剛剛一樣：我不想要做同樣的事情 (實體授課)，而且這次實體授課大概也不會講得比上次好，所以不如換一種方式授課&lt;sup id="fnref:7">&lt;a href="#fn:7" class="footnote-ref" role="doc-noteref">7&lt;/a>&lt;/sup>。結果無心插柳，最後幾堂課因為突來的疫情改成遠距教學，對我反倒沒造成什麼影響，又是件值得開心的事情。&lt;/p>
+&lt;p>在經歷 12 個頗為漫長的週末，終於完成了這個算是完整的 R 語言課程。在這 12 堂課中，或許值得慶幸的一件事情是課程內容主題都不是 state-of-the-art。在能夠選擇時，選擇了去講比較穩定不變的東西、比較不會經過兩三年後就變成歷史名詞的技術或概念。這麼做或許可以讓課程的保鮮期變得比較長，也或許可以讓更多人從這個課程中受惠。這 12 堂課程的完整內容 (影片/簡報/講義/作業/程式碼) 可以在這個&lt;a href="https://rlads2021.github.io/archives/">頁面&lt;/a>取得，歡迎讀者自行使用、分享或是修改並應用於教學之中。&lt;/p>
+&lt;p>
+&lt;figure>
+&lt;img src="https://img.yongfu.name/posts/rlads2021.png" alt="2021 課程影片">
+&lt;figcaption>2021 課程影片&lt;/figcaption>
+&lt;/figure>
+&lt;/p>
+&lt;p>整個學期下來，雖然過得平淡、沒有第一次授課時那種短時間內大量成長的感覺，不過反倒是有種&lt;strong>比較完整地完成了一件事情&lt;/strong>的感覺。這種感覺不會讓人大喜大悲、異常緊張或是過度興奮，但會讓心裡變得厚實舒坦，讓內心安穩一些，然後微微的喜悅就會從心底緩慢而持續地湧出。&lt;/p>
+&lt;p>最後，還要特別感謝 Andrea、Yulin、Mao-Chang 以及 Amber 在各個方面的協助，這門課的學生能有你們的照顧真的很幸運。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Lab01: &lt;a href="https://rlads2021.github.io/LabBook/ch01">路徑、終端機、R101&lt;/a> (絕對與相對路徑 &amp;amp; Terminal)&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Lab12: &lt;a href="https://rlads2021.github.io/LabBook/ch12">專案成果展示&lt;/a> (Shiny)&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
+&lt;p>Lab09: &lt;a href="https://rlads2021.github.io/LabBook/ch09">文本與詞彙的向量表徵&lt;/a> (document-term matrix &amp;amp; latent semantic analysis)&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:4">
+&lt;p>Lab06: &lt;a href="https://rlads2021.github.io/LabBook/ch06">Simulating Data with R&lt;/a> (Causal inference 101)&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:5">
+&lt;p>那時多有熱情和自信啊！反觀現在真的很難被激勵，不過往好處想或許這代表掌握情緒的能力有所提昇？&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:6">
+&lt;p>像是這次在教 Web API 時拿來示範用的 Public API 在我上傳教學影片之後就關閉服務了&amp;hellip;&amp;#160;&lt;a href="#fnref:6" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:7">
+&lt;p>這樣就不用和過去的自己硬碰硬比較，擔心自己退步了 (反正我有錄影片，觸及的人就是比較廣比較潮啦！108-1 的你輸了啦哈哈哈哈哈)。比較不見得會進步，但一定會帶來傷害，所以換個方式讓自己沒辦法去比較或許也不錯。&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description><category>R</category><category>Course</category><category>statistics</category><category>linguistics</category><category>中文</category></item><item><title>Searching Interlinear Glosses Written in Word Documents</title><link>https://yongfu.name/2020/04/23/gloss-search/</link><pubDate>Thu, 23 Apr 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/04/23/gloss-search/</guid><description>&lt;p>I am taking the course &lt;a href="https://nol2.aca.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=142%20M0210&amp;amp;class=&amp;amp;dpt_code=1420&amp;amp;ser_no=10017&amp;amp;semester=108-2&amp;amp;lang=EN">Linguistic Fieldwork&lt;/a> this semester. Each week, we record and transcribe Budai Rukai, an Austronesian language spoken by &lt;a href="https://en.wikipedia.org/wiki/Rukai_people">Rukai people (魯凱族)&lt;/a>. The resulting data (interlinear glosses) are written in a Word document (&lt;code>.docx&lt;/code>) as required by the course instructor. Things get worse as the number of documents accumulates each week, since it becomes harder to locate specific linguistic patterns in the corpus of texts, as they are spread across multiple documents.&lt;/p>
 &lt;p>Inspired by &lt;a href="https://github.com/puerdon/corpus_processor">the work&lt;/a> of my labmate, &lt;a href="https://github.com/puerdon">Don&lt;/a>, I created a web app for searching interlinear glosses, which can search for and locate specific patterns in a collection of Word documents. This post describe the web app&amp;rsquo;s basic design and improvements to &lt;a href="https://github.com/puerdon/corpus_processor">&lt;code>puerdon/corpus_processor&lt;/code>&lt;/a>, the project this web app got inspiration and succeeded from. For instructions about using the app, visit &lt;a href="https://github.com/liao961120/gloss-search">&lt;code>liao961120/gloss-search&lt;/code>&lt;/a> (&lt;a href="https://github.com/liao961120/gloss-search/blob/master/README-en.md">English&lt;/a>) for more details.&lt;/p>
 &lt;img src="https://img.yongfu.name/gif/gloss-search.gif" style="width:100%">
 &lt;h2 id="basic-design">Basic Design&lt;/h2>
@@ -111,7 +147,7 @@ OBL kid _ noble
 &lt;p>I didn&amp;rsquo;t spent much time exploring the API of &lt;a href="https://python-docx.readthedocs.io/en/latest/">&lt;code>python-docx&lt;/code>&lt;/a> thanks to Don&amp;rsquo;s PIONEERING (at least in our university, or even Taiwan, I believe) project &lt;a href="https://github.com/puerdon/corpus_processor">&lt;code>puerdon/corpus_processor&lt;/code>&lt;/a>.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>Linguistics</category><category>Python</category><category>vue</category></item><item><title>以 Python 實作 Concordancer</title><link>https://yongfu.name/2020/03/20/building-concordancer/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/03/20/building-concordancer/</guid><description>&lt;p>每次接近學期末的時候，寫程式癮就會開始發作 (可能是不想面對無趣的期末報告)，這時候腦袋會蹦出許多很有趣的想法，然後就會迫不及待地想將這些想法實作出來。這次(2019 年末) 的程式癮刺激來源是實驗室的雲端硬碟裡的某個 (版權封閉) 中文語料庫，雖然該語料庫已有很好的搜尋界面，但&lt;strong>我就是想 reinvent the wheel&lt;/strong>，自己手刻出一個 concordancer。不為了什麼，就只是因為這件事本身就很有樂趣。&lt;/p>
+&lt;/div></description><category>app</category><category>Python</category><category>Linguistics</category></item><item><title>以 Python 實作 Concordancer</title><link>https://yongfu.name/2020/03/20/building-concordancer/</link><pubDate>Fri, 20 Mar 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/03/20/building-concordancer/</guid><description>&lt;p>每次接近學期末的時候，寫程式癮就會開始發作 (可能是不想面對無趣的期末報告)，這時候腦袋會蹦出許多很有趣的想法，然後就會迫不及待地想將這些想法實作出來。這次(2019 年末) 的程式癮刺激來源是實驗室的雲端硬碟裡的某個 (版權封閉) 中文語料庫，雖然該語料庫已有很好的搜尋界面，但&lt;strong>我就是想 reinvent the wheel&lt;/strong>，自己手刻出一個 concordancer。不為了什麼，就只是因為這件事本身就很有樂趣。&lt;/p>
 &lt;h2 id="初步嘗試for-loop-forever">初步嘗試：for loop&amp;hellip; forever&lt;/h2>
 &lt;p>我本來並沒有太大的雄心壯志，就只想快速弄出個程式界面方便我查找 concordance，想說使用 &lt;a href="https://www.nltk.org/book/ch01.html#searching-text">NLTK concordance&lt;/a> 應該很快就可以弄出我想的東西。但 NLTK concordance 只能使用 word form (或 pattern) 去搜尋 concordance，我的需求卻是要能&lt;strong>使用 word form 或 PoS tag&lt;/strong> 搜尋語料庫 (類似 &lt;a href="http://cwb.sourceforge.net/files/CQP_Tutorial/CQP_Tutorial.html">Corpus Query Langauge&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，但不用這麼複雜)。但要自己用 Python 實作這個功能也頗簡單，於是我就自己手刻了這個功能。然而事實證明我太過天真了。語料庫的大小約 1000 萬個 token，而每次搜尋時，我的程式使用 for 迴圈跑過整個語料，因此要花非常非常非常久的時間才能完成搜尋。對於非資訊背景出生的我，第一次體驗 $O(n)$ 是件不可忽視的問題以及 Database 存在的必要性。&lt;/p>
 &lt;h2 id="重新規劃-database--python--vue">重新規劃： Database + Python + Vue&lt;/h2>
@@ -179,7 +215,7 @@ OBL kid _ noble
 &lt;p>建立資料庫以及索引的原始碼位於 &lt;a href="https://github.com/liao961120/dcard-corpus/blob/master/indexCorp.py">&lt;code>liao961120/dcard-corpus/indexCorp.py&lt;/code>&lt;/a>。&amp;#160;&lt;a href="#fnref:5" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>Linguistics</category><category>Python</category><category>vue</category><category>docker</category><category>中文</category></item><item><title>Recreating Leipizig.js with Vue for Interlinear Glossing</title><link>https://yongfu.name/2020/02/22/leipzigvue/</link><pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/02/22/leipzigvue/</guid><description>&lt;p>I noticed &lt;a href="https://bdchauvette.net/leipzig.js">Leipzig.js&lt;/a> from &lt;a href="https://github.com/agricolamz">George Moroz&lt;/a>&amp;rsquo;s GitHub activity (he starred &lt;a href="https://github.com/bdchauvette/leipzig.js/">&lt;code>bdchauvette/leipzig.js&lt;/code>&lt;/a> a few months ago). This JS library is fantastic, and at the moment I saw it, I came up with an idea of building a web app facilitating interlinear glossing.
+&lt;/div></description><category>app</category><category>Python</category><category>Linguistics</category><category>中文</category></item><item><title>Recreating Leipizig.js with Vue for Interlinear Glossing</title><link>https://yongfu.name/2020/02/22/leipzigvue/</link><pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/02/22/leipzigvue/</guid><description>&lt;p>I noticed &lt;a href="https://bdchauvette.net/leipzig.js">Leipzig.js&lt;/a> from &lt;a href="https://github.com/agricolamz">George Moroz&lt;/a>&amp;rsquo;s GitHub activity (he starred &lt;a href="https://github.com/bdchauvette/leipzig.js/">&lt;code>bdchauvette/leipzig.js&lt;/code>&lt;/a> a few months ago). This JS library is fantastic, and at the moment I saw it, I came up with an idea of building a web app facilitating interlinear glossing.
 During Chinese New Year, I finally started on the project. I thought it would be easy since I had some experience with Vue.js before&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, but it turned out that &lt;code>leipzig.js&lt;/code> wasn&amp;rsquo;t designed to work with Vue.&lt;/p>
 &lt;h2 id="dynamic-input-interface">Dynamic Input Interface&lt;/h2>
 &lt;p>What I had in mind was a web app that, while the user is typing, the rendered glosses get showed &lt;strong>synchronously&lt;/strong> in another panel. Vue&amp;rsquo;s conventional way of doing this is by creating a two-way data binding (&lt;code>v-model&lt;/code>) to capture the user&amp;rsquo;s input and dynamically render the HTML content based on the inputted data. This conflicts with &lt;code>leipzig.js&lt;/code> since it only provides a high level function (&lt;a href="https://github.com/bdchauvette/leipzig.js/wiki/Documentation">&lt;code>Leipzig()&lt;/code>&lt;/a>) to modify existing DOM elements to construct the glosses. Calling &lt;code>Leipzig()&lt;/code> multiple times (without erasing the already rendered HTML) would break the DOM elements, which makes the function hard to work together with Vue&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>.&lt;/p>
@@ -203,7 +239,7 @@ During Chinese New Year, I finally started on the project. I thought it would be
 &lt;p>Though it is possible to create a dynamic input experience with &lt;code>leipizig.js&lt;/code> with a more traditional JS approach. You can read the &lt;a href="https://bdchauvette.net/leipzig.js/theme/js/demo.js">source code&lt;/a> of this &lt;a href="https://bdchauvette.net/leipzig.js/demo/">Live demo of Leipzig.js&lt;/a> to find out how it works!&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>vue</category><category>JavaScript</category><category>Linguistics</category></item><item><title>閱讀筆記：Origins of Human Communication</title><link>https://yongfu.name/2019/03/04/originsofhumancommunication/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/04/originsofhumancommunication/</guid><description>
+&lt;/div></description><category>app</category><category>JavaScript</category><category>Linguistics</category></item><item><title>閱讀筆記：Origins of Human Communication</title><link>https://yongfu.name/2019/03/04/originsofhumancommunication/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>https://yongfu.name/2019/03/04/originsofhumancommunication/</guid><description>
 &lt;p>去年秋天在準備研究所甄試時，發現市面上的語言學概論課本對於筆試幾乎沒有任何幫助，於是去找認知語言學相關的專著和文章來閱讀。我找的第一本書是 &lt;a href="https://en.wikipedia.org/wiki/George_Lakoff">George Lakoff&lt;/a> 的 &lt;a href="https://en.wikipedia.org/wiki/Metaphors_We_Live_By">&lt;em>Metaphors We Live By&lt;/em>&lt;/a>。閱讀此書時，發覺自己又面臨一個陌生、龐大、擁有一堆術語的領域，而且認知語言學中的「認知」似乎和我所熟悉的「認知」心理學不太一樣，很難從自己熟悉的角度去切入作者的想法。於是我換了一本書 – &lt;span class="citation">Geeraerts (&lt;a href="#ref-geeraerts2006">2006&lt;/a>)&lt;/span>。這本書由一篇篇獨立的文章組成，每篇文章由一或兩位從事認知語言學相關研究的學者撰寫。在 &lt;span class="citation">Geeraerts (&lt;a href="#ref-geeraerts2006">2006&lt;/a>)&lt;/span> 中，我發現一個熟悉的名字 – &lt;a href="https://en.wikipedia.org/wiki/Michael_Tomasello">Michael Tomasello&lt;/a>。當時我對 Tomasello 並不熟悉，僅知道他是個有名的心理學家，研究興趣與這些關鍵字有關：&lt;em>Language acquisition&lt;/em>, &lt;em>Joint attention&lt;/em>, &lt;em>Primate cognition&lt;/em>。閱讀 Tomasello 的文章後，我終於開始抓到一點認知語言學的想法。果然，要了解一個陌生的領域最好還是從自己熟悉的思維下手。&lt;/p>
 &lt;div class="section level2">
 &lt;h2>語言到底是什麼？&lt;/h2>
@@ -1250,7 +1286,7 @@ py6 &amp;lt;-&lt;span class="st"> &lt;/span>pl_data &lt;span class="op">%&amp;gt
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-04-03
-&lt;/p></description><category>Linguistics</category><category>visualization</category><category>Web Page</category><category>Travis-CI</category><category>R</category><category>R-bloggers</category></item><item><title>Easy Linguistics Document Writing with R Markdown</title><link>https://yongfu.name/2018/09/09/linguistics-down/</link><pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/09/linguistics-down/</guid><description>
+&lt;/p></description><category>R</category><category>Travis-CI</category><category>Linguistics</category><category>R-bloggers</category></item><item><title>Easy Linguistics Document Writing with R Markdown</title><link>https://yongfu.name/2018/09/09/linguistics-down/</link><pubDate>Sun, 09 Sep 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/09/09/linguistics-down/</guid><description>
 &lt;p>I’ve written &lt;a href="https://liao961120.github.io/2018/09/06/ipa-symbols.html">a post&lt;/a> about rendering IPA symbols properly regardless of the output format of the R Markdown document. I implemented the ideas into an R package, &lt;strong>linguisticsdown&lt;/strong>. &lt;/p>
 &lt;p>&lt;strong>linguisticsdown&lt;/strong> provides a Shiny interface to facilitate inserting IPA symbols in R Markdown. See a quick demo of the current feature of &lt;strong>linguisticsdown&lt;/strong> in the gif at the end of the post.&lt;/p>
 &lt;p>A &lt;a href="https://liao961120.shinyapps.io/IPA-Easily-Written/">live demo&lt;/a> is hosted on shinyapps.io. For more details, visit &lt;a href="https://liao961120.github.io/linguisticsdown/">&lt;strong>linguisticsdown&lt;/strong>&lt;/a>.&lt;/p>
@@ -1336,4 +1372,744 @@ ipa &amp;lt;- paste0(&amp;quot;\\ipatext{&amp;quot;, ipa, &amp;quot;}&amp;quot;)
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-03-07
-&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>LaTeX</category><category>R-bloggers</category></item></channel></rss>
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>R-bloggers</category></item><item><title>jieba 自訂詞庫斷詞</title><link>https://yongfu.name/2018/07/31/jieba-dict/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/31/jieba-dict/</guid><description>
+&lt;p>在進行中文 Text Mining 前處理時，必須先經過斷詞處理。社群當中存在相當好的斷詞處理工具，如 &lt;a href="https://github.com/fxsjy/jieba">jieba&lt;/a>。但斷詞時常遇到一個問題：&lt;strong>文本中重要的詞彙因為不常見於其它地方而被斷開，像是人物角色名稱&lt;/strong>。要處理這個問題，需將自訂詞庫提供給斷詞套件，才不會將重要詞彙斷開。 &lt;/p>
+&lt;p>這邊將使用 &lt;a href="https://github.com/qinwf/jiebaR">jiebaR&lt;/a>，介紹使用自訂詞庫的斷詞方式，並提供自訂詞庫的製作方式。&lt;/p>
+&lt;div class="section level2">
+&lt;h2>示範語料&lt;/h2>
+&lt;p>這裡使用金庸&lt;strong>&lt;a href="https://zh.wikipedia.org/wiki/%E7%A5%9E%E9%B5%B0%E4%BF%A0%E4%BE%B6">神雕俠侶&lt;/a>第三十二回 — 情是何物&lt;/strong>作為斷詞的文本。武俠小說在此是個很好的例子，因為裡面有許多人物名稱和專有名詞。&lt;/p>
+&lt;p>因為著作權問題&lt;a href="#fn1" class="footnoteRef" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>，語料的原始檔(&lt;code>032.txt&lt;/code>)將不會出現在本文的 &lt;a href="https://github.com/liao961120/blog/tree/master/post_source/jieba-dict">GitHub repo&lt;/a> 中。&lt;/p>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>製作自訂詞庫&lt;/h2>
+&lt;p>取得小說這類文本的角色名稱與特殊名詞乍看之下可能非常耗工耗時，但有些時候其實相當容易，尤其是著名的小說。這要歸功於&lt;a href="https://en.wikipedia.org/wiki/Main_Page">維基百科&lt;/a>，因為越是著名的小說，其越有可能有詳盡的維基百科頁面，而&lt;strong>維基百科對製作詞庫最重要的特色在於其頁面的超連結&lt;/strong>，因為通常只有&lt;strong>專有名詞才會成為一個維基頁面上的超連結&lt;/strong>。&lt;/p>
+&lt;p>這邊使用維基百科的&lt;a href="https://zh.wikipedia.org/wiki/%E7%A5%9E%E9%B5%B0%E4%BF%A0%E4%BE%B6%E8%A7%92%E8%89%B2%E5%88%97%E8%A1%A8">神鵰俠侶角色列表&lt;/a>作為詞庫的來源。以下使用&lt;code>rvest&lt;/code>套件清理此頁面：&lt;/p>
+&lt;pre>&lt;code class="r">library(rvest)
+library(dplyr)
+library(magrittr)
+library(knitr)
+path &amp;lt;- &amp;quot;神鵰俠侶角色列表.html&amp;quot;
+# 這裡已先行下載網頁，若無可直接使用網址
+data &amp;lt;- read_html(path) %&amp;gt;%
+html_nodes(&amp;quot;ul&amp;quot;) %&amp;gt;% html_nodes(&amp;quot;li&amp;quot;) %&amp;gt;%
+html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_text()&lt;/code>&lt;/pre>
+&lt;p>觀察頁面後，可發現多數與小說相關的詞彙都位在 unordered list 下的連結內文(&amp;lt;a&amp;gt; tag)，因此透過 3 個&lt;code>html_nodes()&lt;/code>取得連結，並用&lt;code>html_text()&lt;/code>擷取連結內文。&lt;/p>
+&lt;p>接著看看擷取的詞彙，可以發現這些詞彙依照順序大致可區分成三個來源：&lt;/p>
+&lt;ol style="list-style-type: decimal">
+&lt;li>自維基頁面的&lt;strong>目錄&lt;/strong>擷取之連結&lt;/li>
+&lt;li>內文的連結(這是我們要的)&lt;/li>
+&lt;li>其它連結
+&lt;ul>
+&lt;li>對應至頁面最下方，與小說有關但並非小說主要內容的連結，如，「射雕英雄传角色列表」。另外，也包含維基百科頁面的固定連結，如「編輯」、「討論」、「下載為PDF」等。&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ol>
+&lt;pre>&lt;code class="r">data &amp;lt;- unique(data)
+data[1:3]&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;1 主角&amp;quot; &amp;quot;2 桃花島&amp;quot; &amp;quot;2.1 「北丐」門派&amp;quot;&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">data[21:25]&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;楊過&amp;quot; &amp;quot;射鵰英雄傳&amp;quot; &amp;quot;楊康&amp;quot; &amp;quot;穆念慈&amp;quot; &amp;quot;全真教&amp;quot; &lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">data[207:211]&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;射雕英雄传角色列表&amp;quot; &amp;quot;倚天屠龙记角色列表&amp;quot; &amp;quot;查&amp;quot;
+[4] &amp;quot;论&amp;quot; &amp;quot;编&amp;quot; &lt;/code>&lt;/pre>
+&lt;p>我們要的內容介在&lt;code>data[21]&lt;/code>(楊過)至&lt;code>data[206]&lt;/code>(樊一翁)之間。此外，亦可手動加入連結中沒有的詞彙：&lt;/p>
+&lt;pre>&lt;code class="r">data &amp;lt;- as_data_frame(data[21:206]) %&amp;gt;%
+rbind(&amp;quot;過兒&amp;quot;, &amp;quot;靖哥哥&amp;quot;) # 手動額外輸入
+head(data, 4) %&amp;gt;% kable(&amp;quot;markdown&amp;quot;, align=&amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">楊過&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">射鵰英雄傳&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">楊康&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">穆念慈&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>最後，將&lt;code>data&lt;/code>存成&lt;code>.csv&lt;/code>檔，方便未來使用：&lt;/p>
+&lt;pre>&lt;code class="r">readr::write_csv(data, &amp;quot;sdxl_wordlist.csv&amp;quot;)&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div id="jiebar-" class="section level2">
+&lt;h2>jiebaR 斷詞&lt;/h2>
+&lt;p>準備好自訂詞庫後，要開始對文本進行斷詞。&lt;/p>
+&lt;p>jiebaR 斷詞可以選擇外來檔案或將檔案讀入後在進行斷詞，這邊將文本檔案讀入再斷詞：&lt;/p>
+&lt;pre>&lt;code class="r">library(stringr)
+raw_text &amp;lt;- readr::read_file(&amp;quot;032.txt&amp;quot;)
+raw_text %&amp;gt;% str_trunc(80)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;第三十二回　情是何物\r\n\r\n　　當黃蓉、一燈、郭芙等被困大廳之時，楊過和小龍女正在花前並肩共語。不久程英和陸無雙到來。小龍女見程英溫雅靦腆，甚是投緣，拉住...&amp;quot;&lt;/code>&lt;/pre>
+&lt;div class="section level3">
+&lt;h3>無自訂詞庫&lt;/h3>
+&lt;p>首先，我們可以看看沒有自訂詞庫的斷詞效果：&lt;/p>
+&lt;pre>&lt;code class="r">library(jiebaR)
+stop_words &amp;lt;- readr::read_table2(&amp;quot;stop-zh-tw-withpunc&amp;quot;,
+col_names = F) %&amp;gt;%
+rbind(&amp;quot;\n&amp;quot;, &amp;quot;\r&amp;quot;) %&amp;gt;%
+set_names(&amp;quot;word&amp;quot;)
+seg &amp;lt;- worker(bylines = F, symbol = T)
+segment(raw_text, seg) %&amp;gt;%
+as_data_frame() %&amp;gt;%
+anti_join(stop_words, by=c(&amp;quot;value&amp;quot;=&amp;quot;word&amp;quot;)) %&amp;gt;%
+count(value) %&amp;gt;%
+arrange(desc(n)) %&amp;gt;%
+head() %&amp;gt;% kable(&amp;quot;markdown&amp;quot;, align=&amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">value&lt;/th>
+&lt;th align="center">n&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">道&lt;/td>
+&lt;td align="center">156&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">小龍女&lt;/td>
+&lt;td align="center">115&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">楊&lt;/td>
+&lt;td align="center">91&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">公孫止&lt;/td>
+&lt;td align="center">86&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">楊過&lt;/td>
+&lt;td align="center">76&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">黃&lt;/td>
+&lt;td align="center">65&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>可以看到有些斷詞是正確的，如「公孫止」。但某些似乎常常斷錯，例如，「黃蓉」、「楊過」(某些似乎斷錯，導致有許多單獨的「楊」)。&lt;/p>
+&lt;/div>
+&lt;div class="section level3">
+&lt;h3>使用自訂詞庫&lt;/h3>
+&lt;p>在&lt;code>jiebaR::worker()&lt;/code>中設定自訂詞庫的位置：&lt;code>user = &amp;quot;sdxl_wordlist.csv&amp;quot;&lt;/code>，即可在斷詞系統中新增字典：&lt;/p>
+&lt;pre>&lt;code class="r">seg &amp;lt;- worker(bylines = F, symbol = T,
+user = &amp;quot;sdxl_wordlist.csv&amp;quot;)
+segment(raw_text, seg) %&amp;gt;%
+as_data_frame() %&amp;gt;%
+anti_join(stop_words, by=c(&amp;quot;value&amp;quot;=&amp;quot;word&amp;quot;)) %&amp;gt;%
+count(value) %&amp;gt;%
+arrange(desc(n)) %&amp;gt;%
+head() %&amp;gt;% kable(&amp;quot;markdown&amp;quot;, align=&amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">value&lt;/th>
+&lt;th align="center">n&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">楊過&lt;/td>
+&lt;td align="center">187&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">道&lt;/td>
+&lt;td align="center">150&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">小龍女&lt;/td>
+&lt;td align="center">119&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">公孫止&lt;/td>
+&lt;td align="center">104&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">黃蓉&lt;/td>
+&lt;td align="center">95&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">李莫愁&lt;/td>
+&lt;td align="center">59&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>可以看到使用自訂詞庫後，斷詞變得有意義多了。&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>本文目的僅在促進教育與學術，並無營利企圖。且本文僅顯示極少的小說內容，應屬合理使用。若有侵犯著作權的疑慮，麻煩透過 &lt;a href="mailto:liaomovie2@gmail.com">Email&lt;/a> 與我聯絡。&lt;a href="#fnref1">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2018-11-10
+&lt;/p></description><category>R</category><category>linguistics</category><category>中文</category></item><item><title>Text Mining 前處理</title><link>https://yongfu.name/2018/07/28/quanteda-tutorial/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/28/quanteda-tutorial/</guid><description>
+&lt;p>中文 Text Mining 的前處理比起其它以拉丁字母為主的文本困難許多，參考資源也相對龐雜不全。 這裡以較晚近出現的&lt;a href="https://quanteda.io/">&lt;code>quanteda&lt;/code>&lt;/a>套件為根據，依其需求進行中文文本前處理。&lt;/p>
+&lt;p>選擇&lt;code>quanteda&lt;/code>而非其它較流行的套件如&lt;code>tm&lt;/code>的原因是因為其&lt;a href="https://github.com/quanteda/stopwords">多語言支持&lt;/a>較佳，譬如其內建的 tokenizer 能&lt;a href="https://koheiw.net/?p=339">直接對中文進行斷詞&lt;/a>。然而，由於 &lt;a href="https://github.com/fxsjy/jieba">&lt;code>jieba&lt;/code>&lt;/a>的社群資源以及斷詞效果較佳，此文還是以&lt;a href="https://github.com/qinwf/jiebaR">&lt;code>jiebaR&lt;/code>&lt;/a>進行斷詞。&lt;/p>
+&lt;p>此外，因為使用的語料是簡體字，這裡也提到簡體、繁體轉換處理的相關資源。 我希望這篇文章能整理出一套中文文本前處理的架構，試圖減輕未來可能遇到的問題。&lt;/p>
+&lt;div class="section level2">
+&lt;h2>流程&lt;/h2>
+&lt;img src="https://img.yongfu.name/blog/mermaid2.svg" alt="" style="width:100%">
+&lt;div class="mermaid">
+graph LR
+html("HTML")
+html -.->|"rvest"| df0
+subgraph 前處理
+df1("斷詞 data_frame")
+df0("data_frame")
+df0 -.->|"&lt;br> jiebaR &lt;br> (保留標點)&lt;br>"| df1
+df1 -.->|"ropencc &lt;br> 簡轉繁"| df1
+end
+corp("Corpus")
+token("Tokens")
+subgraph quanteda
+df1 -.->|"quanteda &lt;br> corpus()"| corp
+corp -.->|"quanteda &lt;br> tokenize()"| token
+end
+html -.- bls(" ")
+style bls fill:none,stroke:none
+style html fill:#ccbdb9
+style df1 fill:#92ff7f
+linkStyle 5 stroke-width:0px,fill:none;
+&lt;/div>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>資料爬取&lt;/h2>
+&lt;p>這邊使用 &lt;a href="https://www.rstudio.com/">RStudio&lt;/a> 軟體工程師 &lt;a href="https://yihui.name/en/about/">Yihui&lt;/a> 的&lt;a href="https://yihui.name/cn/">中文部落格&lt;/a>文章作為練習素材。首先需要取得文章的網址，因此先到部落格的文章列表頁面(&lt;a href="https://yihui.name/cn/" class="uri">https://yihui.name/cn/&lt;/a>)，使用瀏覽器的&lt;a href="https://developers.google.com/web/tools/chrome-devtools/?hl=zh-tw">開發者工具&lt;/a>(按&lt;code>Ctrl + Shift + I&lt;/code>開啟)進行&lt;strong>觀察&lt;/strong>。&lt;/p>
+&lt;p>接著使用&lt;a href="https://github.com/hadley/rvest">&lt;code>rvest&lt;/code>&lt;/a>套件擷取網頁中所有文章的連結，並將文章網址儲存成&lt;code>list_of_post.txt&lt;/code>：&lt;/p>
+&lt;pre>&lt;code class="r">library(dplyr)
+library(rvest)
+list_of_posts &amp;lt;- read_html(&amp;quot;https://yihui.name/cn/&amp;quot;) %&amp;gt;%
+html_nodes(&amp;quot;.archive&amp;quot;) %&amp;gt;% # 列表在 div.archive 之下
+html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;% # 文章標題在 &amp;lt;div&amp;gt; 下之 &amp;lt;p&amp;gt;
+html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_attr(&amp;quot;href&amp;quot;) # 文章連結在 &amp;lt;p&amp;gt; 下之 &amp;lt;a&amp;gt;
+readr::write_lines(list_of_posts, &amp;quot;yihui/list_of_post.txt&amp;quot;)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">head(list_of_posts, 2)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;/cn/2018/10/middle-school-teachers/&amp;quot;
+[2] &amp;quot;/cn/2018/10/potato-pancake/&amp;quot; &lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">tail(list_of_posts, 2)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;/cn/2005/01/rtx/&amp;quot; &amp;quot;/cn/2005/01/20-13-00/&amp;quot;&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">length(list_of_posts)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] 1097&lt;/code>&lt;/pre>
+&lt;p>可以看到總共有 1097 篇文章，時間從 2005 年到今年七月都有發文的紀錄。&lt;/p>
+&lt;p>由於文章數量相當多，因此之後僅會下載部分文章，&lt;strong>避免造成伺服器負擔過大&lt;/strong>。下載網頁時，可以在 R 中直接使用&lt;code>rvest&lt;/code>(見下文&lt;strong>資料前處理&lt;/strong>)，但我比較建議使用 Bash&lt;a href="#fn1" class="footnoteRef" id="fnref1">&lt;sup>1&lt;/sup>&lt;/a>的&lt;code>wget&lt;/code>指令，才不會因為重複下載網頁造成伺服器負擔。&lt;/p>
+&lt;p>在下載前，需先決定目標文章的網址&lt;code>sub_list&lt;/code>：&lt;/p>
+&lt;pre>&lt;code class="r">library(stringr)
+set.seed(2018) # 設隨機種子 固定隨機函數的結果
+idx &amp;lt;- str_detect(list_of_posts, &amp;quot;2018|2015|2010&amp;quot;)
+sub_list &amp;lt;- list_of_posts[idx]
+sub_list &amp;lt;- sub_list[sample(seq_along(sub_list), 20)] %&amp;gt;% # 抽出 20 篇
+str_replace_all(pattern = &amp;quot;^/&amp;quot;, # 將站內連結改為完整 url
+replacement = &amp;quot;https://yihui.name/&amp;quot;) %&amp;gt;%
+str_replace_all(pattern = &amp;quot;/$&amp;quot;, &amp;quot;/index.html&amp;quot;)
+readr::write_lines(sub_list, &amp;quot;yihui/sublist.txt&amp;quot;)
+# 給 Bash 用的
+sub_list %&amp;gt;%
+str_replace_all(&amp;quot;https://yihui.name/cn/&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;%
+str_replace_all(&amp;quot;/index.html&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;%
+str_replace_all(&amp;quot;/&amp;quot;, &amp;quot;-&amp;quot;) %&amp;gt;%
+str_replace_all(&amp;quot;-$&amp;quot;, &amp;quot;&amp;quot;) %&amp;gt;%
+readr::write_lines(&amp;quot;yihui/sublist_name.txt&amp;quot;)&lt;/code>&lt;/pre>
+&lt;div id="bash-" class="section level3">
+&lt;h3>Bash 指令下載網頁&lt;/h3>
+&lt;blockquote>
+&lt;p>無法使用 bash 指令者，可跳過此節&lt;/p>
+&lt;/blockquote>
+&lt;p>為了自動化下載網頁，我寫了一個簡單的 Bash script &lt;code>wget_list&lt;/code>，用法如下:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>wget_list &amp;lt;網址文字檔&amp;gt; &amp;lt;檔名文字檔&amp;gt;&lt;/code>&lt;a href="#fn2" class="footnoteRef" id="fnref2">&lt;sup>2&lt;/sup>&lt;/a>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;網址文字檔&amp;gt;&lt;/code>： 每一列(row)由一個網址組成&lt;/li>
+&lt;li>&lt;code>&amp;lt;檔名文字檔&amp;gt;&lt;/code>： 每一列由一個名稱組成，每個名稱與&lt;code>&amp;lt;網址文字檔&amp;gt;&lt;/code>的網址對應&lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>
+&lt;!--FOOTNOTE START-->
+&lt;p>在這裡，執行下列指令即可下載網頁&lt;/p>
+&lt;pre>&lt;code class="bash">cd yihui/html
+wget_list ../sublist.txt ../sublist_name.txt
+cd -&lt;/code>&lt;/pre>
+&lt;p>&lt;strong>&lt;code>wget_list&lt;/code>&lt;/strong>:&lt;/p>
+&lt;pre>&lt;code class="bash">#!/bin/bash
+#&amp;lt;&amp;lt;&amp;lt; wget_list: dowload webpages listed in a file &amp;gt;&amp;gt;&amp;gt;#
+### Argument 1 is the file of links, 1 url per row ###
+### Argument 2 is the file of names, 1 name per row ###
+file1=$1
+file2=$2
+## Get the number of lines in the link list
+num_lines=$(wc -l $file1 | egrep -o '^[0-9]*')
+## loop over the lines in file1, dowload the the file &amp;amp; name them as listed in file2
+for (( i=1; i&amp;lt;=${num_lines}; ++i )); do
+wget &amp;quot;$(sed -n ${i}p $file1)&amp;quot; \
+-O &amp;quot;$(sed -n ${i}p $file2)&amp;quot;
+done&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div class="section level2">
+&lt;h2>資料前處理&lt;/h2>
+&lt;p>在清理資料之前，需先剖析網頁結構(就如同之前剖析文章列表頁面一樣)。 這邊觀察&lt;a href="https://yihui.name/cn/2015/11/peer-review/">這篇文章&lt;/a>，大致可以找出這些資訊：&lt;/p>
+&lt;pre>&lt;code class="r">path &amp;lt;- &amp;quot;https://yihui.name/cn/2015/11/peer-review/&amp;quot;
+all &amp;lt;- read_html(path) %&amp;gt;%
+html_nodes(&amp;quot;article&amp;quot;)
+header &amp;lt;- all %&amp;gt;% html_nodes(&amp;quot;header&amp;quot;)
+title &amp;lt;- header %&amp;gt;% # 文章標題
+html_nodes(&amp;quot;h1&amp;quot;) %&amp;gt;% html_text()
+post_date &amp;lt;- header %&amp;gt;% # 發文日期
+html_node(&amp;quot;h3&amp;quot;) %&amp;gt;% html_text() %&amp;gt;%
+str_extract(&amp;quot;201[0-9]-[0-9]{2}-[0-9]{2}&amp;quot;)
+article &amp;lt;- all %&amp;gt;% # 內文
+html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;%
+html_text() %&amp;gt;% paste(collapse = &amp;quot;\n&amp;quot;)
+# 這裡將 chr vector collapse 至 1 個字串，
+# 簡化資料結構，並以分行符號保留段落資訊
+num_sec &amp;lt;- all %&amp;gt;% # 內文段落數
+html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;% length
+links &amp;lt;- all %&amp;gt;% html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;% # 內文連結
+html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_attr(&amp;quot;href&amp;quot;)
+link_text &amp;lt;- all %&amp;gt;% html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;% # 內文連結標題
+html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_text()&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">library(tibble)
+df &amp;lt;- data_frame(title = title,
+date = post_date,
+content = article,
+num_sec = num_sec,
+links = list(links),
+link_text = list(link_text)
+)
+df %&amp;gt;%
+mutate(title = str_trunc(title, 8),
+content = str_trunc(content, 8),
+links = str_trunc(links, 8),
+link_text = str_trunc(link_text, 8)) %&amp;gt;%
+kable(&amp;quot;markdown&amp;quot;, align = &amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">title&lt;/th>
+&lt;th align="center">date&lt;/th>
+&lt;th align="center">content&lt;/th>
+&lt;th align="center">num_sec&lt;/th>
+&lt;th align="center">links&lt;/th>
+&lt;th align="center">link_text&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">同行评审&lt;/td>
+&lt;td align="center">2015-11-11&lt;/td>
+&lt;td align="center">看到这么一…&lt;/td>
+&lt;td align="center">8&lt;/td>
+&lt;td align="center">c(“ht…&lt;/td>
+&lt;td align="center">c(“一则…&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>我們可以將上面的程式碼改寫成函數&lt;code>post_data()&lt;/code>，自動讀取文章並輸出 data frame：&lt;/p>
+&lt;pre>&lt;code class="r">post_data &amp;lt;- function (path) {
+all &amp;lt;- read_html(path) %&amp;gt;%
+html_nodes(&amp;quot;article&amp;quot;)
+header &amp;lt;- all %&amp;gt;% html_nodes(&amp;quot;header&amp;quot;)
+title &amp;lt;- header %&amp;gt;% # 文章標題
+html_nodes(&amp;quot;h1&amp;quot;) %&amp;gt;% html_text()
+post_date &amp;lt;- header %&amp;gt;% # 發文日期
+html_node(&amp;quot;h3&amp;quot;) %&amp;gt;% html_text() %&amp;gt;%
+str_extract(&amp;quot;201[0-9]-[0-9]{2}-[0-9]{2}&amp;quot;)
+article &amp;lt;- all %&amp;gt;% # 內文
+html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;%
+html_text() %&amp;gt;% paste(collapse = &amp;quot;\n&amp;quot;)
+# 這裡將 chr vector collapse 至 1 個字串，
+# 簡化資料結構，並以分行符號保留段落資訊
+num_sec &amp;lt;- all %&amp;gt;% # 內文段落數
+html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;% length
+links &amp;lt;- all %&amp;gt;% html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;% # 內文連結
+html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_attr(&amp;quot;href&amp;quot;)
+link_text &amp;lt;- all %&amp;gt;% # 內文連結標題
+html_nodes(&amp;quot;p&amp;quot;) %&amp;gt;%
+html_nodes(&amp;quot;a&amp;quot;) %&amp;gt;% html_text()
+df &amp;lt;- tibble::data_frame(title = title,
+date = post_date,
+content = article,
+num_sec = num_sec,
+links = list(links),
+link_text = list(link_text)
+)
+}&lt;/code>&lt;/pre>
+&lt;p>接著，將所有文章讀取至一個 data frame &lt;code>all_post&lt;/code>：&lt;/p>
+&lt;pre>&lt;code class="r">library(dplyr)
+library(tidyr)
+html_list &amp;lt;- list.files(&amp;quot;yihui/html/&amp;quot;) # 列出資料夾下的檔案
+all_post &amp;lt;- vector(&amp;quot;list&amp;quot;, length(html_list))
+for (i in seq_along(html_list)) {
+path &amp;lt;- paste0(&amp;quot;yihui/html/&amp;quot;, html_list[i])
+all_post[[i]] &amp;lt;- post_data(path)
+}
+all_post &amp;lt;- bind_rows(all_post) %&amp;gt;% arrange(desc(date))
+head(all_post) %&amp;gt;%
+mutate(title = str_trunc(title, 8),
+content = str_trunc(content, 8),
+links = str_trunc(links, 8),
+link_text = str_trunc(link_text, 8)) %&amp;gt;%
+kable(&amp;quot;markdown&amp;quot;, align = &amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">title&lt;/th>
+&lt;th align="center">date&lt;/th>
+&lt;th align="center">content&lt;/th>
+&lt;th align="center">num_sec&lt;/th>
+&lt;th align="center">links&lt;/th>
+&lt;th align="center">link_text&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">修辞还是真实&lt;/td>
+&lt;td align="center">2018-06-21&lt;/td>
+&lt;td align="center">说两封让我…&lt;/td>
+&lt;td align="center">12&lt;/td>
+&lt;td align="center">chara…&lt;/td>
+&lt;td align="center">chara…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">花椒香料&lt;/td>
+&lt;td align="center">2018-05-31&lt;/td>
+&lt;td align="center">古人似乎喜…&lt;/td>
+&lt;td align="center">2&lt;/td>
+&lt;td align="center">/cn/2…&lt;/td>
+&lt;td align="center">去年的花椒&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">CSS 的…&lt;/td>
+&lt;td align="center">2018-05-14&lt;/td>
+&lt;td align="center">CSS 中…&lt;/td>
+&lt;td align="center">15&lt;/td>
+&lt;td align="center">c(“ht…&lt;/td>
+&lt;td align="center">c(“查阅…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">毛姆的文学回忆录&lt;/td>
+&lt;td align="center">2018-05-04&lt;/td>
+&lt;td align="center">前段时间看…&lt;/td>
+&lt;td align="center">14&lt;/td>
+&lt;td align="center">c(“/c…&lt;/td>
+&lt;td align="center">c(“职业…&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">距离的组织&lt;/td>
+&lt;td align="center">2018-05-03&lt;/td>
+&lt;td align="center">前面《闲情…&lt;/td>
+&lt;td align="center">5&lt;/td>
+&lt;td align="center">/cn/2…&lt;/td>
+&lt;td align="center">闲情赋&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">语言圣战的终结？&lt;/td>
+&lt;td align="center">2018-04-19&lt;/td>
+&lt;td align="center">一直以来我…&lt;/td>
+&lt;td align="center">3&lt;/td>
+&lt;td align="center">c(“ht…&lt;/td>
+&lt;td align="center">c(“惊天…&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="section level3">
+&lt;h3>直接從網路讀取&lt;/h3>
+&lt;p>如果無法使用 Bash 指令下載網頁，可將上面程式碼的&lt;code>html_list&lt;/code>改為讀取&lt;code>sublist.txt&lt;/code>中的 url，並修改&lt;code>for&lt;/code>迴圈中的&lt;code>path&lt;/code>：&lt;/p>
+&lt;pre>&lt;code class="r">html_list &amp;lt;- read_lines(&amp;quot;yihui/sublist.txt&amp;quot;) # 讀取 url
+all_post &amp;lt;- vector(&amp;quot;list&amp;quot;, length(html_list))
+for (i in seq_along(html_list)) {
+path &amp;lt;- html_list[i]
+all_post[[i]] &amp;lt;- post_data(path)
+}
+all_post &amp;lt;- bind_rows(all_post) %&amp;gt;% arrange(desc(date))&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;div class="section level3">
+&lt;h3>斷詞&lt;/h3>
+&lt;p>在處理中文、日語等文本資料，需先經過斷詞處理，因為其不像英語等歐洲語言的文本，以空格表示字詞的界線。&lt;/p>
+&lt;p>我們將使用&lt;code>jiebaR&lt;/code>套件的&lt;code>segment()&lt;/code>進行斷詞。由&lt;code>?segment()&lt;/code>查看其 documentation 可知&lt;strong>&lt;code>segment()&lt;/code>只吃文字檔或 一個句子&lt;/strong>，因此需先搞清楚&lt;code>all_post&lt;/code>的結構才能進行斷詞：&lt;/p>
+&lt;p>&lt;code>all_post&lt;/code>: 20*5 的&lt;code>data_frame&lt;/code>，每列(row)為一篇文章 - $title: 每列為 1 個值 - $date: 每列為 1 個值 - $content: 每列為 1 個值，段落資訊藏在字串中的&lt;code>\n&lt;/code>符號 - $links: 每列為 1 個 list - $link_text: 每列為 1 個 list&lt;/p>
+&lt;p>&lt;code>all_post$content&lt;/code>的結構相當簡單(一篇文章一個字串)，因此不須經過額外處理。其它變項不須斷詞處理，因此在此不加細談。&lt;/p>
+&lt;div id="jiebarsegment" class="section level4">
+&lt;h4>jiebaR::segment&lt;/h4>
+&lt;p>因為&lt;code>all_post$content&lt;/code>簡單的結構符合&lt;code>jiebaR&lt;/code>套件的預設需求，但有時資料會比較複雜，因此記錄下來供未來參考。&lt;/p>
+&lt;p>前面提到&lt;code>jiebaR::segment&lt;/code>只吃一個句子(一個字串)或文字檔，那如果丟一個 vector 給它會怎樣？答案是看&lt;code>worker()&lt;/code>的設定：&lt;/p>
+&lt;pre>&lt;code class="r">library(jiebaR)
+seg &amp;lt;- worker(symbol = T, bylines = F)
+segment(c(&amp;quot;妳很漂亮&amp;quot;, &amp;quot;我不喜歡你&amp;quot;), seg)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;妳&amp;quot; &amp;quot;很漂亮&amp;quot; &amp;quot; &amp;quot; &amp;quot;我&amp;quot; &amp;quot;不&amp;quot; &amp;quot;喜歡&amp;quot; &amp;quot;你&amp;quot; &lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">seg &amp;lt;- worker(symbol = T, bylines = T)
+segment(c(&amp;quot;妳很漂亮&amp;quot;, &amp;quot;我不喜歡你&amp;quot;), seg)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[[1]]
+[1] &amp;quot;妳&amp;quot; &amp;quot;很漂亮&amp;quot;
+[[2]]
+[1] &amp;quot;我&amp;quot; &amp;quot;不&amp;quot; &amp;quot;喜歡&amp;quot; &amp;quot;你&amp;quot; &lt;/code>&lt;/pre>
+&lt;ol style="list-style-type: decimal">
+&lt;li>&lt;p>&lt;code>bylines = F&lt;/code>：回傳 1 個 chr vector，其每個元素為 1 個詞。&lt;/p>&lt;/li>
+&lt;li>&lt;p>&lt;code>bylines = T&lt;/code>：回傳 1 個 list，其長度(元素的數量)等於輸入之 vector 的長度，每個元素為一個 chr vector。&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;p>&lt;code>bylines = F&lt;/code>的設定在此符合我們的需求，並且為配合&lt;code>quanteda&lt;/code>套件的特性而將斷詞結果以一個字串(以空格分開字詞)而非一個 chr vector 的形式儲存。 以下&lt;strong>對第一篇文章進行斷詞&lt;/strong>：&lt;/p>
+&lt;pre>&lt;code class="r">library(jiebaR)
+all_post_seg &amp;lt;- all_post
+seg &amp;lt;- worker(symbol = T, bylines = F)
+all_post_seg$content[1] &amp;lt;- all_post$content[1] %&amp;gt;%
+segment(seg) %&amp;gt;% paste(collapse = &amp;quot; &amp;quot;)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">all_post$content[1] %&amp;gt;% str_trunc(20)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;说两封让我感到“我天，给亲友的书信...&amp;quot;&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">all_post_seg$content[1] %&amp;gt;% str_trunc(30)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;说 两封 让 我 感到 “ 我 天 ， 给 亲友 的 ...&amp;quot;&lt;/code>&lt;/pre>
+&lt;p>要處理所有文章，僅需外包一個 for loop：&lt;/p>
+&lt;pre>&lt;code class="r">all_post_seg &amp;lt;- all_post
+seg &amp;lt;- worker(symbol = T, bylines = F)
+idx &amp;lt;- seq_along(all_post$content)
+for (i in idx){
+all_post_seg$content[i] &amp;lt;- all_post$content[i] %&amp;gt;%
+segment(seg) %&amp;gt;% paste(collapse = &amp;quot; &amp;quot;)
+}
+head(all_post$content, 3) %&amp;gt;% str_trunc(20)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;说两封让我感到“我天，给亲友的书信...&amp;quot;
+[2] &amp;quot;古人似乎喜欢把花椒当香料用。在《古...&amp;quot;
+[3] &amp;quot;CSS 中的位置（position...&amp;quot; &lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">head(all_post_seg$content, 3) %&amp;gt;% str_trunc(30)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;说 两封 让 我 感到 “ 我 天 ， 给 亲友 的 ...&amp;quot;
+[2] &amp;quot;古人 似乎 喜欢 把 花椒 当 香料 用 。 在 《 ...&amp;quot;
+[3] &amp;quot;CSS 中 的 位置 （ position ） 属...&amp;quot; &lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/div>
+&lt;div class="section level3">
+&lt;h3>簡轉繁&lt;/h3>
+&lt;p>&lt;a href="https://github.com/BYVoid/OpenCC">OpenCC&lt;/a> 是一個簡體字與繁體字轉換的專案，非常優秀，因為其不僅是單純字轉字，甚至處理了地區性的用法(如「軟體」vs.「软件」)。因此，其簡繁轉換的選項有非常多：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>s2t.json&lt;/code> Simplified Chinese to Traditional Chinese 簡體到繁體&lt;/li>
+&lt;li>&lt;code>t2s.json&lt;/code> Traditional Chinese to Simplified Chinese 繁體到簡體&lt;/li>
+&lt;li>&lt;code>s2tw.json&lt;/code> Simplified Chinese to Traditional Chinese (Taiwan Standard) 簡體到臺灣正體&lt;/li>
+&lt;li>&lt;code>tw2s.json&lt;/code> Traditional Chinese (Taiwan Standard) to Simplified Chinese 臺灣正體到簡體&lt;/li>
+&lt;li>&lt;code>s2hk.json&lt;/code> Simplified Chinese to Traditional Chinese (Hong Kong Standard) 簡體到香港繁體（香港小學學習字詞表標準）&lt;/li>
+&lt;li>&lt;code>hk2s.json&lt;/code> Traditional Chinese (Hong Kong Standard) to Simplified Chinese 香港繁體（香港小學學習字詞表標準）到簡體&lt;/li>
+&lt;li>&lt;code>s2twp.json&lt;/code> Simplified Chinese to Traditional Chinese (Taiwan Standard) with Taiwanese idiom 簡體到繁體（臺灣正體標準）並轉換爲臺灣常用詞彙&lt;/li>
+&lt;li>&lt;code>tw2sp.json&lt;/code> Traditional Chinese (Taiwan Standard) to Simplified Chinese with Mainland Chinese idiom 繁體（臺灣正體標準）到簡體並轉換爲中國大陸常用詞彙&lt;/li>
+&lt;li>&lt;code>t2tw.json&lt;/code> Traditional Chinese (OpenCC Standard) to Taiwan Standard 繁體（OpenCC 標準）到臺灣正體&lt;/li>
+&lt;li>&lt;code>t2hk.json&lt;/code> Traditional Chinese (OpenCC Standard) to Hong Kong Standard 繁體（OpenCC 標準）到香港繁體（香港小學學習字詞表標準）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/qinwf/ropencc">&lt;code>ropencc&lt;/code>&lt;/a>套件是 OpenCC 的 R 語言接口，其不在 CRAN 上，需以&lt;code>devtools&lt;/code>從 GitHub 下載：&lt;/p>
+&lt;pre>&lt;code class="r">devtools::install_github(&amp;quot;qinwf/ropencc&amp;quot;)&lt;/code>&lt;/pre>
+&lt;p>使用上非常容易：&lt;/p>
+&lt;pre>&lt;code class="r">library(ropencc)
+trans &amp;lt;- converter(TW2SP) # 臺灣用法轉大陸用法
+run_convert(trans, &amp;quot;開放中文轉換軟體&amp;quot;)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;开放中文转换软件&amp;quot;&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">trans &amp;lt;- converter(T2S) # 單純繁轉簡
+run_convert(trans, &amp;quot;開放中文轉換軟體&amp;quot;)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;开放中文转换软体&amp;quot;&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="r">trans &amp;lt;- converter(S2TWP) # 簡轉臺灣用法
+run_convert(trans, &amp;quot;开放中文转换软件&amp;quot;)&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="nohighlight">[1] &amp;quot;開放中文轉換軟體&amp;quot;&lt;/code>&lt;/pre>
+&lt;p>在此我使用&lt;code>S2TWP&lt;/code>轉換&lt;code>$content&lt;/code>；&lt;code>S2T&lt;/code>轉換&lt;code>$title&lt;/code>：&lt;/p>
+&lt;pre>&lt;code class="r">library(ropencc)
+all_post_seg$content &amp;lt;- run_convert(converter(S2TWP),
+all_post_seg$content)
+all_post_seg$title &amp;lt;- run_convert(converter(S2T),
+all_post_seg$title)
+head(all_post_seg) %&amp;gt;%
+mutate(title = str_trunc(title, 8),
+content = str_trunc(content, 8),
+links = str_trunc(links, 8),
+link_text = str_trunc(link_text, 8)) %&amp;gt;%
+kable(&amp;quot;markdown&amp;quot;, align = &amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">title&lt;/th>
+&lt;th align="center">date&lt;/th>
+&lt;th align="center">content&lt;/th>
+&lt;th align="center">num_sec&lt;/th>
+&lt;th align="center">links&lt;/th>
+&lt;th align="center">link_text&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">修辭還是真實&lt;/td>
+&lt;td align="center">2018-06-21&lt;/td>
+&lt;td align="center">說 兩封 …&lt;/td>
+&lt;td align="center">12&lt;/td>
+&lt;td align="center">chara…&lt;/td>
+&lt;td align="center">chara…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">花椒香料&lt;/td>
+&lt;td align="center">2018-05-31&lt;/td>
+&lt;td align="center">古人 似乎…&lt;/td>
+&lt;td align="center">2&lt;/td>
+&lt;td align="center">/cn/2…&lt;/td>
+&lt;td align="center">去年的花椒&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">CSS 的…&lt;/td>
+&lt;td align="center">2018-05-14&lt;/td>
+&lt;td align="center">CSS …&lt;/td>
+&lt;td align="center">15&lt;/td>
+&lt;td align="center">c(“ht…&lt;/td>
+&lt;td align="center">c(“查阅…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">毛姆的文學回憶錄&lt;/td>
+&lt;td align="center">2018-05-04&lt;/td>
+&lt;td align="center">前段時間 …&lt;/td>
+&lt;td align="center">14&lt;/td>
+&lt;td align="center">c(“/c…&lt;/td>
+&lt;td align="center">c(“职业…&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">距離的組織&lt;/td>
+&lt;td align="center">2018-05-03&lt;/td>
+&lt;td align="center">前面 《 …&lt;/td>
+&lt;td align="center">5&lt;/td>
+&lt;td align="center">/cn/2…&lt;/td>
+&lt;td align="center">闲情赋&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">語言聖戰的終結？&lt;/td>
+&lt;td align="center">2018-04-19&lt;/td>
+&lt;td align="center">一直 以來…&lt;/td>
+&lt;td align="center">3&lt;/td>
+&lt;td align="center">c(“ht…&lt;/td>
+&lt;td align="center">c(“惊天…&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;div id="quanteda" class="section level2">
+&lt;h2>quanteda&lt;/h2>
+&lt;p>我們前面進行的資料前處理，已經將資料整理成符合&lt;a href="https://tutorials.quanteda.io/basic-operations/corpus/corpus/">&lt;code>quanteda::corpus()&lt;/code>輸入的格式&lt;/a>：&lt;/p>
+&lt;blockquote>
+&lt;p>A data frame consisting of a character vector for documents, and additional vectors for document-level variables&lt;/p>
+&lt;/blockquote>
+&lt;p>因此，依以下指令即可將&lt;code>all_post_seg&lt;/code>轉換成&lt;code>corpus&lt;/code>物件：&lt;/p>
+&lt;pre>&lt;code class="r">library(quanteda)
+corp &amp;lt;- corpus(all_post_seg,
+docid_field = &amp;quot;title&amp;quot;,
+text_field = &amp;quot;content&amp;quot;)
+corp %&amp;gt;% summary() %&amp;gt;% as_data_frame() %&amp;gt;%
+head(3) %&amp;gt;%
+mutate(links = str_trunc(links, 8),
+link_text = str_trunc(link_text, 8)) %&amp;gt;%
+kable(&amp;quot;markdown&amp;quot;, align = &amp;quot;c&amp;quot;)&lt;/code>&lt;/pre>
+&lt;table>
+&lt;thead>
+&lt;tr class="header">
+&lt;th align="center">Text&lt;/th>
+&lt;th align="center">Types&lt;/th>
+&lt;th align="center">Tokens&lt;/th>
+&lt;th align="center">Sentences&lt;/th>
+&lt;th align="center">date&lt;/th>
+&lt;th align="center">num_sec&lt;/th>
+&lt;th align="center">links&lt;/th>
+&lt;th align="center">link_text&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr class="odd">
+&lt;td align="center">修辭還是真實&lt;/td>
+&lt;td align="center">217&lt;/td>
+&lt;td align="center">375&lt;/td>
+&lt;td align="center">15&lt;/td>
+&lt;td align="center">2018-06-21&lt;/td>
+&lt;td align="center">12&lt;/td>
+&lt;td align="center">chara…&lt;/td>
+&lt;td align="center">chara…&lt;/td>
+&lt;/tr>
+&lt;tr class="even">
+&lt;td align="center">花椒香料&lt;/td>
+&lt;td align="center">149&lt;/td>
+&lt;td align="center">246&lt;/td>
+&lt;td align="center">9&lt;/td>
+&lt;td align="center">2018-05-31&lt;/td>
+&lt;td align="center">2&lt;/td>
+&lt;td align="center">/cn/2…&lt;/td>
+&lt;td align="center">去年的花椒&lt;/td>
+&lt;/tr>
+&lt;tr class="odd">
+&lt;td align="center">CSS 的位置屬性以及如何居中對齊超寬元素&lt;/td>
+&lt;td align="center">347&lt;/td>
+&lt;td align="center">805&lt;/td>
+&lt;td align="center">23&lt;/td>
+&lt;td align="center">2018-05-14&lt;/td>
+&lt;td align="center">15&lt;/td>
+&lt;td align="center">c(“ht…&lt;/td>
+&lt;td align="center">c(“查阅…&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>有了&lt;code>corpus&lt;/code>的資料結構後，即進入了下圖&lt;code>quanteda&lt;/code>的分析架構，也結束了資料前處理的階段，開始進入 EDA 的階段。&lt;/p>
+&lt;img src="https://img.yongfu.name/blog/mermaid.svg" alt="">
+&lt;div class="mermaid">
+graph TD
+C(Corpus)
+token(Tokens)
+AP["Positional analysis"]
+AN["Non-positional analysis"]
+dfm(DFM)
+tidy("Tidy Text Format")
+vis("Visualize")
+C --> token
+token --> dfm
+token -.-> AP
+dfm -.-> AN
+tidy -->|"cast_dfm()"| dfm
+dfm -->|"tidy()"| tidy
+dfm -.- vis
+tidy -.-> vis
+AP -.- vis
+style C stroke-width:0px,fill:#6bbcff
+style token stroke-width:0px,fill:#6bbcff
+style dfm stroke-width:0px,fill:#6bbcff
+style tidy stroke-width:0px,fill:orange
+linkStyle 6 stroke-width:0px,fill:none;
+linkStyle 8 stroke-width:0px,fill:none;
+&lt;/div>
+&lt;p>&lt;a href="https://quanteda.io/">quanteda&lt;/a> 有相當完整的&lt;a href="https://tutorials.quanteda.io/">教學資源&lt;/a>，且有很多有用的函數。同時，&lt;a href="https://github.com/juliasilge/tidytext">&lt;code>tidytext&lt;/code>&lt;/a> 套件也能輕易與 &lt;code>quanteda&lt;/code> 配合，在 &lt;code>document-feature matrix&lt;/code> 與&lt;code>tidytext&lt;/code>所提倡的 &lt;strong>tidy data frame&lt;/strong>(one-token-per-document-per-row) 兩種資料結構間自由轉換。&lt;strong>tidy data frame&lt;/strong> 的格式與&lt;a href="https://github.com/tidyverse/ggplot2">&lt;code>ggplot2&lt;/code>&lt;/a>相吻合，有助於資料視覺化的進行。&lt;/p>
+&lt;p>這裡選擇以&lt;code>quanteda&lt;/code>而非&lt;code>tidytext&lt;/code>作為主要架構的原因在於&lt;code>tidytext&lt;/code>的架構僅容許 &lt;strong>bag-of-words&lt;/strong> 的架構，但&lt;code>quanteda&lt;/code>除了 &lt;strong>bag-of-words&lt;/strong> 之外，還保有 &lt;strong>Positional analysis&lt;/strong> 的潛力。&lt;/p>
+&lt;p>由於篇幅有限，這裡不多加細談&lt;code>quanteda&lt;/code>套件&lt;a href="#fn3" class="footnoteRef" id="fnref3">&lt;sup>3&lt;/sup>&lt;/a>。關於&lt;code>quanteda&lt;/code>的使用，可以參考 &lt;a href="https://tutorials.quanteda.io/">quanteda tutorial&lt;/a>，內容非常詳盡。&lt;/p>
+&lt;/div>
+&lt;div id="reproduce" class="section level2">
+&lt;h2>Reproduce&lt;/h2>
+&lt;p>這篇文章的原始碼在我的 &lt;a href="https://github.com/liao961120/blog/tree/master/post_source/quanteda-chinese">GitHub&lt;/a>，歡迎下載至自己的電腦執行。&lt;/p>
+&lt;/div>
+&lt;div class="section level2 unnumbered">
+&lt;h2>參考資料&lt;/h2>
+&lt;div id="refs" class="references">
+&lt;div id="ref-silge2017">
+&lt;p>Silge, Julia, and David Robinson. 2017. &lt;em>Text Mining with R: A Tidy Approach&lt;/em>. 1st ed. O’Reilly Media, Inc.&lt;/p>
+&lt;/div>
+&lt;div id="ref-watanabe2018">
+&lt;p>Watanabe, Kohei, and Stefan Müller. 2018. “Quanteda Tutorials.” &lt;em>Quanteda Tutorials&lt;/em>. https://tutorials.quanteda.io/.&lt;/p>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;div class="footnotes">
+&lt;ol>
+&lt;li id="fn1">&lt;p>Mac 和 Linux 內建有 Bash，但 Windows 沒有。&lt;a href="#fnref1">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn2">&lt;p>要能直接執行&lt;code>wget_list&lt;/code>需先給予其執行的權限，因此需設置&lt;code>chmod 755 &amp;lt;path to wget_list&amp;gt;&lt;/code>，並且將&lt;code>wget_list&lt;/code>置於 shell 會自動搜尋程式的地方(如&lt;code>/usr/bin/&lt;/code>)。&lt;/p>
+&lt;p>另一個方法是不設置權限，直接執行&lt;code>wget_list&lt;/code>：&lt;br />
+&lt;code>bash &amp;lt;path to wget_list&amp;gt; &amp;lt;file1&amp;gt; &amp;lt;file2&amp;gt;&lt;/code> &lt;!--FOOTNOTE END-->&lt;a href="#fnref2">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;li id="fn3">&lt;p>未來可能會發一篇續作。&lt;a href="#fnref3">↩&lt;/a>&lt;/p>&lt;/li>
+&lt;/ol>
+&lt;/div>
+&lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
+Last updated: 2018-11-10
+&lt;/p>
+&lt;style>
+div.mermaid {
+display:none;
+}
+&lt;/style></description><category>R</category><category>linguistics</category><category>中文</category></item></channel></rss>
