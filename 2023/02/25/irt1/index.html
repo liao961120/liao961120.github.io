@@ -251,7 +251,7 @@ results</strong>.</p><p>Take <code>rbern()</code> for instance. Given a paramete
 repeatedly run <code>rbern(0.5)</code> a couple of times to produce zeros and ones.
 But these zeros and ones cannot tell us whether <code>rbern(0.5)</code> is working
 properly. <code>rbern(0.5)</code> might be broken somehow, and instead generates
-the ones with, e.g., $P=0.53$.</p><p>The <a href=https://en.wikipedia.org/wiki/Law_of_large_numbers>law of large
+the ones with, say, $P=0.53$.</p><p>The <a href=https://en.wikipedia.org/wiki/Law_of_large_numbers>law of large
 numbers</a> can help us
 here. Since <code>rbern()</code> generates one with probability $P$, if we run
 <code>rbern()</code> many times, the proportion of one in the outcomes should
@@ -276,7 +276,7 @@ convenient wrappers such as the <code>replicate()</code> function.</p><div class
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>points</span>( Ps, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
 </span></span></code></pre></div><p><img src=part1_files/figure-commonmark/unnamed-chunk-9-1.svg style=width:100% data-fig-align=center></p><h3 id=randomness-in-models>Randomness in Models</h3><p>The method described above works only for simple cases. What about
 complex statistical models? How do we test that they are working as they
-claim to? Guess what? <em><strong>Simulation</strong></em> is the cure.</p><p>We simulate data based on the assumptions of the statistical model and
+claim to? Guess what? <em><strong>Simulation</strong></em> is the key.</p><p>We simulate data based on the assumptions of the statistical model and
 see if it indeed returns what it claims to estimate. The simulation can
 be repeated several times, each set to different values of parameters.
 If the parameters are always recovered by the statistical model, we can

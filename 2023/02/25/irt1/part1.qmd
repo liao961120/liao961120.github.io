@@ -346,7 +346,7 @@ to spot any errors just by **eyeballing the results**.
 Take `rbern()` for instance. Given a parameter $P=0.5$, we can repeatedly run
 `rbern(0.5)` a couple of times to produce zeros and ones. But these zeros and
 ones cannot tell us whether `rbern(0.5)` is working properly. `rbern(0.5)` might
-be broken somehow, and instead generates the ones with, e.g., $P=0.53$.
+be broken somehow, and instead generates the ones with, say, $P=0.53$.
 
 The [law of large numbers][large-num] can help us here. Since `rbern()`
 generates one with probability $P$, if we run `rbern()` many times, the
@@ -403,7 +403,7 @@ points( Ps, pch=19, col=2 )
 
 The method described above works only for simple cases. What about complex
 statistical models? How do we test that they are working as they claim to? Guess
-what? **_Simulation_** is the cure. 
+what? **_Simulation_** is the key. 
 
 We simulate data based on the assumptions of the statistical model and see if it
 indeed returns what it claims to estimate. The simulation can be repeated

@@ -350,7 +350,7 @@ results&lt;/strong>.&lt;/p>
 repeatedly run &lt;code>rbern(0.5)&lt;/code> a couple of times to produce zeros and ones.
 But these zeros and ones cannot tell us whether &lt;code>rbern(0.5)&lt;/code> is working
 properly. &lt;code>rbern(0.5)&lt;/code> might be broken somehow, and instead generates
-the ones with, e.g., $P=0.53$.&lt;/p>
+the ones with, say, $P=0.53$.&lt;/p>
 &lt;p>The &lt;a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large
 numbers&lt;/a> can help us
 here. Since &lt;code>rbern()&lt;/code> generates one with probability $P$, if we run
@@ -383,7 +383,7 @@ style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;h3 id="randomness-in-models">Randomness in Models&lt;/h3>
 &lt;p>The method described above works only for simple cases. What about
 complex statistical models? How do we test that they are working as they
-claim to? Guess what? &lt;em>&lt;strong>Simulation&lt;/strong>&lt;/em> is the cure.&lt;/p>
+claim to? Guess what? &lt;em>&lt;strong>Simulation&lt;/strong>&lt;/em> is the key.&lt;/p>
 &lt;p>We simulate data based on the assumptions of the statistical model and
 see if it indeed returns what it claims to estimate. The simulation can
 be repeated several times, each set to different values of parameters.
