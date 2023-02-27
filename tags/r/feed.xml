@@ -1853,9 +1853,7 @@ ipa &amp;lt;- paste0(&amp;quot;\\ipatext{&amp;quot;, ipa, &amp;quot;}&amp;quot;)
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2019-03-07
-&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>R-bloggers</category></item><item><title>jieba 自訂詞庫斷詞</title><link>https://yongfu.name/2018/07/31/jieba-dict/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/31/jieba-dict/</guid><description>
-&lt;p>在進行中文 Text Mining 前處理時，必須先經過斷詞處理。社群當中存在相當好的斷詞處理工具，如 &lt;a href="https://github.com/fxsjy/jieba">jieba&lt;/a>。但斷詞時常遇到一個問題：&lt;strong>文本中重要的詞彙因為不常見於其它地方而被斷開，像是人物角色名稱&lt;/strong>。要處理這個問題，需將自訂詞庫提供給斷詞套件，才不會將重要詞彙斷開。 &lt;/p>
-&lt;p>這邊將使用 &lt;a href="https://github.com/qinwf/jiebaR">jiebaR&lt;/a>，介紹使用自訂詞庫的斷詞方式，並提供自訂詞庫的製作方式。&lt;/p>
+&lt;/p></description><category>Linguistics</category><category>R Markdown</category><category>R</category><category>R-bloggers</category></item><item><title>jieba 自訂詞庫斷詞</title><link>https://yongfu.name/2018/07/31/jieba-dict/</link><pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/31/jieba-dict/</guid><description>&lt;p>這邊將使用 &lt;a href="https://github.com/qinwf/jiebaR">jiebaR&lt;/a>，介紹使用自訂詞庫的斷詞方式，並提供自訂詞庫的製作方式。&lt;/p>
 &lt;div class="section level2">
 &lt;h2>示範語料&lt;/h2>
 &lt;p>這裡使用金庸&lt;strong>&lt;a href="https://zh.wikipedia.org/wiki/%E7%A5%9E%E9%B5%B0%E4%BF%A0%E4%BE%B6">神雕俠侶&lt;/a>第三十二回 — 情是何物&lt;/strong>作為斷詞的文本。武俠小說在此是個很好的例子，因為裡面有許多人物名稱和專有名詞。&lt;/p>
@@ -2034,11 +2032,7 @@ head() %&amp;gt;% kable(&amp;quot;markdown&amp;quot;, align=&amp;quot;c&amp;quot
 &lt;/div>
 &lt;p style="text-align:right;font-size:7px;margin-top:0px;margin-bottom:0px;padding-top:0px;padding-bottom:1px">
 Last updated: 2018-11-10
-&lt;/p></description><category>R</category><category>linguistics</category><category>中文</category></item><item><title>Text Mining 前處理</title><link>https://yongfu.name/2018/07/28/quanteda-tutorial/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/28/quanteda-tutorial/</guid><description>
-&lt;p>中文 Text Mining 的前處理比起其它以拉丁字母為主的文本困難許多，參考資源也相對龐雜不全。 這裡以較晚近出現的&lt;a href="https://quanteda.io/">&lt;code>quanteda&lt;/code>&lt;/a>套件為根據，依其需求進行中文文本前處理。&lt;/p>
-&lt;p>選擇&lt;code>quanteda&lt;/code>而非其它較流行的套件如&lt;code>tm&lt;/code>的原因是因為其&lt;a href="https://github.com/quanteda/stopwords">多語言支持&lt;/a>較佳，譬如其內建的 tokenizer 能&lt;a href="https://koheiw.net/?p=339">直接對中文進行斷詞&lt;/a>。然而，由於 &lt;a href="https://github.com/fxsjy/jieba">&lt;code>jieba&lt;/code>&lt;/a>的社群資源以及斷詞效果較佳，此文還是以&lt;a href="https://github.com/qinwf/jiebaR">&lt;code>jiebaR&lt;/code>&lt;/a>進行斷詞。&lt;/p>
-&lt;p>此外，因為使用的語料是簡體字，這裡也提到簡體、繁體轉換處理的相關資源。 我希望這篇文章能整理出一套中文文本前處理的架構，試圖減輕未來可能遇到的問題。&lt;/p>
-&lt;div class="section level2">
+&lt;/p></description><category>R</category><category>linguistics</category><category>中文</category></item><item><title>Text Mining 前處理</title><link>https://yongfu.name/2018/07/28/quanteda-tutorial/</link><pubDate>Sat, 28 Jul 2018 00:00:00 +0000</pubDate><guid>https://yongfu.name/2018/07/28/quanteda-tutorial/</guid><description>&lt;div class="section level2">
 &lt;h2>流程&lt;/h2>
 &lt;img src="https://img.yongfu.name/blog/mermaid2.svg" alt="" style="width:100%">
 &lt;div class="mermaid">
