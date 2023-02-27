@@ -11,12 +11,14 @@
     --grey-text-darker: rgb(71, 71, 71);
     --inline-code-skin: #E4CEC0;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 19px;
+    font-size: 20px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -41,16 +43,16 @@ p code, li code {
 }
 
 .main article.post {
-    width: 70%;
-    max-width: 79ch;
+    width: 71%;
+    max-width: 80ch;
     margin: 0;
-    padding-left: 8%;
-    padding-right: 3%;
+    padding-left: .34em;
+    /* padding-right: 2%; */
 }
 
 .main aside {
-    width: 22%;
-    margin: 0;
+    width: 25%;
+    margin: .8em 0;
     padding: 0;
 }
 
