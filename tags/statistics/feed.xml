@@ -102,6 +102,7 @@ viewBox="0 0 328 137"
 >
 &lt;g transform='translate(8,16)'>
 &lt;path d='M 256,16 L 280,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 144,16 L 144,96' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 24,80 L 40,48' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 200,80 L 216,48' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 72,48 L 88,80' fill='none' stroke='currentColor'>&lt;/path>

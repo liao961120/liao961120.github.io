@@ -105,7 +105,7 @@ p code, li code {
 .article_content p {
     text-align: justify;
     line-height: 1.57;
-    margin-top: 0;
+    margin-top: 0.45em;
 }
 
 .article_content figure {
@@ -468,21 +468,6 @@ footer .copyright {
     letter-spacing: .5px;
 }
 
-/* GOAT Diagram */
-/* Default size */
-.goat.svg-container > svg {
-    display: inline;
-    max-height: 185px;
-}
-.lg .goat.svg-container > svg {
-    display: inline;
-    max-height: 300px;
-}
-.sm .goat.svg-container > svg {
-    display: inline;
-    max-height: 100px;
-}
-
 
 /* Box in article */
 .Box {
@@ -547,3 +532,20 @@ footer .copyright {
         line-height: 1.57;
     }
 }
+
+
+/* GOAT Diagram */
+/* Default size */
+.goat.svg-container > svg {
+    font-size: 16px;
+    font-family: 'Alegera', 'Times New Roman', Times, serif;
+    font-style: italic;
+    max-height: 185px;
+}
+.lg .goat.svg-container > svg {
+    max-height: 300px;
+}
+.sm .goat.svg-container > svg {
+    max-height: 100px;
+}
+    

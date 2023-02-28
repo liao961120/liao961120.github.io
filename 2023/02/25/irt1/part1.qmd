@@ -33,7 +33,6 @@ knitr::opts_chunk$set(
    dev.args = list(bg = "transparent"),
    NULL
 )
-options(knitr.svg.object = TRUE)  # Embed svg as raw XML
 ```
 
 
@@ -132,14 +131,14 @@ This graphical representation of the variable and their relationships is known
 as a [Directed Acyclic Graph (DAG)][DAG].
 
 ```goat
-                            .-.         
-       R                   | P |--->  R 
-                            '-'         
-     ^   ^                 ^   ^        
-    /     \               /     \       
- .-+       +-.         .-+       +-.    
-| A |     | D |       | A |     | D |   
- '-'       '-'         '-'       '-'    
+                              .-.         
+       R           |         | P |--->  R 
+                   |          '-'         
+     ^   ^         |         ^   ^        
+    /     \        |        /     \       
+ .-+       +-.     |     .-+       +-.    
+| A |     | D |    |    | A |     | D |   
+ '-'       '-'           '-'       '-'    
 ```
 
 The DAGs laid out here represent the concept behind the simplest kinds of item
