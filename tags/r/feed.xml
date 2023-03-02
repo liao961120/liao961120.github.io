@@ -14,10 +14,9 @@ with some confusion. Curious students might bear with the confusion and
 expect it to resolve in the following text, only to find themselves
 disappointed. At the point where the underlying statistical model should
 be further elaborated, the text abruptly stops and tries to convince
-readers to trust the results from black-box IRT software packages. It is
-fine to leave the model details to domain experts and computers.&lt;/p>
-&lt;p>It isn’t that I have trust issues with black-box software, and I would
-also agree that it is impractical to understand all the details of model
+readers to trust the results from black-box IRT software packages.&lt;/p>
+&lt;p>It isn’t that I have trust issues with black-box software, and I also
+agree that it is impractical to understand all the details of model
 estimation in IRT. Doing so would be similar to coding an IRT program
 from scratch. The issue is that there is a huge gap here, between where
 textbooks stopped explaining and where the confusing details of
@@ -98,49 +97,49 @@ known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Dir
 &lt;svg
 xmlns="http://www.w3.org/2000/svg"
 font-family="Menlo,Lucida Console,monospace"
-viewBox="0 0 328 137"
+viewBox="0 0 344 137"
 >
 &lt;g transform='translate(8,16)'>
-&lt;path d='M 256,16 L 280,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 144,16 L 144,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 272,16 L 296,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 152,16 L 152,96' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 24,80 L 40,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 200,80 L 216,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 216,80 L 232,48' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 72,48 L 88,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 248,48 L 264,80' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 264,48 L 280,80' fill='none' stroke='currentColor'>&lt;/path>
 &lt;polygon points='52.000000,48.000000 40.000000,42.400002 40.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 40.000000, 48.000000)'>&lt;/polygon>
 &lt;polygon points='84.000000,48.000000 72.000000,42.400002 72.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 72.000000, 48.000000)'>&lt;/polygon>
-&lt;path d='M 216,48 L 224,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='234.000000,48.000000 222.000000,42.400002 222.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 216.000000, 48.000000)'>&lt;/polygon>
-&lt;path d='M 240,32 L 248,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='266.000000,48.000000 254.000000,42.400002 254.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 248.000000, 48.000000)'>&lt;/polygon>
-&lt;polygon points='288.000000,16.000000 276.000000,10.400000 276.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 280.000000, 16.000000)'>&lt;/polygon>
-&lt;path d='M 232,0 A 16,16 0 0,0 216,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 232,0 A 16,16 0 0,1 248,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 216,16 A 16,16 0 0,0 232,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 248,16 A 16,16 0 0,1 232,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 232,48 L 240,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;polygon points='250.000000,48.000000 238.000000,42.400002 238.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 232.000000, 48.000000)'>&lt;/polygon>
+&lt;path d='M 256,32 L 264,48' fill='none' stroke='currentColor'>&lt;/path>
+&lt;polygon points='282.000000,48.000000 270.000000,42.400002 270.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 264.000000, 48.000000)'>&lt;/polygon>
+&lt;polygon points='304.000000,16.000000 292.000000,10.400000 292.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 296.000000, 16.000000)'>&lt;/polygon>
+&lt;path d='M 248,0 A 16,16 0 0,0 232,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 248,0 A 16,16 0 0,1 264,16' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 232,16 A 16,16 0 0,0 248,32' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 264,16 A 16,16 0 0,1 248,32' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 16,80 A 16,16 0 0,0 0,96' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 16,80 A 16,16 0 0,1 32,96' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 96,80 A 16,16 0 0,0 80,96' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 96,80 A 16,16 0 0,1 112,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 192,80 A 16,16 0 0,0 176,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 192,80 A 16,16 0 0,1 208,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 272,80 A 16,16 0 0,0 256,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 272,80 A 16,16 0 0,1 288,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 208,80 A 16,16 0 0,0 192,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 208,80 A 16,16 0 0,1 224,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 288,80 A 16,16 0 0,0 272,96' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 288,80 A 16,16 0 0,1 304,96' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 0,96 A 16,16 0 0,0 16,112' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 32,96 A 16,16 0 0,1 16,112' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 80,96 A 16,16 0 0,0 96,112' fill='none' stroke='currentColor'>&lt;/path>
 &lt;path d='M 112,96 A 16,16 0 0,1 96,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 176,96 A 16,16 0 0,0 192,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 208,96 A 16,16 0 0,1 192,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 256,96 A 16,16 0 0,0 272,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 288,96 A 16,16 0 0,1 272,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 192,96 A 16,16 0 0,0 208,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 224,96 A 16,16 0 0,1 208,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 272,96 A 16,16 0 0,0 288,112' fill='none' stroke='currentColor'>&lt;/path>
+&lt;path d='M 304,96 A 16,16 0 0,1 288,112' fill='none' stroke='currentColor'>&lt;/path>
 &lt;text text-anchor='middle' x='16' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
 &lt;text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
 &lt;text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
-&lt;text text-anchor='middle' x='192' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
-&lt;text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>P&lt;/text>
-&lt;text text-anchor='middle' x='272' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
-&lt;text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
+&lt;text text-anchor='middle' x='208' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
+&lt;text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>P&lt;/text>
+&lt;text text-anchor='middle' x='288' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
+&lt;text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
 &lt;/g>
 &lt;/svg>
 &lt;/div>

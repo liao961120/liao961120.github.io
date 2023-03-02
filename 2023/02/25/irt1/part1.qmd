@@ -52,15 +52,15 @@ students might bear with the confusion and expect it to resolve in the following
 text, only to find themselves disappointed. At the point where the underlying
 statistical model should be further elaborated, the text abruptly stops and
 tries to convince readers to trust the results from black-box IRT software
-packages. It is fine to leave the model details to domain experts and computers.
+packages.
 
-It isn't that I have trust issues with black-box software, and I would also
-agree that it is impractical to understand all the details of model estimation
-in IRT. Doing so would be similar to coding an IRT program from scratch. The
-issue is that there is a huge gap here, between where textbooks stopped
-explaining and where the confusing details of statistical models should be
-hidden. Hence, students would be tricked into believing that they have a
-*sufficient degree of understanding*, but in reality, it is just blind faith. 
+It isn't that I have trust issues with black-box software, and I also agree that
+it is impractical to understand all the details of model estimation in IRT.
+Doing so would be similar to coding an IRT program from scratch. The issue is
+that there is a huge gap here, between where textbooks stopped explaining and
+where the confusing details of statistical models should be hidden. Hence,
+students would be tricked into believing that they have a *sufficient degree of
+understanding*, but in reality, it is just blind faith. 
 
 A sufficient degree of understanding should allow the student to deploy the
 learned skill to new situations. Therefore, a sufficient degree of understanding
