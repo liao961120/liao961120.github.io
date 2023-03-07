@@ -643,7 +643,7 @@ points( est_m1.2, est_m1.1, pch=19, col=cols )
 ```
 
 
-What's Next?
+What's next?
 ------------
 
 This post is lengthy, but not because it is hard. Rather, the concepts presented
@@ -679,9 +679,9 @@ data, and the text would be much shorter, I hope. Seeya!
 [^dummy-code]: I use *dummy coding* as a general umbrella term to cover all
     systems for coding categorical variables. In R, what is known as "treatment
     coding" (`contr.treatment`) is sometimes called "dummy coding" by others.
-    Here, I follow R's convention. When "dummy coding" is used here, I always
-    refer to the general sense of re-coding categories as numbers (not
-    necessarily zeros and ones).
+    Here, I follow R's convention. When "dummy coding" is used, I always refer
+    to the general sense of re-coding categories as numbers (not necessarily
+    zeros and ones).
 
 [^global-intercept]: This default behavior of estimating a global intercept
     makes sense in the context of continuous predictors, such as the simple

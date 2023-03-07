@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
 /* ///////////// ENGLISH FONT /////////////// */
 /* cyrillic-ext */
 @font-face {
@@ -334,7 +336,8 @@
 }
 
 
-body {
+
+body, svg text {
     font-family: 'EngCustom', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 code {

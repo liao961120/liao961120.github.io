@@ -834,7 +834,7 @@ confirms that the second model is correctly coded.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>&lt;span style="color:#a6e22e">points&lt;/span>( est_m1.2, est_m1.1, pch&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">19&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>cols )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="part2_files/figure-commonmark/unnamed-chunk-14-1.svg"
 style="width:100.0%" data-fig-align="center" />&lt;/p>
-&lt;h2 id="whats-next">What’s Next?&lt;/h2>
+&lt;h2 id="whats-next">What’s next?&lt;/h2>
 &lt;p>This post is lengthy, but not because it is hard. Rather, the concepts
 presented are fairly simple. The post is lengthy because we got used to
 texts that hide details from readers. The text here does the opposite:
@@ -859,8 +859,8 @@ Seeya!&lt;/p>
 systems for coding categorical variables. In R, what is known as
 “treatment coding” (&lt;code>contr.treatment&lt;/code>) is sometimes called “dummy
 coding” by others. Here, I follow R’s convention. When “dummy
-coding” is used here, I always refer to the general sense of
-re-coding categories as numbers (not necessarily zeros and ones).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+coding” is used, I always refer to the general sense of re-coding
+categories as numbers (not necessarily zeros and ones).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
 &lt;p>This default behavior of estimating a global intercept makes sense
