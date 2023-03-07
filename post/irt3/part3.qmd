@@ -1,0 +1,60 @@
+---
+title: Demystifying Item Response Theory (3/4)
+subtitle: "Improve Estimation with Partial Pooling"
+description: "simulation, IRT, Rasch, generalized linear model (GLM), GLMM, mixed models, multilevel models"
+draft: false
+date: '2023-03-16'
+aliases:
+    - /irt3
+katex: true
+tags:
+- r
+- statistics
+- psychology
+- reproducibility
+format: 
+   gfm:
+      output-file: "index"
+      output-ext: "md"
+      variant: +yaml_metadata_block
+      df-print: tibble
+editor:
+   render-on-save: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	#results = 'hold',
+	out.width = "100%",
+	fig.align = 'center',
+	comment = "",
+	fig.dim = c(10, 5.5),
+   #dpi = 300,
+   dev='svg',
+   dev.args = list(bg = "transparent"),
+   NULL
+)
+```
+
+
+```{r}
+logistic = function(x) 1 / (1 + exp(-x))
+logit = function( p ) log( p/(1-p) )
+rbern = function( p, n=length(p) ) rbinom( n=n, size=1, prob=p )
+
+set.seed(13)
+n_item = 20   # number of items
+n_subj = 80   # number of subjects
+n_resp = n_subj * n_item  # number of responses
+A = rnorm( n=n_subj, mean=0, sd=1 )  # Subjects' ability
+D = seq( -1.6, 1, length=n_item )  # Items' difficulty
+
+# The data
+d = expand.grid( S=1:n_subj, I=1:n_item, KEEP.OUT.ATTRS = FALSE )
+d$R = rbern( logistic(A[d$S] - D[d$I]) )
+d$S = factor(d$S)
+d$I = factor(d$I)
+```
