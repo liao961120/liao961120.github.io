@@ -570,4 +570,9 @@ footer .copyright {
 .sm .goat.svg-container > svg {
     max-height: 100px;
 }
-    
+
+/* ToolTip */
+.tippy-box {
+    font-size: 17px;
+    max-width: 430px !important;
+}
