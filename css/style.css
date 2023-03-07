@@ -118,6 +118,18 @@ p code, li code {
     padding: 0 auto;
     margin: 1.35em auto;
 }
+div.two-column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: around;
+}
+div.two-column > * {
+    flex: 50%;
+    margin: 0;
+}
+div.two-column > p > img {
+    margin: 0;
+}
 .article_content figure > figcaption {
     text-align: center;
     width: 94%;
@@ -380,7 +392,7 @@ table tr:nth-child(even) {
 table th {
     padding-top: 2px;
     padding-bottom: 2px;
-    text-align: left;
+    /* text-align: left; */
     background-color: var(--header-background);
     color: white;
 }
@@ -397,6 +409,8 @@ pre {
     padding-left: 1.5em;
     color: rgb(33, 33, 33);
     overflow-x: auto;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 /* Footer */
@@ -530,6 +544,14 @@ footer .copyright {
     .article_content p {
         text-align: left;
         line-height: 1.57;
+    }
+    div.two-column {
+        display: block;
+    }
+    div.two-column > * {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 auto;
     }
 }
 

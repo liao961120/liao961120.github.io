@@ -1,0 +1,579 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="About Learning"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css><title>Demystifying Item Response Theory (2/4) |
+Yongfu's Blog</title></head><body><div class=header><div class=header_title><span class=logo><!doctype html><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="346pt" height="346pt" viewBox="0 0 346 346"><g transform="translate(0.000000,346.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1484 3328c8-40 19-53 84-94 36-24 52-40 50-52-2-10-12-16-23-15-173 21-208 16-293-38-17-12-66-30-108-40-117-29-354-149-354-178 0-5 20-6 45-3 28 3 45 1 45-6 0-6-32-32-70-57-98-65-105-78-90-162 7-38 20-88 30-113 21-50 17-65-33-117-23-25-32-46-38-93-7-49-17-70-50-112-39-50-41-55-33-98 4-25 8-95 8-156 1-104 3-113 29-151 15-22 41-52 58-67 16-14 29-33 29-41 0-33 71-189 122-267 30-46 82-113 116-149 56-60 60-67 47-85-27-39-155-291-155-305 1-8 45-43 99-79l97-64-7-47c-4-25-22-73-40-104-33-59-38-93-31-205 2-43-13-179-23-202-4-10-10-16-14-14-16 10-39-21-34-47 5-23 9-26 32-20 41 12 94 9 98-4 7-21-131-17-152 3-12 13-19 14-30 4-8-7-15-19-15-26 0-12 68-14 405-14 263 0 405 3 405 10 0 6-83 10-230 10h-230l-11 27c-7 20-6 28 3 35 24 15 136 8 272-17 167-31 201-31 351 0 123 25 190 30 283 18 47-5 53-8 50-27-3-21-8-21-235-24-198-2-233-5-233-17 0-13 54-15 409-15 406 0 409 0 404 20-7 27-43 48-43 25 0-22-34-19-56 6-15 17-16 22-4 29 9 6 17 5 22-3 4-6 10-8 14-4s-1 16-11 27c-14 16-21 18-28 8-6-9-7-8-3 5 3 10 0 20-9 23-7 3-11 12-8 20s0 21-7 29c-20 24-30 87-17 103 6 8 11 44 11 82-1 53-8 82-32 136-28 60-58 163-50 168 2 1 41 19 88 40s89 42 94 46c17 17-80 244-135 314l-20 25-44-30c-48-32-188-1e2-245-118-19-6-83-27-142-46-116-39-236-53-303-37-39 10-38 10 27 11 37 1 102 7 145 13l78 13-140 6c-209 10-363 60-526 169-192 130-358 370-403 587l-7 31 78 7c43 3 90 8 104 11l26 5 17-148c11-91 23-157 33-172 15-24 16-24 147-18 203 9 528 54 544 75 11 13 13 54 10 179-4 165-3 173 33 173 5 0 9-30 9-67 0-87 18-240 30-263 16-29 99-34 392-23 222 8 270 12 292 26l26 17v160 160h28c16 0 63 3 104 6l75 7 7-42c6-40 3-47-49-122-31-43-51-79-45-79s37 13 69 30c64 32 73 47 87 140 9 63 36 112 84 152 45 39 49 52 20 68-11 6-38 35-61 66-39 51-42 60-50 144-5 49-15 106-24 126-14 35-14 39 4 58 27 29 35 69 21 110-8 26-24 42-63 64-58 33-81 55-95 93-15 37 17 103 63 130 19 12 35 25 35 30 0 17-68 9-147-16-42-13-79-22-81-20-12 11 33 56 80 82l52 28-34 3c-22 2-52-6-92-27-32-17-65-31-73-31-25 0-108 46-155 85-57 48-142 85-192 85-46 0-57 5-163 76-81 54-192 94-262 94-21 0-54 15-99 45-36 25-69 45-72 45-2 0-2-14 2-32zm-143-641c-13-16-43-98-38-104 2-2 20 11 40 29s56 44 79 56l43 24-48-48c-31-30-64-79-94-138l-45-91 59 61c45 48 84 75 178 124 66 34 130 70 143 79 32 23 183 11 261-21 50-20 72-23 204-23 143 0 149 1 166 23l17 24 19-44c23-51 167-203 279-295 48-39 81-73 82-86 2-12 12-62 22-112 11-49 18-91 17-93-4-4-199 50-208 58-4 4-9 45-11 91l-3 84-83-1c-82-1-83-1-112 32-42 48-124 84-191 84-49 0-66-7-186-76-90-52-130-81-127-90 4-10-2-14-19-14-24 0-24-2-27-92-3-87-4-93-25-96-20-3-22 2-28 75-3 43-8 83-10 90-3 9-79 10-307 6-167-3-334-8-373-12-80-7-75 2-61-121l7-66-93-38c-51-21-99-41-107-44-12-4-13 5-8 49 4 30 14 76 23 102 14 42 23 51 68 74 30 15 88 63 142 117 70 71 106 118 162 212 58 1e2 82 130 134 172 65 53 78 62 59 39zm897-336c20-10 48-30 61-44l23-25-43-7c-71-9-389-41-389-39 0 7 120 94 155 112 53 28 142 29 193 3zm216-399c4-152 4-285 1-294-4-9-14-19-23-23s-143-9-298-12c-248-5-281-4-287 10-7 18-24 241-31 413l-6 122 113 12c61 6 184 20 272 30 88 9 181 18 206 19l46 1 7-278zm-810 171c16-80 37-505 26-516-17-16-580-71-593-58-5 5-10 28-13 52-2 31-1 37 4 19 5-16 17-26 32-28 23-4 421 34 469 44 13 3 21 7 18 10-2 3-114-7-247-21-134-14-247-22-251-18-10 11-53 448-45 468 5 13 42 15 265 15 181 0 262 3 267 11s-65 10-260 7c-217-3-268-6-280-18-12-13-13-33-1-150 8-74 14-151 13-170-1-40-23 141-34 277l-7 93 169 3c93 1 235 4 316 5l146 2 6-27zm-587-455c-2-13-4-3-4 22s2 35 4 23c2-13 2-33 0-45zM975 191c3-5 1-12-5-16-5-3-10 1-10 9 0 18 6 21 15 7zm210-59c-9-9-25 19-24 43 0 16 2 15 15-8 9-16 13-32 9-35zm-55 9c0-11-4-9-14 4-8 11-12 24-9 28 7 11 23-12 23-32zm1108 17c-2-6-10-14-16-16-7-2-10 2-6 12 7 18 28 22 22 4zm44-10c-7-7-12-8-12-2 0 14 12 26 19 19 2-3-1-11-7-17zm83 2c4-6-5-10-20-10s-24 4-20 10c3 6 12 10 20 10s17-4 20-10z"/><path d="M1260 2374c-42-23-1e2-75-1e2-89 0-4 16 7 35 24 56 49 95 65 155 65 66 0 115-23 214-1e2 71-57 90-63 121-40 16 12 6 20-116 90-131 74-137 76-199 75-49 0-76-7-110-25z"/><path d="M2070 2158c-102-11-189-25-195-30-7-7 2-9 30-4 104 16 474 48 489 43 15-6 16-32 14-244l-3-238-247-3c-141-1-248-6-248-11 0-9 469-4 498 5 10 3 12 58 10 251l-3 248-80 2c-44 0-163-8-265-19z"/><path d="M1969 1961c-62-62-20-171 66-171 27 0 44 8 66 29 62 62 20 171-66 171-27 0-44-8-66-29z"/><path d="M1414 1940c-60-24-73-112-25-161 39-38 87-39 130-3 26 22 31 33 31 71 0 77-65 122-136 93z"/><path d="M1512 1343c2-10 32-33 67-52 91-48 176-54 255-18 52 24 77 49 62 64-3 3-29-6-57-21-76-42-149-39-243 8-81 41-89 43-84 19z"/><path d="M933 693c15-2 39-2 55 0 15 2 2 4-28 4s-43-2-27-4z"/><path d="M2388 673c6-2 18-2 25 0 6 3 1 5-13 5s-19-2-12-5z"/><path d="M870 155c-6-8-10-19-8-24 1-6 8 1 15 14 13 28 11 31-7 10z"/><path d="M2546 157c3-10 9-15 12-12s0 11-7 18c-10 9-11 8-5-6z"/></g></svg></span><span>Yongfu's Blog</span></div><div class=site_nav><span class=nav_link><a href=/>Home</a></span>
+<span class=nav_link><a href=/post/>Posts</a></span>
+<span class=nav_link><a href=/about/>About</a></span>
+<span class=nav_link><a href=/feed.xml>Subscribe</a></span></div></div><div class=main><article class=post><div class=article_header><div class=titles><h1>Demystifying Item Response Theory (2/4)</h1><p class=subtitle>IRT as Generalized Linear Models</p></div><div class=meta><div class=tags><a href="/post/?tag=r">r</a>
+<a href="/post/?tag=statistics">statistics</a>
+<a href="/post/?tag=psychology">psychology</a>
+<a href="/post/?tag=reproducibility">reproducibility</a></div><div class=date><span class=inline-icon><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" class="svg-inline--fa fa-calendar-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="rgb(95, 95, 95)" d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg></span><span class=str>Mar 6, 2023</span></div></div></div><div class=article_content><p>In the <a href=/2023/02/25/irt1>previous post</a>, we went through the simplest
+item response model, the 1PL model, from the perspective of simulations.
+Starting with item difficulty and testee ability, we <strong>worked forward</strong>
+to simulate item responses that mimic real-world data. Back then, we
+were precisely laying out the <strong>data generating process</strong> that is
+assumed by the item response theory. In this post, we <strong>work backward</strong>.
+We will start with the item responses and work back toward the
+unobserved difficulties and abilities, with the help of statistical
+models. But first, let’s simulate the data we will be using!</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>logistic <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>(x) <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>exp</span>(<span style=color:#f92672>-</span>x))
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>rbern <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p, n<span style=color:#f92672>=</span><span style=color:#a6e22e>length</span>(p) ) <span style=color:#a6e22e>rbinom</span>( n<span style=color:#f92672>=</span>n, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>p )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>13</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>n_item <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>   <span style=color:#75715e># number of items</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>n_subj <span style=color:#f92672>=</span> <span style=color:#ae81ff>80</span>   <span style=color:#75715e># number of subjects</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>n_resp <span style=color:#f92672>=</span> n_subj <span style=color:#f92672>*</span> n_item  <span style=color:#75715e># number of responses</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>A <span style=color:#f92672>=</span> <span style=color:#a6e22e>rnorm</span>( n<span style=color:#f92672>=</span>n_subj, mean<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, sd<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> )  <span style=color:#75715e># Subjects&#39; ability</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>D <span style=color:#f92672>=</span> <span style=color:#a6e22e>seq</span>( <span style=color:#ae81ff>-1.6</span>, <span style=color:#ae81ff>1</span>, length<span style=color:#f92672>=</span>n_item )  <span style=color:#75715e># Items&#39; difficulty</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#75715e># The data</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>d <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand.grid</span>( S<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_subj, I<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_item, KEEP.OUT.ATTRS <span style=color:#f92672>=</span> <span style=color:#66d9ef>FALSE</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>d<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( <span style=color:#a6e22e>logistic</span>(A[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D[d<span style=color:#f92672>$</span>I]) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>d<span style=color:#f92672>$</span>S <span style=color:#f92672>=</span> <span style=color:#a6e22e>factor</span>(d<span style=color:#f92672>$</span>S)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>d<span style=color:#f92672>$</span>I <span style=color:#f92672>=</span> <span style=color:#a6e22e>factor</span>(d<span style=color:#f92672>$</span>I)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#a6e22e>str</span>(d)
+</span></span></code></pre></div><pre><code>'data.frame':   1600 obs. of  3 variables:
+ $ S: Factor w/ 80 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ I: Factor w/ 20 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ R: int  1 0 1 1 1 1 1 1 0 1 ...
+</code></pre><p>In the code above, the first two lines are the definitions for the
+logistic and the Bernoulli functions used previously. The second chunk
+of code sets the shape of our data. This time, the simulated data is
+much larger, with 20 items and 80 testees, or <strong>subjects</strong> (I will use
+the more general term “subject” hereafter). Since we assume here that
+each subject responds to every item, this gives us 1600 responses in the
+data.</p><p>The subject abilities come from a normal distribution with a zero mean
+and a standard deviation of one (the standard normal). The item
+difficulties are equally-spaced values that range from -1.6 to 1. A
+notable change from the previous post is that <strong>number indices</strong> are
+used here for labeling items (<code>I</code>) and subjects (<code>S</code>). For simple
+illustrations, letter indices are clearer. But for larger data sets,
+number indices are easier to manipulate with code. Now, since <code>S</code> and
+<code>I</code> are coded as integers, we need to explicitly convert them into
+factors. Otherwise, the model will treat the number indices as values in
+a continuous variable.</p><h2 id=dags-revisited>DAGs Revisited</h2><p>Before we move on to the statistical model, let me lay out the DAGs
+again. The DAG on the right below is identical to the one in the
+previous post (the left DAG here), but with a slight modification that
+emphasizes the perspective from the statistical model. Here, the
+observed $S$ and $I$ take place of the unobserved $A$ and $D$,
+respectively. So why the difference?</p><div class="goat svg-container"><svg xmlns="http://www.w3.org/2000/svg" font-family="Menlo,Lucida Console,monospace" viewBox="0 0 352 137"><g transform="translate(8,16)"><path d="M88 16h32" fill="none" stroke="currentcolor"/><path d="M280 16h32" fill="none" stroke="currentcolor"/><path d="M168 16V96" fill="none" stroke="currentcolor"/><path d="M32 80 48 48" fill="none" stroke="currentcolor"/><path d="M224 80l16-32" fill="none" stroke="currentcolor"/><path d="M80 48 96 80" fill="none" stroke="currentcolor"/><path d="M272 48l16 32" fill="none" stroke="currentcolor"/><path d="M48 48l8-16" fill="none" stroke="currentcolor"/><polygon points="66.000000,48.000000 54.000000,42.400002 54.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 48.000000, 48.000000)"/><path d="M72 32l8 16" fill="none" stroke="currentcolor"/><polygon points="98.000000,48.000000 86.000000,42.400002 86.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 80.000000, 48.000000)"/><polygon points="128.000000,16.000000 116.000000,10.400000 116.000000,21.600000" fill="currentcolor" transform="rotate(0.000000, 120.000000, 16.000000)"/><path d="M240 48l8-16" fill="none" stroke="currentcolor"/><polygon points="258.000000,48.000000 246.000000,42.400002 246.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 240.000000, 48.000000)"/><path d="M264 32l8 16" fill="none" stroke="currentcolor"/><polygon points="290.000000,48.000000 278.000000,42.400002 278.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 272.000000, 48.000000)"/><polygon points="320.000000,16.000000 308.000000,10.400000 308.000000,21.600000" fill="currentcolor" transform="rotate(0.000000, 312.000000, 16.000000)"/><path d="M64 0A16 16 0 0048 16" fill="none" stroke="currentcolor"/><path d="M64 0A16 16 0 0180 16" fill="none" stroke="currentcolor"/><path d="M256 0A16 16 0 00240 16" fill="none" stroke="currentcolor"/><path d="M256 0a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M48 16A16 16 0 0064 32" fill="none" stroke="currentcolor"/><path d="M80 16A16 16 0 0164 32" fill="none" stroke="currentcolor"/><path d="M240 16a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M272 16A16 16 0 01256 32" fill="none" stroke="currentcolor"/><path d="M24 80A16 16 0 008 96" fill="none" stroke="currentcolor"/><path d="M24 80A16 16 0 0140 96" fill="none" stroke="currentcolor"/><path d="M104 80A16 16 0 0088 96" fill="none" stroke="currentcolor"/><path d="M104 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M8 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M40 96A16 16 0 0124 112" fill="none" stroke="currentcolor"/><path d="M88 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M120 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><text text-anchor="middle" x="24" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="64" y="20" fill="currentcolor" style="font-size:1em">P</text><text text-anchor="middle" x="104" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="144" y="20" fill="currentcolor" style="font-size:1em">R</text><text text-anchor="middle" x="216" y="100" fill="currentcolor" style="font-size:1em">S</text><text text-anchor="middle" x="256" y="20" fill="currentcolor" style="font-size:1em">P</text><text text-anchor="middle" x="296" y="100" fill="currentcolor" style="font-size:1em">I</text><text text-anchor="middle" x="336" y="20" fill="currentcolor" style="font-size:1em">R</text></g></svg></div><p>Recall that the nodes $A$ and $D$ represent the joint influences of a
+subject’s ability and an item’s difficulty on the probability of success
+on that item. However, the statistical model cannot notice $A$ and $D$
+since they are <strong>theoretical concepts</strong> proposed by the IRT. What the
+model “sees” is more similar to the DAG on the right. This DAG is
+theoretically neutral. All it says is that the probability of success is
+influenced by the particular subject and item present in an observation.
+It does not further comment on the factors underlying each subject/item
+that lead to the results.</p><p>Given the data and the right DAG, the statistical model estimates the
+so-called <strong>subject effects</strong> and <strong>item effects</strong>. These effects will
+be estimates of subject ability and item difficulty <strong>if the IRT
+assumptions are met</strong>: when a subject and an item influence the result
+<strong>only through subject ability and item difficulty</strong>. With the concepts
+of <strong>subject/item effects</strong> in place, we can move on to the formulas of
+the statistical model.</p><h2 id=equation-index-and-annoying-things>Equation, Index and Annoying Things</h2><p>The equations in (1) are the formulation of our model. This model is
+known as the <a href=https://en.wikipedia.org/wiki/Logistic_regression>logistic
+regression</a>, or in
+GLM terms, the Generalized Linear Model of the binomial family with the
+<a href=https://en.wikipedia.org/wiki/Logit>logit link</a> (more on this later).
+Lots of things are going on here. Don’t panic, I’ll walk you through
+slowly.</p><p>$$
+\begin{align}
+& R_i \sim Bernoulli( P_i ) \\
+& P_i = logistic( \mu_i ) \\
+& \mu_i = \alpha_{[S_i]} + \delta_{[I_i]}
+\end{align} \tag{1}
+$$</p><p>First, note the common subscript $_i$ to the variables above. The
+presence of this common $_i$ indicates that <strong>the equations are read at
+the <em>observational</em> level</strong>. The observational level is easier to think
+of with help of the <a href=https://en.wikipedia.org/wiki/Wide_and_narrow_data>long data
+format</a>. In this
+long form of data, each row records an observation and is indexed by the
+subscript $_i$. So you can think of the set of three equations as
+describing the links among the variables for each observation. Note that
+the long data format is also the format we have been using for the data
+frames.</p><p>The last equation in (1), also related to the reading of the subscript
+$_i$, deserves some elaboration, as some might feel confused about the
+square brackets after $\alpha$ and $\delta$. Actually, we have already
+met these brackets in the previous post. The brackets here serve a
+similar function to R’s subset function <code>[]</code> that we have used for
+linking particular ability/difficulty levels of a subject/item to the
+rows (observations) of the data frame. So what the square brackets after
+$\alpha$ and $\delta$ do exactly, is to “look up” the index of the
+subject and item for the $_i$th observation such that the $\alpha$
+corresponding to the subject and the $\delta$ corresponding to the item
+could be correctly retrieved. The model can thus “know” which $\alpha$
+and $\delta$ to update when it encounters an observation. For instance,
+suppose we are on the 3rd row (observation) of the data, in which
+$S_3 = 5$ and $I_3 = 8$. This tells the model that the observation gives
+information about $\alpha_5$ and $\delta_8$. The model thus learns
+something about them and updates accordingly.</p><p>I haven’t written about $\alpha$ and $\delta$ yet, but based on the
+previous paragraph, you might already know what they are: $\alpha$s are
+the subject effects and $\delta$s the item effects to be estimated by
+the model.</p><p>Now, let me walk you through the equations from bottom to top:</p><ul><li>$\mu_i = \alpha_{[S_i]} + \delta_{[I_i]}$<br>No surprise here. This equation simply illustrates how the model
+computes a new variable $\mu$ from $\alpha$ and $\delta$.</li><li>$P_i = logistic( \mu_i )$<br>The equation should look familiar. It indicates how the model maps
+$\mu$, which can range from $-\infty$ to $\infty$, to probability,
+$P$, through the logistic function.</li><li>$R_i \sim Bernoulli( P_i )$<br>This equation describes that each observed response is generated from
+a Bernoulli distribution with probability $P_i$. Or even simpler,
+$R_i$ would be $1$ with probability $P_i$ and $0$ with probability
+$1 - P_i$.</li></ul><p>These equations all look familiar because they are essentially
+mathematical representations of the simulation we have done. Here, the
+model formulation is simply simulation in reverse.</p><h3 id=the-logit-link>The Logit Link</h3><p>The GLM formulation of (1) is often seen in an alternative form in (2).
+The only difference between (2) and (1) lies in the second equation.
+Instead of the logistic function, the second equation in (2) uses the
+<a href=https://en.wikipedia.org/wiki/Logit>logit</a> function. What is the
+logit?</p><p>$$
+\begin{align}
+& R_i \sim Bernoulli( P_i ) \\
+& logit(P_i) = \mu_i \\
+& \mu_i = \alpha_{[S_i]} + \delta_{[I_i]}
+\end{align} \tag{2}
+$$</p><p>The logit function is simply the <strong>mirror of the logistic</strong>. They do the
+same mapping but in <strong>reverse directions</strong>:</p><ul><li>the logistic function maps real numbers to probabilities</li><li>the logit function maps probabilities to real numbers</li></ul><p>The logistic and the logit are <strong>inverse functions</strong> to each other. So
+if a real number gets converted to the probability by the logistic, the
+logit can convert it back to the original real, and vice versa.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>logit <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p ) <span style=color:#a6e22e>log</span>( p<span style=color:#f92672>/</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>p) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>x <span style=color:#f92672>=</span> <span style=color:#a6e22e>seq</span>( <span style=color:#ae81ff>-1</span>, <span style=color:#ae81ff>1</span>, by<span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>( p <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>(x) )  <span style=color:#75715e># Transformed x on probability space</span>
+</span></span></code></pre></div><pre><code> [1] 0.2689414 0.2890505 0.3100255 0.3318122 0.3543437 0.3775407 0.4013123
+ [8] 0.4255575 0.4501660 0.4750208 0.5000000 0.5249792 0.5498340 0.5744425
+[15] 0.5986877 0.6224593 0.6456563 0.6681878 0.6899745 0.7109495 0.7310586
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Logit gives x back</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>logit</span>(p)
+</span></span></code></pre></div><pre><code> [1] -1.0 -0.9 -0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2 -0.1  0.0  0.1  0.2  0.3  0.4
+[16]  0.5  0.6  0.7  0.8  0.9  1.0
+</code></pre><p>Some arithmetics would get us from the logistic to the logit:</p><p>$$
+\begin{aligned}
+logistic(x) &= \frac{1}{1 + e^{-x}} = p \\
+& \Rightarrow ~~ e^{-x} = \frac{1-p}{p} \\
+& \Rightarrow ~ -x = log(\frac{1-p}{p}) \\
+& \Rightarrow ~~ x = -log(\frac{1-p}{p}) = log(\frac{p}{1-p}) = logit(p)
+\end{aligned}
+$$</p><p>There is really nothing special about the logit function. We have
+learned all the important things through the logistic back in the
+previous post. I mention the logit here simply because the term is
+frequently used. When people talk about GLMs, they prefer to use the
+<a href=https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function>link
+function</a>
+to characterize the model. The link function, in the case of the
+logistic regression here, is the logit function. It transforms the
+outcome probabilities into real numbers that are modeled linearly. It’s
+just the logistic, but works in the reverse direction.</p><h2 id=fitting-glm>Fitting GLM</h2><p>Now, we are packed with the statistical muscles to carry out the
+analysis. Let’s fit the model on the data we’ve simulated. In R, this is
+done through the function <code>glm()</code>. The first argument of <code>glm()</code> is the
+formula, in which we specify our linear model with R’s model syntax.
+There are in principle two ways, one succinct and the other tedious, to
+express the formula <strong>when there are <em>categorical predictors</em> in the
+model</strong>. I will first demonstrate the tedious one, as it exposes all the
+details hidden by the succinct form. Though tedious, it saves us from
+confusion.</p><h3 id=dummy-coding>Dummy Coding</h3><p>The formulas we specify in <code>glm()</code> (and other model fitting functions in
+general) correspond pretty well to their mathematical counterparts. So
+let me first present the math before we move on to the code. Lots of
+things to explain here.</p><p>Equation (3.2) is rewritten from the last two equations,
+$logit(P_i) = \mu_i$ and $\mu_i = \alpha_{[S_i]} + \delta_{[I_i]}$ in
+(2), which I reproduce here in Equation (3.1) by combining the two
+equations.</p><p>Earlier I mentioned that the square brackets after $\alpha$ and $\delta$
+serve as a “look up” function to locate the relevant $\alpha$ and
+$\delta$ of each subject and item in an observation. There is an
+equivalent way to express the same formula without the use of these
+“look up” functions, which is shown in equation (3.2). For the sake of
+simplicity, let’s assume here that we have only two items (A, B) and
+three subjects (J, K, L). For real data, equation (3.2) would be
+extremely long.</p><p>$$
+\begin{align}
+\tag{3.1} logit(\mu_i) &= \alpha_{[S_i]} + \delta_{[I_i]} \\
+\tag{3.2} logit(\mu_i) &= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
+\end{align}
+$$</p><p>The variables ($J_i, K_i, L_i, A_i, B_i$) in front of the $\alpha$s and
+$\delta$s have a value of either 0 or 1. Here, they serve as a “switch”
+that turns on the relevant $\alpha$ and $\delta$ and turns off the
+others in each observation. This is easier to see with the help of the
+tables below. Table 3.1 corresponds to Equation (3.1), and Table 3.2
+corresponds to Equation (3.2). So, for instance, in row 2 of Table 3.2,
+$K$ and $A$ are 1 while the others are 1. This turns on, or picks out,
+$\alpha_K$ and $\delta_A$. As such, they would be updated by the model
+when it reaches this observation. In row 2 of Table 3.1, $\alpha_K$ and
+$\delta_A$ are picked out too, but not by the switches. They are
+directly picked out through the <em>K</em> and <em>A</em> present in the row.</p><table><tr><th>Table 3.1</th><th>Table 3.2</th></tr><tr><td><table><thead><tr><th style=text-align:center>$_i$</th><th style=text-align:center>$S$</th><th style=text-align:center>$I$</th></tr></thead><tbody><tr><td style=text-align:center>1</td><td style=text-align:center>J</td><td style=text-align:center>A</td></tr><tr><td style=text-align:center>2</td><td style=text-align:center>K</td><td style=text-align:center>A</td></tr><tr><td style=text-align:center>3</td><td style=text-align:center>L</td><td style=text-align:center>B</td></tr></tbody></table></td><td><table><thead><tr><th style=text-align:center>$_i$</th><th style=text-align:center>$J$</th><th style=text-align:center>$K$</th><th style=text-align:center>$L$</th><th style=text-align:center>$A$</th><th style=text-align:center>$B$</th></tr></thead><tbody><tr><td style=text-align:center>1</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>2</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>3</td><td style=text-align:center>0</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>1</td></tr></tbody></table></td></tr></table><p>The re-expression of Table 3.1 as Table 3.2 by coding the categories
+into zeros and ones is known as <strong>dummy coding</strong><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. Why do we need
+dummy coding? In short, this is because regression programs do not
+“understand” the difference between categorical and continuous
+variables. They read only numbers. Dummy coding is essentially
+representing categorical variables as continuous ones so that the
+program would know how to deal with them. Most programs dummy code for
+the users (such as <code>glm()</code>) if you give them categories. But there are
+various ways to dummy code the categories and each of which results in a
+different output. The interpretation of the output coefficients depends
+on how the categories were coded. This confuses the novice as too much
+is happening under the hood.</p><h3 id=coding-models-the-long-route>Coding models: the long route</h3><p>With the concepts of dummy coding in place, let’s code the model. I use
+<code>dummy_cols()</code> from the <code>fastDummies</code> package to help me with dummy
+coding. In the code below, I recode the item and subject variables into
+zeros and ones. The result is identical to Table 3.2, except that it now
+expands to 20 items and 80 subjects (100 columns in total). I won’t
+print out the full dummy-coded data frame to save space. But be sure to
+take a look at <code>d_dummy</code> to see how it corresponds to Table 3.2.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>library</span>(fastDummies)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>d_dummy <span style=color:#f92672>=</span> <span style=color:#a6e22e>dummy_cols</span>( d, <span style=color:#a6e22e>c</span>(<span style=color:#e6db74>&#34;I&#34;</span>, <span style=color:#e6db74>&#34;S&#34;</span>), remove_selected_columns<span style=color:#f92672>=</span><span style=color:#66d9ef>TRUE</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>dim</span>(d_dummy)
+</span></span></code></pre></div><pre><code>[1] 1600  101
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>colnames</span>(d_dummy)
+</span></span></code></pre></div><pre><code>  [1] &quot;R&quot;    &quot;I_1&quot;  &quot;I_2&quot;  &quot;I_3&quot;  &quot;I_4&quot;  &quot;I_5&quot;  &quot;I_6&quot;  &quot;I_7&quot;  &quot;I_8&quot;  &quot;I_9&quot; 
+ [11] &quot;I_10&quot; &quot;I_11&quot; &quot;I_12&quot; &quot;I_13&quot; &quot;I_14&quot; &quot;I_15&quot; &quot;I_16&quot; &quot;I_17&quot; &quot;I_18&quot; &quot;I_19&quot;
+ [21] &quot;I_20&quot; &quot;S_1&quot;  &quot;S_2&quot;  &quot;S_3&quot;  &quot;S_4&quot;  &quot;S_5&quot;  &quot;S_6&quot;  &quot;S_7&quot;  &quot;S_8&quot;  &quot;S_9&quot; 
+ [31] &quot;S_10&quot; &quot;S_11&quot; &quot;S_12&quot; &quot;S_13&quot; &quot;S_14&quot; &quot;S_15&quot; &quot;S_16&quot; &quot;S_17&quot; &quot;S_18&quot; &quot;S_19&quot;
+ [41] &quot;S_20&quot; &quot;S_21&quot; &quot;S_22&quot; &quot;S_23&quot; &quot;S_24&quot; &quot;S_25&quot; &quot;S_26&quot; &quot;S_27&quot; &quot;S_28&quot; &quot;S_29&quot;
+ [51] &quot;S_30&quot; &quot;S_31&quot; &quot;S_32&quot; &quot;S_33&quot; &quot;S_34&quot; &quot;S_35&quot; &quot;S_36&quot; &quot;S_37&quot; &quot;S_38&quot; &quot;S_39&quot;
+ [61] &quot;S_40&quot; &quot;S_41&quot; &quot;S_42&quot; &quot;S_43&quot; &quot;S_44&quot; &quot;S_45&quot; &quot;S_46&quot; &quot;S_47&quot; &quot;S_48&quot; &quot;S_49&quot;
+ [71] &quot;S_50&quot; &quot;S_51&quot; &quot;S_52&quot; &quot;S_53&quot; &quot;S_54&quot; &quot;S_55&quot; &quot;S_56&quot; &quot;S_57&quot; &quot;S_58&quot; &quot;S_59&quot;
+ [81] &quot;S_60&quot; &quot;S_61&quot; &quot;S_62&quot; &quot;S_63&quot; &quot;S_64&quot; &quot;S_65&quot; &quot;S_66&quot; &quot;S_67&quot; &quot;S_68&quot; &quot;S_69&quot;
+ [91] &quot;S_70&quot; &quot;S_71&quot; &quot;S_72&quot; &quot;S_73&quot; &quot;S_74&quot; &quot;S_75&quot; &quot;S_76&quot; &quot;S_77&quot; &quot;S_78&quot; &quot;S_79&quot;
+[101] &quot;S_80&quot;
+</code></pre><p>Now, we can fit the model with the dummy-coded data <code>d_dummy</code>. The first
+argument in <code>glm()</code> specifies the formula in R’s model syntax. Based on
+Equation (3.2), we include all the dummy variables in the table. In R,
+this means typing out all the variables as
+<code>R ~ S_1 + S_2 + ... + S_80 + I_1 + I_2 + ... + I_20</code>. That’s a lot of
+work!</p><p>Luckily, R provides a handy syntax for this. Since we are including all
+the variables except the outcome on the right-hand side of the formula,
+we can simply type <code>R ~ .</code>. Here, the dot serves as a placeholder for
+all the remaining variables not specified in the formula. We also need a
+<code>-1</code> in front of the dot: <code>R ~ -1 + .</code>. The <code>-1</code> tells the model not to
+estimate a global intercept, which is done by default<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>. We don’t need
+a global intercept here since we want all the effects to be presented in
+the items and subjects. If a global intercept is estimated, it will
+“suck out” what should have been part of the subject/item effects,
+rendering the results hard to interpret.</p><p>The last thing to note in <code>glm()</code> is the <code>family</code> argument, which
+characterizes the type of GLM used. Since we are fitting the data with
+logistic regression, we pass <code>binomial("logit")</code> to <code>family</code>. The GLM
+will then adopt the binomial distribution<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> with the logit link to map
+the right-hand linear terms to the outcome space.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glm</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>-1</span> <span style=color:#f92672>+</span> ., data<span style=color:#f92672>=</span>d_dummy, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#34;logit&#34;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>summary</span>(m1)
+</span></span></code></pre></div><pre><code>Call:
+glm(formula = R ~ -1 + ., family = binomial(&quot;logit&quot;), data = d_dummy)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.7802  -0.8847   0.3734   0.8776   2.4877  
+
+Coefficients: (1 not defined because of singularities)
+       Estimate Std. Error z value Pr(&gt;|z|)    
+I_1   1.197e+00  5.710e-01   2.096  0.03605 *  
+I_2   1.197e+00  5.710e-01   2.096  0.03605 *  
+I_3   1.108e+00  5.677e-01   1.951  0.05102 .  
+I_4   6.308e-01  5.547e-01   1.137  0.25546    
+I_5   4.872e-01  5.520e-01   0.883  0.37742    
+I_6   2.813e-01  5.489e-01   0.512  0.60835    
+I_7   1.928e-02  5.464e-01   0.035  0.97186    
+I_8   8.375e-02  5.469e-01   0.153  0.87829    
+I_9  -2.966e-01  5.451e-01  -0.544  0.58643    
+I_10  1.488e-01  5.475e-01   0.272  0.78572    
+I_11 -3.589e-01  5.451e-01  -0.658  0.51022    
+I_12 -5.458e-01  5.454e-01  -1.001  0.31699    
+I_13 -8.601e-01  5.473e-01  -1.571  0.11607    
+I_14 -7.335e-01  5.463e-01  -1.343  0.17940    
+I_15 -1.712e-01  5.454e-01  -0.314  0.75357    
+I_16 -1.321e+00  5.532e-01  -2.389  0.01691 *  
+I_17 -1.253e+00  5.521e-01  -2.270  0.02323 *  
+I_18 -9.240e-01  5.479e-01  -1.686  0.09171 .  
+I_19 -1.461e+00  5.558e-01  -2.629  0.00855 ** 
+I_20 -2.003e+00  5.700e-01  -3.515  0.00044 ***
+S_1   1.520e+00  7.375e-01   2.062  0.03925 *  
+S_2  -2.412e-01  6.952e-01  -0.347  0.72858    
+S_3   1.520e+00  7.375e-01   2.062  0.03925 *  
+S_4   2.371e-01  6.891e-01   0.344  0.73081    
+S_5   2.233e+00  8.196e-01   2.725  0.00643 ** 
+S_6  -2.275e-15  6.906e-01   0.000  1.00000    
+S_7   2.233e+00  8.196e-01   2.725  0.00643 ** 
+S_8   1.520e+00  7.375e-01   2.062  0.03925 *  
+S_9   1.231e+00  7.173e-01   1.717  0.08602 .  
+S_10  1.520e+00  7.375e-01   2.062  0.03925 *  
+S_11 -4.913e-01  7.035e-01  -0.698  0.48492    
+S_12  1.846e+00  7.686e-01   2.402  0.01631 *  
+S_13 -1.044e+00  7.366e-01  -1.418  0.15620    
+S_14 -1.369e+00  7.674e-01  -1.784  0.07439 .  
+S_15 -2.009e-15  6.906e-01   0.000  1.00000    
+S_16  2.371e-01  6.891e-01   0.344  0.73081    
+S_17  1.231e+00  7.173e-01   1.717  0.08602 .  
+S_18  9.661e-01  7.040e-01   1.372  0.16999    
+S_19 -3.203e-15  6.906e-01   0.000  1.00000    
+S_20  7.156e-01  6.955e-01   1.029  0.30349    
+S_21  1.231e+00  7.173e-01   1.717  0.08602 .  
+S_22  2.736e+00  9.148e-01   2.991  0.00278 ** 
+S_23  1.846e+00  7.686e-01   2.402  0.01631 *  
+S_24 -1.369e+00  7.674e-01  -1.784  0.07439 .  
+S_25  4.742e-01  6.907e-01   0.687  0.49234    
+S_26  1.231e+00  7.173e-01   1.717  0.08602 .  
+S_27 -1.044e+00  7.366e-01  -1.418  0.15620    
+S_28 -7.563e-01  7.166e-01  -1.055  0.29128    
+S_29 -2.412e-01  6.952e-01  -0.347  0.72858    
+S_30 -2.412e-01  6.952e-01  -0.347  0.72858    
+S_31  2.371e-01  6.891e-01   0.344  0.73081    
+S_32  1.520e+00  7.375e-01   2.062  0.03925 *  
+S_33  4.742e-01  6.907e-01   0.687  0.49234    
+S_34  2.371e-01  6.891e-01   0.344  0.73081    
+S_35 -2.412e-01  6.952e-01  -0.347  0.72858    
+S_36 -2.412e-01  6.952e-01  -0.347  0.72858    
+S_37 -2.412e-01  6.952e-01  -0.347  0.72858    
+S_38  4.742e-01  6.907e-01   0.687  0.49234    
+S_39  2.371e-01  6.891e-01   0.344  0.73081    
+S_40 -1.044e+00  7.366e-01  -1.418  0.15620    
+S_41  7.156e-01  6.955e-01   1.029  0.30349    
+S_42  1.520e+00  7.375e-01   2.062  0.03925 *  
+S_43  2.233e+00  8.196e-01   2.725  0.00643 ** 
+S_44  2.736e+00  9.148e-01   2.991  0.00278 ** 
+S_45  7.156e-01  6.955e-01   1.029  0.30349    
+S_46  2.371e-01  6.891e-01   0.344  0.73081    
+S_47 -1.958e-15  6.906e-01   0.000  1.00000    
+S_48 -1.755e+00  8.180e-01  -2.145  0.03194 *  
+S_49  1.520e+00  7.375e-01   2.062  0.03925 *  
+S_50  7.156e-01  6.955e-01   1.029  0.30349    
+S_51  1.231e+00  7.173e-01   1.717  0.08602 .  
+S_52  1.846e+00  7.686e-01   2.402  0.01631 *  
+S_53 -4.913e-01  7.035e-01  -0.698  0.48492    
+S_54  4.742e-01  6.907e-01   0.687  0.49234    
+S_55  4.742e-01  6.907e-01   0.687  0.49234    
+S_56 -1.915e-15  6.906e-01   0.000  1.00000    
+S_57 -1.044e+00  7.366e-01  -1.418  0.15620    
+S_58  1.846e+00  7.686e-01   2.402  0.01631 *  
+S_59  1.520e+00  7.375e-01   2.062  0.03925 *  
+S_60  9.661e-01  7.040e-01   1.372  0.16999    
+S_61 -4.913e-01  7.035e-01  -0.698  0.48492    
+S_62  2.371e-01  6.891e-01   0.344  0.73081    
+S_63 -4.913e-01  7.035e-01  -0.698  0.48492    
+S_64  4.742e-01  6.907e-01   0.687  0.49234    
+S_65  1.846e+00  7.686e-01   2.402  0.01631 *  
+S_66 -4.913e-01  7.035e-01  -0.698  0.48492    
+S_67  2.371e-01  6.891e-01   0.344  0.73081    
+S_68  7.156e-01  6.955e-01   1.029  0.30349    
+S_69  2.233e+00  8.196e-01   2.725  0.00643 ** 
+S_70  4.742e-01  6.907e-01   0.687  0.49234    
+S_71 -7.563e-01  7.166e-01  -1.055  0.29128    
+S_72  9.661e-01  7.040e-01   1.372  0.16999    
+S_73 -3.227e-15  6.906e-01   0.000  1.00000    
+S_74 -1.755e+00  8.180e-01  -2.145  0.03194 *  
+S_75 -4.913e-01  7.035e-01  -0.698  0.48492    
+S_76 -1.044e+00  7.366e-01  -1.418  0.15620    
+S_77  2.233e+00  8.196e-01   2.725  0.00643 ** 
+S_78  4.742e-01  6.907e-01   0.687  0.49234    
+S_79  2.371e-01  6.891e-01   0.344  0.73081    
+S_80         NA         NA      NA       NA    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2218.1  on 1600  degrees of freedom
+Residual deviance: 1719.1  on 1501  degrees of freedom
+AIC: 1917.1
+
+Number of Fisher Scoring iterations: 5
+</code></pre><p>Take a look at the output. Something’s strange. Since there are 20 items
+and 80 subjects in the data, we expect the model to return 100
+coefficients, one for each subject/item effect. However, the last
+coefficient, <code>S_80</code> in this case, is <code>NA</code>. The model does not
+estimate this coefficient. Why?</p><h4 id=identifiability>Identifiability</h4><p>The reason is that there are <strong>infinite</strong> sets of parameter combinations
+that generate the same probabilities underlying our data. Thus, the
+model is unable to work in reverse to infer a unique set of coefficients
+from the data. To deal with this issue, R silently sets a constraint on
+the parameters: it simply drops one of the parameters and estimates the
+rest. When this is done, the remaining parameters become
+<a href=https://en.wikipedia.org/wiki/Identifiability>identifiable</a>, and the
+model would be able to estimate them.</p><p>But still, where did the infinity come from? Didn’t we simulate the
+data? We didn’t introduce infinity, did we?</p><p>We <em><strong>did</strong></em> actually, in silence. Recall that the probability of
+success on an item is determined by the difference between ability and
+difficulty. Since it is the <em><strong>difference</strong></em> that matters, there could
+be an infinite number of ability and difficulty pairs that yield the
+same difference. By adding any common value to a pair, we get a new pair
+of ability and difficulty that yields the same probability. The code
+below demonstrates this. Here, I shift the ability and difficulty levels
+by a common value <code>s</code>. The resulting probabilities should be identical
+before and after the shift (except for a tiny floating point
+imprecision). You can play with the code below by changing the value of
+<code>s</code>. Identical results should always be yielded.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Shift A/D by a common factor</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>s <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>A2 <span style=color:#f92672>=</span> A <span style=color:#f92672>+</span> s
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>D2 <span style=color:#f92672>=</span> D <span style=color:#f92672>+</span> s
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>p1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( A[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D[d<span style=color:#f92672>$</span>I] )    <span style=color:#75715e># Probabilities before shift</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>p2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( A2[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D2[d<span style=color:#f92672>$</span>I] )  <span style=color:#75715e># Probabilities after shift</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span><span style=color:#a6e22e>sum</span>( <span style=color:#a6e22e>abs</span>(p1 <span style=color:#f92672>-</span> p2) )  <span style=color:#75715e># Should be extremely close to zero</span>
+</span></span></code></pre></div><pre><code>[1] 7.013834e-14
+</code></pre><p>The way R deals with this issue of identifiability is not preferable
+since we want to recover the parameters in our simulation (i.e., the set
+of parameters without the shift). To get around R’s default treatment,
+we have to impose constraints on the parameters ourselves.</p><p>Recall that subject abilities are generated according to a standard
+normal distribution in the simulation. Since the standard normal has a
+mean of zero, the <strong>expectation of the sum of subject abilities is
+<em>zero</em></strong>. We can use this expectation as a constraint to the parameters
+by constraining the subject effects to <strong>sum to zero</strong>. This constraint,
+however, <strong>does not</strong> scale the model’s estimates to perfectly match the
+true parameters since the true subject abilities never exactly sum to
+zero in a single run of the simulation. However, the relative scale
+would be close enough for the simulated parameters to be comparable to
+those recovered by the model. Later in the next post, when the
+<strong>generalized linear mixed model</strong> is introduced, you will see that
+there is no need to impose such a constraint. The constraint is
+naturally included through the model’s assumptions. The estimated
+subject effects then, do not need to sum to zero. Subject effects would
+be assumed to result from a normal distribution with a mean of zero.</p><p>Through dummy coding, we can impose the sum-to-zero constraint on the
+subject effects. I illustrate this with the example previously presented
+in Table 3.2, where there are only 3 subjects and 2 items. Table 3.3 is
+re-coded from Table 3.2, in which the sum-to-zero constraint is imposed.</p><p>The sum-to-zero constraint is imposed by dropping one of the subjects
+and coding the remaining as <code>-1</code> for all the observations where the
+dropped subject is originally coded as <code>1</code>. This is shown in Table 3.3,
+where I drop subject $L$ (hence the <code>-</code> in the column) and code the 3rd
+row of $J$ and $K$ as <code>-1</code>.</p><table><tr><th>Table 3.2</th><th>Table 3.3</th></tr><tr><td><table><thead><tr><th style=text-align:center>$_i$</th><th style=text-align:center>$J$</th><th style=text-align:center>$K$</th><th style=text-align:center>$L$</th><th style=text-align:center>$A$</th><th style=text-align:center>$B$</th></tr></thead><tbody><tr><td style=text-align:center>1</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>2</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>3</td><td style=text-align:center>0</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>1</td></tr></tbody></table></td><td><table><thead><tr><th style=text-align:center>$_i$</th><th style=text-align:center>$J$</th><th style=text-align:center>$K$</th><th style=text-align:center>$L$</th><th style=text-align:center>$A$</th><th style=text-align:center>$B$</th></tr></thead><tbody><tr><td style=text-align:center>1</td><td style=text-align:center>1</td><td style=text-align:center>0</td><td style=text-align:center>-</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>2</td><td style=text-align:center>0</td><td style=text-align:center>1</td><td style=text-align:center>-</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>3</td><td style=text-align:center>-1</td><td style=text-align:center>-1</td><td style=text-align:center>-</td><td style=text-align:center>0</td><td style=text-align:center>1</td></tr></tbody></table></td></tr></table><p>With the coding scheme in Table 3.3, the estimated effect of subject $L$
+can be reconstructed from the remaining subject effects returned by the
+model. Since the sum of all subject effects is zero, the effect of
+subject $L$ will be the negative of the others’ sum. This might seem a
+bit confusing. But notice that the sum-to-zero constraint
+<strong>simultaneously applies to all effects in the variable</strong>. Once the
+effect of the dropped category is reconstructed, each effect will also
+be the negative sum of the remaining effects.</p><p>Let’s impose this constraint on the data with code. Here, I will drop
+the first subject <code>S_1</code>. You can choose any subject you like to drop,
+and the result will be identical. The code from line 3 to 5 below pick
+outs the rows where <code>S_1</code> is coded as <code>1</code> and recode them as <code>-1</code> on all
+the subject columns. After the re-coding, the final line of code then
+drops <code>S_1</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>d_dummy2 <span style=color:#f92672>=</span> d_dummy
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>toDrop <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;S_1&#34;</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>allCategories <span style=color:#f92672>=</span> <span style=color:#a6e22e>startsWith</span>( <span style=color:#a6e22e>names</span>(d_dummy2), <span style=color:#e6db74>&#34;S_&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>idx_recode <span style=color:#f92672>=</span> <span style=color:#a6e22e>which</span>( d_dummy2[[toDrop]] <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>d_dummy2[idx_recode, allCategories] <span style=color:#f92672>=</span> <span style=color:#ae81ff>-1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>d_dummy2[[toDrop]] <span style=color:#f92672>=</span> <span style=color:#66d9ef>NULL</span>
+</span></span></code></pre></div><p>Now, let’s refit the model with this constraint-coded data. I simply
+replace <code>d_dummy</code> with <code>d_dummy2</code> in the <code>data</code> argument. Everything
+else is the same.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m1.1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glm</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>-1</span> <span style=color:#f92672>+</span> ., data<span style=color:#f92672>=</span>d_dummy2, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#34;logit&#34;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#75715e># summary(m1.1)</span>
+</span></span></code></pre></div><p>If you print out the coefficients of the fitted model, you will see that
+the result is what we expected. The model returns 99 coefficients, which
+match the number of the predictor variables we passed in. No coefficient
+is dropped. We already dropped it for the model. And since we dropped
+the predictor in a principled way, we know how to reconstruct it. The
+effect of the dropped <code>S_1</code> will be the negative sum of the remaining.
+This is shown in the code below, which reconstructs all the item/subject
+effects from the model’s coefficients.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>coef</span>(m1.1)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>item_eff <span style=color:#f92672>=</span> eff[ <span style=color:#a6e22e>startsWith</span>(<span style=color:#a6e22e>names</span>(eff), <span style=color:#e6db74>&#34;I_&#34;</span>) ]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>subj_eff <span style=color:#f92672>=</span> eff[ <span style=color:#a6e22e>startsWith</span>(<span style=color:#a6e22e>names</span>(eff), <span style=color:#e6db74>&#34;S_&#34;</span>) ]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#75715e># Reconstruct S_1 from the remaining subject effects</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>subj_eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#f92672>-</span><span style=color:#a6e22e>sum</span>(subj_eff), subj_eff )
+</span></span></code></pre></div><p>We can now plot the estimated effects against the true parameter values
+from the simulation. The figures below plot the estimated effects on the
+x-axis and the true parameters of the y-axis. The dashed line has a
+slope of 1 without an intercept. This line indicates perfect matches
+between the truth and the estimates. Notice that for the figure on the
+right, I reverse the signs of the item effects to match the scale of
+item difficulty. This is necessary since $D$ is subtracted from $A$ in
+the simulation. In other words, the effect of difficulty assumed by the
+1PL model is <strong>negative</strong>: the larger the difficulty, the less
+probability of success on the item. However, <code>glm()</code> allows only
+additive effects. The effects in the model are summed together to yield
+predictions. Hence, the item effects estimated by <code>glm()</code> will be the
+negative of those assumed by the 1PL model.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>plot</span>(  subj_eff, A, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span> ); <span style=color:#a6e22e>abline</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#f92672>-</span>item_eff, D, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> ); <span style=color:#a6e22e>abline</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span> )
+</span></span></code></pre></div><div class=two-column><p><img src=part2_files/figure-commonmark/unnamed-chunk-10-1.svg data-fig-align=center></p><p><img src=part2_files/figure-commonmark/unnamed-chunk-10-2.svg data-fig-align=center></p></div><p>As seen in both figures, the dots scatter around the lines quite
+randomly, which indicates that the model does recover the parameters. To
+have a clearer view of the estimates’ accuracy, let me plot some more.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># Set figure margins</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>par</span>(oma<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>))  <span style=color:#75715e># outer margin</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#a6e22e>par</span>(mar<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1.6</span>) )  <span style=color:#75715e># margin</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>true_eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(D, A)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>est_eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#f92672>-</span>item_eff, subj_eff)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>n_param <span style=color:#f92672>=</span> n_item <span style=color:#f92672>+</span> n_subj
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>cols <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#a6e22e>rep</span>(<span style=color:#ae81ff>2</span>, n_item), <span style=color:#a6e22e>rep</span>(<span style=color:#ae81ff>4</span>, n_subj) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-2.4</span>, <span style=color:#ae81ff>2.4</span>), xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>1</span>, n_param<span style=color:#ae81ff>+1</span>), ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Effect&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#a6e22e>abline</span>( h<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#a6e22e>abline</span>( v<span style=color:#f92672>=</span>n_item<span style=color:#ae81ff>+0.5</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#a6e22e>points</span>( true_eff, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span>cols )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span><span style=color:#a6e22e>points</span>( est_eff, col<span style=color:#f92672>=</span>cols )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_param)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>  <span style=color:#a6e22e>lines</span>( <span style=color:#a6e22e>c</span>(i, i), <span style=color:#a6e22e>c</span>(true_eff[i], est_eff[i]), col<span style=color:#f92672>=</span>cols[i] )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#a6e22e>mtext</span>( <span style=color:#a6e22e>c</span>(<span style=color:#e6db74>&#34;Items&#34;</span>, <span style=color:#e6db74>&#34;Subjects&#34;</span>), at<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>61</span>), padj <span style=color:#f92672>=</span> <span style=color:#ae81ff>-.5</span>, col<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>4</span>) )
+</span></span></code></pre></div><p><img src=part2_files/figure-commonmark/unnamed-chunk-11-1.svg style=width:100% data-fig-align=center></p><p>In the plot above, I overlay the estimated effects onto the true
+parameters. The dots are the true parameters and the circles are the
+model’s estimates. The vertical lines connecting the dots and the
+circles show the distances between the truth and the estimates. It is
+obvious from the plot that, compared to item difficulties, subject
+abilities are harder to estimate, as the distances to the truth are in
+general larger for subject estimates. This is apparent in hindsight, as
+each item is taken by 80 subjects whereas each subject only takes 20
+items. Hence, the estimation for the items is more accurate, compared to
+the subjects, as there are more data to estimate each.</p><p>The effect of manipulating the number of subjects and items is revealed
+in the plot below. Here, I refit the model with data that have the
+subject and the item numbers flipped. The subject abilities are now
+estimated more accurately than the item difficulties. You can experiment
+with this to see how the estimation accuracy changes with different
+combinations of subject/item numbers. The functions <code>sim_data()</code> and
+<code>plot_estimate()</code> in <a href=estimate-acc.R><code>estimate-acc.R</code></a> can help you
+with this.</p><p><img src=part2_files/figure-commonmark/unnamed-chunk-12-1.svg style=width:100% data-fig-align=center></p><h3 id=coding-models-the-easy-route>Coding models: the easy route</h3><p>We have gone through a long route, along which we have learned a lot.
+Now, you are qualified to take the easy route: to use R’s handy function
+for dummy coding. Note that this route won’t be easy at all if you never
+went through the longer one. Rather, confusion is all you will get, and
+you will have no confidence in the model you coded. Simple code is
+simple only for those who are well-trained. So now, let’s fit the model
+again. This time, we take the highway.</p><p>The trick for controlling how the model functions dummy code the
+categorical variables is to use the <code>contrasts()</code> function to set up the
+preferred coding scheme. In the code below, I pass the number of the
+categories in $S$ (i.e., <code>n_subj</code>) to <code>contr.sum()</code>, which is a helper
+function that codes the subjects in the exact same way as we did in
+Table 3.3 (execute <code>contr.sum(3)</code> and you will see a table that
+corresponds exactly to Table 3.3).</p><p>After the coding scheme is set, we can express categorical predictors in
+the model formula directly. Everything else is the same except the last
+line. Previously, I demonstrated dummy coding by dropping the first
+subject in $S$. Here, <code>contr.sum()</code> drops the last subject by default.
+Thus, the code for constructing the dropped subject is slightly
+different here.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>dat <span style=color:#f92672>=</span> d
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#75715e># Drop the last S and impose sum-to-zero constraint on S</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>contrasts</span>( dat<span style=color:#f92672>$</span>S ) <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>( n_subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>m1.2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glm</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>-1</span> <span style=color:#f92672>+</span> I <span style=color:#f92672>+</span> S, data<span style=color:#f92672>=</span>dat, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#34;logit&#34;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>coef</span>(m1.2)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>item_eff.m1.2 <span style=color:#f92672>=</span> eff[ <span style=color:#a6e22e>startsWith</span>(<span style=color:#a6e22e>names</span>(eff), <span style=color:#e6db74>&#34;I&#34;</span>) ]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>subj_eff.m1.2 <span style=color:#f92672>=</span> eff[ <span style=color:#a6e22e>startsWith</span>(<span style=color:#a6e22e>names</span>(eff), <span style=color:#e6db74>&#34;S&#34;</span>) ]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>subj_eff.m1.2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( subj_eff.m1.2, <span style=color:#f92672>-</span><span style=color:#a6e22e>sum</span>(subj_eff.m1.2) )
+</span></span></code></pre></div><p>Now we have the estimated effects from the model, let’s check the
+results. The figure below plots the current estimates (<code>m1.2</code>) against
+previous ones (<code>m1.1</code>). The estimates from the two models agree, which
+confirms that the second model is correctly coded.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>est_m1.1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( item_eff, subj_eff )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>est_m1.2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( item_eff.m1.2, subj_eff.m1.2 )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-2.5</span>,<span style=color:#ae81ff>2.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-2.5</span>,<span style=color:#ae81ff>2.5</span>), xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;m1.2&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;m1.1&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#a6e22e>abline</span>( <span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span><span style=color:#a6e22e>points</span>( est_m1.2, est_m1.1, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, col<span style=color:#f92672>=</span>cols )
+</span></span></code></pre></div><p><img src=part2_files/figure-commonmark/unnamed-chunk-14-1.svg style=width:100% data-fig-align=center></p><h2 id=whats-next>What’s Next?</h2><p>This post is lengthy, but not because it is hard. Rather, the concepts
+presented are fairly simple. The post is lengthy because we got used to
+texts that hide details from readers. The text here does the opposite:
+it presents all the <strong>necessary details</strong> to get the statistical model
+working, without confusion. People often assume that hidden details are
+trivial. But more often, it is just because writers are too lazy to
+present the details. Statistics is hard partly because it is loaded with
+details that are hidden and ignored. When details get ignored long
+enough, they accumulate to become entangled and uncrackable. Coding,
+again, is here to help. It dissolves the fuzziness that otherwise
+accumulates and hinders understanding.</p><p>In the next post, we move on to <strong>Generalized Linear Mixed Models</strong>,
+which are extensions to GLMs that improve estimation and efficiency by
+harnessing the information from common group memberships in the data. We
+will use the same data, and the text would be much shorter, I hope.
+Seeya!</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>I use <em>dummy coding</em> as a general umbrella term to cover all
+systems for coding categorical variables. In R, what is known as
+“treatment coding” (<code>contr.treatment</code>) is sometimes called “dummy
+coding” by others. Here, I follow R’s convention. When “dummy
+coding” is used here, I always refer to the general sense of
+re-coding categories as numbers (not necessarily zeros and ones).&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>This default behavior of estimating a global intercept makes sense
+in the context of continuous predictors, such as the simple linear
+model shown below. In this case, we can succinctly express the
+formula as <code>y ~ x</code> in R’s model syntax. The estimate of the global
+intercept $\alpha$ would be given as the intercept coefficient in
+the model output.</p><p>$$
+\begin{aligned}
+y_i &\sim Normal(\mu_i, \sigma) \\
+\mu_i &= \alpha + \beta x_i
+\end{aligned}
+$$&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>I haven’t mentioned the <a href=https://en.wikipedia.org/wiki/Binomial_distribution>binomial
+distribution</a>
+before. The binomial distribution is the extension of the Bernoulli
+distribution to $n$ independent trials. So if you repeat the
+Bernoulli process $n$ times and sum the outcomes, say, you toss the
+coin $n=10$ times and record the number of heads observed, the
+distribution of outcomes would follow a binomial distribution with
+parameters $n$ and $p$. So the Bernoulli distribution is simply a
+special case of the binomial distribution where $n=1$.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><br><br><div id=disqus_thread></div><script>var disqus_config=function(){this.page.url="",this.page.identifier=""};(function(){var e=document,t=e.createElement("script");t.src="https://y-f-liao-s-page.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><div class=next-prev><div><span>PREV</span>
+<a href=https://yongfu.name/2023/02/25/irt1/>Demystifying Item Response Theory (1/4)</a></div></div></article><aside class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></aside></div><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css><script>tocbot.init({tocSelector:".js-toc",contentSelector:".article_content",headingSelector:"h2, h3, h4",scrollSmooth:!1,hasInnerContainers:!0,collapseDepth:3})</script><style>ol.toc-list{list-style-type:none}aside{position:fixed;top:15%!important;right:2%}.next-prev{margin-top:2.5em;border-top:2px solid rgba(173,173,173,.548);display:flex;flex-wrap:wrap;justify-content:space-between}.next-prev>div{min-width:150px;width:43%}.next-prev>div>span{display:block;width:100%;color:grey;font-weight:600;letter-spacing:1.5px;padding-bottom:.3rem;margin-top:.4rem}.next-prev>div:nth-child(2){text-align:right}.next-prev>div>a{text-decoration:none;color:#000;font-weight:600}</style><footer><div class=social><span class=icon title="Send me an email"><a href=mailto:liao961120@gmail.com target=_blank><span class="social email"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V4e2c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5.0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg></span></a></span><span class=icon title="Follow me on Twitter"><a href=https://twitter.com/liao_yongfu target=_blank><span class="social twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a></span><span class=icon title="Follow me on Facebook"><a href=https://www.facebook.com/liao961120 target=_blank><span class="social facebook"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#fff" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43.0 225.36.0c-73.22.0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></span></a></span><span class=icon title="Follow me on GitHub"><a href=https://github.com/liao961120 target=_blank><span class="social github"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="#fff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a></span></div><p class=site_info><span class=copyright>© Yongfu's Blog 2017-2023</span></p><p class=theme_info>Powered by <a href=https://gohugo.io target=_blank>Hugo</a> & <a href=https://github.com/liao961120/TeXtLite target=_blank>TeXtLite Theme</a>.</p></footer><script src=//yihui.org/js/math-code.js defer></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1})})</script><div class=scrollBtn><span id=scrolltop onclick=window.scrollTo(0,0)>&#9650;</span>
+<span id=scrollbottom onclick=window.scrollTo(0,document.body.scrollHeight)>&#9660;</span></div><style>div.scrollBtn{display:flex;flex-wrap:wrap;width:1em;position:fixed;bottom:1.1%;right:.8%}#scrolltop,#scrollbottom{line-height:1;font-size:1.4rem;color:var(--link-transitiion-light)}#scrolltop:hover,#scrollbottom:hover{cursor:pointer;color:green;font-size:1.6rem}</style></body></html>
