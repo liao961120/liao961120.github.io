@@ -3,6 +3,8 @@ title: Demystifying Item Response Theory (1/4)
 subtitle: "Playing God through simulations"
 description: "simulation, IRT, Rasch, generalized linear model (GLM), directed acyclic graph (DAG)"
 date: '2023-02-25'
+aliases:
+    - /irt1
 katex: true
 tags:
 - r
@@ -422,9 +424,9 @@ on simulated data, any inferences about the empirical data are in doubt.
 In a real-world scenario of the example presented here, we would only observe
 the score ($R$) of an item ($I$) taken by a testee ($T$). The targets of
 interest are the unobserved item difficulty ($D$) and testee ability ($A$). In
-the next post, we will work in reverse and fit statistical models on simulated
+[Part 2](/irt2), we will work in reverse and fit statistical models on simulated
 data. We will see how the models discover the true $A$s and $D$s from the
-information of $R$, $I$, and $T$. See you [there](/2023/03/06/irt2/)!
+information of $R$, $I$, and $T$. See you there!
 
 [DAG]: https://en.wikipedia.org/wiki/Directed_acyclic_graph
 [lm]: https://en.wikipedia.org/wiki/Linear_regression
