@@ -109,7 +109,9 @@ p code, li code {
     line-height: 1.65;
     margin-bottom: 1.35em;
 }
-
+.article_content sup {
+    padding: 0 .08rem 0 0.15rem;
+}
 .article_content figure {
     margin: 0 0 2.2em 0;
 }

@@ -1,5 +1,5 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>R on Yongfu's Blog</title><link>https://yongfu.name/tags/r/</link><description>Recent content in R on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 06 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/r/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (2/4)</title><link>https://yongfu.name/2023/03/06/irt2/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/06/irt2/</guid><description>&lt;p>In the &lt;a href="https://yongfu.name/2023/02/25/irt1">previous post&lt;/a>, we went through the simplest
-item response model, the 1PL model, from the perspective of simulations.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>R on Yongfu's Blog</title><link>https://yongfu.name/tags/r/</link><description>Recent content in R on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 06 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/r/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (2/4)</title><link>https://yongfu.name/2023/03/06/irt2/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/06/irt2/</guid><description>&lt;p>In &lt;a href="https://yongfu.name/2023/02/25/irt1">Part I&lt;/a>, we went through the simplest item
+response model, the 1PL model, from the perspective of simulations.
 Starting with item difficulty and testee ability, we &lt;strong>worked forward&lt;/strong>
 to simulate item responses that mimic real-world data. Back then, we
 were precisely laying out the &lt;strong>data generating process&lt;/strong> that is
@@ -48,9 +48,9 @@ factors. Otherwise, the model will treat the number indices as values in
 a continuous variable.&lt;/p>
 &lt;h2 id="dags-revisited">DAGs Revisited&lt;/h2>
 &lt;p>Before we move on to the statistical model, let me lay out the DAGs
-again. The DAG on the right below is identical to the one in the
-previous post (the left DAG here), but with a slight modification that
-emphasizes the perspective from the statistical model. Here, the
+again. The DAG on the right below is identical to the one in &lt;a href="https://yongfu.name/2023/02/25/irt1">Part
+I&lt;/a> (the left DAG here), but with a slight modification
+that emphasizes the perspective from the statistical model. Here, the
 observed $S$ and $I$ take place of the unobserved $A$ and $D$,
 respectively. So why the difference?&lt;/p>
 &lt;div class="goat svg-container ">
@@ -148,11 +148,11 @@ frames.&lt;/p>
 &lt;p>The last equation in (1), also related to the reading of the subscript
 $_i$, deserves some elaboration, as some might feel confused about the
 square brackets after $\alpha$ and $\delta$. Actually, we have already
-met these brackets in the previous post. The brackets here serve a
-similar function to R’s subset function &lt;code>[]&lt;/code> that we have used for
-linking particular ability/difficulty levels of a subject/item to the
-rows (observations) of the data frame. So what the square brackets after
-$\alpha$ and $\delta$ do exactly, is to “look up” the index of the
+met these brackets in &lt;a href="https://yongfu.name/2023/02/25/irt1">Part I&lt;/a>. The brackets here
+serve a similar function to R’s subset function &lt;code>[]&lt;/code> that we have used
+for linking particular ability/difficulty levels of a subject/item to
+the rows (observations) of the data frame. So what the square brackets
+after $\alpha$ and $\delta$ do exactly, is to “look up” the index of the
 subject and item for the $_i$th observation such that the $\alpha$
 corresponding to the subject and the $\delta$ corresponding to the item
 could be correctly retrieved. The model can thus “know” which $\alpha$
@@ -227,9 +227,9 @@ logistic(x) &amp;amp;= \frac{1}{1 + e^{-x}} = p \\
 \end{aligned}
 $$&lt;/p>
 &lt;p>There is really nothing special about the logit function. We have
-learned all the important things through the logistic back in the
-previous post. I mention the logit here simply because the term is
-frequently used. When people talk about GLMs, they prefer to use the
+learned all the important things through the logistic back in &lt;a href="https://yongfu.name/2023/02/25/irt1">Part
+I&lt;/a>. I mention the logit here simply because the term
+is frequently used. When people talk about GLMs, they prefer to use the
 &lt;a href="https://en.wikipedia.org/wiki/Generalized_linear_model#Link_function">link
 function&lt;/a>
 to characterize the model. The link function, in the case of the

@@ -37,7 +37,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-In the [previous post](/2023/02/25/irt1), we went through the simplest item
+In [Part I][PI], we went through the simplest item
 response model, the 1PL model, from the perspective of simulations. Starting
 with item difficulty and testee ability, we **worked forward** to simulate item
 responses that mimic real-world data. Back then, we were precisely laying out
@@ -89,7 +89,7 @@ DAGs Revisited
 --------------
 
 Before we move on to the statistical model, let me lay out the DAGs again. The
-DAG on the right below is identical to the one in the previous post (the left
+DAG on the right below is identical to the one in [Part I][PI] (the left
 DAG here), but with a slight modification that emphasizes the perspective from
 the statistical model. Here, the observed $S$ and $I$ take place of the
 unobserved $A$ and $D$, respectively. So why the difference? 
@@ -149,8 +149,8 @@ using for the data frames.
 
 The last equation in (1), also related to the reading of the subscript $_i$,
 deserves some elaboration, as some might feel confused about the square brackets
-after $\alpha$ and $\delta$. Actually, we have already met these brackets in the
-previous post. The brackets here serve a similar function to R's subset function
+after $\alpha$ and $\delta$. Actually, we have already met these brackets in
+[Part I][PI]. The brackets here serve a similar function to R's subset function
 `[]` that we have used for linking particular ability/difficulty levels of a
 subject/item to the rows (observations) of the data frame. So what the square
 brackets after $\alpha$ and $\delta$ do exactly, is to "look up" the index of
@@ -233,7 +233,7 @@ logistic(x) &= \frac{1}{1 + e^{-x}} = p \\\\
 $$
 
 There is really nothing special about the logit function. We have learned all
-the important things through the logistic back in the previous post. I mention
+the important things through the logistic back in [Part I][PI]. I mention
 the logit here simply because the term is frequently used. When people talk
 about GLMs, they prefer to use the [link function][link] to characterize the
 model. The link function, in the case of the logistic regression here, is the
@@ -663,7 +663,7 @@ information from common group memberships in the data. We will use the same
 data, and the text would be much shorter, I hope. Seeya!
 
 
-
+[PI]: /2023/02/25/irt1
 [coding]: https://stats.oarc.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/
 [identify]: https://en.wikipedia.org/wiki/Identifiability
 [binom]: https://en.wikipedia.org/wiki/Binomial_distribution
