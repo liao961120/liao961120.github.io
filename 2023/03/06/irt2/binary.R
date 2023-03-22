@@ -150,6 +150,10 @@ item_eff.m1 = eff[1:n_item]
 subj_eff.m1 = eff[(n_item+1):(n_item+n_subj-1)]
 subj_eff.m1 = c( subj_eff.m1, -sum(subj_eff.m1) )
 
+plot( c(D, A), pch=19 )
+points( c(-item_eff.m1, subj_eff.m1) )
+
+
 ## -----------------------------------------------------------
 library(lme4)
 # Partial pooling on subj

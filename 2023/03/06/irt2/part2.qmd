@@ -294,8 +294,8 @@ $\delta$s have a value of either 0 or 1. Here, they serve as a "switch" that
 turns on the relevant $\alpha$ and $\delta$ and turns off the others in each
 observation. This is easier to see with the help of the tables below. Table 3.1
 corresponds to Equation (3.1), and Table 3.2 corresponds to Equation (3.2). So,
-for instance, in row 2 of Table 3.2, $K$ and $A$ are 1 while the others are
-1. This turns on, or picks out, $\alpha_K$ and $\delta_A$. As such, they would
+for instance, in row 2 of Table 3.2, $K$ and $A$ are 1 while the others are 0. 
+This turns on, or picks out, $\alpha_K$ and $\delta_A$. As such, they would
 be updated by the model when it reaches this observation. In row 2 of Table 3.1,
 $\alpha_K$ and $\delta_A$ are picked out too, but not by the switches. They are
 directly picked out through the *K* and *A* present in the row.

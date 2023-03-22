@@ -352,8 +352,8 @@ be broken somehow, and instead generates the ones with, say, $P=0.53$.
 
 The [law of large numbers][large-num] can help us here. Since `rbern()`
 generates one with probability $P$, if we run `rbern()` many times, the
-proportion of one in the outcomes should converge to $P$. The second argument
-`n` in `rbern()` is a handy way to achieve this. You can increase `n` to see if
+proportion of one in the outcomes should converge to $P$. To achieve this, take
+a look at the second argument `n` in `rbern()`. You can increase `n` to see if
 the result comes even closer to $0.5$.
 
 ```{r}

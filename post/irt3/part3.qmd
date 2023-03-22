@@ -58,3 +58,8 @@ d$R = rbern( logistic(A[d$S] - D[d$I]) )
 d$S = factor(d$S)
 d$I = factor(d$I)
 ```
+
+
+- partial pooling
+- missing data
+- 
