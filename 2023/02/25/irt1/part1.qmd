@@ -353,8 +353,9 @@ be broken somehow, and instead generates the ones with, say, $P=0.53$.
 The [law of large numbers][large-num] can help us here. Since `rbern()`
 generates ones with probability $P$, if we run `rbern()` many times, the
 proportion of the ones in the outcomes should converge to $P$. To achieve this,
-take a look at the second argument `n` in `rbern()`. You can increase `n` to see
-if the result comes even closer to $0.5$.
+take a look at the second argument `n` in `rbern()`, which is set here to
+repeatedly generate outcomes ten thousand times. You can increase `n` to see if
+the result comes even closer to $0.5$.
 
 ```{r}
 outcomes = rbern( p=0.5, n=1e4 )  # Run rbern with P=0.5 10,000 times
