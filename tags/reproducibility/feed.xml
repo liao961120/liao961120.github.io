@@ -1243,8 +1243,8 @@ properly. &lt;code>rbern(0.5)&lt;/code> might be broken somehow, and instead gen
 the ones with, say, $P=0.53$.&lt;/p>
 &lt;p>The &lt;a href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large
 numbers&lt;/a> can help us
-here. Since &lt;code>rbern()&lt;/code> generates one with probability $P$, if we run
-&lt;code>rbern()&lt;/code> many times, the proportion of one in the outcomes should
+here. Since &lt;code>rbern()&lt;/code> generates ones with probability $P$, if we run
+&lt;code>rbern()&lt;/code> many times, the proportion of the ones in the outcomes should
 converge to $P$. To achieve this, take a look at the second argument &lt;code>n&lt;/code>
 in &lt;code>rbern()&lt;/code>. You can increase &lt;code>n&lt;/code> to see if the result comes even
 closer to $0.5$.&lt;/p>
