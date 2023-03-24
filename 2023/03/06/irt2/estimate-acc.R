@@ -2,7 +2,7 @@ logistic = function(x) 1 / (1 + exp(-x))
 rbern = function( p, n=length(p) ) rbinom( n=n, size=1, prob=p )
 
 
-sim_data = function(n_item=20, n_subj=80, seed=13) {
+sim_data = function(n_item=60, n_subj=30, seed=12) {
   set.seed(seed)
   A = rnorm( n=n_subj, mean=0, sd=1 )  # Subjects' ability
   D = seq( -1.6, 1 , length=n_item )  # Items' difficulty
@@ -45,8 +45,8 @@ par(oma=c(0,0,0,0))  # outer margin
 par(mar=c(3, 4, 3, 1.6) )  # margin
 
 # Simulate data
-n_item=80; n_subj=20
-data = sim_data( n_item, n_subj, seed=13 )
+n_item=60; n_subj=30
+data = sim_data( n_item, n_subj, seed=12 )
 A = data$A
 D = data$D
 dat = data$dat

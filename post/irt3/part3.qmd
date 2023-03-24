@@ -32,7 +32,6 @@ knitr::opts_chunk$set(
 	fig.align = 'center',
 	comment = "",
 	fig.dim = c(10, 5.5),
-   #dpi = 300,
    dev='svg',
    dev.args = list(bg = "transparent"),
    NULL
@@ -40,14 +39,17 @@ knitr::opts_chunk$set(
 ```
 
 
+
+
+
 ```{r}
 logistic = function(x) 1 / (1 + exp(-x))
 logit = function( p ) log( p/(1-p) )
 rbern = function( p, n=length(p) ) rbinom( n=n, size=1, prob=p )
 
-set.seed(13)
-n_item = 20   # number of items
-n_subj = 80   # number of subjects
+set.seed(12)
+n_item = 30   # number of items
+n_subj = 60   # number of subjects
 n_resp = n_subj * n_item  # number of responses
 A = rnorm( n=n_subj, mean=0, sd=1 )  # Subjects' ability
 D = seq( -1.6, 1, length=n_item )  # Items' difficulty
@@ -61,5 +63,3 @@ d$I = factor(d$I)
 
 
 - partial pooling
-- missing data
-- 

@@ -52,9 +52,9 @@ statistical models. But first, let's simulate the data we will be using!
 logistic = function(x) 1 / (1 + exp(-x))
 rbern = function( p, n=length(p) ) rbinom( n=n, size=1, prob=p )
 
-set.seed(13)
-n_item = 20   # number of items
-n_subj = 80   # number of subjects
+set.seed(12)
+n_item = 30   # number of items
+n_subj = 60   # number of subjects
 n_resp = n_subj * n_item  # number of responses
 
 A = rnorm( n=n_subj, mean=0, sd=1 )  # Subjects' ability
@@ -230,7 +230,8 @@ $$
 logistic(x) &= \frac{1}{1 + e^{-x}} = p \\\\
 & \Rightarrow ~~ e^{-x} = \frac{1-p}{p} \\\\
 & \Rightarrow ~ -x = log(\frac{1-p}{p}) \\\\
-& \Rightarrow ~~ x = -log(\frac{1-p}{p}) = log(\frac{p}{1-p}) = logit(p)
+& \Rightarrow ~~ x = -log(\frac{1-p}{p}) \\\\
+& \phantom{\Rightarrow ~~ x } = log(\frac{p}{1-p}) = logit(p)
 \end{aligned}
 $$
 
@@ -650,14 +651,14 @@ What's next?
 
 This post is lengthy, but not because it is hard. Rather, the concepts presented
 are fairly simple. The post is lengthy because we got used to texts that hide
-details from readers. The text here does the opposite: it presents all the
+details from the readers. The text here does the opposite: it presents all the
 **necessary details** to get the statistical model working, without confusion.
-People often assume that hidden details are trivial. But more often, it is
-just because writers are too lazy to present the details. Statistics is hard
-partly because it is loaded with details that are hidden and ignored. When
-details get ignored long enough, they accumulate to become entangled and
-uncrackable. Coding, again, is here to help. It dissolves the fuzziness that
-otherwise accumulates and hinders understanding.
+People often assume that hidden details are trivial. But more often, it is just
+because writers are too lazy to present the details. Statistics is hard partly
+because it is loaded with details that are hidden and ignored. When details get
+ignored long enough, they accumulate to become entangled and uncrackable.
+Coding, again, is here to help. It dissolves the fuzziness that otherwise
+accumulates and hinders understanding.
 
 In [Part 3](/irt3), we move on to **Generalized Linear Mixed Models**, which
 are extensions to GLMs that improve estimation and efficiency by harnessing the

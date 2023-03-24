@@ -10,9 +10,9 @@ simulate the data we will be using!&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>logistic &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">function&lt;/span>(x) &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">/&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#f92672">-&lt;/span>x))
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>rbern &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">function&lt;/span>( p, n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">length&lt;/span>(p) ) &lt;span style="color:#a6e22e">rbinom&lt;/span>( n&lt;span style="color:#f92672">=&lt;/span>n, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>p )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4&lt;/span>&lt;span>&lt;span style="color:#a6e22e">set.seed&lt;/span>(&lt;span style="color:#ae81ff">13&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5&lt;/span>&lt;span>n_item &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#75715e"># number of items&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6&lt;/span>&lt;span>n_subj &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span> &lt;span style="color:#75715e"># number of subjects&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4&lt;/span>&lt;span>&lt;span style="color:#a6e22e">set.seed&lt;/span>(&lt;span style="color:#ae81ff">12&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5&lt;/span>&lt;span>n_item &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">30&lt;/span> &lt;span style="color:#75715e"># number of items&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6&lt;/span>&lt;span>n_subj &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">60&lt;/span> &lt;span style="color:#75715e"># number of subjects&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7&lt;/span>&lt;span>n_resp &lt;span style="color:#f92672">=&lt;/span> n_subj &lt;span style="color:#f92672">*&lt;/span> n_item &lt;span style="color:#75715e"># number of responses&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9&lt;/span>&lt;span>A &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rnorm&lt;/span>( n&lt;span style="color:#f92672">=&lt;/span>n_subj, mean&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>, sd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> ) &lt;span style="color:#75715e"># Subjects&amp;#39; ability&lt;/span>
@@ -24,17 +24,17 @@ simulate the data we will be using!&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15&lt;/span>&lt;span>d&lt;span style="color:#f92672">$&lt;/span>S &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">factor&lt;/span>(d&lt;span style="color:#f92672">$&lt;/span>S)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16&lt;/span>&lt;span>d&lt;span style="color:#f92672">$&lt;/span>I &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">factor&lt;/span>(d&lt;span style="color:#f92672">$&lt;/span>I)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17&lt;/span>&lt;span>&lt;span style="color:#a6e22e">str&lt;/span>(d)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>'data.frame': 1600 obs. of 3 variables:
-$ S: Factor w/ 80 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
-$ I: Factor w/ 20 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
-$ R: int 1 0 1 1 1 1 1 1 0 1 ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>'data.frame': 1800 obs. of 3 variables:
+$ S: Factor w/ 60 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+$ I: Factor w/ 30 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+$ R: int 0 1 0 0 1 1 1 1 1 1 ...
 &lt;/code>&lt;/pre>
 &lt;p>In the code above, the first two lines are the definitions for the
 logistic and the Bernoulli functions used previously. The second chunk
 of code sets the shape of our data. This time, the simulated data is
-much larger, with 20 items and 80 testees, or &lt;strong>subjects&lt;/strong> (I will use
+much larger, with 30 items and 60 testees, or &lt;strong>subjects&lt;/strong> (I will use
 the more general term “subject” hereafter). Since we assume here that
-each subject responds to every item, this gives us 1600 responses in the
+each subject responds to every item, this gives us 1800 responses in the
 data.&lt;/p>
 &lt;p>The subject abilities come from a normal distribution with a zero mean
 and a standard deviation of one (the standard normal). The item
@@ -223,7 +223,8 @@ logit can convert it back to the original real, and vice versa.&lt;/p>
 logistic(x) &amp;amp;= \frac{1}{1 + e^{-x}} = p \\
 &amp;amp; \Rightarrow ~~ e^{-x} = \frac{1-p}{p} \\
 &amp;amp; \Rightarrow ~ -x = log(\frac{1-p}{p}) \\
-&amp;amp; \Rightarrow ~~ x = -log(\frac{1-p}{p}) = log(\frac{p}{1-p}) = logit(p)
+&amp;amp; \Rightarrow ~~ x = -log(\frac{1-p}{p}) \\
+&amp;amp; \phantom{\Rightarrow ~~ x } = log(\frac{p}{1-p}) = logit(p)
 \end{aligned}
 $$&lt;/p>
 &lt;p>There is really nothing special about the logit function. We have
@@ -275,7 +276,7 @@ that turns on the relevant $\alpha$ and $\delta$ and turns off the
 others in each observation. This is easier to see with the help of the
 tables below. Table 3.1 corresponds to Equation (3.1), and Table 3.2
 corresponds to Equation (3.2). So, for instance, in row 2 of Table 3.2,
-$K$ and $A$ are 1 while the others are 1. This turns on, or picks out,
+$K$ and $A$ are 1 while the others are 0. This turns on, or picks out,
 $\alpha_K$ and $\delta_A$. As such, they would be updated by the model
 when it reaches this observation. In row 2 of Table 3.1, $\alpha_K$ and
 $\delta_A$ are picked out too, but not by the switches. They are
@@ -377,26 +378,25 @@ is happening under the hood.&lt;/p>
 &lt;code>dummy_cols()&lt;/code> from the &lt;code>fastDummies&lt;/code> package to help me with dummy
 coding. In the code below, I recode the item and subject variables into
 zeros and ones. The result is identical to Table 3.2, except that it now
-expands to 20 items and 80 subjects (100 columns in total). I won’t
-print out the full dummy-coded data frame to save space. But be sure to
-take a look at &lt;code>d_dummy&lt;/code> to see how it corresponds to Table 3.2.&lt;/p>
+expands to 30 items and 60 subjects (90 columns in total). I won’t print
+out the full dummy-coded data frame to save space. But be sure to take a
+look at &lt;code>d_dummy&lt;/code> to see how it corresponds to Table 3.2.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(fastDummies)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>d_dummy &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">dummy_cols&lt;/span>( d, &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;I&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;S&amp;#34;&lt;/span>), remove_selected_columns&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">TRUE&lt;/span> )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>&lt;span style="color:#a6e22e">dim&lt;/span>(d_dummy)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 1600 101
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 1800 91
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">colnames&lt;/span>(d_dummy)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code> [1] &amp;quot;R&amp;quot; &amp;quot;I_1&amp;quot; &amp;quot;I_2&amp;quot; &amp;quot;I_3&amp;quot; &amp;quot;I_4&amp;quot; &amp;quot;I_5&amp;quot; &amp;quot;I_6&amp;quot; &amp;quot;I_7&amp;quot; &amp;quot;I_8&amp;quot; &amp;quot;I_9&amp;quot;
 [11] &amp;quot;I_10&amp;quot; &amp;quot;I_11&amp;quot; &amp;quot;I_12&amp;quot; &amp;quot;I_13&amp;quot; &amp;quot;I_14&amp;quot; &amp;quot;I_15&amp;quot; &amp;quot;I_16&amp;quot; &amp;quot;I_17&amp;quot; &amp;quot;I_18&amp;quot; &amp;quot;I_19&amp;quot;
-[21] &amp;quot;I_20&amp;quot; &amp;quot;S_1&amp;quot; &amp;quot;S_2&amp;quot; &amp;quot;S_3&amp;quot; &amp;quot;S_4&amp;quot; &amp;quot;S_5&amp;quot; &amp;quot;S_6&amp;quot; &amp;quot;S_7&amp;quot; &amp;quot;S_8&amp;quot; &amp;quot;S_9&amp;quot;
-[31] &amp;quot;S_10&amp;quot; &amp;quot;S_11&amp;quot; &amp;quot;S_12&amp;quot; &amp;quot;S_13&amp;quot; &amp;quot;S_14&amp;quot; &amp;quot;S_15&amp;quot; &amp;quot;S_16&amp;quot; &amp;quot;S_17&amp;quot; &amp;quot;S_18&amp;quot; &amp;quot;S_19&amp;quot;
-[41] &amp;quot;S_20&amp;quot; &amp;quot;S_21&amp;quot; &amp;quot;S_22&amp;quot; &amp;quot;S_23&amp;quot; &amp;quot;S_24&amp;quot; &amp;quot;S_25&amp;quot; &amp;quot;S_26&amp;quot; &amp;quot;S_27&amp;quot; &amp;quot;S_28&amp;quot; &amp;quot;S_29&amp;quot;
-[51] &amp;quot;S_30&amp;quot; &amp;quot;S_31&amp;quot; &amp;quot;S_32&amp;quot; &amp;quot;S_33&amp;quot; &amp;quot;S_34&amp;quot; &amp;quot;S_35&amp;quot; &amp;quot;S_36&amp;quot; &amp;quot;S_37&amp;quot; &amp;quot;S_38&amp;quot; &amp;quot;S_39&amp;quot;
-[61] &amp;quot;S_40&amp;quot; &amp;quot;S_41&amp;quot; &amp;quot;S_42&amp;quot; &amp;quot;S_43&amp;quot; &amp;quot;S_44&amp;quot; &amp;quot;S_45&amp;quot; &amp;quot;S_46&amp;quot; &amp;quot;S_47&amp;quot; &amp;quot;S_48&amp;quot; &amp;quot;S_49&amp;quot;
-[71] &amp;quot;S_50&amp;quot; &amp;quot;S_51&amp;quot; &amp;quot;S_52&amp;quot; &amp;quot;S_53&amp;quot; &amp;quot;S_54&amp;quot; &amp;quot;S_55&amp;quot; &amp;quot;S_56&amp;quot; &amp;quot;S_57&amp;quot; &amp;quot;S_58&amp;quot; &amp;quot;S_59&amp;quot;
-[81] &amp;quot;S_60&amp;quot; &amp;quot;S_61&amp;quot; &amp;quot;S_62&amp;quot; &amp;quot;S_63&amp;quot; &amp;quot;S_64&amp;quot; &amp;quot;S_65&amp;quot; &amp;quot;S_66&amp;quot; &amp;quot;S_67&amp;quot; &amp;quot;S_68&amp;quot; &amp;quot;S_69&amp;quot;
-[91] &amp;quot;S_70&amp;quot; &amp;quot;S_71&amp;quot; &amp;quot;S_72&amp;quot; &amp;quot;S_73&amp;quot; &amp;quot;S_74&amp;quot; &amp;quot;S_75&amp;quot; &amp;quot;S_76&amp;quot; &amp;quot;S_77&amp;quot; &amp;quot;S_78&amp;quot; &amp;quot;S_79&amp;quot;
-[101] &amp;quot;S_80&amp;quot;
+[21] &amp;quot;I_20&amp;quot; &amp;quot;I_21&amp;quot; &amp;quot;I_22&amp;quot; &amp;quot;I_23&amp;quot; &amp;quot;I_24&amp;quot; &amp;quot;I_25&amp;quot; &amp;quot;I_26&amp;quot; &amp;quot;I_27&amp;quot; &amp;quot;I_28&amp;quot; &amp;quot;I_29&amp;quot;
+[31] &amp;quot;I_30&amp;quot; &amp;quot;S_1&amp;quot; &amp;quot;S_2&amp;quot; &amp;quot;S_3&amp;quot; &amp;quot;S_4&amp;quot; &amp;quot;S_5&amp;quot; &amp;quot;S_6&amp;quot; &amp;quot;S_7&amp;quot; &amp;quot;S_8&amp;quot; &amp;quot;S_9&amp;quot;
+[41] &amp;quot;S_10&amp;quot; &amp;quot;S_11&amp;quot; &amp;quot;S_12&amp;quot; &amp;quot;S_13&amp;quot; &amp;quot;S_14&amp;quot; &amp;quot;S_15&amp;quot; &amp;quot;S_16&amp;quot; &amp;quot;S_17&amp;quot; &amp;quot;S_18&amp;quot; &amp;quot;S_19&amp;quot;
+[51] &amp;quot;S_20&amp;quot; &amp;quot;S_21&amp;quot; &amp;quot;S_22&amp;quot; &amp;quot;S_23&amp;quot; &amp;quot;S_24&amp;quot; &amp;quot;S_25&amp;quot; &amp;quot;S_26&amp;quot; &amp;quot;S_27&amp;quot; &amp;quot;S_28&amp;quot; &amp;quot;S_29&amp;quot;
+[61] &amp;quot;S_30&amp;quot; &amp;quot;S_31&amp;quot; &amp;quot;S_32&amp;quot; &amp;quot;S_33&amp;quot; &amp;quot;S_34&amp;quot; &amp;quot;S_35&amp;quot; &amp;quot;S_36&amp;quot; &amp;quot;S_37&amp;quot; &amp;quot;S_38&amp;quot; &amp;quot;S_39&amp;quot;
+[71] &amp;quot;S_40&amp;quot; &amp;quot;S_41&amp;quot; &amp;quot;S_42&amp;quot; &amp;quot;S_43&amp;quot; &amp;quot;S_44&amp;quot; &amp;quot;S_45&amp;quot; &amp;quot;S_46&amp;quot; &amp;quot;S_47&amp;quot; &amp;quot;S_48&amp;quot; &amp;quot;S_49&amp;quot;
+[81] &amp;quot;S_50&amp;quot; &amp;quot;S_51&amp;quot; &amp;quot;S_52&amp;quot; &amp;quot;S_53&amp;quot; &amp;quot;S_54&amp;quot; &amp;quot;S_55&amp;quot; &amp;quot;S_56&amp;quot; &amp;quot;S_57&amp;quot; &amp;quot;S_58&amp;quot; &amp;quot;S_59&amp;quot;
+[91] &amp;quot;S_60&amp;quot;
 &lt;/code>&lt;/pre>
 &lt;p>Now, we can fit the model with the dummy-coded data &lt;code>d_dummy&lt;/code>. The first
 argument in &lt;code>glm()&lt;/code> specifies the formula in R’s model syntax. Based on
@@ -425,121 +425,111 @@ the right-hand linear terms to the outcome space.&lt;/p>
 glm(formula = R ~ -1 + ., family = binomial(&amp;quot;logit&amp;quot;), data = d_dummy)
 Deviance Residuals:
 Min 1Q Median 3Q Max
--2.7802 -0.8847 0.3734 0.8776 2.4877
+-2.4291 -0.8850 0.2498 0.8978 2.7509
 Coefficients: (1 not defined because of singularities)
 Estimate Std. Error z value Pr(&amp;gt;|z|)
-I_1 1.197e+00 5.710e-01 2.096 0.03605 *
-I_2 1.197e+00 5.710e-01 2.096 0.03605 *
-I_3 1.108e+00 5.677e-01 1.951 0.05102 .
-I_4 6.308e-01 5.547e-01 1.137 0.25546
-I_5 4.872e-01 5.520e-01 0.883 0.37742
-I_6 2.813e-01 5.489e-01 0.512 0.60835
-I_7 1.928e-02 5.464e-01 0.035 0.97186
-I_8 8.375e-02 5.469e-01 0.153 0.87829
-I_9 -2.966e-01 5.451e-01 -0.544 0.58643
-I_10 1.488e-01 5.475e-01 0.272 0.78572
-I_11 -3.589e-01 5.451e-01 -0.658 0.51022
-I_12 -5.458e-01 5.454e-01 -1.001 0.31699
-I_13 -8.601e-01 5.473e-01 -1.571 0.11607
-I_14 -7.335e-01 5.463e-01 -1.343 0.17940
-I_15 -1.712e-01 5.454e-01 -0.314 0.75357
-I_16 -1.321e+00 5.532e-01 -2.389 0.01691 *
-I_17 -1.253e+00 5.521e-01 -2.270 0.02323 *
-I_18 -9.240e-01 5.479e-01 -1.686 0.09171 .
-I_19 -1.461e+00 5.558e-01 -2.629 0.00855 **
-I_20 -2.003e+00 5.700e-01 -3.515 0.00044 ***
-S_1 1.520e+00 7.375e-01 2.062 0.03925 *
-S_2 -2.412e-01 6.952e-01 -0.347 0.72858
-S_3 1.520e+00 7.375e-01 2.062 0.03925 *
-S_4 2.371e-01 6.891e-01 0.344 0.73081
-S_5 2.233e+00 8.196e-01 2.725 0.00643 **
-S_6 -2.275e-15 6.906e-01 0.000 1.00000
-S_7 2.233e+00 8.196e-01 2.725 0.00643 **
-S_8 1.520e+00 7.375e-01 2.062 0.03925 *
-S_9 1.231e+00 7.173e-01 1.717 0.08602 .
-S_10 1.520e+00 7.375e-01 2.062 0.03925 *
-S_11 -4.913e-01 7.035e-01 -0.698 0.48492
-S_12 1.846e+00 7.686e-01 2.402 0.01631 *
-S_13 -1.044e+00 7.366e-01 -1.418 0.15620
-S_14 -1.369e+00 7.674e-01 -1.784 0.07439 .
-S_15 -2.009e-15 6.906e-01 0.000 1.00000
-S_16 2.371e-01 6.891e-01 0.344 0.73081
-S_17 1.231e+00 7.173e-01 1.717 0.08602 .
-S_18 9.661e-01 7.040e-01 1.372 0.16999
-S_19 -3.203e-15 6.906e-01 0.000 1.00000
-S_20 7.156e-01 6.955e-01 1.029 0.30349
-S_21 1.231e+00 7.173e-01 1.717 0.08602 .
-S_22 2.736e+00 9.148e-01 2.991 0.00278 **
-S_23 1.846e+00 7.686e-01 2.402 0.01631 *
-S_24 -1.369e+00 7.674e-01 -1.784 0.07439 .
-S_25 4.742e-01 6.907e-01 0.687 0.49234
-S_26 1.231e+00 7.173e-01 1.717 0.08602 .
-S_27 -1.044e+00 7.366e-01 -1.418 0.15620
-S_28 -7.563e-01 7.166e-01 -1.055 0.29128
-S_29 -2.412e-01 6.952e-01 -0.347 0.72858
-S_30 -2.412e-01 6.952e-01 -0.347 0.72858
-S_31 2.371e-01 6.891e-01 0.344 0.73081
-S_32 1.520e+00 7.375e-01 2.062 0.03925 *
-S_33 4.742e-01 6.907e-01 0.687 0.49234
-S_34 2.371e-01 6.891e-01 0.344 0.73081
-S_35 -2.412e-01 6.952e-01 -0.347 0.72858
-S_36 -2.412e-01 6.952e-01 -0.347 0.72858
-S_37 -2.412e-01 6.952e-01 -0.347 0.72858
-S_38 4.742e-01 6.907e-01 0.687 0.49234
-S_39 2.371e-01 6.891e-01 0.344 0.73081
-S_40 -1.044e+00 7.366e-01 -1.418 0.15620
-S_41 7.156e-01 6.955e-01 1.029 0.30349
-S_42 1.520e+00 7.375e-01 2.062 0.03925 *
-S_43 2.233e+00 8.196e-01 2.725 0.00643 **
-S_44 2.736e+00 9.148e-01 2.991 0.00278 **
-S_45 7.156e-01 6.955e-01 1.029 0.30349
-S_46 2.371e-01 6.891e-01 0.344 0.73081
-S_47 -1.958e-15 6.906e-01 0.000 1.00000
-S_48 -1.755e+00 8.180e-01 -2.145 0.03194 *
-S_49 1.520e+00 7.375e-01 2.062 0.03925 *
-S_50 7.156e-01 6.955e-01 1.029 0.30349
-S_51 1.231e+00 7.173e-01 1.717 0.08602 .
-S_52 1.846e+00 7.686e-01 2.402 0.01631 *
-S_53 -4.913e-01 7.035e-01 -0.698 0.48492
-S_54 4.742e-01 6.907e-01 0.687 0.49234
-S_55 4.742e-01 6.907e-01 0.687 0.49234
-S_56 -1.915e-15 6.906e-01 0.000 1.00000
-S_57 -1.044e+00 7.366e-01 -1.418 0.15620
-S_58 1.846e+00 7.686e-01 2.402 0.01631 *
-S_59 1.520e+00 7.375e-01 2.062 0.03925 *
-S_60 9.661e-01 7.040e-01 1.372 0.16999
-S_61 -4.913e-01 7.035e-01 -0.698 0.48492
-S_62 2.371e-01 6.891e-01 0.344 0.73081
-S_63 -4.913e-01 7.035e-01 -0.698 0.48492
-S_64 4.742e-01 6.907e-01 0.687 0.49234
-S_65 1.846e+00 7.686e-01 2.402 0.01631 *
-S_66 -4.913e-01 7.035e-01 -0.698 0.48492
-S_67 2.371e-01 6.891e-01 0.344 0.73081
-S_68 7.156e-01 6.955e-01 1.029 0.30349
-S_69 2.233e+00 8.196e-01 2.725 0.00643 **
-S_70 4.742e-01 6.907e-01 0.687 0.49234
-S_71 -7.563e-01 7.166e-01 -1.055 0.29128
-S_72 9.661e-01 7.040e-01 1.372 0.16999
-S_73 -3.227e-15 6.906e-01 0.000 1.00000
-S_74 -1.755e+00 8.180e-01 -2.145 0.03194 *
-S_75 -4.913e-01 7.035e-01 -0.698 0.48492
-S_76 -1.044e+00 7.366e-01 -1.418 0.15620
-S_77 2.233e+00 8.196e-01 2.725 0.00643 **
-S_78 4.742e-01 6.907e-01 0.687 0.49234
-S_79 2.371e-01 6.891e-01 0.344 0.73081
-S_80 NA NA NA NA
+I_1 1.926e+00 5.422e-01 3.553 0.000381 ***
+I_2 1.798e+00 5.339e-01 3.368 0.000758 ***
+I_3 1.154e+00 5.049e-01 2.286 0.022267 *
+I_4 1.154e+00 5.049e-01 2.286 0.022267 *
+I_5 1.351e+00 5.118e-01 2.639 0.008304 **
+I_6 9.686e-01 4.997e-01 1.939 0.052559 .
+I_7 1.351e+00 5.118e-01 2.639 0.008304 **
+I_8 1.060e+00 5.021e-01 2.111 0.034737 *
+I_9 9.686e-01 4.997e-01 1.939 0.052559 .
+I_10 1.060e+00 5.021e-01 2.111 0.034737 *
+I_11 5.368e-01 4.920e-01 1.091 0.275173
+I_12 3.715e-01 4.905e-01 0.757 0.448848
+I_13 -3.712e-02 4.901e-01 -0.076 0.939634
+I_14 -3.712e-02 4.901e-01 -0.076 0.939634
+I_15 1.263e-01 4.897e-01 0.258 0.796423
+I_16 2.079e-01 4.898e-01 0.424 0.671244
+I_17 -2.857e-01 4.922e-01 -0.581 0.561549
+I_18 1.263e-01 4.897e-01 0.258 0.796423
+I_19 -3.712e-02 4.901e-01 -0.076 0.939634
+I_20 4.473e-02 4.898e-01 0.091 0.927249
+I_21 -7.217e-01 5.000e-01 -1.443 0.148885
+I_22 -1.194e-01 4.906e-01 -0.243 0.807787
+I_23 -6.313e-01 4.979e-01 -1.268 0.204796
+I_24 -7.217e-01 5.000e-01 -1.443 0.148885
+I_25 -7.217e-01 5.000e-01 -1.443 0.148885
+I_26 -7.217e-01 5.000e-01 -1.443 0.148885
+I_27 -1.007e+00 5.082e-01 -1.981 0.047587 *
+I_28 -1.212e+00 5.159e-01 -2.350 0.018770 *
+I_29 -1.212e+00 5.159e-01 -2.350 0.018770 *
+I_30 -1.961e+00 5.585e-01 -3.511 0.000447 ***
+S_1 -1.800e+00 6.322e-01 -2.847 0.004415 **
+S_2 1.732e+00 6.580e-01 2.632 0.008491 **
+S_3 -1.575e+00 6.143e-01 -2.564 0.010355 *
+S_4 -8.194e-01 5.775e-01 -1.419 0.155962
+S_5 -1.176e+00 5.909e-01 -1.991 0.046527 *
+S_6 3.276e-01 5.732e-01 0.572 0.567650
+S_7 4.966e-01 5.774e-01 0.860 0.389744
+S_8 -3.227e-01 5.688e-01 -0.567 0.570509
+S_9 -4.853e-01 5.705e-01 -0.851 0.394979
+S_10 4.966e-01 5.774e-01 0.860 0.389744
+S_11 -1.176e+00 5.909e-01 -1.991 0.046527 *
+S_12 -1.369e+00 6.010e-01 -2.277 0.022758 *
+S_13 -8.194e-01 5.775e-01 -1.419 0.155962
+S_14 -1.613e-01 5.682e-01 -0.284 0.776469
+S_15 -1.613e-01 5.682e-01 -0.284 0.776469
+S_16 -1.176e+00 5.909e-01 -1.991 0.046527 *
+S_17 1.253e+00 6.146e-01 2.039 0.041452 *
+S_18 3.276e-01 5.732e-01 0.572 0.567650
+S_19 1.046e+00 6.010e-01 1.741 0.081706 .
+S_20 -8.194e-01 5.775e-01 -1.419 0.155962
+S_21 4.966e-01 5.774e-01 0.860 0.389744
+S_22 2.856e+00 8.565e-01 3.334 0.000855 ***
+S_23 1.479e+00 6.328e-01 2.337 0.019424 *
+S_24 -9.940e-01 5.833e-01 -1.704 0.088343 .
+S_25 -8.194e-01 5.775e-01 -1.419 0.155962
+S_26 1.625e-01 5.704e-01 0.285 0.775661
+S_27 -4.853e-01 5.705e-01 -0.851 0.394979
+S_28 -3.227e-01 5.688e-01 -0.567 0.570509
+S_29 1.969e-15 5.687e-01 0.000 1.000000
+S_30 6.712e-01 5.831e-01 1.151 0.249706
+S_31 6.712e-01 5.831e-01 1.151 0.249706
+S_32 3.618e+00 1.111e+00 3.256 0.001131 **
+S_33 -1.613e-01 5.682e-01 -0.284 0.776469
+S_34 -8.194e-01 5.775e-01 -1.419 0.155962
+S_35 -4.853e-01 5.705e-01 -0.851 0.394979
+S_36 -4.853e-01 5.705e-01 -0.851 0.394979
+S_37 1.046e+00 6.010e-01 1.741 0.081706 .
+S_38 -6.504e-01 5.734e-01 -1.134 0.256656
+S_39 1.046e+00 6.010e-01 1.741 0.081706 .
+S_40 -1.575e+00 6.143e-01 -2.564 0.010355 *
+S_41 1.625e-01 5.704e-01 0.285 0.775661
+S_42 -6.504e-01 5.734e-01 -1.134 0.256656
+S_43 1.253e+00 6.146e-01 2.039 0.041452 *
+S_44 -1.800e+00 6.322e-01 -2.847 0.004415 **
+S_45 -3.227e-01 5.688e-01 -0.567 0.570509
+S_46 4.966e-01 5.774e-01 0.860 0.389744
+S_47 -9.940e-01 5.833e-01 -1.704 0.088343 .
+S_48 3.276e-01 5.732e-01 0.572 0.567650
+S_49 8.536e-01 5.908e-01 1.445 0.148546
+S_50 -3.227e-01 5.688e-01 -0.567 0.570509
+S_51 -4.853e-01 5.705e-01 -0.851 0.394979
+S_52 -1.613e-01 5.682e-01 -0.284 0.776469
+S_53 6.712e-01 5.831e-01 1.151 0.249706
+S_54 2.856e+00 8.565e-01 3.334 0.000855 ***
+S_55 -6.504e-01 5.734e-01 -1.134 0.256656
+S_56 6.712e-01 5.831e-01 1.151 0.249706
+S_57 1.253e+00 6.146e-01 2.039 0.041452 *
+S_58 -9.940e-01 5.833e-01 -1.704 0.088343 .
+S_59 -4.853e-01 5.705e-01 -0.851 0.394979
+S_60 NA NA NA NA
 ---
 Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 (Dispersion parameter for binomial family taken to be 1)
-Null deviance: 2218.1 on 1600 degrees of freedom
-Residual deviance: 1719.1 on 1501 degrees of freedom
-AIC: 1917.1
-Number of Fisher Scoring iterations: 5
+Null deviance: 2495.3 on 1800 degrees of freedom
+Residual deviance: 1927.2 on 1711 degrees of freedom
+AIC: 2105.2
+Number of Fisher Scoring iterations: 6
 &lt;/code>&lt;/pre>
-&lt;p>Take a look at the output. Something’s strange. Since there are 20 items
-and 80 subjects in the data, we expect the model to return 100
+&lt;p>Take a look at the output. Something’s strange. Since there are 30 items
+and 60 subjects in the data, we expect the model to return 90
 coefficients, one for each subject/item effect. However, the last
-coefficient, &lt;code>S_80&lt;/code> in this case, is &lt;code>NA&lt;/code>. The model does not
+coefficient, &lt;code>S_60&lt;/code> in this case, is &lt;code>NA&lt;/code>. The model does not
 estimate this coefficient. Why?&lt;/p>
 &lt;h4 id="identifiability">Identifiability&lt;/h4>
 &lt;p>The reason is that there are &lt;strong>infinite&lt;/strong> sets of parameter combinations
@@ -571,7 +561,7 @@ imprecision). You can play with the code below by changing the value of
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>p1 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities before shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>p2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A2[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D2[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities after shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sum&lt;/span>( &lt;span style="color:#a6e22e">abs&lt;/span>(p1 &lt;span style="color:#f92672">-&lt;/span> p2) ) &lt;span style="color:#75715e"># Should be extremely close to zero&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 7.013834e-14
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.456325e-14
 &lt;/code>&lt;/pre>
 &lt;p>The way R deals with this issue of identifiability is not preferable
 since we want to recover the parameters in our simulation (i.e., the set
@@ -719,7 +709,7 @@ else is the same.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>m1.1 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">glm&lt;/span>( R &lt;span style="color:#f92672">~&lt;/span> &lt;span style="color:#ae81ff">-1&lt;/span> &lt;span style="color:#f92672">+&lt;/span> ., data&lt;span style="color:#f92672">=&lt;/span>d_dummy2, family&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">binomial&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;logit&amp;#34;&lt;/span>) )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#75715e"># summary(m1.1)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you print out the coefficients of the fitted model, you will see that
-the result is what we expected. The model returns 99 coefficients, which
+the result is what we expected. The model returns 89 coefficients, which
 match the number of the predictor variables we passed in. No coefficient
 is dropped. We already dropped it for the model. And since we dropped
 the predictor in a principled way, we know how to reconstruct it. The
@@ -781,7 +771,7 @@ circles show the distances between the truth and the estimates. It is
 obvious from the plot that, compared to item difficulties, subject
 abilities are harder to estimate, as the distances to the truth are in
 general larger for subject estimates. This is apparent in hindsight, as
-each item is taken by 80 subjects whereas each subject only takes 20
+each item is taken by 60 subjects whereas each subject only takes 30
 items. Hence, the estimation for the items is more accurate, compared to
 the subjects, as there are more data to estimate each.&lt;/p>
 &lt;p>The effect of manipulating the number of subjects and items is revealed
