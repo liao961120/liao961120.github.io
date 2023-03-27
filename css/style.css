@@ -118,6 +118,7 @@ p code, li code {
 .article_content figure, .article_content img {
     /* max-width: 100%; */
     width: 100%;
+    min-width: 372px;
     display: block;
     padding: 0 auto;
     margin: 1.35em auto;
@@ -155,10 +156,9 @@ div.footnotes::before {
 }
 
 blockquote {
-    font-style: italic;
-    border-left: 2px solid rgb(175, 175, 175);
-    padding: 0 .5em;
-    margin: 0.3em 0 0.3em 2em;
+    border-left: 3px solid rgb(175, 175, 175);
+    padding: 0 .9em;
+    margin: 0.3em 0 0.3em 1.25em;
 }
 
 blockquote p {

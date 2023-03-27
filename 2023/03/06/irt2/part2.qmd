@@ -7,6 +7,7 @@ date: '2023-03-06'
 aliases:
     - /irt2
 katex: true
+mathjax: true
 tags:
 - r
 - statistics

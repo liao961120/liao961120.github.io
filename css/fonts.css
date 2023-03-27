@@ -346,3 +346,6 @@ code {
 pre code {
     font-family: monego, Monaco, Consolas, "Lucida Console", 'STKaiti', 'KaiTi', 'SimKai', monospace;
 }
+body blockquote {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
