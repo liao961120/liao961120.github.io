@@ -12,7 +12,6 @@ tags:
 - r
 - statistics
 - psychology
-- reproducibility
 format: 
    gfm:
       output-file: "index"
@@ -31,6 +30,7 @@ knitr::opts_chunk$set(
 	#results = 'hold',
 	out.width = "100%",
 	fig.align = 'center',
+  fig.id = TRUE,
 	comment = "",
 	fig.dim = c(10, 5.5),
    #dpi = 300,
@@ -557,7 +557,7 @@ As seen in both figures, the dots scatter around the lines quite randomly, which
 indicates that the model does recover the parameters. To have a clearer view of
 the estimates' accuracy, let me plot some more.
 
-```{r}
+```{r eff-est}
 # Set figure margins
 par(oma=c(0,0,0,0))  # outer margin
 par(mar=c(3, 4, 3, 1.6) )  # margin
@@ -567,7 +567,9 @@ est_eff = c(-item_eff, subj_eff)
 n_param = n_item + n_subj
 cols = c( rep(2, n_item), rep(4, n_subj) )
 
-plot( 1, type="n", ylim=c(-2.4, 2.4), xlim=c(1, n_param+1), ylab="Effect" )
+y_lim = max( abs(c(true_eff, est_eff)) )
+y_lim = c( -y_lim-.1, y_lim+.1 )
+plot( 1, type="n", ylim=y_lim, xlim=c(1, n_param+1), ylab="Effect" )
 abline( h=0, lty="dashed", col="grey" )
 abline( v=n_item+0.5, col="grey")
 points( true_eff, pch=19, col=cols )

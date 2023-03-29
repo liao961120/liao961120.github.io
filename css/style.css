@@ -26,7 +26,7 @@ body {
 }
 
 /* Inline code style */
-p code, li code {
+p > code, li > code {
     font-size: 0.85em;
     background-color: var(--inline-code-skin);
     padding: 0.15em 0.28em;
@@ -34,7 +34,6 @@ p code, li code {
 }
 
 /* Main */
-
 .main {
     display: flex;
     width: 80%;
@@ -416,7 +415,7 @@ pre {
     font-size: 0.86em;
     color: rgb(33, 33, 33);
     overflow-x: auto;
-    max-height: 500px;
+    max-height: 580px;
     overflow-y: auto;
     border-left: 3px solid rgba(43, 21, 1, 0.8);
 }
@@ -496,7 +495,7 @@ footer .copyright {
 	/* background: rgb(100, 209, 171); */
 	border: 2px solid var(--header-background-darker);
 	padding: .35em 2%;
-    margin: 0;
+    margin: 2.8em 0 0 0;
 	border-radius: 0.3em;
 	width: 96%;
 }
@@ -582,6 +581,6 @@ footer .copyright {
 /* ToolTip */
 .tippy-box {
     /* font-size: 18px; */
-    max-width: 45ch !important;
-    padding: .0em .9em;
+    /* max-width: 45ch !important; */
+    /* padding: .0em .8em; */
 }

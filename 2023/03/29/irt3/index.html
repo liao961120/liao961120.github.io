@@ -1,0 +1,434 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="About Learning"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css><title>Demystifying Item Response Theory (3/4) |
+Yongfu's Blog</title></head><body><div class=header><div class=header_title><span class=logo><!doctype html><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="346pt" height="346pt" viewBox="0 0 346 346"><g transform="translate(0.000000,346.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1484 3328c8-40 19-53 84-94 36-24 52-40 50-52-2-10-12-16-23-15-173 21-208 16-293-38-17-12-66-30-108-40-117-29-354-149-354-178 0-5 20-6 45-3 28 3 45 1 45-6 0-6-32-32-70-57-98-65-105-78-90-162 7-38 20-88 30-113 21-50 17-65-33-117-23-25-32-46-38-93-7-49-17-70-50-112-39-50-41-55-33-98 4-25 8-95 8-156 1-104 3-113 29-151 15-22 41-52 58-67 16-14 29-33 29-41 0-33 71-189 122-267 30-46 82-113 116-149 56-60 60-67 47-85-27-39-155-291-155-305 1-8 45-43 99-79l97-64-7-47c-4-25-22-73-40-104-33-59-38-93-31-205 2-43-13-179-23-202-4-10-10-16-14-14-16 10-39-21-34-47 5-23 9-26 32-20 41 12 94 9 98-4 7-21-131-17-152 3-12 13-19 14-30 4-8-7-15-19-15-26 0-12 68-14 405-14 263 0 405 3 405 10 0 6-83 10-230 10h-230l-11 27c-7 20-6 28 3 35 24 15 136 8 272-17 167-31 201-31 351 0 123 25 190 30 283 18 47-5 53-8 50-27-3-21-8-21-235-24-198-2-233-5-233-17 0-13 54-15 409-15 406 0 409 0 404 20-7 27-43 48-43 25 0-22-34-19-56 6-15 17-16 22-4 29 9 6 17 5 22-3 4-6 10-8 14-4s-1 16-11 27c-14 16-21 18-28 8-6-9-7-8-3 5 3 10 0 20-9 23-7 3-11 12-8 20s0 21-7 29c-20 24-30 87-17 103 6 8 11 44 11 82-1 53-8 82-32 136-28 60-58 163-50 168 2 1 41 19 88 40s89 42 94 46c17 17-80 244-135 314l-20 25-44-30c-48-32-188-1e2-245-118-19-6-83-27-142-46-116-39-236-53-303-37-39 10-38 10 27 11 37 1 102 7 145 13l78 13-140 6c-209 10-363 60-526 169-192 130-358 370-403 587l-7 31 78 7c43 3 90 8 104 11l26 5 17-148c11-91 23-157 33-172 15-24 16-24 147-18 203 9 528 54 544 75 11 13 13 54 10 179-4 165-3 173 33 173 5 0 9-30 9-67 0-87 18-240 30-263 16-29 99-34 392-23 222 8 270 12 292 26l26 17v160 160h28c16 0 63 3 104 6l75 7 7-42c6-40 3-47-49-122-31-43-51-79-45-79s37 13 69 30c64 32 73 47 87 140 9 63 36 112 84 152 45 39 49 52 20 68-11 6-38 35-61 66-39 51-42 60-50 144-5 49-15 106-24 126-14 35-14 39 4 58 27 29 35 69 21 110-8 26-24 42-63 64-58 33-81 55-95 93-15 37 17 103 63 130 19 12 35 25 35 30 0 17-68 9-147-16-42-13-79-22-81-20-12 11 33 56 80 82l52 28-34 3c-22 2-52-6-92-27-32-17-65-31-73-31-25 0-108 46-155 85-57 48-142 85-192 85-46 0-57 5-163 76-81 54-192 94-262 94-21 0-54 15-99 45-36 25-69 45-72 45-2 0-2-14 2-32zm-143-641c-13-16-43-98-38-104 2-2 20 11 40 29s56 44 79 56l43 24-48-48c-31-30-64-79-94-138l-45-91 59 61c45 48 84 75 178 124 66 34 130 70 143 79 32 23 183 11 261-21 50-20 72-23 204-23 143 0 149 1 166 23l17 24 19-44c23-51 167-203 279-295 48-39 81-73 82-86 2-12 12-62 22-112 11-49 18-91 17-93-4-4-199 50-208 58-4 4-9 45-11 91l-3 84-83-1c-82-1-83-1-112 32-42 48-124 84-191 84-49 0-66-7-186-76-90-52-130-81-127-90 4-10-2-14-19-14-24 0-24-2-27-92-3-87-4-93-25-96-20-3-22 2-28 75-3 43-8 83-10 90-3 9-79 10-307 6-167-3-334-8-373-12-80-7-75 2-61-121l7-66-93-38c-51-21-99-41-107-44-12-4-13 5-8 49 4 30 14 76 23 102 14 42 23 51 68 74 30 15 88 63 142 117 70 71 106 118 162 212 58 1e2 82 130 134 172 65 53 78 62 59 39zm897-336c20-10 48-30 61-44l23-25-43-7c-71-9-389-41-389-39 0 7 120 94 155 112 53 28 142 29 193 3zm216-399c4-152 4-285 1-294-4-9-14-19-23-23s-143-9-298-12c-248-5-281-4-287 10-7 18-24 241-31 413l-6 122 113 12c61 6 184 20 272 30 88 9 181 18 206 19l46 1 7-278zm-810 171c16-80 37-505 26-516-17-16-580-71-593-58-5 5-10 28-13 52-2 31-1 37 4 19 5-16 17-26 32-28 23-4 421 34 469 44 13 3 21 7 18 10-2 3-114-7-247-21-134-14-247-22-251-18-10 11-53 448-45 468 5 13 42 15 265 15 181 0 262 3 267 11s-65 10-260 7c-217-3-268-6-280-18-12-13-13-33-1-150 8-74 14-151 13-170-1-40-23 141-34 277l-7 93 169 3c93 1 235 4 316 5l146 2 6-27zm-587-455c-2-13-4-3-4 22s2 35 4 23c2-13 2-33 0-45zM975 191c3-5 1-12-5-16-5-3-10 1-10 9 0 18 6 21 15 7zm210-59c-9-9-25 19-24 43 0 16 2 15 15-8 9-16 13-32 9-35zm-55 9c0-11-4-9-14 4-8 11-12 24-9 28 7 11 23-12 23-32zm1108 17c-2-6-10-14-16-16-7-2-10 2-6 12 7 18 28 22 22 4zm44-10c-7-7-12-8-12-2 0 14 12 26 19 19 2-3-1-11-7-17zm83 2c4-6-5-10-20-10s-24 4-20 10c3 6 12 10 20 10s17-4 20-10z"/><path d="M1260 2374c-42-23-1e2-75-1e2-89 0-4 16 7 35 24 56 49 95 65 155 65 66 0 115-23 214-1e2 71-57 90-63 121-40 16 12 6 20-116 90-131 74-137 76-199 75-49 0-76-7-110-25z"/><path d="M2070 2158c-102-11-189-25-195-30-7-7 2-9 30-4 104 16 474 48 489 43 15-6 16-32 14-244l-3-238-247-3c-141-1-248-6-248-11 0-9 469-4 498 5 10 3 12 58 10 251l-3 248-80 2c-44 0-163-8-265-19z"/><path d="M1969 1961c-62-62-20-171 66-171 27 0 44 8 66 29 62 62 20 171-66 171-27 0-44-8-66-29z"/><path d="M1414 1940c-60-24-73-112-25-161 39-38 87-39 130-3 26 22 31 33 31 71 0 77-65 122-136 93z"/><path d="M1512 1343c2-10 32-33 67-52 91-48 176-54 255-18 52 24 77 49 62 64-3 3-29-6-57-21-76-42-149-39-243 8-81 41-89 43-84 19z"/><path d="M933 693c15-2 39-2 55 0 15 2 2 4-28 4s-43-2-27-4z"/><path d="M2388 673c6-2 18-2 25 0 6 3 1 5-13 5s-19-2-12-5z"/><path d="M870 155c-6-8-10-19-8-24 1-6 8 1 15 14 13 28 11 31-7 10z"/><path d="M2546 157c3-10 9-15 12-12s0 11-7 18c-10 9-11 8-5-6z"/></g></svg></span><span>Yongfu's Blog</span></div><div class=site_nav><span class=nav_link><a href=/>Home</a></span>
+<span class=nav_link><a href=/post/>Posts</a></span>
+<span class=nav_link><a href=/about/>About</a></span>
+<span class=nav_link><a href=/feed.xml>Subscribe</a></span></div></div><div class=main><article class=post><div class=article_header><div class=titles><h1>Demystifying Item Response Theory (3/4)</h1><p class=subtitle>Improving Estimation through Partial Pooling</p></div><div class=meta><div class=tags><a href="/post/?tag=r">r</a>
+<a href="/post/?tag=statistics">statistics</a>
+<a href="/post/?tag=psychology">psychology</a></div><div class=date><span class=inline-icon><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" class="svg-inline--fa fa-calendar-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="rgb(95, 95, 95)" d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg></span><span class=str>Mar 29, 2023</span></div></div></div><div class=article_content><h2 id=fixed-random-and-mixed>Fixed, Random and Mixed</h2><p>Statistics is confusing enough through its massive terminology.
+Psychology, which is largely experiment-oriented, further confuses
+people by adding its own flavor. A peek at the definitions of
+<a href=https://dictionary.apa.org/fixed-effect>fixed</a>,
+<a href=https://dictionary.apa.org/random-effect>random</a>, and
+<a href=https://dictionary.apa.org/mixed-effects-model>mixed</a> effects in the
+<a href=https://dictionary.apa.org>APA Dictionary of Psychology</a> exemplifies
+this:</p><blockquote><p>[A mixed-effect model is] any statistical procedure or experimental
+design that uses one or more independent variables whose levels are
+<strong>specifically selected by the researcher</strong> (fixed effects; e.g.,
+gender) and one or more additional independent variables whose levels
+are <strong>chosen randomly</strong> from a wide range of possible values (random
+effects; e.g., age).</p><p>—Definition of “mixed-effect model” in the APA Dictionary of
+Psychology</p></blockquote><p>The definitions for random and fixed effects above are not only
+confusing but also misleading. In principle, whether a categorical
+variable is “fixed” or “random” has nothing to do with the nature of the
+variable (e.g., <em>gender</em> does not have to be fixed or random) or how the
+levels within a variable are selected (randomly drawn or chosen by
+researchers). Whether a variable is modeled as fixed or random is a
+decision to be made by the modeler. And the modeler should <strong>always
+model variables as random</strong> if there are no justifiable prohibitive
+reasons. Let me explain.</p><h2 id=multilevel-instead-of-mixed>Multilevel Instead of Mixed</h2><p>A better way to understand fixed and random effects is to think
+<strong>hierarchically</strong>. The levels of a random-effect variable are treated
+as <strong>related</strong> by the model, meaning that the effect of each level is
+estimated by also considering information from other levels in the
+variable. This is known as <strong>partial pooling</strong>, and it has several
+desirable properties. On the other hand, the levels within a
+fixed-effect variable are treated as independent: during parameter
+estimation, the model considers only information within each level. This
+is the <strong>no-pooling</strong> case. So how does the model incorporate
+information from the other levels during estimation in the
+partial-pooling case? To explain this, let me start with the no-pooling
+case.</p><p>As an example, suppose we have a categorical variable with $n$ levels.
+Our goal is to obtain an estimate for each of these levels (and the
+variability in the estimates), labeled as
+$\alpha_1, \alpha_2, &mldr;, \alpha_n$. To provide some context, we can
+think of the categorical variable here as <em>nationality</em>, and for each
+nation (a level), we want to estimate the average height (the parameter)
+of its citizens. When we are <strong>not pooling information across the
+levels</strong>, the structure of the data-generating process assumed by the
+statistical model is shown in the figure below. Here, the model assumes
+that there is a parameter associated with each level that generates the
+observations. However, the parameters here are assumed to be
+independent. Therefore, the model utilizes only the observations under
+each level to estimate its parameter. What has been learned about a
+nation is uninformative about another nation for the <strong>no-pooling</strong>
+model.</p><figure><img src=tree0.png style=width:70% alt="Levels within a categorical variable estimated independently."><figcaption aria-hidden=true>Levels within a categorical variable
+estimated independently.</figcaption></figure><p>But there actually is some information, right? Take the perspective of
+an alien, for instance. Knowing the average height of the Americans, say
+5′9″, provides quite much information about the heights of the
+Japanese—they are unlikely to be 60 feet or 6 inches, agree? This is why
+we prefer to partial pool. Partial pooling allows the sharing of
+information across different levels, which, as elucidated below, leads
+to several desirable properties.</p><p>When we want to incorporate—or partial pool—information from other
+levels during estimation, we can utilize models that assume a
+hierarchical structure on the levels within a variable. Such a
+hierarchical structure is exemplified in the figure below. This
+hierarchical structure assumes that all levels, or more precisely all
+parameters underlying the levels, come from a common distribution. Here,
+this common distribution is assumed to be a normal distribution with
+mean $\mu$ and variance $\sigma^2$. The mean and the variance are to be
+estimated from the data. When this structure is imposed, the
+observations under different levels will be naturally linked since now,
+the observations under every level all provide information for
+estimating the common distribution.</p><figure><img src=tree1.png style=width:70% alt="Levels within a categorical variable estimated by incorporating information from all levels. This is achieved through assuming all levels to come from a common distribution."><figcaption aria-hidden=true>Levels within a categorical variable
+estimated by incorporating information from all levels. This is achieved
+through assuming all levels to come from a common
+distribution.</figcaption></figure><p>What can be gained from partial pooling information across levels? As
+mentioned above, when we partial-pool, the information of the
+observations across all levels is shared. This means that the model
+considers <strong>more information</strong> for estimating the parameter of each
+level. As a direct result of this, the model uses the data
+(observations) more efficiently by squeezing out more information.
+Secondly, it reduces overfitting and thus provides better
+(out-of-sample) estimation. The model is less likely to overfit because
+it is more “objective” by considering information across different
+levels. Overfitting occurs when data are scarce, which is the case in
+the no-pooling case since only data within each level are considered. In
+such cases, the model bases the estimations on fewer observations and
+hence tends to be overly sensitive to idiosyncratic patterns in the
+local data. Another great thing about partial pooling is that it
+automatically adjusts according to the sample sizes under each level.
+For levels with fewer observations (e.g, North Korea, in which the alien
+managed to collect only heights from three of its citizens), the model
+places more weight on the overall information provided by other levels,
+resulting in larger adjustments of the levels’ estimates. For levels
+with abundant data, their estimates are only slightly affected by the
+observations from other levels.</p><p>Partial pooling essentially arises from the hierarchical structure
+assumed in the models. Therefore, these models are known as
+<strong>hierarchical</strong> or <strong>multilevel</strong> models. <strong>Mixed (effect)</strong> models are
+another common label for these models, though, as explained above, the
+name is quite uninformative. To understand how these models work, it is
+better to start with their hierarchical structuring. I will use the term
+<strong>multilevel models</strong> from now on to save ourselves from confusion. This
+name is also nice in that it coincides in abbreviation with the mixed
+model—both of them are abbreviated as GLMM for Generalized Linear
+Multilevel/Mixed Models.</p><h2 id=back-to-irt>Back to IRT</h2><p>Now, we are acquainted with the concept of partial pooling and
+multilevel models, let’s apply them to the IRT context to improve our
+previous model, which is fitted without partial pooling across levels.
+To warm up, let me rephrase the structure of the simulated IRT dataset
+in terms of the multilevel terminologies.</p><p>There are two variables at work here—the item variable and the person
+(or subject) variable. Within the item variable, there are several
+items. In other words, each item acts as a level within the item
+variable. Similarly, each person corresponds to a level within the
+person variable. For each item, we want to estimate a parameter, the
+item’s difficulty. Likewise, for each person, we also want to estimate a
+parameter, the person’s ability. To improve our model in estimating the
+item/person parameters, we can partial pool information across the
+levels <strong>within</strong> the item and/or the person variable.</p><p>The chunk below copies the data simulation code from the previous post,
+with two minor changes. The first is the renaming of the variables for
+the item and subject ID as <code>Iid</code> (originally <code>I</code>) and <code>Sid</code> (originally
+<code>S</code>). The second is that, instead of item difficulty (<code>D</code> in the
+previous post), we conceptualize the effect of items as <strong>easiness</strong>
+(<code>E</code>) here. Item easiness is simply the negative of item difficulty.
+This simple switch would allow us to skip the step of reversing the item
+effects’ signs returned by the regression model.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>logistic <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>(x) <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>exp</span>(<span style=color:#f92672>-</span>x))
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>logit <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p ) <span style=color:#a6e22e>log</span>( p<span style=color:#f92672>/</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>p) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>rbern <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p, n<span style=color:#f92672>=</span><span style=color:#a6e22e>length</span>(p) ) <span style=color:#a6e22e>rbinom</span>( n<span style=color:#f92672>=</span>n, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>p )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>12</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>n_item <span style=color:#f92672>=</span> <span style=color:#ae81ff>30</span>    <span style=color:#75715e># number of items</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>n_subj <span style=color:#f92672>=</span> <span style=color:#ae81ff>60</span>    <span style=color:#75715e># number of subjects</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>n_resp <span style=color:#f92672>=</span> n_item <span style=color:#f92672>*</span> n_subj
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>n_param <span style=color:#f92672>=</span> n_item <span style=color:#f92672>+</span> n_subj
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>A <span style=color:#f92672>=</span> <span style=color:#a6e22e>rnorm</span>( n_subj )  <span style=color:#75715e># Person ability</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>E <span style=color:#f92672>=</span> <span style=color:#a6e22e>seq</span>( <span style=color:#ae81ff>-1.6</span>, <span style=color:#ae81ff>1</span>, length<span style=color:#f92672>=</span>n_item )  <span style=color:#75715e># Item easiness</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#75715e># The data</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>d <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand.grid</span>( Sid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_subj, Iid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_item, KEEP.OUT.ATTRS <span style=color:#f92672>=</span> F )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>d<span style=color:#f92672>$</span>mu <span style=color:#f92672>=</span> A[d<span style=color:#f92672>$</span>Sid] <span style=color:#f92672>+</span> E[d<span style=color:#f92672>$</span>Iid]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>d<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( <span style=color:#a6e22e>logistic</span>( d<span style=color:#f92672>$</span>mu ) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>d<span style=color:#f92672>$</span>Sid <span style=color:#f92672>=</span> <span style=color:#a6e22e>factor</span>(d<span style=color:#f92672>$</span>Sid)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span>d<span style=color:#f92672>$</span>Iid <span style=color:#f92672>=</span> <span style=color:#a6e22e>factor</span>(d<span style=color:#f92672>$</span>Iid)
+</span></span></code></pre></div><h3 id=unpooled-model>Unpooled Model</h3><p>With the data prepared, let’s refit model
+<a href=/2023/03/06/irt2/#coding-models-the-easy-route><code>m1.2</code></a> from the
+previous post. Later, I will fit another model that partial pools the
+subject variable (<code>m2</code>) and compare it to the unpooled model here
+(<code>m1</code>).</p><p>The code below for fitting <code>m1</code> is identical to those in the previous
+post, except that I adopt another method (starting from line 5) to
+reconstruct the dropped estimate (forced by the sum-to-zero constraint).
+This change is necessary, as it also allows us to reconstruct the
+standard errors of the dropped estimate. We will need the standard
+errors later to quantify the <em>uncertainty</em> in the estimates, which are
+used for comparing the unpooled and partial-pooled models. In addition,
+the method adopted here is more principled and general, which further
+consolidates our understanding of contrasts and dummy coding. However,
+it takes up some space for the explanation since a little matrix algebra
+is involved. I thus leave the details in the <a href=#matrix-algebra>box</a> at
+the end of the post.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>d1 <span style=color:#f92672>=</span> d
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>contrasts</span>(d1<span style=color:#f92672>$</span>Sid) <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>( n_subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>m1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glm</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>-1</span> <span style=color:#f92672>+</span> Iid <span style=color:#f92672>+</span> Sid, data<span style=color:#f92672>=</span>d1, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#34;logit&#34;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e># Construct contrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>Cmat <span style=color:#f92672>=</span> <span style=color:#a6e22e>diag</span>(<span style=color:#ae81ff>0</span>, nrow<span style=color:#f92672>=</span>n_item<span style=color:#f92672>+</span>n_subj)[, <span style=color:#ae81ff>-1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span><span style=color:#a6e22e>diag</span>(Cmat)[1<span style=color:#f92672>:</span>n_item] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>idxS <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_subj <span style=color:#f92672>+</span> n_item
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>Cmat[idxS, idxS[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(idxS)]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>( n_subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#75715e># Reconstruct estimates with the constrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>m1_eff <span style=color:#f92672>=</span> (Cmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>coef</span>(m1))[, <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#75715e># Reconstruct std. error of the estimates with the constrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>Vmat <span style=color:#f92672>=</span> Cmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>vcov</span>(m1) <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>t</span>(Cmat) 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>m1_se <span style=color:#f92672>=</span> <span style=color:#a6e22e>sqrt</span>(<span style=color:#a6e22e>diag</span>(Vmat))
+</span></span></code></pre></div><h3 id=partial-pooled-model>Partial-pooled Model</h3><p>To fit the partial-pooled model, <code>glmer()</code> from the <code>lme4</code> package is
+used.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>library</span>(lme4)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>m2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glmer</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>-1</span> <span style=color:#f92672>+</span> Iid <span style=color:#f92672>+</span> (<span style=color:#ae81ff>1</span><span style=color:#f92672>|</span>Sid), data<span style=color:#f92672>=</span>d, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#39;logit&#39;</span>) )
+</span></span></code></pre></div><p><code>lme4</code> provides a syntax for expressing multilevel models of different
+structures. For our model here, which is one of the simplest multilevel
+models (known as the varying intercept models), we express the partial
+pooling of persons with the syntax <code>(1|Sid)</code>, as shown in the last term
+of the model formula. When such a partial pooling structure is
+specified, <code>glmer()</code> automatically imposes a constraint of <strong>zero-meaned
+normal distribution</strong> on the partial-pooled variable. In the case here,
+this means that the ability of each person is modeled as being drawn
+from a normal distribution with a mean of zero and an unknown standard
+deviation to be estimated from the data. This constraint on the
+distribution of the person ability naturally resolves the identification
+issue of the IRT model. Hence, there is no need to impose an additional
+sum-to-zero constraint as we did in <code>m1</code>. We are only partial-pooling
+the person variable here, so except for <code>(1|Sid)</code>, everything else in
+<code>glmer()</code> is identical to those in <code>m1</code>.</p><p>After fitting the model, the estimates from <code>m2</code> can be obtained with
+the code below. Unpooled and partial-pooled estimates are extracted
+differently in <code>lme4</code>. To extract the unpooled estimates, one uses the
+<code>fixef()</code> function. These unpooled estimates, along with their standard
+errors and other information, are also found in the model summary table
+returned by <code>summary()</code>. The partial-pooled estimates, however, are not
+found in the table. To extract them, we need the <code>ranef()</code> function as
+shown below.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m2_eff.item <span style=color:#f92672>=</span> <span style=color:#a6e22e>fixef</span>(m2)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>m2_eff.subj <span style=color:#f92672>=</span> <span style=color:#a6e22e>ranef</span>(m2)<span style=color:#f92672>$</span>Sid[, <span style=color:#ae81ff>1</span>]
+</span></span></code></pre></div><p>In addition to the estimates, we would also like to retrieve their
+standard errors. Similar to the estimates, the standard errors of the
+estimates are extracted differently according to whether they are
+unpooled (fixed) or partial-pooled (random). We can utilize <code>se.fixef()</code>
+and <code>se.ranef()</code> from the <code>arm</code> package to extract these standard
+errors:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m2_se.item <span style=color:#f92672>=</span> arm<span style=color:#f92672>::</span><span style=color:#a6e22e>se.fixef</span>(m2)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>m2_se.subj <span style=color:#f92672>=</span> arm<span style=color:#f92672>::</span><span style=color:#a6e22e>se.ranef</span>(m2)<span style=color:#f92672>$</span>Sid[, <span style=color:#ae81ff>1</span>]
+</span></span></code></pre></div><p>Finally, to compare the estimates of <code>m1</code> and <code>m2</code>, I plot them together
+in the same figure. I also plot the uncertainty—calculated as
+$\pm 2 \times Standard~error$—around each estimate. Estimates and
+uncertainties from <code>m1</code> are plotted as blue, whereas those from <code>m2</code> are
+plotted as pink. The true effects for generating the simulated data are
+plotted as solid black points.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># Concatenate item &amp; subj effect/std to match m1_eff/m1_se</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>m2_eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( m2_eff.item, m2_eff.subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>m2_se <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( m2_se.item, m2_se.subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e>#&#39; Function stolen from `rethinking::col.alpha()`</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>col.alpha <span style=color:#f92672>=</span> <span style=color:#a6e22e>function </span>(acol, alpha <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.5</span>) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>  acol <span style=color:#f92672>=</span> <span style=color:#a6e22e>col2rgb</span>(acol)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>  acol <span style=color:#f92672>=</span> <span style=color:#a6e22e>rgb</span>(acol[1]<span style=color:#f92672>/</span><span style=color:#ae81ff>255</span>, acol[2]<span style=color:#f92672>/</span><span style=color:#ae81ff>255</span>, acol[3]<span style=color:#f92672>/</span><span style=color:#ae81ff>255</span>, alpha)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>  acol
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#75715e># Plot for comparing `m1` &amp; `m2`</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, ylim <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-4.8</span>, <span style=color:#ae81ff>4.8</span>), xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, n_subj<span style=color:#f92672>+</span>n_item <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> ), 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>      ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Effect&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Item Index&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#a6e22e>abline</span>( v<span style=color:#f92672>=</span>n_item <span style=color:#f92672>+</span> <span style=color:#ae81ff>.5</span>, lty<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span><span style=color:#a6e22e>segments</span>( <span style=color:#ae81ff>-5</span>, <span style=color:#a6e22e>mean</span>(m2_eff.item), n_item<span style=color:#ae81ff>+.5</span>, lty<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#a6e22e>segments</span>( n_item<span style=color:#ae81ff>+.5</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1000</span>, lty<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span><span style=color:#a6e22e>points</span>( <span style=color:#a6e22e>c</span>(E, A), pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span><span style=color:#75715e># Uncertainty bars</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#a6e22e>seq_along</span>(m2_se)) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21</span><span>  <span style=color:#a6e22e>lines</span>( <span style=color:#a6e22e>c</span>(i,i), m1_eff[i] <span style=color:#f92672>+</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-2</span>,<span style=color:#ae81ff>2</span>)<span style=color:#f92672>*</span>m1_se[i], col<span style=color:#f92672>=</span><span style=color:#a6e22e>col.alpha</span>(<span style=color:#ae81ff>4</span>), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>6</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22</span><span>  <span style=color:#a6e22e>lines</span>( <span style=color:#a6e22e>c</span>(i,i), m2_eff[i] <span style=color:#f92672>+</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-2</span>,<span style=color:#ae81ff>2</span>)<span style=color:#f92672>*</span>m2_se[i], col<span style=color:#f92672>=</span><span style=color:#a6e22e>col.alpha</span>(<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>.7</span>), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24</span><span><span style=color:#a6e22e>points</span>( m1_eff, col<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25</span><span><span style=color:#a6e22e>points</span>( m2_eff, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span></code></pre></div><p><img src=part3_files/figure-commonmark/unnamed-chunk-6-1.svg style=width:100% data-fig-align=center></p><h3 id=shrinkage>Shrinkage</h3><p>Some of the benefits of partial pooling <a href=#multilevel-instead-of-mixed>discussed
+earlier</a> are visualized in the comparison
+plot above. The most drastic changes from the unpooled to the
+partial-pooled model are seen in the ability estimates, which are
+exactly the levels that get partially pooled. Two things to notice here.
+First, there is less uncertainty in the partial-pooled estimates than in
+the unpooled ones (pink bars tend to be shorter than their blue
+counterparts). This follows naturally because, through partial pooling,
+the model has access to more information (hence less uncertainty) for
+each level. Secondly, the partial-pooled estimates tend to get “pulled”
+towards the center (i.e., the grand mean of the subject estimates). In
+addition, more extreme estimates are further pulled toward the center.
+Essentially, this means that the model behaves in a way that is robust
+against observations that result in extreme estimates. This is known as
+<strong>shrinkage</strong> and is also a feature that naturally arises from partial
+pooling.</p><p>From the figure, we can see that partial pooling improves the estimation
+of the person abilities, as most pink circles are found to be much
+closer to the solid black dots (true effects) than the blue ones. For
+item easiness, which are not partial-pooled, the estimates also improve
+slightly. This results from the improvement in estimating abilities.
+Since ability and easiness are jointly estimated by the model, the
+improvement from ability estimation carries on to easiness estimation.
+Given the large improvement in ability estimates, one might consider
+also pooling the items. Indeed, there is no reason to not pool.
+<strong>Partial pooling should be the default</strong>.</p><h3 id=partial-pool-items-and-subjects>Partial Pool Items and Subjects</h3><p>To specify the partial pooling of items in the model, we again utilize
+the “bar” syntax: <code>(1|Iid)</code>. This allows <code>glmer()</code> to also model the
+items as coming from a normal distribution with zero mean and unknown
+variance. Now, since both the items and the subjects are centered at
+zeros, an additional step is needed to reconstruct the zero-centered
+item estimates back to their original locations<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. This is why the
+model formula in <code>m2.2</code> uses <code>1</code> instead of <code>-1</code>. By specifying <code>1</code>,
+<code>glmer()</code> estimates an independent global intercept. In the case here,
+this intercept is identical to the amount subtracted from the item
+effects for centering. Hence, to reconstruct the original non-centered
+item estimates, we add the global intercept back to the item estimates,
+as shown in line 4 in the code below.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m2.2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glmer</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> (<span style=color:#ae81ff>1</span><span style=color:#f92672>|</span>Iid) <span style=color:#f92672>+</span> (<span style=color:#ae81ff>1</span><span style=color:#f92672>|</span>Sid), data<span style=color:#f92672>=</span>d, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#39;logit&#39;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>m2.2_eff.subj <span style=color:#f92672>=</span> <span style=color:#a6e22e>ranef</span>(m2.2)<span style=color:#f92672>$</span>Sid[, <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>m2.2_eff.item <span style=color:#f92672>=</span> <span style=color:#a6e22e>ranef</span>(m2.2)<span style=color:#f92672>$</span>Iid[, <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> <span style=color:#a6e22e>fixef</span>(m2.2)[[<span style=color:#e6db74>&#34;(Intercept)&#34;</span>]]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>m2.2_eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( m2.2_eff.item, m2.2_eff.subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>m2.2_se <span style=color:#f92672>=</span> arm<span style=color:#f92672>::</span><span style=color:#a6e22e>se.ranef</span>( m2.2 )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>m2.2_se <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( m2.2_se<span style=color:#f92672>$</span>Iid, m2.2_se<span style=color:#f92672>$</span>Sid )
+</span></span></code></pre></div><p>You can compare <code>m2.2</code> to <code>m2</code> by plotting their estimates with the
+plotting code previously shown and see that <code>m2.2</code> further improves the
+estimation (though not large). In the psychometric/measurement
+literature, partial pooling both item and person is uncommon. But as
+seen in our simulate-and-fit approach, partial pooling results in better
+estimation. This approach also refutes the unjustified belief that
+“<em>fixed</em> effects should be used when the levels are <strong>specifically
+selected by the researcher</strong>”. In our simulation, values of the item
+easiness are specifically “picked out”. They are deliberately set to be
+equally-spaced values. And still, we saw that modeling the item effects
+as <em>random</em> is not only benign but even improves estimation. This is
+true in general, and you can change the values of the item easiness in
+the simulation to see that partial pooling mostly, if not always, gives
+better estimates.</p><h2 id=whats-next>What’s next</h2><p>So far, we have been dealing with item response models with dichotomous
+item responses. That is, a response can only be either correct (<code>1</code>) or
+wrong (<code>0</code>). In the next post, we move on to item response models for
+rating data. These models are extremely useful since rating scales are
+common in the social sciences. The models also allow us to model the
+so-called “rater effect”, which quantifies the leniency of the raters.
+By incorporating such rater effects, the model corrects for potential
+biases introduced by subjective ratings, thereby giving more accurate
+person and item estimates.</p><div id=matrix-algebra class=Box title="Reconstructing dropped levels with the contrast matrix"><p>Don’t be intimidated by matrix algebra. It’s simply arithmetics in a
+fancy manner, and it looks scary only because it does many things at
+once. With some patience, you will be able to break down and understand
+the steps involved.</p><h4 id=reconstructing-dropped-estimate>Reconstructing Dropped Estimate</h4><p>Let’s first see how the contrast matrix reconstructs the dropped
+estimate from the sum-to-zero constrained model. I’ll start with a toy
+example with only three subjects, $S_1, S_2, S_3$. The contrast matrix
+for imposing a sum-to-zero constraint on the subjects is shown below.
+Recall that the sum-to-zero constraint is coded through the dropping of
+the last subject, $S_3$ (hence two columns left in the contrast matrix),
+and implicit coding of $S_3$’s information into $S_1$ and $S_2$ by the
+<code>-1</code>s on the third row. Given this coding, the effect of $S_3$ can be
+reconstructed from the effects of $S_1$ and $S_2$ by taking the negative
+of their sum. This can be done through the code
+<code>c(subj_eff.m1.2, -sum(subj_eff.m1.2) )</code> from the previous post.</p><table><thead><tr><th style=text-align:center></th><th style=text-align:center>$S_1$</th><th style=text-align:center>$S_2$</th></tr></thead><tbody><tr><td style=text-align:center>$S_1$</td><td style=text-align:center>1</td><td style=text-align:center>0</td></tr><tr><td style=text-align:center>$S_2$</td><td style=text-align:center>0</td><td style=text-align:center>1</td></tr><tr><td style=text-align:center>$S_3$</td><td style=text-align:center>-1</td><td style=text-align:center>-1</td></tr></tbody></table><p>The same thing can be done through <strong>matrix multiplication</strong>. Simply
+take the above 3-by-2 contrast matrix and multiply the 2-by-1 column
+vector of the estimated effects for $S_1$ and $S_2$, which I abbreviate
+as $E_1$ and $E_2$ here. The last entry of the resulting column vector
+would then give what we want.</p><p>$$
+\begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+-1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+E_1 \\
+E_2
+\end{bmatrix} =
+\begin{bmatrix}
+E_1 \\
+E_2 \\
+-E_1 - E_2
+\end{bmatrix}
+$$</p><p>Here’s the R code version of the above matrix multiplication:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>Cmat <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>(<span style=color:#ae81ff>3</span>)  <span style=color:#75715e># Contrast matrix coding sum-to-zero constraint</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>eff <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( E1<span style=color:#f92672>=</span><span style=color:#ae81ff>1.5</span>, E2<span style=color:#f92672>=</span><span style=color:#ae81ff>1.7</span> )  <span style=color:#75715e># Made-up effect of S1 and S2</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>Cmat <span style=color:#f92672>%*%</span> eff
+</span></span></code></pre></div><pre><code>  [,1]
+1  1.5
+2  1.7
+3 -3.2
+</code></pre><h4 id=reconstructing-standard-error-of-dropped-estimate>Reconstructing Standard Error of Dropped Estimate</h4><p>The contrast matrix can similarly be applied to reconstruct the variance
+( hence the standard error) of the dropped subject’s estimate. The
+reconstruction is based on the <strong>variance sum law</strong>,
+$Var(X+Y) = Var(X) + Var(Y) + 2~Cov(X,Y)$, which has a natural
+generalization through matrix notations. Hence, given the variance of
+the estimates for $S_1$ and $S_2$ and their covariance, we will be able
+to reconstruct the variance of $E_3$ as</p><p>$$
+\begin{equation}
+Var(E_3) = Var(E_1) + Var(E_2) + 2~Cov(E_1,E_2) \tag{1}
+\end{equation}
+$$</p><p>The variances and covariances of the estimates are given by the
+(variance-)covariance matrix of the fitted model. The formula below
+shows the matrix generalization to the variance sum law. Note that
+through the matrix generalization, we also get the reconstructed
+covariances, as shown in the off-diagonal entries in the reconstructed
+covariance matrix (the right-most matrix). The variance of $E_1$, $E_2$,
+and $E_3$ are found on the diagonal. The standard errors of the
+estimates are then obtained by taking the square roots of these diagonal
+entries.</p><img src=Cov.svg style=width:95%><p>In R, the same calculation is done with the code below.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>Cmat <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>(<span style=color:#ae81ff>3</span>)  <span style=color:#75715e># Contrast matrix for coding sum-to-zero constraint</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#75715e># Made-up variances-covariances matrix of the estimates</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>Vmat <span style=color:#f92672>=</span> <span style=color:#a6e22e>matrix</span>(<span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0.3</span>, <span style=color:#ae81ff>-0.01</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>                 <span style=color:#ae81ff>0.0</span>,  <span style=color:#ae81ff>0.4</span>  ), 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>              byrow<span style=color:#f92672>=</span>T, nrow<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>Cmat <span style=color:#f92672>%*%</span> Vmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>t</span>(Cmat)  <span style=color:#75715e># Reconstructed variance-covariance matrix</span>
+</span></span></code></pre></div><pre><code>     1     2     3
+1  0.3 -0.01 -0.29
+2  0.0  0.40 -0.40
+3 -0.3 -0.39  0.69
+</code></pre><h4 id=back-to-the-code>Back to the Code</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>d1 <span style=color:#f92672>=</span> d
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>contrasts</span>(d1<span style=color:#f92672>$</span>Sid) <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>( n_subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>m1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>glm</span>( R <span style=color:#f92672>~</span> <span style=color:#ae81ff>-1</span> <span style=color:#f92672>+</span> Iid <span style=color:#f92672>+</span> Sid, data<span style=color:#f92672>=</span>d1, family<span style=color:#f92672>=</span><span style=color:#a6e22e>binomial</span>(<span style=color:#e6db74>&#34;logit&#34;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e># Construct contrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>Cmat <span style=color:#f92672>=</span> <span style=color:#a6e22e>diag</span>(<span style=color:#ae81ff>0</span>, nrow<span style=color:#f92672>=</span>n_item<span style=color:#f92672>+</span>n_subj)[, <span style=color:#ae81ff>-1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span><span style=color:#a6e22e>diag</span>(Cmat)[1<span style=color:#f92672>:</span>n_item] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>idxS <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_subj <span style=color:#f92672>+</span> n_item
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>Cmat[idxS, idxS[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(idxS)]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>( n_subj )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#75715e># Reconstruct estimates with the constrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>m1_eff <span style=color:#f92672>=</span> (Cmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>coef</span>(m1))[, <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#75715e># Reconstruct std. error of the estimates with the constrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>Vmat <span style=color:#f92672>=</span> Cmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>vcov</span>(m1) <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>t</span>(Cmat) 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>m1_se <span style=color:#f92672>=</span> <span style=color:#a6e22e>sqrt</span>(<span style=color:#a6e22e>diag</span>(Vmat))
+</span></span></code></pre></div><p>Once familiar with the matrix algebra discussed, the above code for
+reconstructing the dropped subject’s effect should become
+self-explaining. The only complication here is that instead of using the
+contrast matrix of the subjects, a larger matrix encompassing the coding
+of <strong>all levels of both the item and the subject variables</strong> is used to
+match the covariance matrix given by the model (which also contains all
+levels from all variables). This large contrast matrix can be thought of
+as the concatenation of two contrast matrices along the diagonal, with
+the remaining off-diagonal entries filled in with zeros. To better
+explain this, let me go back to our previous example with three
+subjects.</p><p>To keep things simple, let’s assume additionally that there are only
+three items. Since in the model, the sum-to-zero constraint is only
+imposed on the subjects, the contrast matrix for the coding of items
+would be a 3-by-3 identity matrix. Concatenating the item and subject
+contrast matrices in the way mentioned above results in the matrix:</p><p><code>$$ \begin{bmatrix} \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}_{3 \times 3} & 0~~~~~ \\ 0 & \begin{bmatrix} 1 & 0 \\ 0 & 1 \\ -1 & -1 \end{bmatrix}_{3 \times 2} \end{bmatrix}_{6 \times 5} $$</code></p><p>In general, with $n_I$ items and $n_S$ subjects, this concatenated
+contrast matrix has the form:</p><p><code>$$ \begin{bmatrix} ~~\mathrm{I}_{n_I \times n_I}~~~ & 0 ~~~~~~~~~~~~~~ \\ \\ 0 & \begin{bmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & & 0 \\ \vdots & & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \\ -1 & -1 & \cdots & -1 \end{bmatrix}_{n_S \times (n_S - 1)} \end{bmatrix}_{ (n_I + n_S) \times (n_I + n_S - 1) } $$</code></p><p>This is what the second part of the above code (reproduced below) is
+doing. It first sets up the correct shape of this large contrast matrix
+according to the number of items and subjects. The trick here is to use
+the <code>diag()</code> function to initialize a square matrix of zeros and drop
+one of the columns to match the correct number of dimensions. Then, line
+3 of the code sets the upper-left portion of this matrix (the item
+sub-matrix) as an identity matrix by filling in the diagonal with ones.
+Finally, the lower-right portion of the matrix (the subject sub-matrix)
+is replaced with the subject contrast matrix constructed by the
+<code>contr.sum()</code> function.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Construct contrast matrix</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>Cmat <span style=color:#f92672>=</span> <span style=color:#a6e22e>diag</span>(<span style=color:#ae81ff>0</span>, nrow<span style=color:#f92672>=</span>n_item<span style=color:#f92672>+</span>n_subj)[, <span style=color:#ae81ff>-1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>diag</span>(Cmat)[1<span style=color:#f92672>:</span>n_item] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>idxS <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>n_subj <span style=color:#f92672>+</span> n_item
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>Cmat[idxS, idxS[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(idxS)]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>contr.sum</span>( n_subj )
+</span></span></code></pre></div><p>With the contrast matrix <code>Cmat</code> prepared, we can construct what we need
+through matrix algebra. The estimates for all levels, including the
+dropped one, are reconstructed by multiplying <code>Cmat</code> with the estimates
+returned by the model. This is illustrated in the line below. The
+estimates are given by <code>coef(m1)</code>, and the <code>[, 1]</code> at the end of the
+line forces the resulting one-column matrix into vector form.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m1_eff <span style=color:#f92672>=</span> ( Cmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>coef</span>(m1) )[, <span style=color:#ae81ff>1</span>]
+</span></span></code></pre></div><p>The full covariance matrix is similarly reconstructed through <code>Cmat</code> and
+the covariance matrix extracted from the model (<code>vcov(m1)</code>):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>Vmat <span style=color:#f92672>=</span> Cmat <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>vcov</span>(m1) <span style=color:#f92672>%*%</span> <span style=color:#a6e22e>t</span>(Cmat) 
+</span></span></code></pre></div><p>Since the final products we need are the standard errors, we extract the
+diagonal entries of <code>Vmat</code> and take the square root:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>m1_se <span style=color:#f92672>=</span> <span style=color:#a6e22e>sqrt</span>( <span style=color:#a6e22e>diag</span>(Vmat) )
+</span></span></code></pre></div></div><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>We don’t touch the subject estimates, though, since we assume them
+to be centered at zero in the simulation, remember?&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><br><br><br><script src=https://utteranc.es/client.js repo=liao961120/comments issue-term=title theme=github-light crossorigin=anonymous async></script><div class=next-prev><div><span>PREV</span>
+<a href=https://yongfu.name/2023/03/06/irt2/>Demystifying Item Response Theory (2/4)</a></div></div></article><aside class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></aside></div><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css><script>tocbot.init({tocSelector:".js-toc",contentSelector:".article_content",ignoreSelector:".Box h2, .Box h3, .Box h4, .Box h5, .Box h6",headingSelector:"h2, h3, h4",scrollSmooth:!1,hasInnerContainers:!0,collapseDepth:3})</script><style>ol.toc-list{list-style-type:none}aside{position:fixed;top:15%!important;right:2%}.next-prev{margin-top:2.5em;border-top:2px solid rgba(173,173,173,.548);display:flex;flex-wrap:wrap;justify-content:space-between}.next-prev>div{min-width:150px;width:43%}.next-prev>div>span{display:block;width:100%;color:grey;font-weight:600;letter-spacing:1.5px;padding-bottom:.3rem;margin-top:.4rem}.next-prev>div:nth-child(2){text-align:right}.next-prev>div>a{text-decoration:none;color:#000;font-weight:600}</style><footer><div class=social><span class=icon title="Send me an email"><a href=mailto:liao961120@gmail.com target=_blank><span class="social email"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V4e2c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5.0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg></span></a></span><span class=icon title="Follow me on Twitter"><a href=https://twitter.com/liao_yongfu target=_blank><span class="social twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a></span><span class=icon title="Follow me on Facebook"><a href=https://www.facebook.com/liao961120 target=_blank><span class="social facebook"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#fff" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43.0 225.36.0c-73.22.0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></span></a></span><span class=icon title="Follow me on GitHub"><a href=https://github.com/liao961120 target=_blank><span class="social github"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="#fff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a></span></div><p class=site_info><span class=copyright>© Yongfu's Blog 2017-2023</span></p><p class=theme_info>Powered by <a href=https://gohugo.io target=_blank>Hugo</a> & <a href=https://github.com/liao961120/TeXtLite target=_blank>TeXtLite Theme</a>.</p></footer><script src=//yihui.org/js/math-code.js defer></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1})})</script><div class=scrollBtn><span id=scrolltop onclick=window.scrollTo(0,0)>&#9650;</span>
+<span id=scrollbottom onclick=window.scrollTo(0,document.body.scrollHeight)>&#9660;</span></div><style>div.scrollBtn{display:flex;flex-wrap:wrap;width:1em;position:fixed;bottom:1.1%;right:.8%}#scrolltop,#scrollbottom{line-height:1;font-size:1.4rem;color:var(--link-transitiion-light)}#scrolltop:hover,#scrollbottom:hover{cursor:pointer;color:green;font-size:1.6rem}</style><script src=https://unpkg.com/@popperjs/core@2></script>
+<script src=https://unpkg.com/tippy.js@6></script>
+<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;tippy(e,{content:`<div style="max-height:55vh; 
+                                              overflow-y:auto">
+                                <div style="width:94%; margin: 0 3%;">
+                            ${document.getElementById(t.substring(1)).innerHTML}
+                            </div></div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"40ch"})}),document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e=>{const n=new URL(e.href).hash;var t=document.getElementById(n.substring(1));t.classList.contains("Box")&&tippy(e,{content:`<div style="
+                                            max-height:55vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:94%; margin: 0 3%;">${t.innerHTML}</div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"})})})</script></body></html>

@@ -30,4 +30,12 @@ Yongfu's Blog</title></head><body><div class=header><div class=header_title><spa
 <script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1})})</script><div class=scrollBtn><span id=scrolltop onclick=window.scrollTo(0,0)>&#9650;</span>
 <span id=scrollbottom onclick=window.scrollTo(0,document.body.scrollHeight)>&#9660;</span></div><style>div.scrollBtn{display:flex;flex-wrap:wrap;width:1em;position:fixed;bottom:1.1%;right:.8%}#scrolltop,#scrollbottom{line-height:1;font-size:1.4rem;color:var(--link-transitiion-light)}#scrolltop:hover,#scrollbottom:hover{cursor:pointer;color:green;font-size:1.6rem}</style><script src=https://unpkg.com/@popperjs/core@2></script>
 <script src=https://unpkg.com/tippy.js@6></script>
-<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;console.log(t),tippy(e,{content:document.getElementById(t.substring(1)).innerHTML,allowHTML:!0,theme:"light-border"})})})</script></body></html>
+<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;tippy(e,{content:`<div style="max-height:55vh; 
+                                              overflow-y:auto">
+                                <div style="width:94%; margin: 0 3%;">
+                            ${document.getElementById(t.substring(1)).innerHTML}
+                            </div></div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"40ch"})}),document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e=>{const n=new URL(e.href).hash;var t=document.getElementById(n.substring(1));t.classList.contains("Box")&&tippy(e,{content:`<div style="
+                                            max-height:55vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:94%; margin: 0 3%;">${t.innerHTML}</div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"})})})</script></body></html>
