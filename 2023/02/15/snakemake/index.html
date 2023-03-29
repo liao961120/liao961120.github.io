@@ -85,11 +85,11 @@ structure and arrived at the structure below:</p><div class=highlight><pre tabin
 <code>Snakefile</code>.</p></li><li><p><strong>Consistent relative paths</strong></p><p>Since <code>Snakefile</code> is now placed in the project root, the problem of
 different relative paths for different directives is resolved, as long as
 the user always invokes the command <code>snakemake -c</code> in the project root.</p></li></ol><p>The source code of this Snakemake workflow can be found
-<a href=https://github.com/liao961120/minimal-snake>here on GitHub</a>.</p><h2 id=some-notes-for-using-git-bash-as-shell>Some Notes for Using Git-Bash as Shell</h2><p>The experience of using Snakemake on Windows is great overall. I have run into a
+<a href=https://github.com/liao961120/minimal-snake>here on GitHub</a>.</p><h2 id=some-notes-for-using-git-bash-as-shell>Some Notes for Using Git-Bash as Shell</h2><p>The experience of using Snakemake on Windows is great overall. I ran into a
 few problems, but the problems were usually solvable. There is one particular
 problem that took me a while to solve. On Windows, the default shell executable
 used in Snakemake (and Python) is Cmd (or maybe Powershell). But since I am more
-familiar with Bash and Unix tools, it is a real inconvenience. I had setup
+familiar with Bash and Unix tools, it is a real inconvenience. I had set up
 Git-Bash on the company&rsquo;s Windows machine but then spent a long time figuring
 out how to set Git-Bash as the default shell in Snakemake. The information for
 Snakemake users on Windows is scarce. I guess Snakemake is just unpopular among

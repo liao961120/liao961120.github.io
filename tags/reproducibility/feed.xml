@@ -531,11 +531,11 @@ the user always invokes the command &lt;code>snakemake -c&lt;/code> in the proje
 &lt;p>The source code of this Snakemake workflow can be found
 &lt;a href="https://github.com/liao961120/minimal-snake">here on GitHub&lt;/a>.&lt;/p>
 &lt;h2 id="some-notes-for-using-git-bash-as-shell">Some Notes for Using Git-Bash as Shell&lt;/h2>
-&lt;p>The experience of using Snakemake on Windows is great overall. I have run into a
+&lt;p>The experience of using Snakemake on Windows is great overall. I ran into a
 few problems, but the problems were usually solvable. There is one particular
 problem that took me a while to solve. On Windows, the default shell executable
 used in Snakemake (and Python) is Cmd (or maybe Powershell). But since I am more
-familiar with Bash and Unix tools, it is a real inconvenience. I had setup
+familiar with Bash and Unix tools, it is a real inconvenience. I had set up
 Git-Bash on the company&amp;rsquo;s Windows machine but then spent a long time figuring
 out how to set Git-Bash as the default shell in Snakemake. The information for
 Snakemake users on Windows is scarce. I guess Snakemake is just unpopular among
