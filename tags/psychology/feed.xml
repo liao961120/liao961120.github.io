@@ -20,8 +20,8 @@ Psychology&lt;/p>
 &lt;p>The definitions for random and fixed effects above are not only
 confusing but also misleading. In principle, whether a categorical
 variable is “fixed” or “random” has nothing to do with the nature of the
-variable (e.g., &lt;em>gender&lt;/em> does not have to be fixed or random) or how the
-levels within a variable are selected (randomly drawn or chosen by
+variable (e.g., &lt;em>gender&lt;/em> doesn’t have to be fixed) or how the levels
+within a variable are selected (randomly drawn or chosen by
 researchers). Whether a variable is modeled as fixed or random is a
 decision to be made by the modeler. And the modeler should &lt;strong>always
 model variables as random&lt;/strong> if there are no justifiable prohibitive
