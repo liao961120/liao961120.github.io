@@ -13,46 +13,45 @@ introduction to IRT, which most students would be able to follow, but
 with some confusion. Curious students might bear with the confusion and
 expect it to resolve in the following text, only to find themselves
 disappointed. At the point where the underlying statistical model should
-be further elaborated, the text abruptly stops and tries to convince
+be further elaborated, the text abruptly stops and tries to convince the
 readers to trust the results from black-box IRT software packages.</p><p>It isn’t that I have trust issues with black-box software, and I also
-agree that it is impractical to understand all the details of model
-estimation in IRT. Doing so would be similar to coding an IRT program
-from scratch. The issue is that there is a huge gap here, between where
+agree that certain details of IRT model estimation should be hidden from
+the readers. The problem is that there’s a huge gap here, between where
 textbooks stopped explaining and where the confusing details of
-statistical models should be hidden. Hence, students would be tricked
-into believing that they have a <em>sufficient degree of understanding</em>,
-but in reality, it is just blind faith.</p><p>A sufficient degree of understanding should allow the student to deploy
-the learned skill to new situations. Therefore, a sufficient degree of
-understanding of IRT models, for instance, should allow students to
-extend and apply the models to analyses of <a href=https://en.wikipedia.org/wiki/Differential_item_functioning>differential item
-functioning
-(DIF)</a> and
+statistics should be hidden. Hence, students would be tricked into
+believing that they have a <em>sufficient degree of understanding</em>, but in
+reality, it’s just blind faith.</p><p>A sufficient degree of understanding should allow the student to deploy
+the learned skills to new situations. Therefore, a sufficient degree of
+understanding of IRT models should allow students to extend and apply
+the models to analyses of, for instance, <a href=https://en.wikipedia.org/wiki/Differential_item_functioning>differential item functioning
+(DIF)</a> or
 <strong>differential rater functioning (DRF)</strong>.</p><p>I’m arguing here that there is a basic granularity of understanding,
 somewhat similar to the concept of <a href=https://en.wikipedia.org/wiki/Basic_category>basic-level
 category</a>, that when
-reached, allows a student to smoothly adapt the learned skill to a wide
-variety of situations, modifying and extending the skill on demand. And
+reached, allows a student to smoothly adapt the learned skills to a wide
+variety of situations, modifying and extending the skills on demand. And
 I believe that item response theory is <em><strong>too hard</strong></em> for a student to
-learn and reach this basic level of understanding, due to its
+learn and reach this basic level of understanding, given its
 conventional presentation and historical development<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p><p>There is still hope however, thanks to the development of a very general
 set of statistical models known as the <a href=https://en.wikipedia.org/wiki/Generalized_linear_model>Generalized Linear Models
 (GLM)</a>. Item
 response models could be understood in terms of the GLM and its
 extensions
 (<a href=https://en.wikipedia.org/wiki/Generalized_linear_mixed_model>GLMM</a>
-and non-linear form of GLM/GLMM). To be too particular about the
-details, the results from IRT software packages and GLMs/GLMMs would be
-very close but not identical, since they utilize different estimation
-methods. The strengths of GLM, however, lie in its conceptual simplicity
-and extensibility. Through GLM, IRT and other models such as the T-test,
-ANOVA, and linear regression, are all placed together into the same
-conceptual framework. Furthermore, software packages implementing GLMs
-are widely available. Users can thus experiment with them—simulate a set
-of data based on known parameters, construct the model and feed it the
-data, and see if the fitted model correctly recovers the parameters.
-This technique of learning statistics is probably the only effective way
-for students to understand <em><strong>a mysterious statistical model</strong></em>.</p><p>In this series of posts, I will walk the readers through the path of
-understanding item response theory, with help from simulations and
+and non-linear form of the GLM/GLMM). To be too particular about the
+details, the results from IRT software packages and the GLMs/GLMMs would
+be very similar but not identical, since they utilize different
+estimation methods. The strengths of the GLM, however, lie in its
+conceptual simplicity and extensibility. Through GLM, IRT and other
+models such as the T-test, ANOVA, and linear regression, are all placed
+together into the same conceptual framework. Furthermore, software
+packages implementing GLMs are widely available. Users can thus
+experiment with them—simulate a set of data based on known parameters,
+construct the model and feed it the data, and see if the fitted model
+correctly recovers the parameters. This technique of learning statistics
+is probably the only effective way for students to understand <em><strong>a
+mysterious statistical model</strong></em>.</p><p>In this series of posts, I will walk you through the path of
+understanding item response theory, with the help of simulations and
 generalized linear models. No need to worry if you don’t know GLMs yet.
 We have another ally—<a href=https://www.r-project.org>R</a>, in which we will be
 simulating artificial data and fitting statistical models along the way.
@@ -63,34 +62,34 @@ resolve the issues at hand. In this very first post, I will start by
 teaching you <em><strong>simulations</strong></em>.</p><h2 id=just-enough-theory-to-get-started>Just Enough Theory to Get Started</h2><p>Jargons aside, the concept behind item response theory is fairly simple.
 Consider the case where 80 testees are taking a 20-item English
 proficiency test. Under this situation, what are the <em><strong>factors</strong></em> that
-influence whether an item is correctly answered by a testee?
+influence whether an item is correctly solved by a testee?
 Straightforward right? If an item is easy and if a testee is proficient
 in English, he/she would probably get the item correct. Here, <em><strong>two
-factors jointly influence the result</strong></em>:</p><ol><li>how difficult (or easy) an item is</li><li>the English ability of a testee</li></ol><p>We can express these variables and the relations between them in the
+factors jointly influence the result</strong></em>:</p><ol><li>how difficult (or easy) the item is</li><li>the English ability of the testee</li></ol><p>We can express these variables and the relations between them in the
 graphs below. Let’s focus on the left one first. Here, $A$ represents
 the <strong>ability</strong> of the testee, $D$ represents the <strong>difficulty</strong> of the
 item, and $R$ represents the <strong>item response</strong>, or <strong>score</strong> on the
-item. A response for an item is coded as <code>1</code> ($R=1$) if it is correctly
-answered. Otherwise, it is coded as <code>0</code> ($R=0$). The arrows $A$ → $R$
+item. A response for an item is coded as <code>1</code> ($R=1$) if it is solved
+correctly. Otherwise, it is coded as <code>0</code> ($R=0$). The arrows $A$ → $R$
 and $D$ → $R$ indicate the direction of influence. The arrows enter $R$
 since item difficulty and testee ability influence the score on the item
 (not the other way around). $A$ and $D$ are drawn as a circled node to
 indicate that they are <strong>unobserved</strong> (or <strong>latent</strong>, if you prefer a
 fancier term), whereas uncircled nodes represent directly observable
 variables (i.e., stuff that gets recorded during data collection). This
-graphical representation of the variable and their relationships is
+graphical representation of the variables and their relationships is
 known as a <a href=https://en.wikipedia.org/wiki/Directed_acyclic_graph>Directed Acyclic Graph
-(DAG)</a>.</p><div class="goat svg-container"><svg xmlns="http://www.w3.org/2000/svg" font-family="Menlo,Lucida Console,monospace" viewBox="0 0 352 137"><g transform="translate(8,16)"><path d="M272 16h32" fill="none" stroke="currentcolor"/><path d="M152 16V96" fill="none" stroke="currentcolor"/><path d="M24 80 40 48" fill="none" stroke="currentcolor"/><path d="M216 80l16-32" fill="none" stroke="currentcolor"/><path d="M72 48 88 80" fill="none" stroke="currentcolor"/><path d="M264 48l16 32" fill="none" stroke="currentcolor"/><polygon points="52.000000,48.000000 40.000000,42.400002 40.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 40.000000, 48.000000)"/><polygon points="84.000000,48.000000 72.000000,42.400002 72.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 72.000000, 48.000000)"/><path d="M232 48l8-16" fill="none" stroke="currentcolor"/><polygon points="250.000000,48.000000 238.000000,42.400002 238.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 232.000000, 48.000000)"/><path d="M256 32l8 16" fill="none" stroke="currentcolor"/><polygon points="282.000000,48.000000 270.000000,42.400002 270.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 264.000000, 48.000000)"/><polygon points="312.000000,16.000000 300.000000,10.400000 300.000000,21.600000" fill="currentcolor" transform="rotate(0.000000, 304.000000, 16.000000)"/><path d="M248 0A16 16 0 00232 16" fill="none" stroke="currentcolor"/><path d="M248 0a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M232 16a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M264 16A16 16 0 01248 32" fill="none" stroke="currentcolor"/><path d="M16 80A16 16 0 000 96" fill="none" stroke="currentcolor"/><path d="M16 80A16 16 0 0132 96" fill="none" stroke="currentcolor"/><path d="M96 80A16 16 0 0080 96" fill="none" stroke="currentcolor"/><path d="M96 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M208 80A16 16 0 00192 96" fill="none" stroke="currentcolor"/><path d="M208 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M288 80A16 16 0 00272 96" fill="none" stroke="currentcolor"/><path d="M288 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M0 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M32 96A16 16 0 0116 112" fill="none" stroke="currentcolor"/><path d="M80 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M112 96A16 16 0 0196 112" fill="none" stroke="currentcolor"/><path d="M192 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M224 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><path d="M272 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M304 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><text text-anchor="middle" x="16" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="56" y="20" fill="currentcolor" style="font-size:1em">R</text><text text-anchor="middle" x="96" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="208" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="248" y="20" fill="currentcolor" style="font-size:1em">P</text><text text-anchor="middle" x="288" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="328" y="20" fill="currentcolor" style="font-size:1em">R</text></g></svg></div><p>The DAGs laid out here represent the concept behind the simplest kinds
-of item response models, known as the <strong>1-parameter logistic (1PL)
-model</strong> (or Rasch Model). In more formal terms, this model posits that
-the <strong>probability</strong> of correctly answering an item is determined by the
+(DAG)</a>.</p><div class="goat svg-container"><svg xmlns="http://www.w3.org/2000/svg" font-family="Menlo,Lucida Console,monospace" viewBox="0 0 352 137"><g transform="translate(8,16)"><path d="M272 16h32" fill="none" stroke="currentcolor"/><path d="M152 16V96" fill="none" stroke="currentcolor"/><path d="M24 80 40 48" fill="none" stroke="currentcolor"/><path d="M216 80l16-32" fill="none" stroke="currentcolor"/><path d="M72 48 88 80" fill="none" stroke="currentcolor"/><path d="M264 48l16 32" fill="none" stroke="currentcolor"/><polygon points="52.000000,48.000000 40.000000,42.400002 40.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 40.000000, 48.000000)"/><polygon points="84.000000,48.000000 72.000000,42.400002 72.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 72.000000, 48.000000)"/><path d="M232 48l8-16" fill="none" stroke="currentcolor"/><polygon points="250.000000,48.000000 238.000000,42.400002 238.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 232.000000, 48.000000)"/><path d="M256 32l8 16" fill="none" stroke="currentcolor"/><polygon points="282.000000,48.000000 270.000000,42.400002 270.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 264.000000, 48.000000)"/><polygon points="312.000000,16.000000 300.000000,10.400000 300.000000,21.600000" fill="currentcolor" transform="rotate(0.000000, 304.000000, 16.000000)"/><path d="M248 0A16 16 0 00232 16" fill="none" stroke="currentcolor"/><path d="M248 0a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M232 16a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M264 16A16 16 0 01248 32" fill="none" stroke="currentcolor"/><path d="M16 80A16 16 0 000 96" fill="none" stroke="currentcolor"/><path d="M16 80A16 16 0 0132 96" fill="none" stroke="currentcolor"/><path d="M96 80A16 16 0 0080 96" fill="none" stroke="currentcolor"/><path d="M96 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M208 80A16 16 0 00192 96" fill="none" stroke="currentcolor"/><path d="M208 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M288 80A16 16 0 00272 96" fill="none" stroke="currentcolor"/><path d="M288 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M0 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M32 96A16 16 0 0116 112" fill="none" stroke="currentcolor"/><path d="M80 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M112 96A16 16 0 0196 112" fill="none" stroke="currentcolor"/><path d="M192 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M224 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><path d="M272 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M304 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><text text-anchor="middle" x="16" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="56" y="20" fill="currentcolor" style="font-size:1em">R</text><text text-anchor="middle" x="96" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="208" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="248" y="20" fill="currentcolor" style="font-size:1em">P</text><text text-anchor="middle" x="288" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="328" y="20" fill="currentcolor" style="font-size:1em">R</text></g></svg></div><p>The DAGs laid out here represent the concept behind the simplest kind of
+item response models, known as the <strong>1-parameter logistic (1PL) model</strong>
+(or the Rasch Model). In more formal terms, this model posits that the
+<strong>probability</strong> of correctly answering an item is determined by the
 <strong>difference</strong> between testee ability and item difficulty. So a more
 precise DAG representation for this model would be the one shown on the
 right above. Here, $P$ is the probability of correctly answering the
 item, which cannot be directly observed. However, $P$ directly
 influences the item score $R$, hence the arrow $P$ → $R$.</p><p>Believe it or not, the things we have learned so far could get us
-started. So let’s simulate some data, based on what we know about item
-response theory!</p><h2 id=simulating-item-responses>Simulating Item Responses</h2><figure><img src=tenet2.gif style=width:85% alt="Simulation is playing god in a small world. Similar to model fitting, but in reverse direction."><figcaption aria-hidden=true>Simulation is <em>playing god</em> in a
+started. So let’s simulate some data, based on what we’ve learned about
+item response theory!</p><h2 id=simulating-item-responses>Simulating Item Responses</h2><figure><img src=tenet2.gif style=width:85% alt="Simulation is playing god in a small world. Similar to model fitting, but in reverse direction."><figcaption aria-hidden=true>Simulation is <em>playing god</em> in a
 small world. Similar to model fitting, but in <em>reverse</em>
 direction.</figcaption></figure><p>Consider the scenario where 3 students (Rob, Tom, and Joe) took a math
 test with 2 items (A and B). Since we play gods during simulations, we
@@ -98,10 +97,10 @@ know the math ability of the students and the difficulty of the items.
 These ability/difficulty levels can range from positive to negative
 numbers, unbounded. Larger numbers indicate higher levels of
 difficulty/ability. In addition, the levels of difficulty and ability
-sit on a common scale, and hence could be directly compared. Also, each
-student answers every item, so we get responses from all 6 (3x2)
-combinations of students and items. Let’s code this in R. The function
-<code>expand.grid()</code> would pair up the 6 combinations for us.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>D <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( A<span style=color:#f92672>=</span><span style=color:#ae81ff>0.4</span>, B<span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span> )  <span style=color:#75715e># Difficulty of item</span>
+sit on a common scale and hence could be directly compared. Also, each
+student responds to every item, so we get responses from all 6 (3x2)
+combinations of students and items. Let’s code this in R below. The
+function <code>expand.grid()</code> would pair up the 6 combinations for us.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>D <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( A<span style=color:#f92672>=</span><span style=color:#ae81ff>0.4</span>, B<span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span> )  <span style=color:#75715e># Difficulty of item</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>A <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( R<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>, T<span style=color:#f92672>=</span><span style=color:#ae81ff>0.1</span>, J<span style=color:#f92672>=</span><span style=color:#ae81ff>-0.4</span> )  <span style=color:#75715e># Ability of student (R:Rob, T:Tom, J:Joe)</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>dat <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand.grid</span>( 
@@ -134,13 +133,13 @@ data frame.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;backgrou
 6 B     J      -0.4   0.1
 </code></pre><p>Now, we’ve got all the data needed for simulation, the only thing left
 is to precisely lay out the <strong>rules for generating the response data
-$R$</strong>—the scores (zeros and ones) on the items answered by the students.
+$R$</strong>—the scores (zeros and ones) on the items solved by the students.
 We are two steps away.</p><h3 id=generating-probabilities>Generating Probabilities</h3><p>When IRT is introduced in the previous section, I mention that the
-probability of success on an item is determined by the <strong>difference
-between testee ability and item difficulty</strong>. It is straightforward to
-get this difference: simply subtract $D$ from $A$ in the data. This
-would give us a new variable $\mu$. I save the values of $\mu$ to column
-<code>Mu</code> in the data frame.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>dat<span style=color:#f92672>$</span>Mu <span style=color:#f92672>=</span> dat<span style=color:#f92672>$</span>A <span style=color:#f92672>-</span> dat<span style=color:#f92672>$</span>D
+probability of successfully solving an item is determined by the
+<strong>difference between testee ability and item difficulty</strong>. It is
+straightforward to get this difference: simply subtract $D$ from $A$ in
+the data. This would give us a new variable $\mu$. I save the values of
+$\mu$ to column <code>Mu</code> in the data frame.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>dat<span style=color:#f92672>$</span>Mu <span style=color:#f92672>=</span> dat<span style=color:#f92672>$</span>A <span style=color:#f92672>-</span> dat<span style=color:#f92672>$</span>D
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>dat
 </span></span></code></pre></div><pre><code># A tibble: 6 × 5
   I     T         A     D    Mu
@@ -151,17 +150,17 @@ would give us a new variable $\mu$. I save the values of $\mu$ to column
 4 B     T       0.1   0.1   0  
 5 A     J      -0.4   0.4  -0.8
 6 B     J      -0.4   0.1  -0.5
-</code></pre><p>From the way $\mu$ is calculated ($A$ - $D$), we can infer that, for a
+</code></pre><p>From the way $\mu$ is calculated ($A$ - $D$), we can see that, for a
 particular observation, if $\mu$ is positive and large, the testee’s
 ability will be much greater than the item’s difficulty, and he would
 probably succeed on this item. On the other hand, if $\mu$ is negative
 and small, the item difficulty would be much greater in this case, and
-the testee would likely fail on this item. Hence, $\mu$ is directly
-related to probability, in that $\mu$ of large values result in high
-probabilities of success on the items, whereas $\mu$ of small values
-result in low probabilities of success. But how exactly is $\mu$ linked
-to probability? How could we map $\mu$ to probability in a principled
-manner? The solution is to take advantage of the <a href=https://en.wikipedia.org/wiki/Logistic_function>logistic
+the testee would likely fail on this item. Hence, $\mu$ should be
+directly related to probability, in that $\mu$ of large values result in
+high probabilities of success on the items, whereas $\mu$ of small
+values result in low probabilities of success. But how exactly is $\mu$
+linked to probability? How can we map $\mu$ to probability in a
+principled manner? The solution is to take advantage of the <a href=https://en.wikipedia.org/wiki/Logistic_function>logistic
 function</a>.</p><p>$$
 logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
 $$</p><p>The <em><strong>logistic</strong></em> is a function that maps a real number $x$ to a
@@ -191,8 +190,7 @@ function is introduced not because it is loaded with some crucial
 mathematical or statistical meaning. Instead, it is used here solely for
 a practical reason: to monotonically map real numbers to probabilities.
 You may well use another function here to achieve the same purpose
-(e.g., the <strong>cumulative distribution function</strong> for the normal
-distribution).</p><h3 id=generating-responses>Generating Responses</h3><p>We have gone all the way from ability/difficulty levels to the
+(e.g., the <strong>cumulative distribution function</strong> of the standard normal).</p><h3 id=generating-responses>Generating Responses</h3><p>We have gone all the way from ability/difficulty levels to the
 probabilities of success on the items. Since we cannot directly observe
 probabilities in the real world, the final step is to link these
 probabilities to observable outcomes. In the case here, the outcomes are
@@ -204,9 +202,9 @@ Bernoulli distribution is just a fancy way of describing this process.
 Assume that we record tails as <code>0</code>s and heads as <code>1</code>s, and suppose that
 the probability $p$ of observing a head equals 0.75 (since the coin is
 imbalanced in some way that the head is more likely observed and we know
-it somehow). Then the distribution of the outcomes (zero and one) is a
-Bernoulli distribution with parameter $P=0.75$. In graphical terms, the
-distribution is just two bars.</p><p><img src=part1_files/figure-commonmark/unnamed-chunk-5-1.svg style=width:100% data-fig-align=center></p><p>We’ve got all we need by now. Let’s construct the remaining columns to
+it somehow). Then, the distribution of the outcomes (zero and one) will
+be a Bernoulli distribution with parameter $P=0.75$. In graphical terms,
+the distribution is just two bars.</p><p><img src=part1_files/figure-commonmark/unnamed-chunk-5-1.svg style=width:100% data-fig-align=center></p><p>We’ve got all we need by now. Let’s construct the remaining columns to
 complete this simulation. In the code below, I compute the probabilities
 (<code>P</code>) from column <code>Mu</code>. Column <code>P</code> could then generate column <code>R</code>, the
 item responses, through the Bernoulli distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>rbern <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>( p, n<span style=color:#f92672>=</span><span style=color:#a6e22e>length</span>(p) ) 
@@ -262,7 +260,8 @@ closer to $0.5$.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;bac
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>mean</span>(outcomes)
 </span></span></code></pre></div><pre><code>[1] 0.4991
 </code></pre><p>A more general way to rerun a chunk of code is through the for loop or
-convenient wrappers such as the <code>replicate()</code> function.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>outcomes <span style=color:#f92672>=</span> <span style=color:#a6e22e>replicate</span>( n<span style=color:#f92672>=</span><span style=color:#ae81ff>1e4</span>, expr<span style=color:#f92672>=</span>{ <span style=color:#a6e22e>rbern</span>( p<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span> ) } )
+convenient wrappers such as the <code>replicate()</code> function. I demonstrate
+some of their uses below.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>outcomes <span style=color:#f92672>=</span> <span style=color:#a6e22e>replicate</span>( n<span style=color:#f92672>=</span><span style=color:#ae81ff>1e4</span>, expr<span style=color:#f92672>=</span>{ <span style=color:#a6e22e>rbern</span>( p<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span> ) } )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>mean</span>(outcomes)
 </span></span></code></pre></div><pre><code>[1] 0.5027
 </code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># See if several runs of rbern( p=0.5, n=1e4 ) give results around 0.5</span>
@@ -292,7 +291,7 @@ targets of interest are the unobserved item difficulty ($D$) and testee
 ability ($A$). In <a href=/irt2>Part 2</a>, we will work in reverse and fit
 statistical models on simulated data. We will see how the models
 discover the true $A$s and $D$s from the information of $R$, $I$, and
-$T$. See you there!</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>I mean, what the hack is <em>Joint/Conditional Maximum Likelihood
+$T$. See you there!</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>I mean, what the hack is <em>Joint and Conditional Maximum Likelihood
 Estimation</em>? These are methods developed in psychometrics and are
 hardly seen in other fields. Unless obsessed with psychometrics, I
 don’t think one would be able to understand these things.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><br><br><br><script src=https://utteranc.es/client.js repo=liao961120/comments issue-term=title theme=github-light crossorigin=anonymous async></script><div class=next-prev><div><span>PREV</span>

@@ -53,40 +53,39 @@ which most students would be able to follow, but with some confusion. Curious
 students might bear with the confusion and expect it to resolve in the following
 text, only to find themselves disappointed. At the point where the underlying
 statistical model should be further elaborated, the text abruptly stops and
-tries to convince readers to trust the results from black-box IRT software
+tries to convince the readers to trust the results from black-box IRT software
 packages.
 
 It isn't that I have trust issues with black-box software, and I also agree that
-it is impractical to understand all the details of model estimation in IRT.
-Doing so would be similar to coding an IRT program from scratch. The issue is
-that there is a huge gap here, between where textbooks stopped explaining and
-where the confusing details of statistical models should be hidden. Hence,
-students would be tricked into believing that they have a *sufficient degree of
-understanding*, but in reality, it is just blind faith. 
+certain details of IRT model estimation should be hidden from the readers. The
+problem is that there's a huge gap here, between where textbooks stopped
+explaining and where the confusing details of statistics should be hidden.
+Hence, students would be tricked into believing that they have a *sufficient
+degree of understanding*, but in reality, it's just blind faith. 
 
 A sufficient degree of understanding should allow the student to deploy the
-learned skill to new situations. Therefore, a sufficient degree of understanding
-of IRT models, for instance, should allow students to extend and apply the
-models to analyses of [differential item functioning (DIF)][DIF] and
+learned skills to new situations. Therefore, a sufficient degree of
+understanding of IRT models should allow students to extend and apply the models
+to analyses of, for instance, [differential item functioning (DIF)][DIF] or
 **differential rater functioning (DRF)**.
 
 I'm arguing here that there is a basic granularity of understanding, somewhat
 similar to the concept of [basic-level category][basic-level], that when
-reached, allows a student to smoothly adapt the learned skill to a wide variety
-of situations, modifying and extending the skill on demand. And I believe that
+reached, allows a student to smoothly adapt the learned skills to a wide variety
+of situations, modifying and extending the skills on demand. And I believe that
 item response theory is **_too hard_** for a student to learn and reach this
-basic level of understanding, due to its conventional presentation and
-historical development[^jml].
+basic level of understanding, given its conventional presentation and historical
+development[^jml].
 
 There is still hope however, thanks to the development of a very general set of
 statistical models known as the [Generalized Linear Models (GLM)][GLM]. Item
 response models could be understood in terms of the GLM and its extensions
-([GLMM][GLMM] and non-linear form of GLM/GLMM). To be too particular about the
-details, the results from IRT software packages and GLMs/GLMMs would be very
-close but not identical, since they utilize different estimation methods. The
-strengths of GLM, however, lie in its conceptual simplicity and extensibility.
-Through GLM, IRT and other models such as the T-test, ANOVA, and linear
-regression, are all placed together into the same conceptual framework.
+([GLMM][GLMM] and non-linear form of the GLM/GLMM). To be too particular about
+the details, the results from IRT software packages and the GLMs/GLMMs would be
+very similar but not identical, since they utilize different estimation methods.
+The strengths of the GLM, however, lie in its conceptual simplicity and
+extensibility. Through GLM, IRT and other models such as the T-test, ANOVA, and
+linear regression, are all placed together into the same conceptual framework.
 Furthermore, software packages implementing GLMs are widely available. Users can
 thus experiment with them---simulate a set of data based on known parameters,
 construct the model and feed it the data, and see if the fitted model correctly
@@ -94,15 +93,15 @@ recovers the parameters. This technique of learning statistics is probably the
 only effective way for students to understand **_a mysterious statistical
 model_**. 
 
-In this series of posts, I will walk the readers through the path of
-understanding item response theory, with help from simulations and generalized
-linear models. No need to worry if you don't know GLMs yet. We have another
-ally---[R][r], in which we will be simulating artificial data and fitting
-statistical models along the way. Although it might seem intimidating at first,
-coding simulations and models in fact provides scaffolding for learning. When
-feeling unsure or confused, you can always resort to these simulation-based
-experiments to resolve the issues at hand. In this very first post, I will start
-by teaching you **_simulations_**.
+In this series of posts, I will walk you through the path of understanding item
+response theory, with the help of simulations and generalized linear models. No
+need to worry if you don't know GLMs yet. We have another ally---[R][r], in
+which we will be simulating artificial data and fitting statistical models along
+the way. Although it might seem intimidating at first, coding simulations and
+models in fact provides scaffolding for learning. When feeling unsure or
+confused, you can always resort to these simulation-based experiments to resolve
+the issues at hand. In this very first post, I will start by teaching you
+**_simulations_**.
 
 
 Just Enough Theory to Get Started
@@ -111,25 +110,25 @@ Just Enough Theory to Get Started
 Jargons aside, the concept behind item response theory is fairly simple.
 Consider the case where 80 testees are taking a 20-item English proficiency
 test. Under this situation, what are the **_factors_** that influence whether an
-item is correctly answered by a testee? Straightforward right? If an item is
+item is correctly solved by a testee? Straightforward right? If an item is
 easy and if a testee is proficient in English, he/she would probably get
 the item correct. Here, **_two factors jointly influence the result_**: 
 
-1) how difficult (or easy) an item is
-2) the English ability of a testee
+1. how difficult (or easy) the item is
+2. the English ability of the testee
 
 We can express these variables and the relations between them in the graphs
 below. Let's focus on the left one first. Here, $A$ represents the
 **ability** of the testee, $D$ represents the **difficulty** of the item, and
 $R$ represents the **item response**, or **score** on the item. A response for
-an item is coded as `1` ($R=1$) if it is correctly answered. Otherwise, it is
+an item is coded as `1` ($R=1$) if it is solved correctly. Otherwise, it is
 coded as `0` ($R=0$). The arrows $A$ → $R$ and $D$ → $R$ indicate the direction
 of influence. The arrows enter $R$ since item difficulty and testee ability
 influence the score on the item (not the other way around). $A$ and $D$ are
 drawn as a circled node to indicate that they are **unobserved** (or **latent**,
 if you prefer a fancier term), whereas uncircled nodes represent directly
 observable variables (i.e., stuff that gets recorded during data collection).
-This graphical representation of the variable and their relationships is known
+This graphical representation of the variables and their relationships is known
 as a [Directed Acyclic Graph (DAG)][DAG].
 
 ```goat
@@ -143,8 +142,8 @@ as a [Directed Acyclic Graph (DAG)][DAG].
  '-'       '-'           '-'       '-'    
 ```
 
-The DAGs laid out here represent the concept behind the simplest kinds of item
-response models, known as the **1-parameter logistic (1PL) model** (or Rasch
+The DAGs laid out here represent the concept behind the simplest kind of item
+response models, known as the **1-parameter logistic (1PL) model** (or the Rasch
 Model). In more formal terms, this model posits that the **probability** of
 correctly answering an item is determined by the **difference** between testee
 ability and item difficulty. So a more precise DAG representation for this model
@@ -153,7 +152,8 @@ correctly answering the item, which cannot be directly observed. However, $P$
 directly influences the item score $R$, hence the arrow $P$ → $R$.
 
 Believe it or not, the things we have learned so far could get us started. So
-let's simulate some data, based on what we know about item response theory!
+let's simulate some data, based on what we've learned about item response
+theory!
 
 
 Simulating Item Responses
@@ -166,10 +166,11 @@ Consider the scenario where 3 students (Rob, Tom, and Joe) took a math test with
 ability of the students and the difficulty of the items. These
 ability/difficulty levels can range from positive to negative numbers,
 unbounded. Larger numbers indicate higher levels of difficulty/ability. In
-addition, the levels of difficulty and ability sit on a common scale, and hence
-could be directly compared. Also, each student answers every item, so we get
+addition, the levels of difficulty and ability sit on a common scale and hence
+could be directly compared. Also, each student responds to every item, so we get
 responses from all 6 (3x2) combinations of students and items. Let's code this
-in R. The function `expand.grid()` would pair up the 6 combinations for us.
+in R below. The function `expand.grid()` would pair up the 6 combinations for
+us.
 
 ```{r}
 D = c( A=0.4, B=0.1 )  # Difficulty of item
@@ -193,34 +194,33 @@ dat
 
 Now, we've got all the data needed for simulation, the only thing left is to
 precisely lay out the **rules for generating the response data $R$**---the
-scores (zeros and ones) on the items answered by the students. We are two steps
+scores (zeros and ones) on the items solved by the students. We are two steps
 away.
 
 
 ### Generating Probabilities
 
 When IRT is introduced in the previous section, I mention that the probability
-of success on an item is determined by the **difference between testee ability
-and item difficulty**. It is straightforward to get this difference: simply
-subtract $D$ from $A$ in the data. This would give us a new variable $\mu$. I
-save the values of $\mu$ to column `Mu` in the data frame.
+of successfully solving an item is determined by the **difference between testee
+ability and item difficulty**. It is straightforward to get this difference:
+simply subtract $D$ from $A$ in the data. This would give us a new variable
+$\mu$. I save the values of $\mu$ to column `Mu` in the data frame.
 
 ```{r}
 dat$Mu = dat$A - dat$D
 dat
 ```
 
-From the way $\mu$ is calculated ($A$ - $D$), we can infer that, for a
-particular observation, if $\mu$ is positive and large, the testee's ability
-will be much greater than the item's difficulty, and he would probably succeed
-on this item. On the other hand, if $\mu$ is negative and small, the item
-difficulty would be much greater in this case, and the testee would likely fail
-on this item. Hence, $\mu$ is directly related to probability, in that $\mu$ of
-large values result in high probabilities of success on the items, whereas $\mu$
-of small values result in low probabilities of success. But how exactly is $\mu$
-linked to probability? How could we map $\mu$ to probability in a principled
-manner? The solution is to take advantage of the [logistic
-function][fun-logistic].
+From the way $\mu$ is calculated ($A$ - $D$), we can see that, for a particular
+observation, if $\mu$ is positive and large, the testee's ability will be much
+greater than the item's difficulty, and he would probably succeed on this item.
+On the other hand, if $\mu$ is negative and small, the item difficulty would be
+much greater in this case, and the testee would likely fail on this item. Hence,
+$\mu$ should be directly related to probability, in that $\mu$ of large values
+result in high probabilities of success on the items, whereas $\mu$ of small
+values result in low probabilities of success. But how exactly is $\mu$ linked
+to probability? How can we map $\mu$ to probability in a principled manner?
+The solution is to take advantage of the [logistic function][fun-logistic].
 
 $$
 logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
@@ -260,8 +260,8 @@ search for such an interpretation. The logistic function is introduced not
 because it is loaded with some crucial mathematical or statistical meaning.
 Instead, it is used here solely for a practical reason: to monotonically map
 real numbers to probabilities. You may well use another function here to achieve
-the same purpose (e.g., the **cumulative distribution function** for the normal
-distribution).
+the same purpose (e.g., the **cumulative distribution function** of the standard
+normal).
 
 
 ### Generating Responses
@@ -277,9 +277,9 @@ Every time a coin is flipped, either a tail or a head is observed. The Bernoulli
 distribution is just a fancy way of describing this process. Assume that we
 record tails as `0`s and heads as `1`s, and suppose that the probability $p$ of
 observing a head equals 0.75 (since the coin is imbalanced in some way that the
-head is more likely observed and we know it somehow). Then the distribution of
-the outcomes (zero and one) is a Bernoulli distribution with parameter $P=0.75$.
-In graphical terms, the distribution is just two bars.
+head is more likely observed and we know it somehow). Then, the distribution of
+the outcomes (zero and one) will be a Bernoulli distribution with parameter
+$P=0.75$. In graphical terms, the distribution is just two bars.
 
 ```{r fig.dim=c(8.2, 4)}
 #| echo: false
@@ -363,7 +363,8 @@ mean(outcomes)
 ```
 
 A more general way to rerun a chunk of code is through the for loop or
-convenient wrappers such as the `replicate()` function.
+convenient wrappers such as the `replicate()` function. I demonstrate some of
+their uses below.
 
 ```{r}
 outcomes = replicate( n=1e4, expr={ rbern( p=0.5 ) } )
@@ -440,7 +441,7 @@ information of $R$, $I$, and $T$. See you there!
 [fun-logistic]: https://en.wikipedia.org/wiki/Logistic_function
 [large-num]: https://en.wikipedia.org/wiki/Law_of_large_numbers
 
-[^jml]: I mean, what the hack is *Joint/Conditional Maximum Likelihood
+[^jml]: I mean, what the hack is *Joint and Conditional Maximum Likelihood
     Estimation*? These are methods developed in psychometrics and are hardly
     seen in other fields. Unless obsessed with psychometrics, I don't think one
     would be able to understand these things.
