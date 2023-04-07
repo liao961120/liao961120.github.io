@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Psychology on Yongfu's Blog</title><link>https://yongfu.name/tags/psychology/</link><description>Recent content in Psychology on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/psychology/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (3/4)</title><link>https://yongfu.name/2023/03/29/irt3/</link><pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/29/irt3/</guid><description>&lt;h2 id="fixed-random-and-mixed">Fixed, Random and Mixed&lt;/h2>
 &lt;p>Statistics is confusing enough through its massive terminology.
 Psychology, which is largely experiment-oriented, further confuses
-people by adding its own flavor. A peek at the definitions of
+people by adding in its own flavor. A peek at the definitions of
 &lt;a href="https://dictionary.apa.org/fixed-effect">fixed&lt;/a>,
 &lt;a href="https://dictionary.apa.org/random-effect">random&lt;/a>, and
 &lt;a href="https://dictionary.apa.org/mixed-effects-model">mixed&lt;/a> effects in the
@@ -327,9 +327,9 @@ better estimates.&lt;/p>
 &lt;h2 id="whats-next">What’s next&lt;/h2>
 &lt;p>So far, we have been dealing with item response models with dichotomous
 item responses. That is, a response can only either be correct (&lt;code>1&lt;/code>) or
-wrong (&lt;code>0&lt;/code>). In the next post, we move on to item response models for
-rating data. These models are extremely useful since rating scales are
-common in the social sciences. The models also allow us to model the
+wrong (&lt;code>0&lt;/code>). In &lt;a href="https://yongfu.name/irt4">Part 4&lt;/a>, we move on to item response models for
+rating responses. These models are extremely useful since rating scales
+are common in the social sciences. The models also allow us to model the
 so-called “rater effect”, which quantifies the leniency of the raters.
 By incorporating such rater effects, the model corrects for potential
 biases introduced by subjective ratings, thereby giving more accurate
