@@ -1483,15 +1483,16 @@ graphs below. Let’s focus on the left one first. Here, $A$ represents
 the &lt;strong>ability&lt;/strong> of the testee, $D$ represents the &lt;strong>difficulty&lt;/strong> of the
 item, and $R$ represents the &lt;strong>item response&lt;/strong>, or &lt;strong>score&lt;/strong> on the
 item. A response for an item is coded as &lt;code>1&lt;/code> ($R=1$) if it is solved
-correctly. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A$ → $R$
-and $D$ → $R$ indicate the direction of influence. The arrows enter $R$
-since item difficulty and testee ability influence the score on the item
-(not the other way around). $A$ and $D$ are drawn as a circled node to
-indicate that they are &lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a
-fancier term), whereas uncircled nodes represent directly observable
-variables (i.e., stuff that gets recorded during data collection). This
-graphical representation of the variables and their relationships is
-known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
+correctly. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A$
+&lt;e2>&amp;lt;86&amp;gt;&amp;lt;92&amp;gt; $R$ and $D$ &lt;e2>&amp;lt;86&amp;gt;&amp;lt;92&amp;gt; $R$ indicate the direction
+of influence. The arrows enter $R$ since item difficulty and testee
+ability influence the score on the item (not the other way around). $A$
+and $D$ are drawn as a circled node to indicate that they are
+&lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a fancier term), whereas
+uncircled nodes represent directly observable variables (i.e., stuff
+that gets recorded during data collection). This graphical
+representation of the variables and their relationships is known as a
+&lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
 (DAG)&lt;/a>.&lt;/p>
 &lt;div class="goat svg-container ">
 &lt;svg
@@ -1551,7 +1552,7 @@ item response models, known as the &lt;strong>1-parameter logistic (1PL) model&l
 precise DAG representation for this model would be the one shown on the
 right above. Here, $P$ is the probability of correctly answering the
 item, which cannot be directly observed. However, $P$ directly
-influences the item score $R$, hence the arrow $P$ → $R$.&lt;/p>
+influences the item score $R$, hence the arrow $P$ &lt;e2>&amp;lt;86&amp;gt;&amp;lt;92&amp;gt; $R$.&lt;/p>
 &lt;p>Believe it or not, the things we have learned so far could get us
 started. So let’s simulate some data, based on what we’ve learned about
 item response theory!&lt;/p>
@@ -1581,7 +1582,7 @@ function &lt;code>expand.grid()&lt;/code> would pair up the 6 combinations for u
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span> T &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( &lt;span style="color:#e6db74">&amp;#34;R&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;T&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;J&amp;#34;&lt;/span> ) &lt;span style="color:#75715e"># Testee index&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 2
 I T
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;
 1 A R
@@ -1597,7 +1598,7 @@ data frame.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">=&lt;/span> A[ dat&lt;span style="color:#f92672">$&lt;/span>T ] &lt;span style="color:#75715e"># map ability to df by testee index T&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>D &lt;span style="color:#f92672">=&lt;/span> D[ dat&lt;span style="color:#f92672">$&lt;/span>I ] &lt;span style="color:#75715e"># map difficulty to df by item index I&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 4
 I T A D
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 A R 0.5 0.4
@@ -1620,7 +1621,7 @@ the data. This would give us a new variable $\mu$. I save the values of
 $\mu$ to column &lt;code>Mu&lt;/code> in the data frame.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>Mu &lt;span style="color:#f92672">=&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">-&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>D
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 5
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 5
 I T A D Mu
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 A R 0.5 0.4 0.1
@@ -1708,7 +1709,7 @@ item responses, through the Bernoulli distribution.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>P &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>Mu )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>R &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>P ) &lt;span style="color:#75715e"># Generate 0/1 from Bernoulli distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 7
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 7
 I T A D Mu P R
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
 1 A R 0.5 0.4 0.1 0.525 0

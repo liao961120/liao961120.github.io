@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 	fig.align = 'center',
 	comment = "",
 	fig.dim = c(10, 5.5),
-   dev='svg',
+   dev='svglite',
    dev.args = list(bg = "transparent"),
    NULL
 )
