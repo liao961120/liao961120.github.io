@@ -1080,7 +1080,7 @@ imprecision). You can play with the code below by changing the value of
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>p1 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities before shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>p2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A2[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D2[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities after shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sum&lt;/span>( &lt;span style="color:#a6e22e">abs&lt;/span>(p1 &lt;span style="color:#f92672">-&lt;/span> p2) ) &lt;span style="color:#75715e"># Should be extremely close to zero&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.456325e-14
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.445222e-14
 &lt;/code>&lt;/pre>
 &lt;p>The way R deals with this issue of identifiability is not preferable
 since we want to recover the parameters in our simulation (i.e., the set
@@ -1301,8 +1301,9 @@ subject and the item numbers flipped. The subject abilities are now
 estimated more accurately than the item difficulties. You can experiment
 with this to see how the estimation accuracy changes with different
 combinations of subject/item numbers. The functions &lt;code>sim_data()&lt;/code> and
-&lt;code>plot_estimate()&lt;/code> in &lt;a href="estimate-acc.R">&lt;code>estimate-acc.R&lt;/code>&lt;/a> can help you
-with this.&lt;/p>
+&lt;code>plot_estimate()&lt;/code> in
+&lt;a href="https://github.com/liao961120/stom/blob/main/inst/blog/irt/estimate-acc.R">&lt;code>estimate-acc.R&lt;/code>&lt;/a>
+can help you with this.&lt;/p>
 &lt;p>&lt;img src="part2_files/figure-commonmark/unnamed-chunk-11-1.svg"
 style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;h3 id="coding-models-the-easy-route">Coding models: the easy route&lt;/h3>

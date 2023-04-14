@@ -33,8 +33,8 @@ knitr::opts_chunk$set(
   fig.id = TRUE,
 	comment = "",
 	fig.dim = c(10, 5.5),
-   #dpi = 300,
-   dev='svglite',
+   # dpi = 285,
+   dev='svg',
    dev.args = list(bg = "transparent"),
    NULL
 )
@@ -595,11 +595,13 @@ numbers flipped. The subject abilities are now estimated more accurately than
 the item difficulties. You can experiment with this to see how the estimation
 accuracy changes with different combinations of subject/item numbers. The
 functions `sim_data()` and `plot_estimate()` in
-[`estimate-acc.R`](estimate-acc.R) can help you with this.
+[`estimate-acc.R`][script] can help you with this.
 
 ```{r echo=FALSE}
 source("estimate-acc.R", local = new.env())
 ```
+
+[script]: https://github.com/liao961120/stom/blob/main/inst/blog/irt/estimate-acc.R
 
 
 ### Coding models: the easy route
