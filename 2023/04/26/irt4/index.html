@@ -1,0 +1,521 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="About Learning"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css><title>Demystifying Item Response Theory (4/4) |
+Yongfu's Blog</title></head><body><div class=header><div class=header_title><span class=logo><!doctype html><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="346pt" height="346pt" viewBox="0 0 346 346"><g transform="translate(0.000000,346.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1484 3328c8-40 19-53 84-94 36-24 52-40 50-52-2-10-12-16-23-15-173 21-208 16-293-38-17-12-66-30-108-40-117-29-354-149-354-178 0-5 20-6 45-3 28 3 45 1 45-6 0-6-32-32-70-57-98-65-105-78-90-162 7-38 20-88 30-113 21-50 17-65-33-117-23-25-32-46-38-93-7-49-17-70-50-112-39-50-41-55-33-98 4-25 8-95 8-156 1-104 3-113 29-151 15-22 41-52 58-67 16-14 29-33 29-41 0-33 71-189 122-267 30-46 82-113 116-149 56-60 60-67 47-85-27-39-155-291-155-305 1-8 45-43 99-79l97-64-7-47c-4-25-22-73-40-104-33-59-38-93-31-205 2-43-13-179-23-202-4-10-10-16-14-14-16 10-39-21-34-47 5-23 9-26 32-20 41 12 94 9 98-4 7-21-131-17-152 3-12 13-19 14-30 4-8-7-15-19-15-26 0-12 68-14 405-14 263 0 405 3 405 10 0 6-83 10-230 10h-230l-11 27c-7 20-6 28 3 35 24 15 136 8 272-17 167-31 201-31 351 0 123 25 190 30 283 18 47-5 53-8 50-27-3-21-8-21-235-24-198-2-233-5-233-17 0-13 54-15 409-15 406 0 409 0 404 20-7 27-43 48-43 25 0-22-34-19-56 6-15 17-16 22-4 29 9 6 17 5 22-3 4-6 10-8 14-4s-1 16-11 27c-14 16-21 18-28 8-6-9-7-8-3 5 3 10 0 20-9 23-7 3-11 12-8 20s0 21-7 29c-20 24-30 87-17 103 6 8 11 44 11 82-1 53-8 82-32 136-28 60-58 163-50 168 2 1 41 19 88 40s89 42 94 46c17 17-80 244-135 314l-20 25-44-30c-48-32-188-1e2-245-118-19-6-83-27-142-46-116-39-236-53-303-37-39 10-38 10 27 11 37 1 102 7 145 13l78 13-140 6c-209 10-363 60-526 169-192 130-358 370-403 587l-7 31 78 7c43 3 90 8 104 11l26 5 17-148c11-91 23-157 33-172 15-24 16-24 147-18 203 9 528 54 544 75 11 13 13 54 10 179-4 165-3 173 33 173 5 0 9-30 9-67 0-87 18-240 30-263 16-29 99-34 392-23 222 8 270 12 292 26l26 17v160 160h28c16 0 63 3 104 6l75 7 7-42c6-40 3-47-49-122-31-43-51-79-45-79s37 13 69 30c64 32 73 47 87 140 9 63 36 112 84 152 45 39 49 52 20 68-11 6-38 35-61 66-39 51-42 60-50 144-5 49-15 106-24 126-14 35-14 39 4 58 27 29 35 69 21 110-8 26-24 42-63 64-58 33-81 55-95 93-15 37 17 103 63 130 19 12 35 25 35 30 0 17-68 9-147-16-42-13-79-22-81-20-12 11 33 56 80 82l52 28-34 3c-22 2-52-6-92-27-32-17-65-31-73-31-25 0-108 46-155 85-57 48-142 85-192 85-46 0-57 5-163 76-81 54-192 94-262 94-21 0-54 15-99 45-36 25-69 45-72 45-2 0-2-14 2-32zm-143-641c-13-16-43-98-38-104 2-2 20 11 40 29s56 44 79 56l43 24-48-48c-31-30-64-79-94-138l-45-91 59 61c45 48 84 75 178 124 66 34 130 70 143 79 32 23 183 11 261-21 50-20 72-23 204-23 143 0 149 1 166 23l17 24 19-44c23-51 167-203 279-295 48-39 81-73 82-86 2-12 12-62 22-112 11-49 18-91 17-93-4-4-199 50-208 58-4 4-9 45-11 91l-3 84-83-1c-82-1-83-1-112 32-42 48-124 84-191 84-49 0-66-7-186-76-90-52-130-81-127-90 4-10-2-14-19-14-24 0-24-2-27-92-3-87-4-93-25-96-20-3-22 2-28 75-3 43-8 83-10 90-3 9-79 10-307 6-167-3-334-8-373-12-80-7-75 2-61-121l7-66-93-38c-51-21-99-41-107-44-12-4-13 5-8 49 4 30 14 76 23 102 14 42 23 51 68 74 30 15 88 63 142 117 70 71 106 118 162 212 58 1e2 82 130 134 172 65 53 78 62 59 39zm897-336c20-10 48-30 61-44l23-25-43-7c-71-9-389-41-389-39 0 7 120 94 155 112 53 28 142 29 193 3zm216-399c4-152 4-285 1-294-4-9-14-19-23-23s-143-9-298-12c-248-5-281-4-287 10-7 18-24 241-31 413l-6 122 113 12c61 6 184 20 272 30 88 9 181 18 206 19l46 1 7-278zm-810 171c16-80 37-505 26-516-17-16-580-71-593-58-5 5-10 28-13 52-2 31-1 37 4 19 5-16 17-26 32-28 23-4 421 34 469 44 13 3 21 7 18 10-2 3-114-7-247-21-134-14-247-22-251-18-10 11-53 448-45 468 5 13 42 15 265 15 181 0 262 3 267 11s-65 10-260 7c-217-3-268-6-280-18-12-13-13-33-1-150 8-74 14-151 13-170-1-40-23 141-34 277l-7 93 169 3c93 1 235 4 316 5l146 2 6-27zm-587-455c-2-13-4-3-4 22s2 35 4 23c2-13 2-33 0-45zM975 191c3-5 1-12-5-16-5-3-10 1-10 9 0 18 6 21 15 7zm210-59c-9-9-25 19-24 43 0 16 2 15 15-8 9-16 13-32 9-35zm-55 9c0-11-4-9-14 4-8 11-12 24-9 28 7 11 23-12 23-32zm1108 17c-2-6-10-14-16-16-7-2-10 2-6 12 7 18 28 22 22 4zm44-10c-7-7-12-8-12-2 0 14 12 26 19 19 2-3-1-11-7-17zm83 2c4-6-5-10-20-10s-24 4-20 10c3 6 12 10 20 10s17-4 20-10z"/><path d="M1260 2374c-42-23-1e2-75-1e2-89 0-4 16 7 35 24 56 49 95 65 155 65 66 0 115-23 214-1e2 71-57 90-63 121-40 16 12 6 20-116 90-131 74-137 76-199 75-49 0-76-7-110-25z"/><path d="M2070 2158c-102-11-189-25-195-30-7-7 2-9 30-4 104 16 474 48 489 43 15-6 16-32 14-244l-3-238-247-3c-141-1-248-6-248-11 0-9 469-4 498 5 10 3 12 58 10 251l-3 248-80 2c-44 0-163-8-265-19z"/><path d="M1969 1961c-62-62-20-171 66-171 27 0 44 8 66 29 62 62 20 171-66 171-27 0-44-8-66-29z"/><path d="M1414 1940c-60-24-73-112-25-161 39-38 87-39 130-3 26 22 31 33 31 71 0 77-65 122-136 93z"/><path d="M1512 1343c2-10 32-33 67-52 91-48 176-54 255-18 52 24 77 49 62 64-3 3-29-6-57-21-76-42-149-39-243 8-81 41-89 43-84 19z"/><path d="M933 693c15-2 39-2 55 0 15 2 2 4-28 4s-43-2-27-4z"/><path d="M2388 673c6-2 18-2 25 0 6 3 1 5-13 5s-19-2-12-5z"/><path d="M870 155c-6-8-10-19-8-24 1-6 8 1 15 14 13 28 11 31-7 10z"/><path d="M2546 157c3-10 9-15 12-12s0 11-7 18c-10 9-11 8-5-6z"/></g></svg></span><span>Yongfu's Blog</span></div><div class=site_nav><span class=nav_link><a href=/>Home</a></span>
+<span class=nav_link><a href=/post/>Posts</a></span>
+<span class=nav_link><a href=/about/>About</a></span>
+<span class=nav_link><a href=/feed.xml>Subscribe</a></span></div></div><div class=main><article class=post><div class=article_header><div class=titles><h1>Demystifying Item Response Theory (4/4)</h1><p class=subtitle>Rating Scale Models and Ordered Logit Distributions</p></div><div class=meta><div class=tags><a href="/post/?tag=r">r</a>
+<a href="/post/?tag=statistics">statistics</a>
+<a href="/post/?tag=psychology">psychology</a></div><div class=date><span class=inline-icon><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" class="svg-inline--fa fa-calendar-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="rgb(95, 95, 95)" d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg></span><span class=str>Apr 26, 2023</span></div></div></div><div class=article_content><p>Rating scales require special treatments during data analyses. It is
+dangerous to treat the choices in a rating scale as simple numerical
+values. Nor is it satisfactory to treat them as discrete categories in
+which the internal ordering is thrown away. A rating scale is
+<strong>ordinal</strong> in nature, meaning that there is an inherent order among the
+choices within. This ordering is different from the ordering in
+numerical values such as counts and heights. In such cases, the
+differences between numerical values are directly comparable. For
+instance, a count of 5 differs from a count of 3 by a count of 2, and so
+is the difference between a count of 8 and 6. <strong>Ordinal variables</strong> are
+different. Take for example the subjective rating of happiness. It is
+probably easier to move from a rating of 2 to 3 than from a rating of 4
+to 5 on a five-point Likert scale, as many people prefer to reserve the
+boundary ratings (1 and 5) for extreme cases. Ratings like this are
+ubiquitous in the social sciences and particularly in psychology, where
+rating scales are deployed to measure unobserved latent psychological
+constructs.</p><p>In this post, the final one in the <em>demystifying IRT</em> series, I will
+walk you through the statistical machinery that deals with the rating
+scale. Things get a bit complicated in rating scales since the
+dimensionality increases, and it is always more challenging to think in
+higher dimensions. However, after peeling off the complexity introduced
+by the high dimensions, the underlying concept is quite straightforward.
+It is again a GLM, just with fancier machinery to map continuous latent
+quantities to a vector of probabilities. So don’t be scared off by the
+high dimensions. We just have to take one step at a time. Don’t worry if
+you run out of working memory. Shift the burden of holding everything in
+your brain to a piece of paper. Sketch what you need and proceed slowly.
+You will finally get there.</p><h2 id=wine-quality>Wine Quality</h2><p>Before moving on to the details of the statistical machinery behind the
+rating scale, let me first provide some context.</p><p>The examples presented in previous posts are classical situations where
+IRT is deployed and known for—a testing context. In such contexts, there
+are test items, testees, and possibly raters, but IRT is much more
+general than that. It is well applicable beyond the testing situation.
+Let us look at one such example, the <em>rating of wine quality</em>.</p><p>There are wines, good wines, premium wines, and judges in a wine
+competition. It is a simple twist of the item-testing scenario in which
+IRT is often applied. Again, two factors co-determine the rating scores
+of the wines here. First, it is the “inherent” property associated with
+each wine, the <em>wine quality</em>. High-quality wines should receive high
+ratings for the ratings to make sense at all. The second factor is the
+<em>leniency</em> of a judge in giving out the scores. A lenient judge tends to
+give higher ratings to the same wines as compared to stricter judges.
+These assumptions are illustrated in the DAG below. Here, $W$ and $J$
+represent the latent <strong>wine quality</strong> and <strong>judge leniency</strong>,
+respectively. $R$ stands for the rating scores. If you will, you could
+draw the analogy to the previous IRT context, where $W$ can be thought
+of as corresponding to the person ability and $J$ to the item easiness.
+The analogy isn’t exact though. It’s equally sensible to think in the
+other direction. There’s nothing wrong to think of $W$ as corresponding
+to item easiness and $J$ to person ability.</p><div class="goat svg-container"><svg xmlns="http://www.w3.org/2000/svg" font-family="Menlo,Lucida Console,monospace" viewBox="0 0 152 121"><g transform="translate(8,16)"><path d="M32 64 48 32" fill="none" stroke="currentcolor"/><path d="M80 32 96 64" fill="none" stroke="currentcolor"/><polygon points="60.000000,32.000000 48.000000,26.400000 48.000000,37.599998" fill="currentcolor" transform="rotate(300.000000, 48.000000, 32.000000)"/><polygon points="92.000000,32.000000 80.000000,26.400000 80.000000,37.599998" fill="currentcolor" transform="rotate(240.000000, 80.000000, 32.000000)"/><path d="M24 64A16 16 0 008 80" fill="none" stroke="currentcolor"/><path d="M24 64A16 16 0 0140 80" fill="none" stroke="currentcolor"/><path d="M104 64A16 16 0 0088 80" fill="none" stroke="currentcolor"/><path d="M104 64a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M8 80A16 16 0 0024 96" fill="none" stroke="currentcolor"/><path d="M40 80A16 16 0 0124 96" fill="none" stroke="currentcolor"/><path d="M88 80a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M120 80A16 16 0 01104 96" fill="none" stroke="currentcolor"/><text text-anchor="middle" x="24" y="84" fill="currentcolor" style="font-size:1em">W</text><text text-anchor="middle" x="64" y="4" fill="currentcolor" style="font-size:1em">R</text><text text-anchor="middle" x="104" y="84" fill="currentcolor" style="font-size:1em">J</text></g></svg></div><p>The only thing new is that instead of a binary response, $R$ can take
+more than two values. We need new machinery to map the aggregated
+influence from the two factors ($W$ and $J$), which is a latent score in
+the real space, to the outcome ordinal scale. Lower latent scores should
+give rise to lower ratings, and higher latent scores to higher ratings,
+in general. How could this be achieved? Let’s dive into the intricacy of
+the machinery.</p><h2 id=from-latent-to-rating>From Latent to Rating</h2><p>$$
+L ~~ \rightarrow ~~ P_{cum.}
+~~ \rightarrow ~~ \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix}
+~~ \rightarrow ~~ R \sim Categorical( \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix} )
+\tag{1}
+$$</p><p>The path along the mapping of the latent scores onto the rating-scale
+(ordinal) space is sketched above. The leftmost term $L$ stands for the
+latent score, which we have learned to deduce from the simulations in
+previous posts. It is also the starting point of this machinery for
+converting real-valued scores to ordinal ratings. Things get a bit
+complicated in the intermediate steps on the path. Therefore, indulge me
+with explaining the path in reverse. I will start with the rightmost
+term, which, as monstrous as it may seem, is probably the least
+challenging concept to be grasped here.</p><h3 id=random-category-generator>Random Category Generator</h3><p>The seemingly monstrous term represents the generation of a rating score
+($R$) from a <strong>categorical distribution</strong>. A categorical distribution
+takes <strong>a vector of $k$ probabilities</strong> as parameters. Each probability
+specifies the chance that a particular category (one of the $k$
+categories) gets drawn. In essence, a categorical distribution is simply
+a bar chart in disguise. Each bar specifies the probability that the
+category is sampled. In the example here, I set the number of categories
+to $k = 4$, hence the four probability terms $P_1,~P_2, P_3,~P_4$.</p><p>The code below plots a categorical distribution (bar chart) with 4
+categories. The first line of the code specifies the relative odds of
+producing the 4 categories: Category 2 and 3 are three times more likely
+to be drawn than Category 1 and 4. Since the probabilities of all
+categories must sum to one in a distribution, the second line of code
+normalizes this vector to the correct probability scale.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>( P <span style=color:#f92672>=</span> P <span style=color:#f92672>/</span> <span style=color:#a6e22e>sum</span>(P) )
+</span></span></code></pre></div><pre><code>[1] 0.125 0.375 0.375 0.125
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Category&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>      xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>.5</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i,i), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,P[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span></code></pre></div><p><img src=part4_files/figure-commonmark/unnamed-chunk-1-1.svg style=width:100% data-fig-align=center></p><p>Now, to sample from this distribution,
+$Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
+we simply use the <code>sample()</code> function:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>P )  <span style=color:#75715e># Sample one category from the distribution</span>
+</span></span></code></pre></div><pre><code>[1] 3
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Repeatedly sample from the distribution</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>s <span style=color:#f92672>=</span> <span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1e5</span>, replace<span style=color:#f92672>=</span>T, prob<span style=color:#f92672>=</span>P )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>( P2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>table</span>(s) <span style=color:#f92672>/</span> <span style=color:#a6e22e>length</span>(s) )
+</span></span></code></pre></div><pre><code>s
+      1       2       3       4 
+0.12516 0.37294 0.37684 0.12506 
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Empirical frequency distibution obtained through sampling</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Category&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>, 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>      xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>.5</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i,i), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,P2[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span></code></pre></div><p><img src=part4_files/figure-commonmark/unnamed-chunk-3-1.svg style=width:100% data-fig-align=center></p><p>After drawing a large sample from this distribution, we can see that the
+frequency distribution of the samples approaches the original
+distribution.</p><p>Back to the wine rating scenario. The categories in this context are the
+available rating scores. Since I adopted the example of four categories,
+in the rating-scale context, it would correspond to a 4-point Likert
+scale in which <code>1</code>, <code>2</code>, <code>3</code>, and <code>4</code> are the four categories. One
+crucial part is missing though. The categorical distribution is
+order-agnostic: it knows nothing about the order of the categories it
+generates. What it does is faithfully produce categories according to
+the given probabilities. So, where does the order come from? It’s from
+the relation between rating probabilities and the latent scores.</p><h3 id=enforcing-order-to-categories>Enforcing Order to Categories</h3><p>When a higher latent score tends to give rise to a higher rating, an
+order is automatically enforced on the categorical ratings (<code>1</code>, <code>2</code>,
+<code>3</code>, and <code>4</code>). But how is this done? Recall the analogous situation of
+the binary regression in the previous posts. Back then, the link between
+the responses (<code>0</code>/<code>1</code>) and the latent scores is established through the
+<strong>probability</strong>: a higher latent score results in a higher probability
+of generating <code>1</code>. Thus, in general, higher latent scores tend to
+produce <code>1</code>s. A similar strategy can be deployed here: we bridge the
+responses and the latent scores through probabilities. The crucial
+difference is that we now get multiple, instead of one, probabilities to
+deal with. Statisticians came up with a clever solution to this. Instead
+of a vector of fluctuating probabilities, which breaks the desired
+monotonically increasing relationship between the probabilities and the
+ratings, the probabilities are transformed into a vector of <strong>cumulative
+probabilities</strong>. The nice thing about this vector of cumulative
+probabilities is that the probabilities are now <strong>ordered</strong>, naturally.
+Larger cumulative probabilities now correspond to higher rating scores.
+Let me re-describe these more vividly with some code and plots. I’ll
+continue to use the four-point rating example.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>( P <span style=color:#f92672>=</span> P <span style=color:#f92672>/</span> <span style=color:#a6e22e>sum</span>(P) )  <span style=color:#75715e># Probabilities for R = 1, 2, 3, 4</span>
+</span></span></code></pre></div><pre><code>[1] 0.125 0.375 0.375 0.125
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>( Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>cumsum</span>(P) )  <span style=color:#75715e># Cumulative Probabilities for R = 1, 2, 3, 4</span>
+</span></span></code></pre></div><pre><code>[1] 0.125 0.500 0.875 1.000
+</code></pre><p>The code above computes the cumulative probabilities (<code>Pc</code>) from the
+vector of rating probabilities (<code>P</code>) through the function <code>cumsum()</code>
+(cumulative sum). Note that both vectors contain the same information.
+The original vector can well be reconstructed from the cumulative
+version. In math terms, their relationship is as follows:</p><p>$$
+\begin{aligned}
+Pr(R=1) = Pr(R \leq 1)& \\
+Pr(R=2) = Pr(R \leq 2)& - Pr(R \leq 1) \\
+Pr(R=3) = Pr(R \leq 3)& - Pr(R \leq 2) \\
+Pr(R=4) = Pr(R \leq 4)& - Pr(R \leq 3) \\
+= \phantom{PPaa} 1 \phantom{aaa}& - Pr(R \leq 3)
+\end{aligned}
+\tag{2}
+$$</p><p>and in code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, Pc )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>Ps[2<span style=color:#f92672>:</span><span style=color:#ae81ff>5</span>] <span style=color:#f92672>-</span> Ps[1<span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>]  <span style=color:#75715e># or more generally, Ps[-1] - Ps[-length(Ps)]</span>
+</span></span></code></pre></div><pre><code>[1] 0.125 0.375 0.375 0.125
+</code></pre><p>The two vectors are visualized as distributions below. The red bars are
+the ordinary probability distribution, which we have already seen in the
+previous section. The blue bars plot the cumulative version of the same
+probability distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Rating&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>, xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i<span style=color:#ae81ff>-.05</span>,i<span style=color:#ae81ff>-.05</span>), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,P[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i<span style=color:#ae81ff>+.05</span>,i<span style=color:#ae81ff>+.05</span>), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,Pc[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>}
+</span></span></code></pre></div><p><img src=part4_files/figure-commonmark/unnamed-chunk-6-1.svg style=width:100% data-fig-align=center></p><p>Once we have an ordered sequence of probabilities, or more precisely,
+probabilities with a monotonically increasing relationship to the rating
+scores, we’ll be able to introduce latent scores through the <strong>logit
+link</strong>, as we have done in the binary case. We simply pass the
+cumulative probabilities to the logit function to map them onto the real
+space. To save space, I pack some commonly used functions into my
+package <a href=https://yongfu.name/stom/reference><code>stom</code></a>, which can be
+installed through the first two lines of commented code below.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># install.packages(&#34;remotes&#34;)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#75715e># remotes::install_github(&#34;liao961120/stom&#34;)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>library</span>(stom)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#a6e22e>logit</span>( Pc )  <span style=color:#75715e># convert cumulative probabilities to reals</span>
+</span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591      Inf
+</code></pre><p>The statistical machinery behind rating scales probably remains elusive
+after my wordy explanation. Indeed, since we are only halfway through
+the machinery, it hardly makes sense only by looking at part of the
+picture. What I have presented so far is part of the machinery that
+monotonically aligns the latent scores with the ratings, through the use
+of cumulative probabilities. The second part of the machinery is to
+allow for the shifting of the entire vector of latent scores (and thus
+the probabilities of ratings, through the first part of the machinery)
+by a common term, which enables the modeling of extraneous influences on
+the ratings (thus the “regression”). Let’s now look at how this shifting
+is achieved.</p><h3 id=shifting-latent-scores>Shifting Latent Scores</h3><p>The code below summarizes the first part of the rating-scale machinery:
+establishing the link between latent scores and the probabilities of
+rating scores.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>P  <span style=color:#75715e># vector of rating probs (starting point)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>( Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>cumsum</span>(P) )  <span style=color:#75715e># vector of rating probs (cumulative)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>( L <span style=color:#f92672>=</span> <span style=color:#a6e22e>logit</span>(Pc) )   <span style=color:#75715e># vector of latent scores</span>
+</span></span></code></pre></div><pre><code>[1] 0.125 0.375 0.375 0.125
+[1] 0.125 0.500 0.875 1.000
+[1] -1.94591  0.00000  1.94591      Inf
+</code></pre><p>Since all of the above mappings are one-to-one, we can as well express
+the same machinery in reverse:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>L  <span style=color:#75715e># vector of latent scores (starting point)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>( Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>(L) )  <span style=color:#75715e># vector of rating probs (cumulative)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, Pc )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>( P <span style=color:#f92672>=</span> Ps[<span style=color:#ae81ff>-1</span>] <span style=color:#f92672>-</span> Ps[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(Ps)] )  <span style=color:#75715e># vector of rating probs </span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span><span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>P )  <span style=color:#75715e># draw one rating score from the distribution</span>
+</span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591      Inf
+[1] 0.125 0.500 0.875 1.000
+[1] 0.125 0.375 0.375 0.125
+[1] 2
+</code></pre><p>This second expression aligns well with the simulation perspective and
+precisely lays out the data-generating process of the rating scores. It
+also makes it clear that a <em>predetermined</em> set of latent scores (or
+probabilities of ratings) is required for generating the ratings. In a
+simulation, these latent scores are determined by us. For a model, they
+are a subset of parameters that the model tries to estimate from data.
+These latent scores can be thought of as <strong>baselines</strong> during rating.
+That is, the latent scores, or more visually, the shape of the rating
+distribution <strong>before any factor has exerted an effect on the ratings</strong>.</p><p>To model the extraneous influences on the ratings, we utilize an
+independent term $\phi$ in the latent score space. The trick is to
+<strong>subtract</strong> this $\phi$ from the vector of the baseline latent scores.
+For instance, if a wine has a better-than-average quality that raises
+its quality (latent score) by $1.9$ above the baseline but is rated by a
+harsh judge that lowers the quantity by $1.1$, $\phi$ will be $.8$.
+Subtracting $\phi=.8$ from the baseline latent scores gives the shifted
+latent scores, from which the rating probabilities could then be
+derived:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>latent_to_prob <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>(L) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>  Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>(L)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>  Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, Pc )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>  P <span style=color:#f92672>=</span> Ps[<span style=color:#ae81ff>-1</span>] <span style=color:#f92672>-</span> Ps[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(Ps)]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>  <span style=color:#a6e22e>return</span>(P)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>phi <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.9</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1.1</span>     <span style=color:#75715e># wine (+1.9) &amp; judge (-1.1) influences on ratings</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>L                   <span style=color:#75715e># baseline latent scores</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>( Ls <span style=color:#f92672>=</span> L <span style=color:#f92672>-</span> phi )    <span style=color:#75715e># latent scores after influences of wine &amp; judge</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#a6e22e>latent_to_prob</span>(Ls)  <span style=color:#75715e># rating probs after influences of wine &amp; judge</span>
+</span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591      Inf
+[1] -2.74591 -0.80000  1.14591      Inf
+[1] 0.06031805 0.24970747 0.44873758 0.24123690
+</code></pre><p>The bar chart below overlays the rating score distribution after
+considering $\phi$ (blue bars) against the baseline distribution (red
+bars). It can be seen that subtracting $\phi=.8$ from the baseline
+latent scores pushes the probability mass toward the right, raising the
+expected rating score.</p><p><img src=part4_files/figure-commonmark/unnamed-chunk-11-1.svg style=width:100% data-fig-align=center></p><p>It might seem unintuitive that <em>subtracting</em> a positive value from the
+latent scores <em>raises</em> the expected rating scores. But it’s simply the
+effect of the cumulative probabilities. When the vector of the latent
+scores gets shifted, note that the last term doesn’t move since it is
+infinity ($logit(1) = \infty$). Thus, the difference between the last
+and the second-to-last term, on the cumulative probability scale,
+becomes larger after the shift. This difference is essentially the
+probability of the largest rating ($P_4$ in our example). Therefore, the
+effect of subtracting a positive value from the baseline latent scores
+shifts the probability mass toward the larger ratings. For the remaining
+ratings, the directions of changes in probability depend on the amount
+of shift and the shape of the baseline distribution. It is thus hard to
+conceive how these probability bars react to the shift in the latent
+scores and how their shifts contribute to the increasing or decreasing
+of the expected rating.</p><p><figure><img src=ordlogit.png alt="Interactive visualization of the rating probability
+distribution"><figcaption>Interactive visualization of the rating probability
+distribution</figcaption></figure></p><p>I’ve built an <a href=https://yongfu.name/ordlogit>interactive visualization</a>
+just to help with that. As shown in the figure above, there are two
+places where users can change to see how the shape of the rating
+distribution gets influenced.</p><ol><li><p>The four vertical sliders are there to adjust the baseline
+probabilities of the ratings,
+$Pr(R=1), Pr(R=2), Pr(R=3), and Pr(R=4)$ (abbreviated as $P_1$ ~
+$P_4$ respectively). The numerical value on top of each bar
+indicates the probability of that rating. Note that it is the
+relative positions between the vertical sliders that matter, and the
+four probabilities automatically adjust to always sum to one.</p><p>The three values, $\kappa_1$, $\kappa_2$, and $\kappa_3$, shown on
+top of the four probabilities are the <strong>cumulative logits</strong>, which
+are basically the vector of the cumulative probabilities,
+transformed to the logit scale. They are the <strong>baseline latent
+scores</strong> mentioned previously. The last term, $\kappa_4$ is dropped
+since it is always infinite.</p></li><li><p>The horizontal slider above the baseline sliders controls the value
+of $\phi$, which gets subtracted from each of the baseline latent
+scores to derive the final distribution.</p></li></ol><h2 id=wheres-the-regression>Where’s the Regression?</h2><p>The previous section demonstrates how the baseline rating distribution
+shifts according to an aggregated influence of $\phi$. It is the hard
+part of the statistical machinery behind the rating scale IRT model.
+Regression is the easy part. Now we have a nice and neat $\phi$ sitting
+on the real space<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> to work with. If we zoom in on $\phi$, it’s simply
+the summed effect of the dependent variables in a linear regression,
+which is similar to $\mu$ in logistic regressions. The only difference
+here is that we need a different linking distribution to map the effect
+onto the response scale (i.e., discrete ratings). In math terms,
+resuming our wine rating example, the distribution is shown in
+<a href=#math-eq3>(3)</a>:</p><p>$$
+\begin{aligned}
+R_i & \sim OrderedLogit(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1 \\ \kappa_2 \\ \kappa_3 \end{bmatrix} ) \\
+\phi_i & = W_{Wid[i]} + J_{Jid[i]} \\
+\tag{3}
+\end{aligned}
+$$</p><p>The $OrderedLogit$ distribution hides all the details from the reader.
+But you’ve already seen the details at work in code form in previous
+sections, albeit in a quite scattered manner. Later, we will pack them
+up together. If you prefer clarity now, the monstrous expressions in
+<a href=#math-eq4>(4)</a> should be satisfying.</p><p>$$
+\begin{aligned}
+R_i \sim Categorical & (
+\begin{bmatrix}
+Pr(R_i = 1) = Pr(R_i \le 1) \phantom{- Pr(R_i \le 1)} \\
+Pr(R_i = 2) = Pr(R_i \le 2) - Pr(R_i \le 1) \\
+Pr(R_i = 3) = Pr(R_i \le 3) - Pr(R_i \le 2) \\
+Pr(R_i = 4) = Pr(R_i \le 4) - Pr(R_i \le 3) \\
+\end{bmatrix}
+) \\
+logit[ Pr(R_i \le 1) ] &= logit[ Pr(R_i = 1) ] = \kappa_1 - \phi_i \\
+logit[ Pr(R_i \le 2) ] &= \kappa_2 - \phi_i \\
+logit[ Pr(R_i \le 3) ] &= \kappa_3 - \phi_i \\
+logit[ Pr(R_i \le 4) ] &= logit(1) = \infty \\
+\phi_i &= W_{Wid[i]} + J_{Jid[i]}
+\tag{4}
+\end{aligned}
+$$</p><p>Don’t worry if you cannot understand the equations in <a href=#math-eq4>(4)</a>
+right now. After you get accustomed to the logic of the ordered logit,
+through coding, the expressions become straightforward. So now let’s
+wrap up what we have done so far, in code. I will write down the code
+form of the $OrderedLogit$ distribution in the function <code>rOrdLogit()</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>rOrdLogit <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>(phi, kappa) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>  kappa <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( kappa, <span style=color:#66d9ef>Inf</span> )  <span style=color:#75715e># baseline latent scores</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>  L <span style=color:#f92672>=</span> kappa <span style=color:#f92672>-</span> phi          <span style=color:#75715e># latent scores, after shifting</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>  Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>(L)         <span style=color:#75715e># map latent scores to cumulative probs</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>  <span style=color:#75715e># Compute probs for each rating from Pc</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>  Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, Pc )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>  P <span style=color:#f92672>=</span> Ps[<span style=color:#ae81ff>-1</span>] <span style=color:#f92672>-</span> Ps[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(Ps)]  <span style=color:#75715e># probs of each rating</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>  <span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#a6e22e>length</span>(P), size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>P )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#75715e>## Replicate previous example ##</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>P <span style=color:#f92672>=</span> P <span style=color:#f92672>/</span> <span style=color:#a6e22e>sum</span>(P)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>cumsum</span>(P)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>( kappa <span style=color:#f92672>=</span> <span style=color:#a6e22e>logit</span>( Pc )[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(Pc)] )  <span style=color:#75715e># Set up baseline latent scores</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#75715e># 10,000 draws from OrdLogit</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span>draws <span style=color:#f92672>=</span> <span style=color:#a6e22e>replicate</span>( <span style=color:#ae81ff>1e4</span>, <span style=color:#a6e22e>rOrdLogit</span>(phi<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>, kappa<span style=color:#f92672>=</span>kappa) )  
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span><span style=color:#75715e># should approach P = c(.125, .375, .375, .125)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span><span style=color:#a6e22e>table</span>(draws) <span style=color:#f92672>/</span> <span style=color:#a6e22e>length</span>(draws)
+</span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591
+draws
+     1      2      3      4 
+0.1285 0.3684 0.3820 0.1211 
+</code></pre><h2 id=simulating-and-fitting-wine-ratings>Simulating and Fitting Wine Ratings</h2><p>Having all concepts in place, let’s start synthesizing data for our
+later model fitting. We will simulate data from the Ordered Logit
+distribution. One minor limitation with <code>rOrdLogit()</code> defined previously
+is that it can only take a single value of <code>phi</code>, but it is more
+desirable for <code>phi</code> to take a vector of values. A vectorized version of
+<code>rOrdLogit()</code> is available in the <code>stom</code> package as <code>rordlogit()</code>. We
+will be using this function for our data simulation.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#a6e22e>library</span>(stom)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>1025</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>Nj <span style=color:#f92672>=</span> <span style=color:#ae81ff>12</span>  <span style=color:#75715e># number of judges</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>Nw <span style=color:#f92672>=</span> <span style=color:#ae81ff>30</span>  <span style=color:#75715e># number of wines</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>J <span style=color:#f92672>=</span> <span style=color:#a6e22e>rnorm</span>(Nj)  <span style=color:#75715e># judge leniency</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>W <span style=color:#f92672>=</span> <span style=color:#a6e22e>rnorm</span>(Nw)  <span style=color:#75715e># wine quality</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>J <span style=color:#f92672>=</span> <span style=color:#a6e22e>standardize</span>(J)  <span style=color:#75715e># scale to mean = 0, sd = 1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>W <span style=color:#f92672>=</span> <span style=color:#a6e22e>standardize</span>(W)  <span style=color:#75715e># scale to mean = 0, sd = 1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>kappa <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>-1.7</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1.7</span> )  <span style=color:#75715e># baseline latent scores</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#75715e># Create long-form data</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>d <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand.grid</span>( Jid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Nj, Wid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Nw, KEEP.OUT.ATTRS<span style=color:#f92672>=</span>F )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>d<span style=color:#f92672>$</span>J <span style=color:#f92672>=</span> J[d<span style=color:#f92672>$</span>Jid]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>d<span style=color:#f92672>$</span>W <span style=color:#f92672>=</span> W[d<span style=color:#f92672>$</span>Wid]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>d<span style=color:#f92672>$</span>phi <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#a6e22e>nrow</span>(d), <span style=color:#a6e22e>function</span>(i) d<span style=color:#f92672>$</span>J[i] <span style=color:#f92672>+</span> d<span style=color:#f92672>$</span>W[i] )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>d<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>rordlogit</span>( d<span style=color:#f92672>$</span>phi, kappa )  <span style=color:#75715e># simulated rating responses</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span>d<span style=color:#f92672>$</span>B <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( <span style=color:#a6e22e>logistic</span>(d<span style=color:#f92672>$</span>phi) )   <span style=color:#75715e># simulated binary responses</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span>d<span style=color:#f92672>$</span>C <span style=color:#f92672>=</span> <span style=color:#a6e22e>rnorm</span>( <span style=color:#a6e22e>nrow</span>(d), d<span style=color:#f92672>$</span>phi )    <span style=color:#75715e># simulated continuous responses</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21</span><span><span style=color:#75715e># Conversion of data types to match model-fitting function&#39;s requirements</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22</span><span><span style=color:#a6e22e>for </span>( v in <span style=color:#a6e22e>c</span>(<span style=color:#e6db74>&#34;Jid&#34;</span>, <span style=color:#e6db74>&#34;Wid&#34;</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23</span><span>  d[[v]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>factor</span>(d[[v]])
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24</span><span>d<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>ordered</span>(d<span style=color:#f92672>$</span>R)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25</span><span><span style=color:#a6e22e>str</span>(d)
+</span></span></code></pre></div><pre><code>'data.frame':   360 obs. of  8 variables:
+ $ Jid: Factor w/ 12 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...
+ $ Wid: Factor w/ 30 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ J  : num  0.0187 -0.1794 -1.4372 1.3915 -0.1134 ...
+ $ W  : num  0.236 0.236 0.236 0.236 0.236 ...
+ $ phi: num  0.2544 0.0564 -1.2014 1.6273 0.1223 ...
+ $ R  : Ord.factor w/ 4 levels &quot;1&quot;&lt;&quot;2&quot;&lt;&quot;3&quot;&lt;&quot;4&quot;: 4 2 2 2 1 1 1 4 2 3 ...
+ $ B  : int  1 0 0 1 1 1 1 1 0 0 ...
+ $ C  : num  0.6142 -1.5915 -0.2754 1.2755 0.0792 ...
+</code></pre><p>Running the above code will get our data prepared. Two things might be
+worth noting. The first is the <code>standardize()</code> function, which centers
+the input vector to zero mean and a standard deviation of one. <code>J</code> and
+<code>W</code> are centered here to make the parameters later estimated by the
+model comparable to the scale of the true values. In our later model, we
+will partial-pool both the judges and wines and hence assume a
+zero-meaned distribution for both of them. Since the sample size of our
+data isn’t large (12 judges and 30 wines), which will likely cause the
+means of the raw <code>J</code> and <code>W</code> to have non-minor deviations from zero,
+standardization is needed.</p><p>Second, in addition to <code>R</code>, the rating responses, I also simulate binary
+responses <code>B</code> (<code>0</code>/<code>1</code>) from <code>phi</code>. Indeed, if a model is fitted with
+<code>B</code> as the dependent variable, it will be identical to the logistic
+regression models fitted in previous posts. The binary responses are
+simulated to demonstrate the parallelism between the binary<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> model
+and the rating scale model. The two models are highly similar: the
+linear effects are aggregated in the same ways (in $\mu$/$\phi$). The
+only difference is how these effects are projected onto the response
+scale: the binary model does so through the Bernoulli distribution, and
+the rating scale model through the Ordered Logit distribution.</p><p>Another reason for simulating binary responses along the rating
+responses is for the preparation of model debugging. As we start fitting
+more and more complex models, we are bound to find ourselves lost in
+situations where we have no idea why the model fails to give the
+expected results. In such cases, it helps a lot to check the results
+from simpler models, which might hint at where the complex model went
+wrong. This is also the reason why I simulate the continuous responses
+<code>C</code>—to prepare data for fitting an even simpler model. By eliminating
+the influences arising from nonlinear links in the GLMs, the normal
+response model becomes more transparent and hence much easier to debug.</p><p>For our wine rating example here, I’ve deliberately made the
+data-generating process simple enough that our rating scale model can
+smoothly fit and give us the expected results. To fit ordered logit
+regressions with partial pooling structures, we need the <code>clmm()</code>
+function from the package
+<a href=https://cran.r-project.org/web/packages/ordinal><code>ordinal</code></a>. The model
+syntax in <code>clmm()</code> is basically identical to the syntax we used in
+<code>lme4::glmer()</code> back then. As shown in the code below, we model the
+rating scores (<code>R</code>) to be influenced by both the wines and the judges.
+By partial pooling wines and judges, the wine effects and the judge
+effects are respectively assumed to come from a zero-meaned normal
+distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>library</span>(ordinal)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>m <span style=color:#f92672>=</span> <span style=color:#a6e22e>clmm</span>( R <span style=color:#f92672>~</span> (<span style=color:#ae81ff>1</span><span style=color:#f92672>|</span>Jid) <span style=color:#f92672>+</span> (<span style=color:#ae81ff>1</span><span style=color:#f92672>|</span>Wid), data <span style=color:#f92672>=</span> d )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>summary</span>(m)
+</span></span></code></pre></div><pre><code>Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: R ~ (1 | Jid) + (1 | Wid)
+data:    d
+
+ link  threshold nobs logLik  AIC    niter    max.grad cond.H 
+ logit flexible  360  -455.07 920.14 182(726) 6.91e-06 4.9e+01
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ Wid    (Intercept) 1.220    1.1046  
+ Jid    (Intercept) 0.853    0.9236  
+Number of groups:  Wid 30,  Jid 12 
+
+No Coefficients
+
+Threshold coefficients:
+    Estimate Std. Error z value
+1|2 -1.42044    0.36490  -3.893
+2|3  0.05442    0.35607   0.153
+3|4  1.56532    0.36674   4.268
+</code></pre><p><code>summary(m)</code> prints out the model summary along with the estimated
+baseline latent scores, which are labeled as <code>Threshold coefficients</code>
+above. You can see that these coefficients (-1.42, 0.054, and 1.565)
+align pretty well with the <code>kappa</code> set in the simulation (-1.7, 0, and
+1.7).</p><p>To examine the estimated wine and judge effects, we similarly utilize
+the <code>ranef()</code> function as demonstrated in the previous post:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>est_wine <span style=color:#f92672>=</span> <span style=color:#a6e22e>ranef</span>(m)<span style=color:#f92672>$</span>Wid[[1]]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>est_judge <span style=color:#f92672>=</span> <span style=color:#a6e22e>ranef</span>(m)<span style=color:#f92672>$</span>Jid[[1]]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>plot</span>( est_wine, W ); <span style=color:#a6e22e>abline</span>( <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#a6e22e>plot</span>( est_judge, J ); <span style=color:#a6e22e>abline</span>( <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span> )
+</span></span></code></pre></div><div class=two-column><p><img src=part4_files/figure-commonmark/unnamed-chunk-15-1.svg data-fig-align=center></p><p><img src=part4_files/figure-commonmark/unnamed-chunk-15-2.svg data-fig-align=center></p></div><h2 id=item-response-theory-and-beyond>Item Response Theory and Beyond</h2><p>We have come a long way, from the simplest binary item response model to
+models with delicate machinery such as the rating scale model with
+partial-pooling structures. The posts in this <em>demystifying</em> series are
+sufficient, I suppose, in providing a solid understanding of and
+practical skills for working with item response theory. There are
+certainly even more complex IRT models, but I won’t go further in that
+direction. I dislike the idea of taking the complexity of the learned
+stats model, or the number of advanced models one can recite, as the
+measure of people’s skill in statistics. There are no better or
+“advanced” models. Just models that do or don’t fit into the problem at
+hand. Nor can we improve our statistics techniques by endlessly
+swallowing newer fancy models. No matter how many new models are
+devised, they are easily outnumbered by real-world problems.</p><p>Item response models, general as they might seem, quickly run out of
+supply. Although binary and rating score models allow us to deal with
+most response types found in the field (such as tests in educational
+settings, scales measuring psychological constructs, and various
+questionnaires used in the social sciences), even the slightest
+complication renders them useless. Just consider a mixed-format test
+consisting of, for example, multiple-choice items (binary scored) and
+items of open-ended questions (rated). Which IRT model can we apply to
+this mixed-format test? Not a single one. Instead, we need two separate
+models, each independently running on a subset of the test of a
+particular item format. A special technique is then required to map the
+independently estimated person/item parameters onto a common scale.</p><p>The method works, but it wastes a lot of information. When separately
+estimated, information cannot be shared across different item formats to
+improve parameter estimation. Item estimates might be fine, as long as
+there are many subjects. Person estimates suffer greatly though since,
+in practice, the test length is limited and is now further divided up by
+two independent models.</p><p>It is always better to incorporate <em>everything</em> into a <em><strong>single
+comprehensive model</strong></em> instead of separately modeling a subset of
+variables in multiple small models. It is better because information
+flows smoothly among the variables in a comprehensive model, but the
+flow breaks down when the model gets torn apart into several ones.
+However, such comprehensive models are rarely, if not never, available
+in the literature. We have to tailor a model ourselves according to what
+the current situation demands. Therefore, a <em><strong>framework</strong></em> is required
+to guide us through building up such a model.</p><p>This post ends the <em>demystifying</em> series. When the thick cloud of
+mystery finally begins to dissolve, we can start to solve real and
+exciting problems rather than wrangling with mad statistical models. In
+my next post, I will move on to Bayesian statistics, the unified
+<em>framework</em> that allows flexibly extending a model to match the demanded
+conditions. Bayesian framework is ideal for empirical research because
+it is <em>practical</em>. We do not need to wait for a statistician to come up
+with a model for every new situation. In Bayesian inference, we simply
+describe the <em>data-generating process</em> and the <em>priors</em>, and the rest is
+handled by probability theory and an estimation algorithm. Therefore, we
+can focus on the scientific problems at hand instead of fussing around
+with fancy models and their names.</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Recall that $\phi$ works in the latent score space by increasing
+or decreasing the baseline latent scores.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>In the testing context, a binary dependent variable is often used
+for modeling correct/incorrect response. In the current wine rating
+context, a binary dependent variable could also be used for modeling
+ratings. In such case, there must only be two possible ratings, such
+as mediocre/premium, on the wines.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><br><br><br><script src=https://giscus.app/client.js data-repo=liao961120/yongfu.name data-repo-id=R_kgDOJZfylw data-category=Announcements data-category-id=DIC_kwDOJZfyl84CV71T data-mapping=pathname data-strict=1 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light_tritanopia data-lang=en data-loading=lazy crossorigin=anonymous async></script><div class=next-prev><div><span>PREV</span>
+<a href=https://yongfu.name/2023/03/29/irt3/>Demystifying Item Response Theory (3/4)</a></div></div></article><aside class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></aside></div><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css><script>tocbot.init({tocSelector:".js-toc",contentSelector:".article_content",ignoreSelector:".Box h2, .Box h3, .Box h4, .Box h5, .Box h6",headingSelector:"h2, h3, h4",scrollSmooth:!1,hasInnerContainers:!0,collapseDepth:3})</script><style>ol.toc-list{list-style-type:none}aside{position:fixed;top:15%!important;right:2%}.next-prev{margin-top:2.5em;border-top:2px solid rgba(173,173,173,.548);display:flex;flex-wrap:wrap;justify-content:space-between}.next-prev>div{min-width:150px;width:43%}.next-prev>div>span{display:block;width:100%;color:grey;font-weight:600;letter-spacing:1.5px;padding-bottom:.3rem;margin-top:.4rem}.next-prev>div:nth-child(2){text-align:right}.next-prev>div>a{text-decoration:none;color:#000;font-weight:600}</style><footer><div class=social><span class=icon title="Send me an email"><a href=mailto:liao961120@gmail.com target=_blank><span class="social email"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V4e2c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5.0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg></span></a></span><span class=icon title="Follow me on Twitter"><a href=https://twitter.com/liao_yongfu target=_blank><span class="social twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a></span><span class=icon title="Follow me on Facebook"><a href=https://www.facebook.com/liao961120 target=_blank><span class="social facebook"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#fff" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43.0 225.36.0c-73.22.0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></span></a></span><span class=icon title="Follow me on GitHub"><a href=https://github.com/liao961120 target=_blank><span class="social github"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="#fff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a></span></div><p class=site_info><span class=copyright>© Yongfu's Blog 2017-2023</span></p><p class=theme_info>Powered by <a href=https://gohugo.io target=_blank>Hugo</a> & <a href=https://github.com/liao961120/TeXtLite target=_blank>TeXtLite Theme</a>.</p></footer><script src=//yihui.org/js/math-code.js defer></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1}),document.querySelectorAll(".katex-display").forEach((e,t)=>{e.id=`math-eq${t+1}`})})</script><div class=scrollBtn><span id=scrolltop onclick=window.scrollTo(0,0)>&#9650;</span>
+<span id=scrollbottom onclick=window.scrollTo(0,document.body.scrollHeight)>&#9660;</span></div><style>div.scrollBtn{display:flex;flex-wrap:wrap;width:1em;position:fixed;bottom:1.1%;right:.8%}#scrolltop,#scrollbottom{line-height:1;font-size:1.4rem;color:var(--link-transitiion-light)}#scrolltop:hover,#scrollbottom:hover{cursor:pointer;color:green;font-size:1.6rem}</style><script src=https://unpkg.com/@popperjs/core@2></script>
+<script src=https://unpkg.com/tippy.js@6></script>
+<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>function renderHoverNotes(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;tippy(e,{content:`<div style="max-height:55vh; 
+                                              overflow-y:auto">
+                                <div style="width:94%; margin: 0 3%;">
+                            ${document.getElementById(t.substring(1)).innerHTML}
+                            </div></div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"40ch"})}),document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e=>{const n=new URL(e.href).hash;var t=document.getElementById(n.substring(1));t.classList.contains("Box")&&tippy(e,{content:`<div style="
+                                            max-height:55vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:94%; margin: 0 3%;">${t.innerHTML}</div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}),t.classList.contains("katex-display")&&(t.querySelector("span.tag").style.cssText="position:absolute;right:3%",tippy(e,{content:`<div style="
+                                            width: 38vw;
+                                            max-height:85vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:95%; margin: 1em auto;">
+                                            <span>${t.innerHTML}</span>
+                                        </div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}))})}document.addEventListener("DOMContentLoaded",function(){renderHoverNotes()})</script></body></html>

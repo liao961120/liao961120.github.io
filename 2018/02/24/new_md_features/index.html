@@ -39,7 +39,7 @@ C-->D</div><h4 id=code-2>Code</h4><div class=highlight><pre tabindex=0 style=col
 <span id=scrollbottom onclick=window.scrollTo(0,document.body.scrollHeight)>&#9660;</span></div><style>div.scrollBtn{display:flex;flex-wrap:wrap;width:1em;position:fixed;bottom:1.1%;right:.8%}#scrolltop,#scrollbottom{line-height:1;font-size:1.4rem;color:var(--link-transitiion-light)}#scrolltop:hover,#scrollbottom:hover{cursor:pointer;color:green;font-size:1.6rem}</style><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script>
 <script>mermaid.initialize({startOnLoad:!0})</script><script src=https://unpkg.com/@popperjs/core@2></script>
 <script src=https://unpkg.com/tippy.js@6></script>
-<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;tippy(e,{content:`<div style="max-height:55vh; 
+<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>function renderHoverNotes(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;tippy(e,{content:`<div style="max-height:55vh; 
                                               overflow-y:auto">
                                 <div style="width:94%; margin: 0 3%;">
                             ${document.getElementById(t.substring(1)).innerHTML}
@@ -47,4 +47,11 @@ C-->D</div><h4 id=code-2>Code</h4><div class=highlight><pre tabindex=0 style=col
                                             max-height:55vh; 
                                             overflow-y:auto;">
                                         <div style="width:94%; margin: 0 3%;">${t.innerHTML}</div>
-                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"})})})</script></body></html>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}),t.classList.contains("katex-display")&&(t.querySelector("span.tag").style.cssText="position:absolute;right:3%",tippy(e,{content:`<div style="
+                                            width: 38vw;
+                                            max-height:85vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:95%; margin: 1em auto;">
+                                            <span>${t.innerHTML}</span>
+                                        </div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}))})}document.addEventListener("DOMContentLoaded",function(){renderHoverNotes()})</script></body></html>

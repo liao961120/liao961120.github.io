@@ -123,6 +123,9 @@ p > code, li > code, a > code {
     margin: 1.35em auto;
 }
 div.two-column {
+    width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: around;

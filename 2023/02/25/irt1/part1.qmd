@@ -1,6 +1,6 @@
 ---
 title: Demystifying Item Response Theory (1/4)
-subtitle: "Playing God through simulations"
+subtitle: "Playing God through Simulations"
 description: "simulation, IRT, Rasch, generalized linear model (GLM), directed acyclic graph (DAG)"
 date: '2023-02-25'
 aliases:
@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 	comment = "",
 	fig.dim = c(10, 5.5),
    #dpi = 300,
-   dev='svglite',
+   dev='svg',
    dev.args = list(bg = "transparent"),
    NULL
 )

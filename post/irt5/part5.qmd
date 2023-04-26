@@ -1,0 +1,57 @@
+---
+title: Beyond Item Response Theory
+subtitle: "Thinking Like a Graph, not Regression"
+description: "Basyesian statistics, causal inference, psychology, research design"
+date: '2023-05-29'
+aliases:
+    - /irt4
+katex: true
+draft: true
+tags:
+- r
+- stan
+- bayes
+- statistics
+- psychology
+format: 
+   gfm:
+      output-file: "index"
+      output-ext: "md"
+      variant: +yaml_metadata_block+raw_html
+      df-print: tibble
+# filters:
+  # - quarto
+  # - list-table.lua
+editor:
+   render-on-save: false
+---
+
+Consider the scenario represented through the DAG on the left below. The
+variable $O_w$ represents the origin of the wine (French or non-French), and the
+variable $O_j$ reprsents the origin of the judge (French or non-French). 
+$O_w \rightarrow R$ indicates an undesired influence on the rating: the origin
+of the wine, in addition to its quality, influence the rating score it receives.
+The arrow from $O_j$ pointing down to $O_w \rightarrow R$ represents the wine
+origin's influence on the rating is moderated by the origin of the judge. Put
+it another way, there is an interaction between $O_w$ and $O_j$. This is likely,
+for instance, when the wine rating isn't blinded such that French judges give 
+additional favorable scores to French wines because they love France, not the 
+wines. This problem is known as **differential rater functioning**, and the 
+undesired effects of $O_w$ on $R$ is estimable within the IRT framework by 
+adding an interaction term to the predictor variables. But the effects are only
+estimable in this simple scenario. For a slightly complicated, but very likely,
+situation, where the wine origin also influences wine quality as represented in
+the DAG on the right below, the rigid IRT models and GLMs in general are doomed.
+
+
+```goat
+     Oj               |        Oj                                    
+      |               |         |
+      v               |         v                                       
+ Ow ---->  R          |    Ow ---->  R          
+         ^   ^        |      \     ^   ^        
+        /     \       |       v   /     \       
+     +-+       +-.    |        +-+       +-.    
+    | W |     | J |   |       | W |     | J |   
+     '-'       '-'    |        '-'       '-'    
+```
