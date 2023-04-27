@@ -442,6 +442,6 @@ information of $R$, $I$, and $T$. See you there!
 [large-num]: https://en.wikipedia.org/wiki/Law_of_large_numbers
 
 [^jml]: I mean, what the hack is *Joint and Conditional Maximum Likelihood
-    Estimation*? These are methods developed in psychometrics and are hardly
-    seen in other fields. Unless obsessed with psychometrics, I don't think one
-    would be able to understand these things.
+    Estimation*? These are methods developed in the psychometric and measurement
+    literature and are hardly seen in other fields. Unless obsessed with
+    psychometrics, I don't think one would be able to understand these things.

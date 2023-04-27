@@ -2437,9 +2437,10 @@ $T$. See you there!&lt;/p>
 &lt;ol>
 &lt;li id="fn:1">
 &lt;p>I mean, what the hack is &lt;em>Joint and Conditional Maximum Likelihood
-Estimation&lt;/em>? These are methods developed in psychometrics and are
-hardly seen in other fields. Unless obsessed with psychometrics, I
-don’t think one would be able to understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+Estimation&lt;/em>? These are methods developed in the psychometric and
+measurement literature and are hardly seen in other fields. Unless
+obsessed with psychometrics, I don’t think one would be able to
+understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>r</category><category>statistics</category><category>psychology</category><category>reproducibility</category></item><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>&lt;p>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (&lt;a href="https://rlads2019.github.io/lab/">108-1&lt;/a>) 懶得教&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、沒時間教&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、沒自信可以教&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>以及沒有能力教&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。&lt;/p>
