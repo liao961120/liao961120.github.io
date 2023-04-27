@@ -132,7 +132,7 @@ which we have learned to deduce from the simulations in previous posts. It is
 also the starting point of this machinery for converting real-valued scores to
 ordinal ratings. Things get a bit complicated in the intermediate steps on the
 path. Therefore, indulge me with explaining the path in reverse. I will start
-with the rightmost term, which, as monstrous as it may seem, is probably the
+with the rightmost term, which, monstrous as it may seem, is probably the
 least challenging concept to be grasped here.
 
 
@@ -375,7 +375,7 @@ shifts contribute to the increasing or decreasing of the expected rating.
 
 ![Interactive visualization of the rating probability distribution](ordlogit.png)
 
-I've built an [interactive visualization][ordlogit] just to help with that. As
+I've built an [interactive visualization][ordlogit][^credit] just to help with that. As
 shown in the figure above, there are two places where users can change to see
 how the shape of the rating distribution gets influenced.
 
@@ -422,9 +422,9 @@ $$
 
 The $OrderedLogit$ distribution hides all the details from the reader. But
 you've already seen the details at work in code form in previous sections,
-albeit in a quite scattered manner. Later, we will pack them up together. If you
-prefer clarity now, the monstrous expressions in [(4)](#math-eq4) should be
-satisfying.
+albeit in a quite scattered manner. Later, I will collect them into a single
+function. If you prefer clarity now, the monstrous expressions in
+[(4)](#math-eq4) should be satisfying.
 
 $$
 \begin{aligned}
@@ -595,22 +595,22 @@ response theory. There are certainly even more complex IRT models, but I won't
 go further in that direction. I dislike the idea of taking the complexity of the
 learned stats model, or the number of advanced models one can recite, as the
 measure of people's skill in statistics. There are no better or "advanced"
-models. Just models that do or don't fit into the problem at hand. Nor can we
+models. Just models that do or don't fit into the present problem. Nor can we
 improve our statistics techniques by endlessly swallowing newer fancy models. No
 matter how many new models are devised, they are easily outnumbered by
-real-world problems. 
+real-world problems.
 
 Item response models, general as they might seem, quickly run out of supply.
 Although binary and rating score models allow us to deal with most response
 types found in the field (such as tests in educational settings, scales
-measuring psychological constructs, and various questionnaires used in the
-social sciences), even the slightest complication renders them useless. Just
-consider a mixed-format test consisting of, for example, multiple-choice items
-(binary scored) and items of open-ended questions (rated). Which IRT model can
-we apply to this mixed-format test? Not a single one. Instead, we
-need two separate models, each independently running on a subset of the test of
-a particular item format. A special technique is then required to map the
-independently estimated person/item parameters onto a common scale. 
+measuring psychological constructs, and various surveys used in the social
+sciences), even the slightest complication renders them useless. Just consider a
+mixed-format test consisting of, for example, multiple-choice items (binary
+scored) and items of open-ended questions (rated). Which IRT model can we apply
+to this mixed-format test? Not a single one. Instead, we need two separate
+models, each independently running on a subset of the test of a particular item
+format. A special technique is then required to map the independently estimated
+person/item parameters onto a common scale. 
 
 The method works, but it wastes a lot of information. When separately estimated,
 information cannot be shared across different item formats to improve parameter
@@ -627,17 +627,22 @@ available in the literature. We have to tailor a model ourselves according to
 what the current situation demands. Therefore, a ***framework*** is required to
 guide us through building up such a model. 
 
-This post ends the *demystifying* series. When the thick cloud of mystery
-finally begins to dissolve, we can start to solve real and exciting problems
-rather than wrangling with mad statistical models. In my next post, I will move
-on to Bayesian statistics, the unified *framework* that allows flexibly
-extending a model to match the demanded conditions. Bayesian framework is ideal
-for empirical research because it is *practical*. We do not need to wait for a
-statistician to come up with a model for every new situation. In Bayesian
-inference, we simply describe the *data-generating process* and the *priors*,
-and the rest is handled by probability theory and an estimation algorithm.
-Therefore, we can focus on the scientific problems at hand instead of fussing
-around with fancy models and their names.
+This post marks the end of the *demystifying* series. When the thick cloud of
+mystery finally begins to dissolve, we can start to solve real and exciting
+problems rather than wrangling with mad statistical models. In my next post, I
+will move on to Bayesian statistics, the ***unified framework*** that allows
+flexibly extending a model to match the demanded conditions. Bayesian framework
+is ideal for empirical research because it is *practical*. We do not need to
+wait for a statistician to come up with a model for every new situation. In
+Bayesian inference, we simply describe the *data-generating process* and the
+*priors*, and the rest is handled by probability theory and an estimation
+algorithm. Therefore, we can focus on the scientific problems at hand instead of
+fussing around with fancy models and their names. We will see how item response
+models can be embedded into a larger network of causes and effects that
+represents the assumed causal interactions underlying the current problem. Item
+response models, which are essentially **methods for handling measurement
+errors**, help deal with the latent constructs measured indirectly through
+surveys in this network of interacting variables.
 
 
 [pkg]: https://cran.r-project.org/web/packages/ordinal
@@ -646,7 +651,12 @@ around with fancy models and their names.
 [^phi-space]: Recall that $\phi$ works in the latent score space by
     increasing or decreasing the baseline latent scores.
 [^bin]: In the testing context, a binary dependent variable is often used for
-    modeling correct/incorrect response. In the current wine rating context, a
+    modeling correct/incorrect responses. In the current wine rating context, a
     binary dependent variable could also be used for modeling ratings. In such
-    case, there must only be two possible ratings, such as mediocre/premium, on
+    cases, there must only be two possible ratings, such as mediocre/premium, on
     the wines.
+[^credit]: The source code for building the interactive visualization of the
+    ordered logit distribution can be found on
+    [GitHub](https://github.com/liao961120/ordlogit). It is built upon
+    [this](https://github.com/probstats/probstats.github.io) nice project for
+    visualizing various probability distributions. 

@@ -105,8 +105,8 @@ p > code, li > code, a > code {
     font-family: 'Libre Baskerville', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
-    line-height: 1.65;
-    margin-bottom: 1.35em;
+    line-height: 1.73;
+    margin-bottom: 1.65em;
 }
 .article_content sup {
     padding: 0 .08rem 0 0.15rem;
@@ -518,9 +518,16 @@ footer .copyright {
 	margin-bottom: 0;
 }
 
-/* Responsive design */
 
-@media only screen and (max-width: 700px) {
+/* Katex */
+p:has( > span > span.katex-display) {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* Responsive design */
+@media only screen and (max-width: 780px) {
     .article_content img, .article_content figure {
         width: 100%;
         display: block;
@@ -562,6 +569,13 @@ footer .copyright {
         width: 90%;
         margin: 0 auto;
         padding: 0 auto;
+    }
+    /* Katex: hide tag */
+    span.katex-display span.tag {
+        /* display: none; */
+        display: inline-block;
+        position: relative !important;
+        margin-left: 1.7em;
     }
 }
 

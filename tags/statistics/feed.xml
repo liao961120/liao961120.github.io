@@ -97,8 +97,8 @@ previous posts. It is also the starting point of this machinery for
 converting real-valued scores to ordinal ratings. Things get a bit
 complicated in the intermediate steps on the path. Therefore, indulge me
 with explaining the path in reverse. I will start with the rightmost
-term, which, as monstrous as it may seem, is probably the least
-challenging concept to be grasped here.&lt;/p>
+term, which, monstrous as it may seem, is probably the least challenging
+concept to be grasped here.&lt;/p>
 &lt;h3 id="random-category-generator">Random Category Generator&lt;/h3>
 &lt;p>The seemingly monstrous term represents the generation of a rating score
 ($R$) from a &lt;strong>categorical distribution&lt;/strong>. A categorical distribution
@@ -128,14 +128,14 @@ style="width:100.0%" data-fig-align="center" />&lt;/p>
 $Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the &lt;code>sample()&lt;/code> function:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>P ) &lt;span style="color:#75715e"># Sample one category from the distribution&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 2
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Repeatedly sample from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>s &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e5&lt;/span>, replace&lt;span style="color:#f92672">=&lt;/span>T, prob&lt;span style="color:#f92672">=&lt;/span>P )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>( P2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>(s) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">length&lt;/span>(s) )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>s
 1 2 3 4
-0.12516 0.37294 0.37684 0.12506
+0.12508 0.37697 0.37404 0.12391
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Empirical frequency distibution obtained through sampling&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Category&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>,
@@ -260,7 +260,7 @@ the same machinery in reverse:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591 Inf
 [1] 0.125 0.500 0.875 1.000
 [1] 0.125 0.375 0.375 0.125
-[1] 2
+[1] 3
 &lt;/code>&lt;/pre>
 &lt;p>This second expression aligns well with the simulation perspective and
 precisely lays out the data-generating process of the rating scores. It
@@ -325,10 +325,10 @@ distribution">
 distribution&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
-&lt;p>I’ve built an &lt;a href="https://yongfu.name/ordlogit">interactive visualization&lt;/a>
-just to help with that. As shown in the figure above, there are two
-places where users can change to see how the shape of the rating
-distribution gets influenced.&lt;/p>
+&lt;p>I’ve built an &lt;a href="https://yongfu.name/ordlogit">interactive
+visualization&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> just to help with that.
+As shown in the figure above, there are two places where users can
+change to see how the shape of the rating distribution gets influenced.&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>The four vertical sliders are there to adjust the baseline
@@ -356,7 +356,7 @@ scores to derive the final distribution.&lt;/p>
 shifts according to an aggregated influence of $\phi$. It is the hard
 part of the statistical machinery behind the rating scale IRT model.
 Regression is the easy part. Now we have a nice and neat $\phi$ sitting
-on the real space&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> to work with. If we zoom in on $\phi$, it’s simply
+on the real space&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> to work with. If we zoom in on $\phi$, it’s simply
 the summed effect of the dependent variables in a linear regression,
 which is similar to $\mu$ in logistic regressions. The only difference
 here is that we need a different linking distribution to map the effect
@@ -372,9 +372,9 @@ R_i &amp;amp; \sim OrderedLogit(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1
 $$&lt;/p>
 &lt;p>The $OrderedLogit$ distribution hides all the details from the reader.
 But you’ve already seen the details at work in code form in previous
-sections, albeit in a quite scattered manner. Later, we will pack them
-up together. If you prefer clarity now, the monstrous expressions in
-&lt;a href="#math-eq4">(4)&lt;/a> should be satisfying.&lt;/p>
+sections, albeit in a quite scattered manner. Later, I will collect them
+into a single function. If you prefer clarity now, the monstrous
+expressions in &lt;a href="#math-eq4">(4)&lt;/a> should be satisfying.&lt;/p>
 &lt;p>$$
 \begin{aligned}
 R_i \sim Categorical &amp;amp; (
@@ -421,7 +421,7 @@ form of the $OrderedLogit$ distribution in the function &lt;code>rOrdLogit()&lt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591
 draws
 1 2 3 4
-0.1285 0.3684 0.3820 0.1211
+0.1312 0.3711 0.3783 0.1194
 &lt;/code>&lt;/pre>
 &lt;h2 id="simulating-and-fitting-wine-ratings">Simulating and Fitting Wine Ratings&lt;/h2>
 &lt;p>Having all concepts in place, let’s start synthesizing data for our
@@ -480,7 +480,7 @@ standardization is needed.&lt;/p>
 responses &lt;code>B&lt;/code> (&lt;code>0&lt;/code>/&lt;code>1&lt;/code>) from &lt;code>phi&lt;/code>. Indeed, if a model is fitted with
 &lt;code>B&lt;/code> as the dependent variable, it will be identical to the logistic
 regression models fitted in previous posts. The binary responses are
-simulated to demonstrate the parallelism between the binary&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> model
+simulated to demonstrate the parallelism between the binary&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup> model
 and the rating scale model. The two models are highly similar: the
 linear effects are aggregated in the same ways (in $\mu$/$\phi$). The
 only difference is how these effects are projected onto the response
@@ -555,22 +555,22 @@ certainly even more complex IRT models, but I won’t go further in that
 direction. I dislike the idea of taking the complexity of the learned
 stats model, or the number of advanced models one can recite, as the
 measure of people’s skill in statistics. There are no better or
-“advanced” models. Just models that do or don’t fit into the problem at
-hand. Nor can we improve our statistics techniques by endlessly
+“advanced” models. Just models that do or don’t fit into the present
+problem. Nor can we improve our statistics techniques by endlessly
 swallowing newer fancy models. No matter how many new models are
 devised, they are easily outnumbered by real-world problems.&lt;/p>
 &lt;p>Item response models, general as they might seem, quickly run out of
 supply. Although binary and rating score models allow us to deal with
 most response types found in the field (such as tests in educational
-settings, scales measuring psychological constructs, and various
-questionnaires used in the social sciences), even the slightest
-complication renders them useless. Just consider a mixed-format test
-consisting of, for example, multiple-choice items (binary scored) and
-items of open-ended questions (rated). Which IRT model can we apply to
-this mixed-format test? Not a single one. Instead, we need two separate
-models, each independently running on a subset of the test of a
-particular item format. A special technique is then required to map the
-independently estimated person/item parameters onto a common scale.&lt;/p>
+settings, scales measuring psychological constructs, and various surveys
+used in the social sciences), even the slightest complication renders
+them useless. Just consider a mixed-format test consisting of, for
+example, multiple-choice items (binary scored) and items of open-ended
+questions (rated). Which IRT model can we apply to this mixed-format
+test? Not a single one. Instead, we need two separate models, each
+independently running on a subset of the test of a particular item
+format. A special technique is then required to map the independently
+estimated person/item parameters onto a common scale.&lt;/p>
 &lt;p>The method works, but it wastes a lot of information. When separately
 estimated, information cannot be shared across different item formats to
 improve parameter estimation. Item estimates might be fine, as long as
@@ -586,31 +586,44 @@ However, such comprehensive models are rarely, if not never, available
 in the literature. We have to tailor a model ourselves according to what
 the current situation demands. Therefore, a &lt;em>&lt;strong>framework&lt;/strong>&lt;/em> is required
 to guide us through building up such a model.&lt;/p>
-&lt;p>This post ends the &lt;em>demystifying&lt;/em> series. When the thick cloud of
-mystery finally begins to dissolve, we can start to solve real and
-exciting problems rather than wrangling with mad statistical models. In
-my next post, I will move on to Bayesian statistics, the unified
-&lt;em>framework&lt;/em> that allows flexibly extending a model to match the demanded
-conditions. Bayesian framework is ideal for empirical research because
-it is &lt;em>practical&lt;/em>. We do not need to wait for a statistician to come up
-with a model for every new situation. In Bayesian inference, we simply
-describe the &lt;em>data-generating process&lt;/em> and the &lt;em>priors&lt;/em>, and the rest is
-handled by probability theory and an estimation algorithm. Therefore, we
-can focus on the scientific problems at hand instead of fussing around
-with fancy models and their names.&lt;/p>
+&lt;p>This post marks the end of the &lt;em>demystifying&lt;/em> series. When the thick
+cloud of mystery finally begins to dissolve, we can start to solve real
+and exciting problems rather than wrangling with mad statistical models.
+In my next post, I will move on to Bayesian statistics, the &lt;em>&lt;strong>unified
+framework&lt;/strong>&lt;/em> that allows flexibly extending a model to match the
+demanded conditions. Bayesian framework is ideal for empirical research
+because it is &lt;em>practical&lt;/em>. We do not need to wait for a statistician to
+come up with a model for every new situation. In Bayesian inference, we
+simply describe the &lt;em>data-generating process&lt;/em> and the &lt;em>priors&lt;/em>, and the
+rest is handled by probability theory and an estimation algorithm.
+Therefore, we can focus on the scientific problems at hand instead of
+fussing around with fancy models and their names. We will see how item
+response models can be embedded into a larger network of causes and
+effects that represents the assumed causal interactions underlying the
+current problem. Item response models, which are essentially &lt;strong>methods
+for handling measurement errors&lt;/strong>, help deal with the latent constructs
+measured indirectly through surveys in this network of interacting
+variables.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>Recall that $\phi$ works in the latent score space by increasing
-or decreasing the baseline latent scores.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>The source code for building the interactive visualization of the
+ordered logit distribution can be found on
+&lt;a href="https://github.com/liao961120/ordlogit">GitHub&lt;/a>. It is built upon
+&lt;a href="https://github.com/probstats/probstats.github.io">this&lt;/a> nice
+project for visualizing various probability distributions.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;li id="fn:2">
+&lt;p>Recall that $\phi$ works in the latent score space by increasing
+or decreasing the baseline latent scores.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:3">
 &lt;p>In the testing context, a binary dependent variable is often used
-for modeling correct/incorrect response. In the current wine rating
+for modeling correct/incorrect responses. In the current wine rating
 context, a binary dependent variable could also be used for modeling
-ratings. In such case, there must only be two possible ratings, such
-as mediocre/premium, on the wines.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+ratings. In such cases, there must only be two possible ratings,
+such as mediocre/premium, on the wines.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>r</category><category>statistics</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (3/4)</title><link>https://yongfu.name/2023/03/29/irt3/</link><pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/29/irt3/</guid><description>&lt;h2 id="fixed-random-and-mixed">Fixed, Random and Mixed&lt;/h2>

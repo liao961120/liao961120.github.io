@@ -22,15 +22,16 @@ getable::renderTable(&#34;https://yongfu.name/getable/demo/data/df.csv&#34;)
                                               overflow-y:auto">
                                 <div style="width:94%; margin: 0 3%;">
                             ${document.getElementById(t.substring(1)).innerHTML}
-                            </div></div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"40ch"})}),document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e=>{const n=new URL(e.href).hash;var t=document.getElementById(n.substring(1));t.classList.contains("Box")&&tippy(e,{content:`<div style="
+                            </div></div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"40ch"})}),document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e=>{const n=new URL(e.href).hash;var t=document.getElementById(n.substring(1));if(t.classList.contains("Box")&&tippy(e,{content:`<div style="
                                             max-height:55vh; 
                                             overflow-y:auto;">
                                         <div style="width:94%; margin: 0 3%;">${t.innerHTML}</div>
-                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}),t.classList.contains("katex-display")&&(t.querySelector("span.tag").style.cssText="position:absolute;right:3%",tippy(e,{content:`<div style="
-                                            width: 38vw;
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}),t.classList.contains("katex-display")){let n=t.cloneNode(!0);n.querySelector("span.tag").remove(),tippy(e,{content:`<div style="
+                                            width: 33vw;
+                                            min-width: 370px;
                                             max-height:85vh; 
                                             overflow-y:auto;">
                                         <div style="width:95%; margin: 1em auto;">
-                                            <span>${t.innerHTML}</span>
+                                            <span>${n.innerHTML}</span>
                                         </div>
-                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}))})}document.addEventListener("DOMContentLoaded",function(){renderHoverNotes()})</script></body></html>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"})}})}document.addEventListener("DOMContentLoaded",function(){renderHoverNotes()})</script></body></html>
