@@ -20,7 +20,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 21px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -106,12 +106,11 @@ p > code, li > code, a > code {
     margin-bottom: .45em;
 }
 .article_content, .tippy-box {
-    font-size: 20px;
     font-family: 'Amiri', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
-    line-height: 1.56;
-    margin-bottom: 1.58em;
+    line-height: 1.53;
+    margin-bottom: 1.5em;
 }
 .article_content sup {
     padding: 0 .08rem 0 0.15rem;
@@ -411,7 +410,7 @@ table th {
     padding: .5em 1%;
     border-radius: 0.35em;
     line-height: 1.3;
-    font-size: .95em;
+    font-size: .84em;
     margin-left: 0;
     border-left: none;
 }
@@ -420,7 +419,7 @@ pre {
     padding: .5em 0 .5em 1.5%;
     margin: .8em 0 .8em 0.5%;
     line-height: 1.2;
-    font-size: 0.86em;
+    font-size: 0.8em;
     color: rgb(33, 33, 33);
     overflow-x: auto;
     max-height: 580px;

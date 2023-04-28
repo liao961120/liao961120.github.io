@@ -26,18 +26,28 @@ editor:
    render-on-save: false
 ---
 
+
+- Introducing Bayes
+- Examples 
+   - wine: interaction + origin
+      - difficult to think of in regression, think in graphs instead
+   - mixed-format test
+      - can only be dealt with in Bayes
+   - latent variable as predictors
+      - e.g., personality and health outcomes
+
 Consider the scenario represented through the DAG on the left below. The
 variable $O_w$ represents the origin of the wine (French or non-French), and the
-variable $O_j$ reprsents the origin of the judge (French or non-French). 
-$O_w \rightarrow R$ indicates an undesired influence on the rating: the origin
-of the wine, in addition to its quality, influence the rating score it receives.
-The arrow from $O_j$ pointing down to $O_w \rightarrow R$ represents the wine
+variable $O_j$ represents the origin of the judge (French or non-French). $O_w
+\rightarrow R$ indicates an undesired influence on the rating: the origin of the
+wine, in addition to its quality, influences the rating score it receives. The
+arrow from $O_j$ pointing down to $O_w \rightarrow R$ represents the wine
 origin's influence on the rating is moderated by the origin of the judge. Put
-it another way, there is an interaction between $O_w$ and $O_j$. This is likely,
-for instance, when the wine rating isn't blinded such that French judges give 
-additional favorable scores to French wines because they love France, not the 
-wines. This problem is known as **differential rater functioning**, and the 
-undesired effects of $O_w$ on $R$ is estimable within the IRT framework by 
+another way, there is an interaction between $O_w$ and $O_j$. This is likely,
+for instance, when the wine rating isn't blinded such that French judges give
+additional favorable scores to French wines because they love France, not the
+wines. This problem is known as **differential rater functioning**, and the
+undesired effects of $O_w$ on $R$ are estimable within the IRT framework by
 adding an interaction term to the predictor variables. But the effects are only
 estimable in this simple scenario. For a slightly complicated, but very likely,
 situation, where the wine origin also influences wine quality as represented in
