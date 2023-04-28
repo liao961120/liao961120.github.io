@@ -595,7 +595,7 @@ response theory. There are certainly even more complex IRT models, but I won't
 go further in that direction. I dislike the idea of taking the complexity of the
 learned stats model, or the number of advanced models one can recite, as the
 measure of people's skill in statistics. There are no better or "advanced"
-models. Just models that do or don't fit into the present problem. Nor can we
+models. Just models that do or don't suit the present problem. Nor can we
 improve our statistics techniques by endlessly swallowing newer fancy models. No
 matter how many new models are devised, they are easily outnumbered by
 real-world problems.

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;1,700&display=swap');
+
 :root {
     --skin: #F0D9CA;
     --landing-section-skin: #eccdb9;
@@ -51,8 +53,11 @@ p > code, li > code, a > code {
 
 .main aside {
     width: 25%;
-    margin: .8em 0;
+    margin: 1% 0 0 0;
     padding: 0;
+    font-size: .93em;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 .article_header {
@@ -101,12 +106,12 @@ p > code, li > code, a > code {
     margin-bottom: .45em;
 }
 .article_content, .tippy-box {
-    font-size: 18px;
-    font-family: 'Libre Baskerville', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
+    font-size: 20px;
+    font-family: 'Amiri', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
-    line-height: 1.73;
-    margin-bottom: 1.65em;
+    line-height: 1.56;
+    margin-bottom: 1.58em;
 }
 .article_content sup {
     padding: 0 .08rem 0 0.15rem;
