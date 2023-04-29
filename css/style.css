@@ -20,7 +20,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 21px;
+    font-size: 20px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -109,6 +109,7 @@ p > code, li > code, a > code {
     font-family: 'Amiri', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
+    font-size: 1.05em;
     line-height: 1.53;
     margin-bottom: 1.5em;
 }
