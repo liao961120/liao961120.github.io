@@ -132,14 +132,17 @@ div.two-column {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: around;
+    justify-content: space-between;
 }
 div.two-column > * {
     flex: 50%;
     margin: 0;
+    padding:0;
 }
-div.two-column > p > img {
+.article_content div.two-column > p > img {
     margin: 0;
+    padding: 0;
+    min-width: initial;
 }
 .article_content figure > figcaption {
     text-align: center;
