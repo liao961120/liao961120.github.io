@@ -545,6 +545,7 @@ p:has( > span > span.katex-display) {
         width: 100%;
         display: block;
         margin: 0 auto;
+        min-width: initial;
     }
     body > .header {
         width: 90%;
