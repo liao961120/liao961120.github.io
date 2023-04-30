@@ -168,7 +168,8 @@ $Categorical( \begin{bmatrix} .125 \\\\ .375 \\\\ .375 \\\\ .125 \end{bmatrix} )
 we simply use the `sample()` function:
 
 ```{r}
-sample( 1:4, size=1, prob=P )  # Sample one category from the distribution
+# Sample one category from the distribution
+sample( 1:4, size=1, prob=P )
 ```
 
 ```{r}
@@ -337,7 +338,7 @@ latent_to_prob = function(L) {
   return(P)
 }
 
-phi = 1.9 - 1.1     # wine (+1.9) & judge (-1.1) influences on ratings
+phi = 1.9 - 1.1     # wine (1.9) & judge (-1.1) influence on ratings
 L                   # baseline latent scores
 ( Ls = L - phi )    # latent scores after influences of wine & judge
 latent_to_prob(Ls)  # rating probs after influences of wine & judge
