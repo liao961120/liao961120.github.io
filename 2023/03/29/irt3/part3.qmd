@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 	fig.align = 'center',
 	comment = "",
 	fig.dim = c(10, 5.5),
-   dev='svglite',
+   dev='svg',
    dev.args = list(bg = "transparent"),
    NULL
 )
@@ -50,8 +50,8 @@ exemplifies this:
 > that uses one or more independent variables whose levels are **specifically
 > selected by the researcher** (fixed effects; e.g., gender) and one or more
 > additional independent variables whose levels are **chosen randomly** from a
-> wide range of possible values (random effects; e.g., age). 
->
+> wide range of possible values (random effects; e.g., age).  
+> <b></b>\
 > ---Definition of "mixed-effect model" in the APA Dictionary of Psychology
 
 The definitions for random and fixed effects above are not only confusing but
