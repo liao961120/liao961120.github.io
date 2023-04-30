@@ -77,7 +77,7 @@ Before moving on to the details of the statistical machinery behind the rating
 scale, let me first provide some context. 
 
 The examples presented in previous posts are classical situations where IRT is
-deployed and known for---a testing context. In such contexts, there are test
+applied and known for---a testing context. In such contexts, there are test
 items, testees, and possibly raters, but IRT is much more general than that. It
 is well applicable beyond the testing situation. Let us look at one such
 example, the *rating of wine quality*.
@@ -113,7 +113,7 @@ two values. We need new machinery to map the aggregated influence from the two
 factors ($W$ and $J$), which is a latent score in the real space, to the outcome
 ordinal scale. Lower latent scores should give rise to lower ratings, and higher
 latent scores to higher ratings, in general. How could this be achieved? Let's
-dive into the intricacy of the machinery.
+dive into the intricacy of this machinery.
 
 
 From Latent to Rating
@@ -207,14 +207,15 @@ results in a higher probability of generating `1`. Thus, in general, higher
 latent scores tend to produce `1`s. A similar strategy can be deployed here: we
 bridge the responses and the latent scores through probabilities. The crucial
 difference is that we now get multiple, instead of one, probabilities to deal
-with. Statisticians came up with a clever solution to this. Instead of a vector
-of fluctuating probabilities, which breaks the desired monotonically increasing
-relationship between the probabilities and the ratings, the probabilities are
-transformed into a vector of **cumulative probabilities**. The nice thing about
-this vector of cumulative probabilities is that the probabilities are now
-**ordered**, naturally. Larger cumulative probabilities now correspond to higher
-rating scores. Let me re-describe these more vividly with some code and plots.
-I'll continue to use the four-point rating example.
+with. Statisticians came up with a clever solution to this. Instead of dealing
+with a vector of fluctuating probabilities, which breaks the desired
+monotonically increasing relationship between the probabilities and the ratings,
+the probabilities are transformed into a vector of **cumulative probabilities**.
+The nice thing about this vector of cumulative probabilities is that the
+probabilities are now **ordered**, naturally. Larger cumulative probabilities
+now correspond to higher rating scores. Sounds confusing? Let me re-describe
+these more vividly with some code and plots. I'll continue to use the four-point
+rating example.
 
 ```{r}
 P = c( 1, 3, 3, 1 )
@@ -248,8 +249,7 @@ Ps[2:5] - Ps[1:4]  # or more generally, Ps[-1] - Ps[-length(Ps)]
 
 The two vectors are visualized as distributions below. The red bars are the
 ordinary probability distribution, which we have already seen in the previous
-section. The blue bars plot the cumulative version of the same probability
-distribution.
+section. The blue bars plot the cumulative version of it.
 
 ```{r}
 plot( 1, type="n", xlab="Rating", ylab="Prob", xlim=c(.5,4.5), ylim=c(0,1) )
@@ -322,7 +322,7 @@ the ratings**.
 
 To model the extraneous influences on the ratings, we utilize an independent
 term $\phi$ in the latent score space. The trick is to **subtract** this $\phi$
-from the vector of the baseline latent scores. For instance, if a wine has a
+from the vector of the _baseline latent scores_. For instance, if a wine has a
 better-than-average quality that raises its quality (latent score) by $1.9$
 above the baseline but is rated by a harsh judge that lowers the quantity by
 $1.1$, $\phi$ will be $.8$. Subtracting $\phi=.8$ from the baseline latent
@@ -344,7 +344,7 @@ latent_to_prob(Ls)  # rating probs after influences of wine & judge
 ```
 
 The bar chart below overlays the rating score distribution after considering
-$\phi$ (blue bars) against the baseline distribution (red bars). It can be seen
+$\phi$ (blue bars) on the baseline distribution (red bars). It can be seen
 that subtracting $\phi=.8$ from the baseline latent scores pushes the
 probability mass toward the right, raising the expected rating score. 
 
@@ -360,7 +360,7 @@ for (i in 1:4)
 ```
 
 It might seem unintuitive that *subtracting* a positive value from the latent
-scores *raises* the expected rating scores. But it's simply the effect of the
+scores *raises* the expected rating scores.But it's simply the effect of the
 cumulative probabilities. When the vector of the latent scores gets shifted,
 note that the last term doesn't move since it is infinity ($logit(1) = \infty$).
 Thus, the difference between the last and the second-to-last term, on the
@@ -380,7 +380,7 @@ shown in the figure above, there are two places where users can change to see
 how the shape of the rating distribution gets influenced.
 
 1. The four vertical sliders are there to adjust the baseline probabilities of
-   the ratings, $Pr(R=1), Pr(R=2), Pr(R=3), and Pr(R=4)$ (abbreviated as $P_1$ ~
+   the ratings, $Pr(R=1)$, $Pr(R=2)$, $Pr(R=3)$, and $Pr(R=4)$ (abbreviated as $P_1$ ~
    $P_4$ respectively). The numerical value on top of each bar indicates the
    probability of that rating. Note that it is the relative positions between
    the vertical sliders that matter, and the four probabilities automatically
@@ -392,7 +392,7 @@ how the shape of the rating distribution gets influenced.
    are the **baseline latent scores** mentioned previously. The last term, 
    $\kappa_4$ is dropped since it is always infinite.
 
-2. The horizontal slider above the baseline sliders controls the value of 
+2. The horizontal slider above the vertical sliders controls the value of 
    $\phi$, which gets subtracted from each of the baseline latent scores to 
    derive the final distribution.
 
@@ -402,11 +402,11 @@ Where's the Regression?
 -----------------------
 
 The previous section demonstrates how the baseline rating distribution shifts
-according to an aggregated influence of $\phi$. It is the hard part of the
+according to an aggregated influence of $\phi$, which is the hard part of the
 statistical machinery behind the rating scale IRT model. Regression is the easy
 part. Now we have a nice and neat $\phi$ sitting on the real space[^phi-space]
 to work with. If we zoom in on $\phi$, it's simply the summed effect of the
-dependent variables in a linear regression, which is similar to $\mu$ in
+predictor variables in a linear regression, which is similar to $\mu$ in
 logistic regressions. The only difference here is that we need a different
 linking distribution to map the effect onto the response scale (i.e., discrete
 ratings). In math terms, resuming our wine rating example, the distribution is
@@ -420,7 +420,7 @@ $$
 \end{aligned}
 $$
 
-The $OrderedLogit$ distribution hides all the details from the reader. But
+The $OrderedLogit$ expression hides all the details from the reader. But
 you've already seen the details at work in code form in previous sections,
 albeit in a quite scattered manner. Later, I will collect them into a single
 function. If you prefer clarity now, the monstrous expressions in
@@ -481,9 +481,9 @@ Simulating and Fitting Wine Ratings
 Having all concepts in place, let's start synthesizing data for our later model
 fitting. We will simulate data from the Ordered Logit distribution. One minor
 limitation with `rOrdLogit()` defined previously is that it can only take a
-single value of `phi`, but it is more desirable for `phi` to take a vector of
-values. A vectorized version of `rOrdLogit()` is available in the `stom` package
-as `rordlogit()`. We will be using this function for our data simulation.
+single value `phi`, but it is more desirable for `phi` to be a vector of values.
+A vectorized version of `rOrdLogit()` is available in the `stom` package as
+`rordlogit()`. We will be using this function for our data simulation.
 
 ```{r}
 library(stom)
@@ -518,16 +518,16 @@ noting. The first is the `standardize()` function, which centers the input
 vector to zero mean and a standard deviation of one. `J` and `W` are centered
 here to make the parameters later estimated by the model comparable to the scale
 of the true values. In our later model, we will partial-pool both the judges and
-wines and hence assume a zero-meaned distribution for both of them. Since the
-sample size of our data isn't large (`r Nj` judges and `r Nw` wines), which will
-likely cause the means of the raw `J` and `W` to have non-minor deviations from
-zero, standardization is needed.
+the wines and hence assume a zero-meaned distribution for both of them. Since
+the sample size of our data isn't large (`r Nj` judges and `r Nw` wines), which
+will likely cause the means of the raw `J` and `W` to have non-minor deviations
+from zero, standardization is needed.
 
 Second, in addition to `R`, the rating responses, I also simulate binary
 responses `B` (`0`/`1`) from `phi`. Indeed, if a model is fitted with `B` as the
 dependent variable, it will be identical to the logistic regression models
 fitted in previous posts. The binary responses are simulated to demonstrate the
-parallelism between the binary[^bin] model and the rating scale model. The two
+parallels between the binary[^bin] model and the rating scale model. The two
 models are highly similar: the linear effects are aggregated in the same ways
 (in $\mu$/$\phi$). The only difference is how these effects are projected onto
 the response scale: the binary model does so through the Bernoulli distribution,
@@ -601,31 +601,32 @@ matter how many new models are devised, they are easily outnumbered by
 real-world problems.
 
 Item response models, general as they might seem, quickly run out of supply.
-Although binary and rating score models allow us to deal with most response
+Although binary and rating scale models allow us to deal with most response
 types found in the field (such as tests in educational settings, scales
 measuring psychological constructs, and various surveys used in the social
-sciences), even the slightest complication renders them useless. Just consider a
-mixed-format test consisting of, for example, multiple-choice items (binary
-scored) and items of open-ended questions (rated). Which IRT model can we apply
-to this mixed-format test? Not a single one. Instead, we need two separate
-models, each independently running on a subset of the test of a particular item
-format. A special technique is then required to map the independently estimated
-person/item parameters onto a common scale. 
+sciences), even the slightest complication renders these models useless. Just
+consider a mixed-format test consisting of, for example, multiple-choice items
+(binary scored) and items of open-ended questions (rated). Which IRT model can
+we apply to this mixed-format test? Not a single one. Instead, we need two
+separate models, each independently running on a subset of the test for a
+particular item format. A special technique is then required to map the
+independently estimated person/item parameters onto a common scale. 
 
 The method works, but it wastes a lot of information. When separately estimated,
 information cannot be shared across different item formats to improve parameter
 estimation. Item estimates might be fine, as long as there are many subjects.
 Person estimates suffer greatly though since, in practice, the test length is
-limited and is now further divided up by two independent models.
+limited and is now further divided up by two independent models. This is
+equivalent to estimating person parameters with fewer items.
 
 It is always better to incorporate *everything* into a ***single comprehensive
 model*** instead of separately modeling a subset of variables in multiple small
-models. It is better because information flows smoothly among the variables in a
-comprehensive model, but the flow breaks down when the model gets torn apart
-into several ones. However, such comprehensive models are rarely, if not never,
-available in the literature. We have to tailor a model ourselves according to
-what the current situation demands. Therefore, a ***framework*** is required to
-guide us through building up such a model. 
+models. It is better because information flows smoothly through the variables in
+a comprehensive model, but the flow breaks down when the model gets torn apart
+into several pieces. However, such comprehensive models are rarely, if not
+never, available in the literature. We have to tailor a model ourselves
+according to what the current situation demands. Therefore, a ***framework*** is
+required to guide us through building up such a model. 
 
 This post marks the end of the *demystifying* series. When the thick cloud of
 mystery finally begins to dissolve, we can start to solve real and exciting

@@ -33,7 +33,7 @@ you run out of working memory. Shift the burden of holding everything in
 your brain to a piece of paper. Sketch what you need and proceed slowly.
 You will finally get there.</p><h2 id=wine-quality>Wine Quality</h2><p>Before moving on to the details of the statistical machinery behind the
 rating scale, let me first provide some context.</p><p>The examples presented in previous posts are classical situations where
-IRT is deployed and known for—a testing context. In such contexts, there
+IRT is applied and known for—a testing context. In such contexts, there
 are test items, testees, and possibly raters, but IRT is much more
 general than that. It is well applicable beyond the testing situation.
 Let us look at one such example, the <em>rating of wine quality</em>.</p><p>There are wines, good wines, premium wines, and judges in a wine
@@ -57,7 +57,7 @@ influence from the two factors ($W$ and $J$), which is a latent score in
 the real space, to the outcome ordinal scale. Lower latent scores should
 give rise to lower ratings, and higher latent scores to higher ratings,
 in general. How could this be achieved? Let’s dive into the intricacy of
-the machinery.</p><h2 id=from-latent-to-rating>From Latent to Rating</h2><p>$$
+this machinery.</p><h2 id=from-latent-to-rating>From Latent to Rating</h2><p>$$
 L ~~ \rightarrow ~~ P_{cum.}
 ~~ \rightarrow ~~ \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix}
 ~~ \rightarrow ~~ R \sim Categorical( \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix} )
@@ -92,13 +92,13 @@ normalizes this vector to the correct probability scale.</p><div class=highlight
 </span></span></code></pre></div><p><img src=part4_files/figure-commonmark/unnamed-chunk-1-1.svg style=width:100% data-fig-align=center></p><p>Now, to sample from this distribution,
 $Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the <code>sample()</code> function:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>P )  <span style=color:#75715e># Sample one category from the distribution</span>
-</span></span></code></pre></div><pre><code>[1] 2
+</span></span></code></pre></div><pre><code>[1] 1
 </code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Repeatedly sample from the distribution</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>s <span style=color:#f92672>=</span> <span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1e5</span>, replace<span style=color:#f92672>=</span>T, prob<span style=color:#f92672>=</span>P )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>( P2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>table</span>(s) <span style=color:#f92672>/</span> <span style=color:#a6e22e>length</span>(s) )
 </span></span></code></pre></div><pre><code>s
       1       2       3       4 
-0.12510 0.37493 0.37327 0.12670 
+0.12352 0.37315 0.37772 0.12561 
 </code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Empirical frequency distibution obtained through sampling</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Category&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>, 
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>      xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>.5</span>) )
@@ -125,14 +125,15 @@ produce <code>1</code>s. A similar strategy can be deployed here: we bridge the
 responses and the latent scores through probabilities. The crucial
 difference is that we now get multiple, instead of one, probabilities to
 deal with. Statisticians came up with a clever solution to this. Instead
-of a vector of fluctuating probabilities, which breaks the desired
-monotonically increasing relationship between the probabilities and the
-ratings, the probabilities are transformed into a vector of <strong>cumulative
-probabilities</strong>. The nice thing about this vector of cumulative
-probabilities is that the probabilities are now <strong>ordered</strong>, naturally.
-Larger cumulative probabilities now correspond to higher rating scores.
-Let me re-describe these more vividly with some code and plots. I’ll
-continue to use the four-point rating example.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1</span> )
+of dealing with a vector of fluctuating probabilities, which breaks the
+desired monotonically increasing relationship between the probabilities
+and the ratings, the probabilities are transformed into a vector of
+<strong>cumulative probabilities</strong>. The nice thing about this vector of
+cumulative probabilities is that the probabilities are now <strong>ordered</strong>,
+naturally. Larger cumulative probabilities now correspond to higher
+rating scores. Sounds confusing? Let me re-describe these more vividly
+with some code and plots. I’ll continue to use the four-point rating
+example.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1</span> )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>( P <span style=color:#f92672>=</span> P <span style=color:#f92672>/</span> <span style=color:#a6e22e>sum</span>(P) )  <span style=color:#75715e># Probabilities for R = 1, 2, 3, 4</span>
 </span></span></code></pre></div><pre><code>[1] 0.125 0.375 0.375 0.125
 </code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>( Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>cumsum</span>(P) )  <span style=color:#75715e># Cumulative Probabilities for R = 1, 2, 3, 4</span>
@@ -155,8 +156,7 @@ $$</p><p>and in code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f
 </span></span></code></pre></div><pre><code>[1] 0.125 0.375 0.375 0.125
 </code></pre><p>The two vectors are visualized as distributions below. The red bars are
 the ordinary probability distribution, which we have already seen in the
-previous section. The blue bars plot the cumulative version of the same
-probability distribution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Rating&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>, xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>) )
+previous section. The blue bars plot the cumulative version of it.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Rating&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>, xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>) )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>) {
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i<span style=color:#ae81ff>-.05</span>,i<span style=color:#ae81ff>-.05</span>), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,P[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i<span style=color:#ae81ff>+.05</span>,i<span style=color:#ae81ff>+.05</span>), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,Pc[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span> )
@@ -200,7 +200,7 @@ the same machinery in reverse:</p><div class=highlight><pre tabindex=0 style=col
 </span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591      Inf
 [1] 0.125 0.500 0.875 1.000
 [1] 0.125 0.375 0.375 0.125
-[1] 3
+[1] 1
 </code></pre><p>This second expression aligns well with the simulation perspective and
 precisely lays out the data-generating process of the rating scores. It
 also makes it clear that a <em>predetermined</em> set of latent scores (or
@@ -211,12 +211,12 @@ These latent scores can be thought of as <strong>baselines</strong> during ratin
 That is, the latent scores, or more visually, the shape of the rating
 distribution <strong>before any factor has exerted an effect on the ratings</strong>.</p><p>To model the extraneous influences on the ratings, we utilize an
 independent term $\phi$ in the latent score space. The trick is to
-<strong>subtract</strong> this $\phi$ from the vector of the baseline latent scores.
-For instance, if a wine has a better-than-average quality that raises
-its quality (latent score) by $1.9$ above the baseline but is rated by a
-harsh judge that lowers the quantity by $1.1$, $\phi$ will be $.8$.
-Subtracting $\phi=.8$ from the baseline latent scores gives the shifted
-latent scores, from which the rating probabilities could then be
+<strong>subtract</strong> this $\phi$ from the vector of the <em>baseline latent
+scores</em>. For instance, if a wine has a better-than-average quality that
+raises its quality (latent score) by $1.9$ above the baseline but is
+rated by a harsh judge that lowers the quantity by $1.1$, $\phi$ will be
+$.8$. Subtracting $\phi=.8$ from the baseline latent scores gives the
+shifted latent scores, from which the rating probabilities could then be
 derived:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>latent_to_prob <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>(L) {
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>  Pc <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>(L)
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>  Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, Pc )
@@ -232,11 +232,11 @@ derived:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-
 [1] -2.74591 -0.80000  1.14591      Inf
 [1] 0.06031805 0.24970747 0.44873758 0.24123690
 </code></pre><p>The bar chart below overlays the rating score distribution after
-considering $\phi$ (blue bars) against the baseline distribution (red
-bars). It can be seen that subtracting $\phi=.8$ from the baseline
-latent scores pushes the probability mass toward the right, raising the
+considering $\phi$ (blue bars) on the baseline distribution (red bars).
+It can be seen that subtracting $\phi=.8$ from the baseline latent
+scores pushes the probability mass toward the right, raising the
 expected rating score.</p><p><img src=part4_files/figure-commonmark/unnamed-chunk-11-1.svg style=width:100% data-fig-align=center></p><p>It might seem unintuitive that <em>subtracting</em> a positive value from the
-latent scores <em>raises</em> the expected rating scores. But it’s simply the
+latent scores <em>raises</em> the expected rating scores.But it’s simply the
 effect of the cumulative probabilities. When the vector of the latent
 scores gets shifted, note that the last term doesn’t move since it is
 infinity ($logit(1) = \infty$). Thus, the difference between the last
@@ -255,24 +255,24 @@ distribution</figcaption></figure></p><p>I’ve built an <a href=https://yongfu.
 visualization</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> just to help with that.
 As shown in the figure above, there are two places where users can
 change to see how the shape of the rating distribution gets influenced.</p><ol><li><p>The four vertical sliders are there to adjust the baseline
-probabilities of the ratings,
-$Pr(R=1), Pr(R=2), Pr(R=3), and Pr(R=4)$ (abbreviated as $P_1$ ~
-$P_4$ respectively). The numerical value on top of each bar
-indicates the probability of that rating. Note that it is the
-relative positions between the vertical sliders that matter, and the
-four probabilities automatically adjust to always sum to one.</p><p>The three values, $\kappa_1$, $\kappa_2$, and $\kappa_3$, shown on
+probabilities of the ratings, $Pr(R=1)$, $Pr(R=2)$, $Pr(R=3)$, and
+$Pr(R=4)$ (abbreviated as $P_1$ ~ $P_4$ respectively). The
+numerical value on top of each bar indicates the probability of that
+rating. Note that it is the relative positions between the vertical
+sliders that matter, and the four probabilities automatically adjust
+to always sum to one.</p><p>The three values, $\kappa_1$, $\kappa_2$, and $\kappa_3$, shown on
 top of the four probabilities are the <strong>cumulative logits</strong>, which
 are basically the vector of the cumulative probabilities,
 transformed to the logit scale. They are the <strong>baseline latent
 scores</strong> mentioned previously. The last term, $\kappa_4$ is dropped
-since it is always infinite.</p></li><li><p>The horizontal slider above the baseline sliders controls the value
+since it is always infinite.</p></li><li><p>The horizontal slider above the vertical sliders controls the value
 of $\phi$, which gets subtracted from each of the baseline latent
 scores to derive the final distribution.</p></li></ol><h2 id=wheres-the-regression>Where’s the Regression?</h2><p>The previous section demonstrates how the baseline rating distribution
-shifts according to an aggregated influence of $\phi$. It is the hard
+shifts according to an aggregated influence of $\phi$, which is the hard
 part of the statistical machinery behind the rating scale IRT model.
 Regression is the easy part. Now we have a nice and neat $\phi$ sitting
 on the real space<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> to work with. If we zoom in on $\phi$, it’s simply
-the summed effect of the dependent variables in a linear regression,
+the summed effect of the predictor variables in a linear regression,
 which is similar to $\mu$ in logistic regressions. The only difference
 here is that we need a different linking distribution to map the effect
 onto the response scale (i.e., discrete ratings). In math terms,
@@ -283,8 +283,8 @@ R_i & \sim OrderedLogit(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1 \\ \kap
 \phi_i & = W_{Wid[i]} + J_{Jid[i]} \\
 \tag{3}
 \end{aligned}
-$$</p><p>The $OrderedLogit$ distribution hides all the details from the reader.
-But you’ve already seen the details at work in code form in previous
+$$</p><p>The $OrderedLogit$ expression hides all the details from the reader. But
+you’ve already seen the details at work in code form in previous
 sections, albeit in a quite scattered manner. Later, I will collect them
 into a single function. If you prefer clarity now, the monstrous
 expressions in <a href=#math-eq4>(4)</a> should be satisfying.</p><p>$$
@@ -331,12 +331,12 @@ form of the $OrderedLogit$ distribution in the function <code>rOrdLogit()</code>
 </span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591
 draws
      1      2      3      4 
-0.1284 0.3742 0.3727 0.1247 
+0.1245 0.3676 0.3874 0.1205 
 </code></pre><h2 id=simulating-and-fitting-wine-ratings>Simulating and Fitting Wine Ratings</h2><p>Having all concepts in place, let’s start synthesizing data for our
 later model fitting. We will simulate data from the Ordered Logit
 distribution. One minor limitation with <code>rOrdLogit()</code> defined previously
-is that it can only take a single value of <code>phi</code>, but it is more
-desirable for <code>phi</code> to take a vector of values. A vectorized version of
+is that it can only take a single value <code>phi</code>, but it is more desirable
+for <code>phi</code> to be a vector of values. A vectorized version of
 <code>rOrdLogit()</code> is available in the <code>stom</code> package as <code>rordlogit()</code>. We
 will be using this function for our data simulation.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#a6e22e>library</span>(stom)
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>
@@ -377,7 +377,7 @@ worth noting. The first is the <code>standardize()</code> function, which center
 the input vector to zero mean and a standard deviation of one. <code>J</code> and
 <code>W</code> are centered here to make the parameters later estimated by the
 model comparable to the scale of the true values. In our later model, we
-will partial-pool both the judges and wines and hence assume a
+will partial-pool both the judges and the wines and hence assume a
 zero-meaned distribution for both of them. Since the sample size of our
 data isn’t large (12 judges and 30 wines), which will likely cause the
 means of the raw <code>J</code> and <code>W</code> to have non-minor deviations from zero,
@@ -385,12 +385,12 @@ standardization is needed.</p><p>Second, in addition to <code>R</code>, the rati
 responses <code>B</code> (<code>0</code>/<code>1</code>) from <code>phi</code>. Indeed, if a model is fitted with
 <code>B</code> as the dependent variable, it will be identical to the logistic
 regression models fitted in previous posts. The binary responses are
-simulated to demonstrate the parallelism between the binary<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> model
-and the rating scale model. The two models are highly similar: the
-linear effects are aggregated in the same ways (in $\mu$/$\phi$). The
-only difference is how these effects are projected onto the response
-scale: the binary model does so through the Bernoulli distribution, and
-the rating scale model through the Ordered Logit distribution.</p><p>Another reason for simulating binary responses along the rating
+simulated to demonstrate the parallels between the binary<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> model and
+the rating scale model. The two models are highly similar: the linear
+effects are aggregated in the same ways (in $\mu$/$\phi$). The only
+difference is how these effects are projected onto the response scale:
+the binary model does so through the Bernoulli distribution, and the
+rating scale model through the Ordered Logit distribution.</p><p>Another reason for simulating binary responses along the rating
 responses is for the preparation of model debugging. As we start fitting
 more and more complex models, we are bound to find ourselves lost in
 situations where we have no idea why the model fails to give the
@@ -456,26 +456,27 @@ measure of people’s skill in statistics. There are no better or
 problem. Nor can we improve our statistics techniques by endlessly
 swallowing newer fancy models. No matter how many new models are
 devised, they are easily outnumbered by real-world problems.</p><p>Item response models, general as they might seem, quickly run out of
-supply. Although binary and rating score models allow us to deal with
+supply. Although binary and rating scale models allow us to deal with
 most response types found in the field (such as tests in educational
 settings, scales measuring psychological constructs, and various surveys
 used in the social sciences), even the slightest complication renders
-them useless. Just consider a mixed-format test consisting of, for
-example, multiple-choice items (binary scored) and items of open-ended
-questions (rated). Which IRT model can we apply to this mixed-format
-test? Not a single one. Instead, we need two separate models, each
-independently running on a subset of the test of a particular item
-format. A special technique is then required to map the independently
-estimated person/item parameters onto a common scale.</p><p>The method works, but it wastes a lot of information. When separately
+these models useless. Just consider a mixed-format test consisting of,
+for example, multiple-choice items (binary scored) and items of
+open-ended questions (rated). Which IRT model can we apply to this
+mixed-format test? Not a single one. Instead, we need two separate
+models, each independently running on a subset of the test for a
+particular item format. A special technique is then required to map the
+independently estimated person/item parameters onto a common scale.</p><p>The method works, but it wastes a lot of information. When separately
 estimated, information cannot be shared across different item formats to
 improve parameter estimation. Item estimates might be fine, as long as
 there are many subjects. Person estimates suffer greatly though since,
 in practice, the test length is limited and is now further divided up by
-two independent models.</p><p>It is always better to incorporate <em>everything</em> into a <em><strong>single
+two independent models. This is equivalent to estimating person
+parameters with fewer items.</p><p>It is always better to incorporate <em>everything</em> into a <em><strong>single
 comprehensive model</strong></em> instead of separately modeling a subset of
 variables in multiple small models. It is better because information
-flows smoothly among the variables in a comprehensive model, but the
-flow breaks down when the model gets torn apart into several ones.
+flows smoothly through the variables in a comprehensive model, but the
+flow breaks down when the model gets torn apart into several pieces.
 However, such comprehensive models are rarely, if not never, available
 in the literature. We have to tailor a model ourselves according to what
 the current situation demands. Therefore, a <em><strong>framework</strong></em> is required
