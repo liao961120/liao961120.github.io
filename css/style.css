@@ -583,6 +583,10 @@ p:has( > span > span.katex-display) {
         margin: 0 auto;
         padding: 0 auto;
     }
+    /* Disable auto resizing of code chunk in mobile */
+    .highlight pre:hover {
+        width: 98%;
+    }
     /* Katex: hide tag */
     span.katex-display span.tag {
         /* display: none; */
