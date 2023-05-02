@@ -30,7 +30,7 @@ knitr::opts_chunk$set(
 	fig.align = 'center',
 	comment = "",
 	fig.dim = c(10, 5.5),
-   dev='svg',
+   dev='svglite',
    dev.args = list(bg = "transparent"),
    NULL
 )
@@ -98,7 +98,7 @@ only the observations under each level to estimate its parameter. What has been
 learned about a nation is uninformative about another nation for the
 **no-pooling** model. 
 
-![Levels within a categorical variable estimated independently.](tree0.png){width="70%"}
+![Levels within a categorical variable estimated independently.](tree0.png)
 
 But there actually is some information, right? Take the perspective of an alien,
 for instance. Knowing the average height of the Americans, say 5′9″, provides
@@ -118,7 +118,7 @@ from the data. When this structure is imposed, the observations under different
 levels will be naturally linked since now, the observations under every level
 all provide information for estimating the common distribution.
 
-![Levels within a categorical variable estimated by incorporating information from all levels. This is achieved through assuming all levels to come from a common distribution.](tree1.png){width="70%"}
+![Levels within a categorical variable estimated by incorporating information from all levels. This is achieved through assuming all levels to come from a common distribution.](tree1.png)
 
 What can be gained from partial pooling information across levels? As mentioned
 above, when we partial-pool, the information of the observations across all

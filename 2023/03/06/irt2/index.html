@@ -381,7 +381,7 @@ imprecision). You can play with the code below by changing the value of
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>p1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( A[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D[d<span style=color:#f92672>$</span>I] )    <span style=color:#75715e># Probabilities before shift</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>p2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( A2[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D2[d<span style=color:#f92672>$</span>I] )  <span style=color:#75715e># Probabilities after shift</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span><span style=color:#a6e22e>sum</span>( <span style=color:#a6e22e>abs</span>(p1 <span style=color:#f92672>-</span> p2) )  <span style=color:#75715e># Should be extremely close to zero</span>
-</span></span></code></pre></div><pre><code>[1] 9.445222e-14
+</span></span></code></pre></div><pre><code>[1] 9.456325e-14
 </code></pre><p>The way R deals with this issue of identifiability is not preferable
 since we want to recover the parameters in our simulation (i.e., the set
 of parameters without the shift). To get around R’s default treatment,

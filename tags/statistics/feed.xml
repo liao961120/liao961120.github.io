@@ -129,14 +129,14 @@ $Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the &lt;code>sample()&lt;/code> function:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Sample one category from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>P )
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 1
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Repeatedly sample from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>s &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e5&lt;/span>, replace&lt;span style="color:#f92672">=&lt;/span>T, prob&lt;span style="color:#f92672">=&lt;/span>P )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>( P2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>(s) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">length&lt;/span>(s) )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>s
 1 2 3 4
-0.12421 0.37574 0.37478 0.12527
+0.12399 0.37616 0.37439 0.12546
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Empirical frequency distibution obtained through sampling&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Category&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>,
@@ -261,7 +261,7 @@ the same machinery in reverse:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591 Inf
 [1] 0.125 0.500 0.875 1.000
 [1] 0.125 0.375 0.375 0.125
-[1] 1
+[1] 3
 &lt;/code>&lt;/pre>
 &lt;p>This second expression aligns well with the simulation perspective and
 precisely lays out the data-generating process of the rating scores. It
@@ -422,7 +422,7 @@ form of the $OrderedLogit$ distribution in the function &lt;code>rOrdLogit()&lt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591
 draws
 1 2 3 4
-0.1278 0.3807 0.3680 0.1235
+0.1277 0.3741 0.3755 0.1227
 &lt;/code>&lt;/pre>
 &lt;h2 id="simulating-and-fitting-wine-ratings">Simulating and Fitting Wine Ratings&lt;/h2>
 &lt;p>Having all concepts in place, let’s start synthesizing data for our
@@ -685,17 +685,19 @@ independent. Therefore, the model utilizes only the observations under
 each level to estimate its parameter. What has been learned about a
 nation is uninformative about another nation for the &lt;strong>no-pooling&lt;/strong>
 model.&lt;/p>
+&lt;p>
 &lt;figure>
-&lt;img src="tree0.png" style="width:70.0%"
-alt="Levels within a categorical variable estimated independently." />
-&lt;figcaption aria-hidden="true">Levels within a categorical variable
-estimated independently.&lt;/figcaption>
+&lt;img src="tree0.png" alt="Levels within a categorical variable estimated
+independently.">
+&lt;figcaption>Levels within a categorical variable estimated
+independently.&lt;/figcaption>
 &lt;/figure>
+&lt;/p>
 &lt;p>But there actually is some information, right? Take the perspective of
 an alien, for instance. Knowing the average height of the Americans, say
-5′9″, provides quite much information about the heights of the
-Japanese—they are unlikely to be 60 feet or 6 inches, agree? This is why
-we prefer to partial pool. Partial pooling allows the sharing of
+5&lt;e2>�&lt;b2>9&lt;e2>�&lt;b3>, provides quite much information about the heights
+of the Japanese—they are unlikely to be 60 feet or 6 inches, agree? This
+is why we prefer to partial pool. Partial pooling allows the sharing of
 information across different levels, which, as elucidated below, leads
 to several desirable properties.&lt;/p>
 &lt;p>When we want to incorporate—or partial pool—information from other
@@ -710,14 +712,16 @@ estimated from the data. When this structure is imposed, the
 observations under different levels will be naturally linked since now,
 the observations under every level all provide information for
 estimating the common distribution.&lt;/p>
+&lt;p>
 &lt;figure>
-&lt;img src="tree1.png" style="width:70.0%"
-alt="Levels within a categorical variable estimated by incorporating information from all levels. This is achieved through assuming all levels to come from a common distribution." />
-&lt;figcaption aria-hidden="true">Levels within a categorical variable
-estimated by incorporating information from all levels. This is achieved
-through assuming all levels to come from a common
-distribution.&lt;/figcaption>
+&lt;img src="tree1.png" alt="Levels within a categorical variable estimated by incorporating
+information from all levels. This is achieved through assuming all
+levels to come from a common distribution.">
+&lt;figcaption>Levels within a categorical variable estimated by incorporating
+information from all levels. This is achieved through assuming all
+levels to come from a common distribution.&lt;/figcaption>
 &lt;/figure>
+&lt;/p>
 &lt;p>What can be gained from partial pooling information across levels? As
 mentioned above, when we partial-pool, the information of the
 observations across all levels is shared. This means that the model
@@ -1711,7 +1715,7 @@ imprecision). You can play with the code below by changing the value of
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>p1 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities before shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>p2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A2[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D2[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities after shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sum&lt;/span>( &lt;span style="color:#a6e22e">abs&lt;/span>(p1 &lt;span style="color:#f92672">-&lt;/span> p2) ) &lt;span style="color:#75715e"># Should be extremely close to zero&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.445222e-14
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.456325e-14
 &lt;/code>&lt;/pre>
 &lt;p>The way R deals with this issue of identifiability is not preferable
 since we want to recover the parameters in our simulation (i.e., the set
@@ -2115,15 +2119,16 @@ graphs below. Let’s focus on the left one first. Here, $A$ represents
 the &lt;strong>ability&lt;/strong> of the testee, $D$ represents the &lt;strong>difficulty&lt;/strong> of the
 item, and $R$ represents the &lt;strong>item response&lt;/strong>, or &lt;strong>score&lt;/strong> on the
 item. A response for an item is coded as &lt;code>1&lt;/code> ($R=1$) if it is solved
-correctly. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A$ → $R$
-and $D$ → $R$ indicate the direction of influence. The arrows enter $R$
-since item difficulty and testee ability influence the score on the item
-(not the other way around). $A$ and $D$ are drawn as a circled node to
-indicate that they are &lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a
-fancier term), whereas uncircled nodes represent directly observable
-variables (i.e., stuff that gets recorded during data collection). This
-graphical representation of the variables and their relationships is
-known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
+correctly. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A$
+&lt;e2>&amp;lt;86&amp;gt;&amp;lt;92&amp;gt; $R$ and $D$ &lt;e2>&amp;lt;86&amp;gt;&amp;lt;92&amp;gt; $R$ indicate the direction
+of influence. The arrows enter $R$ since item difficulty and testee
+ability influence the score on the item (not the other way around). $A$
+and $D$ are drawn as a circled node to indicate that they are
+&lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a fancier term), whereas
+uncircled nodes represent directly observable variables (i.e., stuff
+that gets recorded during data collection). This graphical
+representation of the variables and their relationships is known as a
+&lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
 (DAG)&lt;/a>.&lt;/p>
 &lt;div class="goat svg-container ">
 &lt;svg
@@ -2183,7 +2188,7 @@ item response models, known as the &lt;strong>1-parameter logistic (1PL) model&l
 precise DAG representation for this model would be the one shown on the
 right above. Here, $P$ is the probability of correctly answering the
 item, which cannot be directly observed. However, $P$ directly
-influences the item score $R$, hence the arrow $P$ → $R$.&lt;/p>
+influences the item score $R$, hence the arrow $P$ &lt;e2>&amp;lt;86&amp;gt;&amp;lt;92&amp;gt; $R$.&lt;/p>
 &lt;p>Believe it or not, the things we have learned so far could get us
 started. So let’s simulate some data, based on what we’ve learned about
 item response theory!&lt;/p>
@@ -2213,7 +2218,7 @@ function &lt;code>expand.grid()&lt;/code> would pair up the 6 combinations for u
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span> T &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( &lt;span style="color:#e6db74">&amp;#34;R&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;T&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;J&amp;#34;&lt;/span> ) &lt;span style="color:#75715e"># Testee index&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 2
 I T
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;
 1 A R
@@ -2229,7 +2234,7 @@ data frame.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">=&lt;/span> A[ dat&lt;span style="color:#f92672">$&lt;/span>T ] &lt;span style="color:#75715e"># map ability to df by testee index T&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>D &lt;span style="color:#f92672">=&lt;/span> D[ dat&lt;span style="color:#f92672">$&lt;/span>I ] &lt;span style="color:#75715e"># map difficulty to df by item index I&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 4
 I T A D
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 A R 0.5 0.4
@@ -2252,7 +2257,7 @@ the data. This would give us a new variable $\mu$. I save the values of
 $\mu$ to column &lt;code>Mu&lt;/code> in the data frame.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>Mu &lt;span style="color:#f92672">=&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">-&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>D
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 5
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 5
 I T A D Mu
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 A R 0.5 0.4 0.1
@@ -2340,7 +2345,7 @@ item responses, through the Bernoulli distribution.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>P &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>Mu )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>R &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>P ) &lt;span style="color:#75715e"># Generate 0/1 from Bernoulli distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 7
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 7
 I T A D Mu P R
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
 1 A R 0.5 0.4 0.1 0.525 0

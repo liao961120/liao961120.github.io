@@ -50,12 +50,13 @@ observations. However, the parameters here are assumed to be
 independent. Therefore, the model utilizes only the observations under
 each level to estimate its parameter. What has been learned about a
 nation is uninformative about another nation for the <strong>no-pooling</strong>
-model.</p><figure><img src=tree0.png style=width:70% alt="Levels within a categorical variable estimated independently."><figcaption aria-hidden=true>Levels within a categorical variable
-estimated independently.</figcaption></figure><p>But there actually is some information, right? Take the perspective of
+model.</p><p><figure><img src=tree0.png alt="Levels within a categorical variable estimated
+independently."><figcaption>Levels within a categorical variable estimated
+independently.</figcaption></figure></p><p>But there actually is some information, right? Take the perspective of
 an alien, for instance. Knowing the average height of the Americans, say
-5′9″, provides quite much information about the heights of the
-Japanese—they are unlikely to be 60 feet or 6 inches, agree? This is why
-we prefer to partial pool. Partial pooling allows the sharing of
+5<e2>�<b2>9<e2>�<b3>, provides quite much information about the heights
+of the Japanese—they are unlikely to be 60 feet or 6 inches, agree? This
+is why we prefer to partial pool. Partial pooling allows the sharing of
 information across different levels, which, as elucidated below, leads
 to several desirable properties.</p><p>When we want to incorporate—or partial pool—information from other
 levels during estimation, we can utilize models that assume a
@@ -68,10 +69,11 @@ mean $\mu$ and variance $\sigma^2$. The mean and the variance are to be
 estimated from the data. When this structure is imposed, the
 observations under different levels will be naturally linked since now,
 the observations under every level all provide information for
-estimating the common distribution.</p><figure><img src=tree1.png style=width:70% alt="Levels within a categorical variable estimated by incorporating information from all levels. This is achieved through assuming all levels to come from a common distribution."><figcaption aria-hidden=true>Levels within a categorical variable
-estimated by incorporating information from all levels. This is achieved
-through assuming all levels to come from a common
-distribution.</figcaption></figure><p>What can be gained from partial pooling information across levels? As
+estimating the common distribution.</p><p><figure><img src=tree1.png alt="Levels within a categorical variable estimated by incorporating
+information from all levels. This is achieved through assuming all
+levels to come from a common distribution."><figcaption>Levels within a categorical variable estimated by incorporating
+information from all levels. This is achieved through assuming all
+levels to come from a common distribution.</figcaption></figure></p><p>What can be gained from partial pooling information across levels? As
 mentioned above, when we partial-pool, the information of the
 observations across all levels is shared. This means that the model
 considers <strong>more information</strong> for estimating the parameter of each
