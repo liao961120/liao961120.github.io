@@ -120,8 +120,8 @@ p > code, li > code, a > code {
     margin: 0 0 2.2em 0;
 }
 .article_content figure, .article_content img {
-    /* max-width: 100%; */
-    width: 100%;
+    max-width: 100%;
+    /* width: 90%; */
     min-width: 372px;
     display: block;
     padding: 0 auto;

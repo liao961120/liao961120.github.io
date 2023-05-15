@@ -687,7 +687,7 @@ nation is uninformative about another nation for the &lt;strong>no-pooling&lt;/s
 model.&lt;/p>
 &lt;p>
 &lt;figure>
-&lt;img src="tree0.png" alt="Levels within a categorical variable estimated
+&lt;img src="tree0.svg" alt="Levels within a categorical variable estimated
 independently.">
 &lt;figcaption>Levels within a categorical variable estimated
 independently.&lt;/figcaption>
@@ -695,9 +695,9 @@ independently.&lt;/figcaption>
 &lt;/p>
 &lt;p>But there actually is some information, right? Take the perspective of
 an alien, for instance. Knowing the average height of the Americans, say
-5&lt;e2>�&lt;b2>9&lt;e2>�&lt;b3>, provides quite much information about the heights
-of the Japanese—they are unlikely to be 60 feet or 6 inches, agree? This
-is why we prefer to partial pool. Partial pooling allows the sharing of
+5′9″, provides quite much information about the heights of the
+Japanese—they are unlikely to be 60 feet or 6 inches, agree? This is why
+we prefer to partial pool. Partial pooling allows the sharing of
 information across different levels, which, as elucidated below, leads
 to several desirable properties.&lt;/p>
 &lt;p>When we want to incorporate—or partial pool—information from other
@@ -714,7 +714,7 @@ the observations under every level all provide information for
 estimating the common distribution.&lt;/p>
 &lt;p>
 &lt;figure>
-&lt;img src="tree1.png" alt="Levels within a categorical variable estimated by incorporating
+&lt;img src="tree1.svg" alt="Levels within a categorical variable estimated by incorporating
 information from all levels. This is achieved through assuming all
 levels to come from a common distribution.">
 &lt;figcaption>Levels within a categorical variable estimated by incorporating

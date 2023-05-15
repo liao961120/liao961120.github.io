@@ -43,7 +43,8 @@
 <text transform='translate(40.32,198.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text transform='translate(40.32,138.28) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
 <text transform='translate(40.32,78.56) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>4</text>
-<polyline points='57.60,352.80 718.56,352.80 718.56,43.20 57.60,43.20 57.60,352.80 ' style='stroke-width: 0.75;' />
+<polygon points='57.60,352.80 718.56,352.80 718.56,43.20 57.60,43.20 ' style='stroke-width: 0.75;' />
+<text x='388.08' y='407.52' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='56.04px' lengthAdjust='spacingAndGlyphs'>Item Index</text>
 <text transform='translate(11.52,198.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='30.47px' lengthAdjust='spacingAndGlyphs'>Effect</text>
 </g>
 <defs>
@@ -54,7 +55,7 @@
 <g clip-path='url(#cpNTcuNjB8NzE4LjU2fDQzLjIwfDM1Mi44MA==)'>
 <line x1='287.20' y1='352.80' x2='287.20' y2='43.20' style='stroke-width: 0.75; stroke: #BEBEBE; stroke-dasharray: 4.00,4.00;' />
 <line x1='48.45' y1='209.48' x2='287.20' y2='209.48' style='stroke-width: 0.75; stroke: #BEBEBE; stroke-dasharray: 4.00,4.00;' />
-<line x1='287.20' y1='198.00' x2='720.00' y2='198.00' style='stroke-width: 0.75; stroke: #BEBEBE; stroke-dasharray: 4.00,4.00;' />
+<line x1='287.20' y1='198.00' x2='3600.00' y2='198.00' style='stroke-width: 0.75; stroke: #BEBEBE; stroke-dasharray: 4.00,4.00;' />
 <circle cx='88.81' cy='245.78' r='2.70' style='stroke-width: 0.75; fill: #000000;' />
 <circle cx='95.53' cy='243.10' r='2.70' style='stroke-width: 0.75; fill: #000000;' />
 <circle cx='102.26' cy='240.42' r='2.70' style='stroke-width: 0.75; fill: #000000;' />
