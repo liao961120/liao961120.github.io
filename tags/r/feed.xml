@@ -155,7 +155,7 @@ crucial part is missing though. The categorical distribution is
 order-agnostic: it knows nothing about the order of the categories it
 generates. What it does is faithfully produce categories according to
 the given probabilities. So, where does the order come from? It’s from
-the relation between rating probabilities and the latent scores.&lt;/p>
+the relationship between rating probabilities and the latent scores.&lt;/p>
 &lt;h3 id="enforcing-order-to-categories">Enforcing Order to Categories&lt;/h3>
 &lt;p>When a higher latent score tends to give rise to a higher rating, an
 order is automatically enforced on the categorical ratings (&lt;code>1&lt;/code>, &lt;code>2&lt;/code>,
@@ -204,9 +204,9 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>Ps[2&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> Ps[1&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#75715e"># or more generally, Ps[-1] - Ps[-length(Ps)]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 0.125 0.375 0.375 0.125
 &lt;/code>&lt;/pre>
-&lt;p>The two vectors are visualized as distributions below. The red bars are
-the ordinary probability distribution, which we have already seen in the
-previous section. The blue bars plot the cumulative version of it.&lt;/p>
+&lt;p>The two vectors are visualized as distributions below. The red bars are the
+probability distribution we have met in the previous section. The blue bars plot
+the cumulative version of it.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Rating&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>, xlim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">.5&lt;/span>,&lt;span style="color:#ae81ff">4.5&lt;/span>), ylim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>) )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">for &lt;/span>(i in &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>) {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> &lt;span style="color:#a6e22e">lines&lt;/span>( x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(i&lt;span style="color:#ae81ff">-.05&lt;/span>,i&lt;span style="color:#ae81ff">-.05&lt;/span>), y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,P[i]), lwd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> )
@@ -225,12 +225,12 @@ installed through the first two lines of commented code below.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># install.packages(&amp;#34;remotes&amp;#34;)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#75715e"># remotes::install_github(&amp;#34;liao961120/stom&amp;#34;)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(stom)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>&lt;span style="color:#a6e22e">logit&lt;/span>( Pc ) &lt;span style="color:#75715e"># convert cumulative probabilities to reals&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4&lt;/span>&lt;span>&lt;span style="color:#a6e22e">logit&lt;/span>(Pc) &lt;span style="color:#75715e"># convert cumulative probabilities to reals&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591 Inf
 &lt;/code>&lt;/pre>
-&lt;p>The statistical machinery behind rating scales probably remains elusive
+&lt;p>The statistical machinery behind rating scales likely remains elusive
 after my wordy explanation. Indeed, since we are only halfway through
-the machinery, it hardly makes sense only by looking at part of the
+the machinery, it would hardly make sense only by looking at part of the
 picture. What I have presented so far is part of the machinery that
 monotonically aligns the latent scores with the ratings, through the use
 of cumulative probabilities. The second part of the machinery is to
@@ -303,7 +303,7 @@ expected rating score.&lt;/p>
 &lt;p>&lt;img src="part4_files/figure-commonmark/unnamed-chunk-11-1.svg"
 style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;p>It might seem unintuitive that &lt;em>subtracting&lt;/em> a positive value from the
-latent scores &lt;em>raises&lt;/em> the expected rating scores.But it’s simply the
+latent scores &lt;em>raises&lt;/em> the expected rating scores. But it’s simply the
 effect of the cumulative probabilities. When the vector of the latent
 scores gets shifted, note that the last term doesn’t move since it is
 infinity ($logit(1) = \infty$). Thus, the difference between the last
@@ -546,19 +546,14 @@ data-fig-align="center" />&lt;/p>
 data-fig-align="center" />&lt;/p>
 &lt;/div>
 &lt;h2 id="item-response-theory-and-beyond">Item Response Theory and Beyond&lt;/h2>
-&lt;p>We have come a long way, from the simplest binary item response model to
-models with delicate machinery such as the rating scale model with
-partial-pooling structures. The posts in this &lt;em>demystifying&lt;/em> series are
-sufficient, I suppose, in providing a solid understanding of and
-practical skills for working with item response theory. There are
-certainly even more complex IRT models, but I won’t go further in that
-direction. I dislike the idea of taking the complexity of the learned
-stats model, or the number of advanced models one can recite, as the
-measure of people’s skill in statistics. There are no better or
-“advanced” models. Just models that do or don’t suit the present
-problem. Nor can we improve our statistics techniques by endlessly
-swallowing newer fancy models. No matter how many new models are
-devised, they are easily outnumbered by real-world problems.&lt;/p>
+&lt;p>We have come a long way, from the simplest binary item response model to models
+with delicate machinery such as the rating scale model with partial-pooling
+structures. The posts in this &lt;em>demystifying&lt;/em> series are sufficient, I suppose,
+in providing a solid understanding of and practical skills for working with item
+response theory. There are certainly even more complex IRT models, but I won’t
+go further in that direction. No matter how many new and complex models are
+added to the toolkit, we are certain to find our tools in shortage when facing
+real-world problems.&lt;/p>
 &lt;p>Item response models, general as they might seem, quickly run out of
 supply. Although binary and rating scale models allow us to deal with
 most response types found in the field (such as tests in educational
@@ -587,24 +582,22 @@ However, such comprehensive models are rarely, if not never, available
 in the literature. We have to tailor a model ourselves according to what
 the current situation demands. Therefore, a &lt;em>&lt;strong>framework&lt;/strong>&lt;/em> is required
 to guide us through building up such a model.&lt;/p>
-&lt;p>This post marks the end of the &lt;em>demystifying&lt;/em> series. When the thick
-cloud of mystery finally begins to dissolve, we can start to solve real
-and exciting problems rather than wrangling with mad statistical models.
-In my next post, I will move on to Bayesian statistics, the &lt;em>&lt;strong>unified
-framework&lt;/strong>&lt;/em> that allows flexibly extending a model to match the
-demanded conditions. Bayesian framework is ideal for empirical research
-because it is &lt;em>practical&lt;/em>. We do not need to wait for a statistician to
-come up with a model for every new situation. In Bayesian inference, we
-simply describe the &lt;em>data-generating process&lt;/em> and the &lt;em>priors&lt;/em>, and the
-rest is handled by probability theory and an estimation algorithm.
-Therefore, we can focus on the scientific problems at hand instead of
-fussing around with fancy models and their names. We will see how item
-response models can be embedded into a larger network of causes and
-effects that represents the assumed causal interactions underlying the
-current problem. Item response models, which are essentially &lt;strong>methods
-for handling measurement errors&lt;/strong>, help deal with the latent constructs
-measured indirectly through surveys in this network of interacting
-variables.&lt;/p>
+&lt;p>This post marks the end of the &lt;em>demystifying&lt;/em> series. When the thick cloud of
+mystery begins to dissolve, we finally get to start solving real and exciting
+problems rather than wrangling with mad statistical models. In my next post, I
+will move on to Bayesian statistics, a &lt;em>&lt;strong>unified framework&lt;/strong>&lt;/em> that allows
+flexibly extending a model to match the demanded conditions. Bayesian framework
+is ideal for empirical research because it is &lt;em>practical&lt;/em>. We do not need to
+wait for a statistician to come up with a model for every new situation. In
+Bayesian inference, we simply describe the &lt;em>data-generating process&lt;/em> and the
+&lt;em>priors&lt;/em>, and the rest is handled by probability theory and an estimation
+algorithm. Therefore, we can focus on the scientific problems at hand instead of
+fussing around with fancy models and their names. We will see how item response
+models can be embedded into a larger network of causes and effects that
+represents the assumed interactions underlying the current problem. Item
+response models, which are essentially &lt;strong>methods for handling measurement
+errors&lt;/strong>, help deal with the latent constructs measured indirectly through
+surveys in this network of interacting variables.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>

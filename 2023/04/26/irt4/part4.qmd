@@ -194,7 +194,8 @@ rating-scale context, it would correspond to a 4-point Likert scale in which
 though. The categorical distribution is order-agnostic: it knows nothing about
 the order of the categories it generates. What it does is faithfully produce
 categories according to the given probabilities. So, where does the order come
-from? It's from the relation between rating probabilities and the latent scores.
+from? It's from the relationship between rating probabilities and the latent
+scores.
 
 
 ### Enforcing Order to Categories
@@ -249,8 +250,8 @@ Ps[2:5] - Ps[1:4]  # or more generally, Ps[-1] - Ps[-length(Ps)]
 ```
 
 The two vectors are visualized as distributions below. The red bars are the
-ordinary probability distribution, which we have already seen in the previous
-section. The blue bars plot the cumulative version of it.
+probability distribution we have met in the previous section. The blue bars plot
+the cumulative version of it.
 
 ```{r}
 plot( 1, type="n", xlab="Rating", ylab="Prob", xlim=c(.5,4.5), ylim=c(0,1) )
@@ -273,19 +274,19 @@ through the first two lines of commented code below.
 # install.packages("remotes")
 # remotes::install_github("liao961120/stom")
 library(stom)
-logit( Pc )  # convert cumulative probabilities to reals
+logit(Pc)  # convert cumulative probabilities to reals
 ```
 
-The statistical machinery behind rating scales probably remains elusive after my
+The statistical machinery behind rating scales likely remains elusive after my
 wordy explanation. Indeed, since we are only halfway through the machinery, it
-hardly makes sense only by looking at part of the picture. What I have presented
-so far is part of the machinery that monotonically aligns the latent scores with
-the ratings, through the use of cumulative probabilities. The second part of the
-machinery is to allow for the shifting of the entire vector of latent scores
-(and thus the probabilities of ratings, through the first part of the machinery)
-by a common term, which enables the modeling of extraneous influences on the
-ratings (thus the "regression"). Let's now look at how this shifting is
-achieved.
+would hardly make sense only by looking at part of the picture. What I have
+presented so far is part of the machinery that monotonically aligns the latent
+scores with the ratings, through the use of cumulative probabilities. The second
+part of the machinery is to allow for the shifting of the entire vector of
+latent scores (and thus the probabilities of ratings, through the first part of
+the machinery) by a common term, which enables the modeling of extraneous
+influences on the ratings (thus the "regression"). Let's now look at how this
+shifting is achieved.
 
 
 ### Shifting Latent Scores
@@ -361,7 +362,7 @@ for (i in 1:4)
 ```
 
 It might seem unintuitive that *subtracting* a positive value from the latent
-scores *raises* the expected rating scores.But it's simply the effect of the
+scores *raises* the expected rating scores. But it's simply the effect of the
 cumulative probabilities. When the vector of the latent scores gets shifted,
 note that the last term doesn't move since it is infinity ($logit(1) = \infty$).
 Thus, the difference between the last and the second-to-last term, on the
@@ -592,13 +593,9 @@ We have come a long way, from the simplest binary item response model to models
 with delicate machinery such as the rating scale model with partial-pooling
 structures. The posts in this *demystifying* series are sufficient, I suppose,
 in providing a solid understanding of and practical skills for working with item
-response theory. There are certainly even more complex IRT models, but I won't
-go further in that direction. I dislike the idea of taking the complexity of the
-learned stats model, or the number of advanced models one can recite, as the
-measure of people's skill in statistics. There are no better or "advanced"
-models. Just models that do or don't suit the present problem. Nor can we
-improve our statistics techniques by endlessly swallowing newer fancy models. No
-matter how many new models are devised, they are easily outnumbered by
+response theory. There are certainly even more complex IRT models, but I won’t
+go further in that direction. No matter how many new and complex models are
+added to the toolkit, we are certain to find our tools in shortage when facing
 real-world problems.
 
 Item response models, general as they might seem, quickly run out of supply.
@@ -630,9 +627,9 @@ according to what the current situation demands. Therefore, a ***framework*** is
 required to guide us through building up such a model. 
 
 This post marks the end of the *demystifying* series. When the thick cloud of
-mystery finally begins to dissolve, we can start to solve real and exciting
+mystery begins to dissolve, we finally get to start solving real and exciting
 problems rather than wrangling with mad statistical models. In my next post, I
-will move on to Bayesian statistics, the ***unified framework*** that allows
+will move on to Bayesian statistics, a ***unified framework*** that allows
 flexibly extending a model to match the demanded conditions. Bayesian framework
 is ideal for empirical research because it is *practical*. We do not need to
 wait for a statistician to come up with a model for every new situation. In
@@ -641,7 +638,7 @@ Bayesian inference, we simply describe the *data-generating process* and the
 algorithm. Therefore, we can focus on the scientific problems at hand instead of
 fussing around with fancy models and their names. We will see how item response
 models can be embedded into a larger network of causes and effects that
-represents the assumed causal interactions underlying the current problem. Item
+represents the assumed interactions underlying the current problem. Item
 response models, which are essentially **methods for handling measurement
 errors**, help deal with the latent constructs measured indirectly through
 surveys in this network of interacting variables.
