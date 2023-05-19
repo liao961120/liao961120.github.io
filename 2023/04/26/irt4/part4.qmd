@@ -77,10 +77,10 @@ Before moving on to the details of the statistical machinery behind the rating
 scale, let me first provide some context. 
 
 The examples presented in previous posts are classical situations where IRT is
-applied and known for---a testing context. In such contexts, there are test
-items, testees, and possibly raters, but IRT is much more general than that. It
-is well applicable beyond the testing situation. Let us look at one such
-example, the *rating of wine quality*.
+applied and known for---a testing context. In such contexts, there are testees,
+test items, and possibly raters, but IRT is much more general than that. It is
+well applicable beyond the testing situation. Let us look at one such example,
+the *rating of wine quality*.
 
 There are wines, fine wines, premium wines, and judges in a wine competition. It
 is a simple twist of the item-testing scenario in which IRT is often applied.
