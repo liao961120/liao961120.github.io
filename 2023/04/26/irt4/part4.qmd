@@ -112,8 +112,8 @@ The only thing new is that instead of a binary response, $R$ can take more than
 two values. We need new machinery to map the aggregated influence from the two
 factors ($W$ and $J$), which is a latent score in the real space, to the outcome
 ordinal scale. Lower latent scores should give rise to lower ratings, and higher
-latent scores to higher ratings, in general. How could this be achieved? Let's
-dive into the intricacy of this machinery.
+latent scores to higher ratings, in general. How is this achieved? Let's dive
+into the intricacy of this machinery.
 
 
 From Latent to Rating
