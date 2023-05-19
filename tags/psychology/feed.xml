@@ -92,7 +92,7 @@ $$&lt;/p>
 &lt;p>The path along the mapping of the latent scores onto the rating-scale
 (ordinal) space is sketched above. The leftmost term $L$ stands for the
 latent score, which we have learned to deduce from the simulations in
-previous posts. It is also the starting point of this machinery for
+previous posts. It is also the starting point of this machinery of
 converting real-valued scores to ordinal ratings. Things get a bit
 complicated in the intermediate steps on the path. Therefore, indulge me
 with explaining the path in reverse. I will start with the rightmost
