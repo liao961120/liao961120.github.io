@@ -2187,7 +2187,7 @@ item response models, known as the &lt;strong>1-parameter logistic (1PL) model&l
 precise DAG representation for this model would be the one shown on the
 right above. Here, $P$ is the probability of correctly answering the
 item, which cannot be directly observed. However, $P$ directly
-influences the item score $R$, hence the arrow $P$ → $R$.&lt;/p>
+influences the item score $R$, hence the arrow $P \rightarrow R$.&lt;/p>
 &lt;p>Believe it or not, the things we have learned so far could get us
 started. So let’s simulate some data, based on what we’ve learned about
 item response theory!&lt;/p>
