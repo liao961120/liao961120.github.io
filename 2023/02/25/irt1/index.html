@@ -70,16 +70,15 @@ graphs below. Let’s focus on the left one first. Here, $A$ represents
 the <strong>ability</strong> of the testee, $D$ represents the <strong>difficulty</strong> of the
 item, and $R$ represents the <strong>item response</strong>, or <strong>score</strong> on the
 item. A response for an item is coded as <code>1</code> ($R=1$) if it is solved
-correctly. Otherwise, it is coded as <code>0</code> ($R=0$). The arrows $A$
-<e2>&lt;86>&lt;92> $R$ and $D$ <e2>&lt;86>&lt;92> $R$ indicate the direction
-of influence. The arrows enter $R$ since item difficulty and testee
-ability influence the score on the item (not the other way around). $A$
-and $D$ are drawn as a circled node to indicate that they are
-<strong>unobserved</strong> (or <strong>latent</strong>, if you prefer a fancier term), whereas
-uncircled nodes represent directly observable variables (i.e., stuff
-that gets recorded during data collection). This graphical
-representation of the variables and their relationships is known as a
-<a href=https://en.wikipedia.org/wiki/Directed_acyclic_graph>Directed Acyclic Graph
+correctly. Otherwise, it is coded as <code>0</code> ($R=0$). The arrows $A \rightarrow R$
+and $D \rightarrow R$ indicate the direction of influence. The arrows enter $R$
+since item difficulty and testee ability influence the score on the item
+(not the other way around). $A$ and $D$ are drawn as a circled node to
+indicate that they are <strong>unobserved</strong> (or <strong>latent</strong>, if you prefer a
+fancier term), whereas uncircled nodes represent directly observable
+variables (i.e., stuff that gets recorded during data collection). This
+graphical representation of the variables and their relationships is
+known as a <a href=https://en.wikipedia.org/wiki/Directed_acyclic_graph>Directed Acyclic Graph
 (DAG)</a>.</p><div class="goat svg-container"><svg xmlns="http://www.w3.org/2000/svg" font-family="Menlo,Lucida Console,monospace" viewBox="0 0 352 137"><g transform="translate(8,16)"><path d="M272 16h32" fill="none" stroke="currentcolor"/><path d="M152 16V96" fill="none" stroke="currentcolor"/><path d="M24 80 40 48" fill="none" stroke="currentcolor"/><path d="M216 80l16-32" fill="none" stroke="currentcolor"/><path d="M72 48 88 80" fill="none" stroke="currentcolor"/><path d="M264 48l16 32" fill="none" stroke="currentcolor"/><polygon points="52.000000,48.000000 40.000000,42.400002 40.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 40.000000, 48.000000)"/><polygon points="84.000000,48.000000 72.000000,42.400002 72.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 72.000000, 48.000000)"/><path d="M232 48l8-16" fill="none" stroke="currentcolor"/><polygon points="250.000000,48.000000 238.000000,42.400002 238.000000,53.599998" fill="currentcolor" transform="rotate(300.000000, 232.000000, 48.000000)"/><path d="M256 32l8 16" fill="none" stroke="currentcolor"/><polygon points="282.000000,48.000000 270.000000,42.400002 270.000000,53.599998" fill="currentcolor" transform="rotate(240.000000, 264.000000, 48.000000)"/><polygon points="312.000000,16.000000 300.000000,10.400000 300.000000,21.600000" fill="currentcolor" transform="rotate(0.000000, 304.000000, 16.000000)"/><path d="M248 0A16 16 0 00232 16" fill="none" stroke="currentcolor"/><path d="M248 0a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M232 16a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M264 16A16 16 0 01248 32" fill="none" stroke="currentcolor"/><path d="M16 80A16 16 0 000 96" fill="none" stroke="currentcolor"/><path d="M16 80A16 16 0 0132 96" fill="none" stroke="currentcolor"/><path d="M96 80A16 16 0 0080 96" fill="none" stroke="currentcolor"/><path d="M96 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M208 80A16 16 0 00192 96" fill="none" stroke="currentcolor"/><path d="M208 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M288 80A16 16 0 00272 96" fill="none" stroke="currentcolor"/><path d="M288 80a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M0 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M32 96A16 16 0 0116 112" fill="none" stroke="currentcolor"/><path d="M80 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M112 96A16 16 0 0196 112" fill="none" stroke="currentcolor"/><path d="M192 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M224 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><path d="M272 96a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M304 96a16 16 0 01-16 16" fill="none" stroke="currentcolor"/><text text-anchor="middle" x="16" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="56" y="20" fill="currentcolor" style="font-size:1em">R</text><text text-anchor="middle" x="96" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="208" y="100" fill="currentcolor" style="font-size:1em">A</text><text text-anchor="middle" x="248" y="20" fill="currentcolor" style="font-size:1em">P</text><text text-anchor="middle" x="288" y="100" fill="currentcolor" style="font-size:1em">D</text><text text-anchor="middle" x="328" y="20" fill="currentcolor" style="font-size:1em">R</text></g></svg></div><p>The DAGs laid out here represent the concept behind the simplest kind of
 item response models, known as the <strong>1-parameter logistic (1PL) model</strong>
 (or the Rasch Model). In more formal terms, this model posits that the
@@ -88,7 +87,7 @@ item response models, known as the <strong>1-parameter logistic (1PL) model</str
 precise DAG representation for this model would be the one shown on the
 right above. Here, $P$ is the probability of correctly answering the
 item, which cannot be directly observed. However, $P$ directly
-influences the item score $R$, hence the arrow $P$ <e2>&lt;86>&lt;92> $R$.</p><p>Believe it or not, the things we have learned so far could get us
+influences the item score $R$, hence the arrow $P$ → $R$.</p><p>Believe it or not, the things we have learned so far could get us
 started. So let’s simulate some data, based on what we’ve learned about
 item response theory!</p><h2 id=simulating-item-responses>Simulating Item Responses</h2><figure><img src=tenet2.gif style=width:85% alt="Simulation is playing god in a small world. Similar to model fitting, but in reverse direction."><figcaption aria-hidden=true>Simulation is <em>playing god</em> in a
 small world. Similar to model fitting, but in <em>reverse</em>
@@ -109,7 +108,7 @@ function <code>expand.grid()</code> would pair up the 6 combinations for us.</p>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>   T <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#e6db74>&#34;R&#34;</span>, <span style=color:#e6db74>&#34;T&#34;</span>, <span style=color:#e6db74>&#34;J&#34;</span> )  <span style=color:#75715e># Testee index</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>)
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>dat
-</span></span></code></pre></div><pre><code># A tibble: 6 x 2
+</span></span></code></pre></div><pre><code># A tibble: 6 × 2
   I     T    
   &lt;fct&gt; &lt;fct&gt;
 1 A     R    
@@ -123,7 +122,7 @@ could collect the values of student ability and item difficulty into the
 data frame.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>dat<span style=color:#f92672>$</span>A <span style=color:#f92672>=</span> A[ dat<span style=color:#f92672>$</span>T ]  <span style=color:#75715e># map ability to df by testee index T</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>dat<span style=color:#f92672>$</span>D <span style=color:#f92672>=</span> D[ dat<span style=color:#f92672>$</span>I ]  <span style=color:#75715e># map difficulty to df by item index I</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>dat
-</span></span></code></pre></div><pre><code># A tibble: 6 x 4
+</span></span></code></pre></div><pre><code># A tibble: 6 × 4
   I     T         A     D
   &lt;fct&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt;
 1 A     R       0.5   0.4
@@ -142,7 +141,7 @@ straightforward to get this difference: simply subtract $D$ from $A$ in
 the data. This would give us a new variable $\mu$. I save the values of
 $\mu$ to column <code>Mu</code> in the data frame.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>dat<span style=color:#f92672>$</span>Mu <span style=color:#f92672>=</span> dat<span style=color:#f92672>$</span>A <span style=color:#f92672>-</span> dat<span style=color:#f92672>$</span>D
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>dat
-</span></span></code></pre></div><pre><code># A tibble: 6 x 5
+</span></span></code></pre></div><pre><code># A tibble: 6 × 5
   I     T         A     D    Mu
   &lt;fct&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 1 A     R       0.5   0.4   0.1
@@ -215,7 +214,7 @@ item responses, through the Bernoulli distribution.</p><div class=highlight><pre
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>dat<span style=color:#f92672>$</span>P <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( dat<span style=color:#f92672>$</span>Mu )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>dat<span style=color:#f92672>$</span>R <span style=color:#f92672>=</span> <span style=color:#a6e22e>rbern</span>( dat<span style=color:#f92672>$</span>P ) <span style=color:#75715e># Generate 0/1 from Bernoulli distribution</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>dat
-</span></span></code></pre></div><pre><code># A tibble: 6 x 7
+</span></span></code></pre></div><pre><code># A tibble: 6 × 7
   I     T         A     D    Mu     P     R
   &lt;fct&gt; &lt;fct&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
 1 A     R       0.5   0.4   0.1 0.525     0

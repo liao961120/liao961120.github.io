@@ -118,12 +118,12 @@ the item correct. Here, **_two factors jointly influence the result_**:
 2. the English ability of the testee
 
 We can express these variables and the relations between them in the graphs
-below. Let's focus on the left one first. Here, $A$ represents the
-**ability** of the testee, $D$ represents the **difficulty** of the item, and
-$R$ represents the **item response**, or **score** on the item. A response for
-an item is coded as `1` ($R=1$) if it is solved correctly. Otherwise, it is
-coded as `0` ($R=0$). The arrows $A$ → $R$ and $D$ → $R$ indicate the direction
-of influence. The arrows enter $R$ since item difficulty and testee ability
+below. Let's focus on the left one first. Here, $A$ represents the **ability**
+of the testee, $D$ represents the **difficulty** of the item, and $R$ represents
+the **item response**, or **score** on the item. A response for an item is coded
+as `1` ($R=1$) if it is solved correctly. Otherwise, it is coded as `0` ($R=0$).
+The arrows $A \rightarrow R$ and $D \rightarrow R$ indicate the direction of
+influence. The arrows enter $R$ since item difficulty and testee ability
 influence the score on the item (not the other way around). $A$ and $D$ are
 drawn as a circled node to indicate that they are **unobserved** (or **latent**,
 if you prefer a fancier term), whereas uncircled nodes represent directly
