@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
 
-:root {
+  :root {
     --skin: #F0D9CA;
     --landing-section-skin: #eccdb9;
     --header-text: rgba(255, 255, 255, 0.904);
@@ -45,7 +45,7 @@ p > code, li > code, a > code {
 
 .main article.post {
     width: 71%;
-    max-width: 80ch;
+    max-width: 72ch;
     margin: 0;
     padding-left: .34em;
     /* padding-right: 2%; */
@@ -69,7 +69,7 @@ p > code, li > code, a > code {
 }
 
 .article_header h1 {
-    font-size: 1.88em;
+    font-size: 1.75em;
     margin-bottom: 0;
     margin-top: 0;
 }
@@ -82,7 +82,6 @@ p > code, li > code, a > code {
     font-size: 1.22em;
     word-spacing: 0.1em;
 }
-
 .article_content h2, 
 .article_content h3, 
 .article_content h4 {
@@ -99,18 +98,24 @@ p > code, li > code, a > code {
     display: block;
     padding-bottom: 0.15em;
     border-bottom: 1px solid rgba(199, 199, 199, 0.87);
+    font-size: 1.28em;
 }
 
-.article_content h3, .article_content h4 {
+.article_content h3{
     /* margin-top: 1.5em; */
     margin-bottom: .45em;
+    font-size: 1.13em;
+}
+.article_content h4 {
+    margin-bottom: .45em;
+    font-size: 1em;
 }
 .article_content, .tippy-box {
-    font-family: 'Amiri', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
+    font-family: 'Libre Caslon Text', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
-    font-size: 1.05em;
-    line-height: 1.53;
+    font-size: .95em;
+    line-height: 1.65;
     margin-bottom: 1.5em;
 }
 .article_content sup {
