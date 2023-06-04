@@ -129,14 +129,14 @@ $Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the &lt;code>sample()&lt;/code> function:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Sample one category from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>P )
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 1
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Repeatedly sample from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>s &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e5&lt;/span>, replace&lt;span style="color:#f92672">=&lt;/span>T, prob&lt;span style="color:#f92672">=&lt;/span>P )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>( P2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>(s) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">length&lt;/span>(s) )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>s
 1 2 3 4
-0.12646 0.37362 0.37522 0.12470
+0.12524 0.37464 0.37692 0.12320
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Empirical frequency distibution obtained through sampling&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Category&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>,
@@ -261,7 +261,7 @@ the same machinery in reverse:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591 Inf
 [1] 0.125 0.500 0.875 1.000
 [1] 0.125 0.375 0.375 0.125
-[1] 3
+[1] 4
 &lt;/code>&lt;/pre>
 &lt;p>This second expression aligns well with the simulation perspective and
 precisely lays out the data-generating process of the rating scores. It
@@ -335,11 +335,11 @@ the shape of the rating distribution gets influenced.&lt;/p>
 &lt;li>
 &lt;p>The four vertical sliders are there to adjust the baseline
 probabilities of the ratings, $Pr(R=1)$, $Pr(R=2)$, $Pr(R=3)$, and
-$Pr(R=4)$ (abbreviated as $P_1$ ~ $P_4$ respectively). The
-numerical value on top of each bar indicates the probability of that
-rating. Note that it is the relative positions between the vertical
-sliders that matter, and the four probabilities automatically adjust
-to always sum to one.&lt;/p>
+$Pr(R=4)$ (abbreviated as $P_1$ ~ $P_4$ respectively). The numerical
+value on top of each bar indicates the probability of that rating.
+Note that it is the relative positions between the vertical sliders
+that matter, and the four probabilities automatically adjust to
+always sum to one.&lt;/p>
 &lt;p>The three values, $\kappa_1$, $\kappa_2$, and $\kappa_3$, shown on
 top of the four probabilities are the &lt;strong>cumulative logits&lt;/strong>, which
 are basically the vector of the cumulative probabilities,
@@ -423,7 +423,7 @@ form of the $OrderedLogit$ distribution in the function &lt;code>rOrdLogit()&lt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591
 draws
 1 2 3 4
-0.1265 0.3764 0.3733 0.1238
+0.1183 0.3723 0.3815 0.1279
 &lt;/code>&lt;/pre>
 &lt;h2 id="simulating-and-fitting-wine-ratings">Simulating and Fitting Wine Ratings&lt;/h2>
 &lt;p>Having all concepts in place, let’s start synthesizing data for our
@@ -517,7 +517,7 @@ distribution.&lt;/p>
 formula: R ~ (1 | Jid) + (1 | Wid)
 data: d
 link threshold nobs logLik AIC niter max.grad cond.H
-logit flexible 360 -455.07 920.14 182(726) 6.91e-06 4.9e+01
+logit flexible 360 -455.07 920.14 182(726) 6.96e-06 4.9e+01
 Random effects:
 Groups Name Variance Std.Dev.
 Wid (Intercept) 1.220 1.1046
@@ -526,8 +526,8 @@ Number of groups: Wid 30, Jid 12
 No Coefficients
 Threshold coefficients:
 Estimate Std. Error z value
-1|2 -1.42044 0.36490 -3.893
-2|3 0.05442 0.35607 0.153
+1|2 -1.42044 0.36491 -3.893
+2|3 0.05442 0.35608 0.153
 3|4 1.56532 0.36674 4.268
 &lt;/code>&lt;/pre>
 &lt;p>&lt;code>summary(m)&lt;/code> prints out the model summary along with the estimated
