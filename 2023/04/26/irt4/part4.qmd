@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 	fig.align = 'center',
 	comment = "",
 	fig.dim = c(10, 5.5),
-   dev='svglite',
+   dev='svg',
    dev.args = list(bg = "transparent"),
    NULL
 )
@@ -213,10 +213,10 @@ with. Statisticians came up with a clever solution to this. Instead of dealing
 with a vector of fluctuating probabilities, which breaks the desired
 monotonically increasing relationship between the probabilities and the ratings,
 the probabilities are transformed into a vector of **cumulative probabilities**.
-The nice thing about this vector of cumulative probabilities is that the
-probabilities are now **ordered**, naturally. Larger cumulative probabilities
-now correspond to higher rating scores. Sounds confusing? Let me re-describe
-these more vividly with some code and plots. I'll continue to use the four-point
+A nice thing about this vector of cumulative probabilities is that the
+probabilities are **ordered**, naturally. Larger cumulative probabilities now
+correspond to higher rating scores. Sounds confusing? Let me re-describe these
+more vividly with some code and plots. I'll continue to use the four-point
 rating example.
 
 ```{r}
@@ -279,12 +279,12 @@ logit(Pc)  # convert cumulative probabilities to reals
 
 The statistical machinery behind rating scales likely remains elusive after my
 wordy explanation. Indeed, since we are only halfway through the machinery, it
-would hardly make sense only by looking at part of the picture. What I have
-presented so far is part of the machinery that monotonically aligns the latent
-scores with the ratings, through the use of cumulative probabilities. The second
-part of the machinery is to allow for the shifting of the entire vector of
-latent scores (and thus the probabilities of ratings, through the first part of
-the machinery) by a common term, which enables the modeling of extraneous
+would hardly make any sense just by looking at part of the picture. What I have
+presented so far is the portion of the machinery that monotonically aligns the
+latent scores with the ratings, through the use of cumulative probabilities. The
+second part of the machinery is to allow for the shifting of the entire vector
+of latent scores (and thus the probabilities of ratings, through the first part
+of the machinery) by a common term, which enables the modeling of extraneous
 influences on the ratings (thus the "regression"). Let's now look at how this
 shifting is achieved.
 
@@ -377,9 +377,10 @@ shifts contribute to the increasing or decreasing of the expected rating.
 
 ![Interactive visualization of the rating probability distribution](ordlogit.png)
 
-I've built an [interactive visualization][ordlogit][^credit] just to help with that. As
-shown in the figure above, there are two places where users can change to see
-how the shape of the rating distribution gets influenced.
+To disentangle these intertwined influences on the final distribution, I've
+built an [interactive visualization][ordlogit][^credit] to help. As shown in the
+figure above, there are two places where users can tweak to see how the shape of
+the rating distribution gets influenced.
 
 1. The four vertical sliders are there to adjust the baseline probabilities of
    the ratings, $Pr(R=1)$, $Pr(R=2)$, $Pr(R=3)$, and $Pr(R=4)$ (abbreviated as $P_1$ ~
@@ -426,7 +427,7 @@ The $OrderedLogit$ expression hides all the details from the reader. But
 you've already seen the details at work in code form in previous sections,
 albeit in a quite scattered manner. Later, I will collect them into a single
 function. If you prefer clarity now, the monstrous expressions in
-[(4)](#math-eq4) should be satisfying.
+[(4)](#math-eq4) should suffice.
 
 $$
 \begin{aligned}

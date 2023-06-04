@@ -76,12 +76,13 @@ viewBox="0 0 152 121"
 &lt;/g>
 &lt;/svg>
 &lt;/div>
-&lt;p>The only thing new is that instead of a binary response, $R$ can take more than
-two values. We need new machinery to map the aggregated influence from the two
-factors ($W$ and $J$), which is a latent score in the real space, to the outcome
-ordinal scale. Lower latent scores should give rise to lower ratings, and higher
-latent scores to higher ratings, in general. How is this achieved? Let’s dive
-into the intricacy of this machinery.&lt;/p>
+&lt;p>The only thing new is that instead of a binary response, $R$ can take
+more than two values. We need new machinery to map the aggregated
+influence from the two factors ($W$ and $J$), which is a latent score in
+the real space, to the outcome ordinal scale. Lower latent scores should
+give rise to lower ratings, and higher latent scores to higher ratings,
+in general. How is this achieved? Let’s dive into the intricacy of this
+machinery.&lt;/p>
 &lt;h2 id="from-latent-to-rating">From Latent to Rating&lt;/h2>
 &lt;p>$$
 L ~~ \rightarrow ~~ P_{cum.}
@@ -128,14 +129,14 @@ $Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the &lt;code>sample()&lt;/code> function:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Sample one category from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>P )
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 2
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Repeatedly sample from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>s &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e5&lt;/span>, replace&lt;span style="color:#f92672">=&lt;/span>T, prob&lt;span style="color:#f92672">=&lt;/span>P )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>( P2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>(s) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">length&lt;/span>(s) )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>s
 1 2 3 4
-0.12399 0.37616 0.37439 0.12546
+0.12646 0.37362 0.37522 0.12470
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Empirical frequency distibution obtained through sampling&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Category&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>,
@@ -171,8 +172,8 @@ deal with. Statisticians came up with a clever solution to this. Instead
 of dealing with a vector of fluctuating probabilities, which breaks the
 desired monotonically increasing relationship between the probabilities
 and the ratings, the probabilities are transformed into a vector of
-&lt;strong>cumulative probabilities&lt;/strong>. The nice thing about this vector of
-cumulative probabilities is that the probabilities are now &lt;strong>ordered&lt;/strong>,
+&lt;strong>cumulative probabilities&lt;/strong>. A nice thing about this vector of
+cumulative probabilities is that the probabilities are &lt;strong>ordered&lt;/strong>,
 naturally. Larger cumulative probabilities now correspond to higher
 rating scores. Sounds confusing? Let me re-describe these more vividly
 with some code and plots. I’ll continue to use the four-point rating
@@ -204,9 +205,9 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>Ps[2&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> Ps[1&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#75715e"># or more generally, Ps[-1] - Ps[-length(Ps)]&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 0.125 0.375 0.375 0.125
 &lt;/code>&lt;/pre>
-&lt;p>The two vectors are visualized as distributions below. The red bars are the
-probability distribution we have met in the previous section. The blue bars plot
-the cumulative version of it.&lt;/p>
+&lt;p>The two vectors are visualized as distributions below. The red bars are
+the probability distribution we have met in the previous section. The
+blue bars plot the cumulative version of it.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Rating&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>, xlim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">.5&lt;/span>,&lt;span style="color:#ae81ff">4.5&lt;/span>), ylim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>) )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">for &lt;/span>(i in &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>) {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span> &lt;span style="color:#a6e22e">lines&lt;/span>( x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(i&lt;span style="color:#ae81ff">-.05&lt;/span>,i&lt;span style="color:#ae81ff">-.05&lt;/span>), y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,P[i]), lwd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> )
@@ -230,15 +231,15 @@ installed through the first two lines of commented code below.&lt;/p>
 &lt;/code>&lt;/pre>
 &lt;p>The statistical machinery behind rating scales likely remains elusive
 after my wordy explanation. Indeed, since we are only halfway through
-the machinery, it would hardly make sense only by looking at part of the
-picture. What I have presented so far is part of the machinery that
-monotonically aligns the latent scores with the ratings, through the use
-of cumulative probabilities. The second part of the machinery is to
-allow for the shifting of the entire vector of latent scores (and thus
-the probabilities of ratings, through the first part of the machinery)
-by a common term, which enables the modeling of extraneous influences on
-the ratings (thus the “regression”). Let’s now look at how this shifting
-is achieved.&lt;/p>
+the machinery, it would hardly make any sense just by looking at part of
+the picture. What I have presented so far is the portion of the
+machinery that monotonically aligns the latent scores with the ratings,
+through the use of cumulative probabilities. The second part of the
+machinery is to allow for the shifting of the entire vector of latent
+scores (and thus the probabilities of ratings, through the first part of
+the machinery) by a common term, which enables the modeling of
+extraneous influences on the ratings (thus the “regression”). Let’s now
+look at how this shifting is achieved.&lt;/p>
 &lt;h3 id="shifting-latent-scores">Shifting Latent Scores&lt;/h3>
 &lt;p>The code below summarizes the first part of the rating-scale machinery:
 establishing the link between latent scores and the probabilities of
@@ -325,10 +326,11 @@ distribution">
 distribution&lt;/figcaption>
 &lt;/figure>
 &lt;/p>
-&lt;p>I’ve built an &lt;a href="https://yongfu.name/ordlogit">interactive
-visualization&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> just to help with that.
-As shown in the figure above, there are two places where users can
-change to see how the shape of the rating distribution gets influenced.&lt;/p>
+&lt;p>To disentangle these intertwined influences on the final distribution,
+I’ve built an &lt;a href="https://yongfu.name/ordlogit">interactive
+visualization&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> to help. As shown in
+the figure above, there are two places where users can tweak to see how
+the shape of the rating distribution gets influenced.&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>The four vertical sliders are there to adjust the baseline
@@ -374,7 +376,7 @@ $$&lt;/p>
 you’ve already seen the details at work in code form in previous
 sections, albeit in a quite scattered manner. Later, I will collect them
 into a single function. If you prefer clarity now, the monstrous
-expressions in &lt;a href="#math-eq4">(4)&lt;/a> should be satisfying.&lt;/p>
+expressions in &lt;a href="#math-eq4">(4)&lt;/a> should suffice.&lt;/p>
 &lt;p>$$
 \begin{aligned}
 R_i \sim Categorical &amp;amp; (
@@ -421,7 +423,7 @@ form of the $OrderedLogit$ distribution in the function &lt;code>rOrdLogit()&lt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591
 draws
 1 2 3 4
-0.1277 0.3741 0.3755 0.1227
+0.1265 0.3764 0.3733 0.1238
 &lt;/code>&lt;/pre>
 &lt;h2 id="simulating-and-fitting-wine-ratings">Simulating and Fitting Wine Ratings&lt;/h2>
 &lt;p>Having all concepts in place, let’s start synthesizing data for our
@@ -546,13 +548,14 @@ data-fig-align="center" />&lt;/p>
 data-fig-align="center" />&lt;/p>
 &lt;/div>
 &lt;h2 id="item-response-theory-and-beyond">Item Response Theory and Beyond&lt;/h2>
-&lt;p>We have come a long way, from the simplest binary item response model to models
-with delicate machinery such as the rating scale model with partial-pooling
-structures. The posts in this &lt;em>demystifying&lt;/em> series are sufficient, I suppose,
-in providing a solid understanding of and practical skills for working with item
-response theory. There are certainly even more complex IRT models, but I won’t
-go further in that direction. No matter how many new and complex models are
-added to the toolkit, we are certain to find our tools in shortage when facing
+&lt;p>We have come a long way, from the simplest binary item response model to
+models with delicate machinery such as the rating scale model with
+partial-pooling structures. The posts in this &lt;em>demystifying&lt;/em> series are
+sufficient, I suppose, in providing a solid understanding of and
+practical skills for working with item response theory. There are
+certainly even more complex IRT models, but I won’t go further in that
+direction. No matter how many new and complex models are added to the
+toolkit, we are certain to find our tools in shortage when facing
 real-world problems.&lt;/p>
 &lt;p>Item response models, general as they might seem, quickly run out of
 supply. Although binary and rating scale models allow us to deal with
@@ -582,22 +585,24 @@ However, such comprehensive models are rarely, if not never, available
 in the literature. We have to tailor a model ourselves according to what
 the current situation demands. Therefore, a &lt;em>&lt;strong>framework&lt;/strong>&lt;/em> is required
 to guide us through building up such a model.&lt;/p>
-&lt;p>This post marks the end of the &lt;em>demystifying&lt;/em> series. When the thick cloud of
-mystery begins to dissolve, we finally get to start solving real and exciting
-problems rather than wrangling with mad statistical models. In my next post, I
-will move on to Bayesian statistics, a &lt;em>&lt;strong>unified framework&lt;/strong>&lt;/em> that allows
-flexibly extending a model to match the demanded conditions. Bayesian framework
-is ideal for empirical research because it is &lt;em>practical&lt;/em>. We do not need to
-wait for a statistician to come up with a model for every new situation. In
-Bayesian inference, we simply describe the &lt;em>data-generating process&lt;/em> and the
-&lt;em>priors&lt;/em>, and the rest is handled by probability theory and an estimation
-algorithm. Therefore, we can focus on the scientific problems at hand instead of
-fussing around with fancy models and their names. We will see how item response
-models can be embedded into a larger network of causes and effects that
-represents the assumed interactions underlying the current problem. Item
-response models, which are essentially &lt;strong>methods for handling measurement
-errors&lt;/strong>, help deal with the latent constructs measured indirectly through
-surveys in this network of interacting variables.&lt;/p>
+&lt;p>This post marks the end of the &lt;em>demystifying&lt;/em> series. When the thick
+cloud of mystery begins to dissolve, we finally get to start solving
+real and exciting problems rather than wrangling with mad statistical
+models. In my next post, I will move on to Bayesian statistics, a
+&lt;em>&lt;strong>unified framework&lt;/strong>&lt;/em> that allows flexibly extending a model to match
+the demanded conditions. Bayesian framework is ideal for empirical
+research because it is &lt;em>practical&lt;/em>. We do not need to wait for a
+statistician to come up with a model for every new situation. In
+Bayesian inference, we simply describe the &lt;em>data-generating process&lt;/em> and
+the &lt;em>priors&lt;/em>, and the rest is handled by probability theory and an
+estimation algorithm. Therefore, we can focus on the scientific problems
+at hand instead of fussing around with fancy models and their names. We
+will see how item response models can be embedded into a larger network
+of causes and effects that represents the assumed interactions
+underlying the current problem. Item response models, which are
+essentially &lt;strong>methods for handling measurement errors&lt;/strong>, help deal with
+the latent constructs measured indirectly through surveys in this
+network of interacting variables.&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
