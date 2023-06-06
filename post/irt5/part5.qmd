@@ -1,8 +1,8 @@
 ---
 title: Beyond Item Response Theory
-subtitle: "Thinking Like a Graph, not Regression"
+subtitle: "Modeling Causes and Effects among Latent Constructs"
 description: "Basyesian statistics, causal inference, psychology, research design"
-date: '2023-05-29'
+date: '2023-06-29'
 aliases:
     - /irt4
 katex: true
@@ -11,7 +11,7 @@ tags:
 - r
 - stan
 - bayes
-- statistics
+- stats
 - psychology
 format: 
    gfm:

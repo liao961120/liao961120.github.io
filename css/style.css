@@ -437,10 +437,10 @@ pre {
     overflow-y: auto;
     border-left: 3px solid rgba(43, 21, 1, 0.8);
 }
-pre:hover {
+/* pre:hover {
     width: max-content;
     min-width: 98%;
-}
+} */
 /* Footer */
 
 footer {

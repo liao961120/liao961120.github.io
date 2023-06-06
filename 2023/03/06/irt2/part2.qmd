@@ -10,7 +10,7 @@ katex: true
 mathjax: true
 tags:
 - r
-- statistics
+- stats
 - psychology
 format: 
    gfm:

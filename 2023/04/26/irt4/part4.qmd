@@ -9,7 +9,7 @@ katex: true
 draft: false
 tags:
 - r
-- statistics
+- stats
 - psychology
 format: 
    gfm:

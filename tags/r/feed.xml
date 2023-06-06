@@ -625,7 +625,7 @@ ratings. In such cases, there must only be two possible ratings,
 such as mediocre/premium, on the wines.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>r</category><category>statistics</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (3/4)</title><link>https://yongfu.name/2023/03/29/irt3/</link><pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/29/irt3/</guid><description>&lt;h2 id="fixed-random-and-mixed">Fixed, Random and Mixed&lt;/h2>
+&lt;/div></description><category>r</category><category>stats</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (3/4)</title><link>https://yongfu.name/2023/03/29/irt3/</link><pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/29/irt3/</guid><description>&lt;h2 id="fixed-random-and-mixed">Fixed, Random and Mixed&lt;/h2>
 &lt;p>Statistics is confusing enough through its massive terminology.
 Psychology, which is largely experiment-oriented, further confuses
 people by adding in its own flavor. A peek at the definitions of
@@ -1149,7 +1149,7 @@ diagonal entries of &lt;code>Vmat&lt;/code> and take the square root:&lt;/p>
 to be centered at zero in the simulation, remember?&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>r</category><category>statistics</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (2/4)</title><link>https://yongfu.name/2023/03/06/irt2/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/06/irt2/</guid><description>&lt;p>In &lt;a href="https://yongfu.name/irt1">Part 1&lt;/a>, we went through the simplest item response model,
+&lt;/div></description><category>r</category><category>stats</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (2/4)</title><link>https://yongfu.name/2023/03/06/irt2/</link><pubDate>Mon, 06 Mar 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/03/06/irt2/</guid><description>&lt;p>In &lt;a href="https://yongfu.name/irt1">Part 1&lt;/a>, we went through the simplest item response model,
 the 1PL model, from the perspective of simulations. Starting with item
 difficulty and testee ability, we &lt;strong>worked forward&lt;/strong> to simulate item
 responses that mimic real-world data. Back then, we were precisely
@@ -2032,7 +2032,7 @@ parameters $n$ and $p$. So the Bernoulli distribution is simply a
 special case of the binomial distribution where $n=1$.&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>r</category><category>statistics</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (1/4)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
+&lt;/div></description><category>r</category><category>stats</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (1/4)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
 &lt;img src="irt.jpg" style="width:70.0%"
 alt="Ok, so these are the item characteristic curves. What then?" />
 &lt;figcaption aria-hidden="true">&lt;em>Ok, so these are the &lt;a
@@ -2447,7 +2447,7 @@ obsessed with psychometrics, I don’t think one would be able to
 understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>r</category><category>statistics</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
+&lt;/div></description><category>r</category><category>stats</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
 reproducibility for some time. I did not incorporate Make into my work however,
 since a simple build script written in Bash was sufficient. Everything was well
 in control, and I could structure the workflow to my will.&lt;/p>
@@ -2626,7 +2626,7 @@ computers without additional configurations.&lt;/p>
 &lt;p>這樣就不用和過去的自己硬碰硬比較，擔心自己退步了 (反正我有錄影片，觸及的人就是比較廣比較潮啦！108-1 的你輸了啦哈哈哈哈哈)。比較不見得會進步，但一定會帶來傷害，所以換個方式讓自己沒辦法去比較或許也不錯。&amp;#160;&lt;a href="#fnref:7" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>R</category><category>Course</category><category>statistics</category><category>linguistics</category><category>中文</category></item><item><title>Getting Tabular Data Through JavaScript in Compiled R Markdown Documents</title><link>https://yongfu.name/2020/09/09/getable/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/09/09/getable/</guid><description>&lt;p>Recently, I have learned more about JavaScript and created a few JS web apps. This gave me the idea that we can separate the &lt;em>content&lt;/em> and the &lt;em>data&lt;/em> in an HTML document to make it more &lt;strong>dynamic&lt;/strong>&amp;mdash;the content stays static while the data could be updated independently without rewriting or recompiling the HTML document. This could be done by utilizing JavaScript&amp;rsquo;s ability to asynchronously fetch data from the web and generate DOM elements based on these data.&lt;/p>
+&lt;/div></description><category>R</category><category>Course</category><category>stats</category><category>linguistics</category><category>中文</category></item><item><title>Getting Tabular Data Through JavaScript in Compiled R Markdown Documents</title><link>https://yongfu.name/2020/09/09/getable/</link><pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate><guid>https://yongfu.name/2020/09/09/getable/</guid><description>&lt;p>Recently, I have learned more about JavaScript and created a few JS web apps. This gave me the idea that we can separate the &lt;em>content&lt;/em> and the &lt;em>data&lt;/em> in an HTML document to make it more &lt;strong>dynamic&lt;/strong>&amp;mdash;the content stays static while the data could be updated independently without rewriting or recompiling the HTML document. This could be done by utilizing JavaScript&amp;rsquo;s ability to asynchronously fetch data from the web and generate DOM elements based on these data.&lt;/p>
 &lt;p>I implemented this idea in my new R package &lt;a href="https://github.com/liao961120/getable">&lt;code>getable&lt;/code>&lt;/a>. Basically, &lt;code>getable&lt;/code> lets the user insert &lt;em>dynamic&lt;/em> HTML tables in R Markdown (HTML output only) by providing the URLs to the tables&amp;rsquo; data. Every time when the compiled HTML document is opened, the data are fetched from the web and used to generate the HTML tables. This means that the user can update the data (e.g., hosted in a public GitHub repo) without recompiling the HTML from R Markdown.
 In addition to hosting data in GitHub repos or on static sites, the user could use &lt;strong>Google Spreadsheets&lt;/strong> as the data store, as shown in the GIF below.&lt;/p>
 &lt;p>

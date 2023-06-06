@@ -8,7 +8,7 @@ aliases:
 katex: true
 tags:
 - r
-- statistics
+- stats
 - psychology
 - reproducibility
 format: 

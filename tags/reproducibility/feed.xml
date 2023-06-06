@@ -413,7 +413,7 @@ obsessed with psychometrics, I don’t think one would be able to
 understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description><category>r</category><category>statistics</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
+&lt;/div></description><category>r</category><category>stats</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
 reproducibility for some time. I did not incorporate Make into my work however,
 since a simple build script written in Bash was sufficient. Everything was well
 in control, and I could structure the workflow to my will.&lt;/p>
