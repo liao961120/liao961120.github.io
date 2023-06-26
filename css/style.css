@@ -109,7 +109,7 @@ p > code, li > code, a > code {
     font-family: 'Libre Caslon Text', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
-    font-size: .9em;
+    font-size: .93em;
     line-height: 1.65;
     margin-bottom: 1.5em;
 }
@@ -148,7 +148,7 @@ div.two-column > * {
 .article_content figure > figcaption {
     text-align: center;
     width: 94%;
-    font-size: .97em;
+    font-size: .95em;
     color: rgb(58, 58, 58);
     margin: 1em auto 1.35em auto;
     padding: 0 auto;

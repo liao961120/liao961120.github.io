@@ -126,8 +126,8 @@ things are going on here. Don't panic, I'll walk you through slowly.
 
 $$
 \begin{align}
-& R_i \sim Bernoulli( P_i ) \\\\
-& P_i = logistic( \mu_i )   \\\\
+& R_i \sim \text{Bernoulli}( P_i ) \\\\
+& P_i = \text{logistic}( \mu_i )   \\\\
 & \mu_i = \alpha_{[S_i]} + \delta_{[I_i]} 
 \end{align} \tag{1}
 $$
@@ -165,11 +165,11 @@ Now, let me walk you through the equations from bottom to top:
 - $\mu_i = \alpha_{[S_i]} + \delta_{[I_i]}$  
   No surprise here. This equation simply illustrates how the model computes a new
   variable $\mu$ from $\alpha$ and $\delta$. 
-- $P_i = logistic( \mu_i )$  
+- $P_i = \text{logistic}( \mu_i )$  
   The equation should look familiar. It indicates how the model maps $\mu$,
   which can range from $-\infty$ to $\infty$, to probability, $P$, through the
   logistic function. 
-- $R_i \sim Bernoulli( P_i )$  
+- $R_i \sim \text{Bernoulli}( P_i )$  
   This equation describes that each observed response is generated from a
   Bernoulli distribution with probability $P_i$. Or even simpler, $R_i$ would
   be $1$ with probability $P_i$ and $0$ with probability $1 - P_i$.
@@ -188,8 +188,8 @@ What is the logit?
 
 $$
 \begin{align}
-& R_i \sim Bernoulli( P_i ) \\\\
-& logit(P_i) = \mu_i        \\\\
+& R_i \sim \text{Bernoulli}( P_i ) \\\\
+& \text{logit}(P_i) = \mu_i        \\\\
 & \mu_i = \alpha_{[S_i]} + \delta_{[I_i]} 
 \end{align} \tag{2}
 $$
@@ -219,11 +219,11 @@ Some arithmetics would get us from the logistic to the logit:
 
 $$
 \begin{aligned}
-logistic(x) &= \frac{1}{1 + e^{-x}} = p \\\\
+\text{logistic}(x) &= \frac{1}{1 + e^{-x}} = p \\\\
 & \Rightarrow ~~ e^{-x} = \frac{1-p}{p} \\\\
-& \Rightarrow ~ -x = log(\frac{1-p}{p}) \\\\
-& \Rightarrow ~~ x = -log(\frac{1-p}{p}) \\\\
-& \phantom{\Rightarrow ~~ x } = log(\frac{p}{1-p}) = logit(p)
+& \Rightarrow ~ -x = \text{log}(\frac{1-p}{p}) \\\\
+& \Rightarrow ~~ x = -\text{log}(\frac{1-p}{p}) \\\\
+& \phantom{\Rightarrow ~~ x } = \text{log}(\frac{p}{1-p}) = \text{logit}(p)
 \end{aligned}
 $$
 
@@ -277,8 +277,8 @@ would be extremely long.
 
 $$
 \begin{align}
-  \tag{3.1} logit(\mu_i) &= \alpha_{[S_i]} + \delta_{[I_i]} \\\\
-  \tag{3.2} logit(\mu_i) &= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
+  \tag{3.1} \text{logit}(\mu_i) &= \alpha_{[S_i]} + \delta_{[I_i]} \\\\
+  \tag{3.2} \text{logit}(\mu_i) &= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
 \end{align}
 $$
 
@@ -690,7 +690,7 @@ data, and the text would be much shorter, I hope. Seeya!
 
     $$
     \begin{aligned}
-    y_i &\sim Normal(\mu_i, \sigma) \\\\
+    y_i &\sim \text{Normal}(\mu_i, \sigma) \\\\
     \mu_i &= \alpha + \beta x_i
     \end{aligned}
     $$

@@ -38,7 +38,7 @@ knitr::opts_chunk$set(
 ```
 
 
-![*Ok, so these are the [item characteristic curves][src]. What then?*](irt.jpg){width="70%"}
+![*Okay, so these are the [item characteristic curves][src]. What then?*](irt.jpg){width="70%"}
 
 
 [src]: https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715
@@ -214,7 +214,7 @@ to probability? How can we map $\mu$ to probability in a principled manner?
 The solution is to take advantage of the [logistic function][fun-logistic].
 
 $$
-logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
+\text{logistic}( x ) = \frac{ 1 }{ 1 + e^{-x} }
 $$
 
 The **_logistic_** is a function that maps a real number $x$ to a probability $p$. In

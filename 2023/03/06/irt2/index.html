@@ -75,8 +75,8 @@ GLM terms, the Generalized Linear Model of the binomial family with the
 Lots of things are going on here. Don’t panic, I’ll walk you through
 slowly.</p><p>$$
 \begin{align}
-& R_i \sim Bernoulli( P_i ) \\
-& P_i = logistic( \mu_i ) \\
+& R_i \sim \text{Bernoulli}( P_i ) \\
+& P_i = \text{logistic}( \mu_i ) \\
 & \mu_i = \alpha_{[S_i]} + \delta_{[I_i]}
 \end{align} \tag{1}
 $$</p><p>First, note the common subscript $_i$ to the variables above. The
@@ -107,9 +107,9 @@ something about them and updates accordingly.</p><p>I haven’t written about $\
 previous paragraph, you might already know what they are: $\alpha$s are
 the subject effects and $\delta$s the item effects to be estimated by
 the model.</p><p>Now, let me walk you through the equations from bottom to top:</p><ul><li>$\mu_i = \alpha_{[S_i]} + \delta_{[I_i]}$<br>No surprise here. This equation simply illustrates how the model
-computes a new variable $\mu$ from $\alpha$ and $\delta$.</li><li>$P_i = logistic( \mu_i )$<br>The equation should look familiar. It indicates how the model maps
+computes a new variable $\mu$ from $\alpha$ and $\delta$.</li><li>$P_i = \text{logistic}( \mu_i )$<br>The equation should look familiar. It indicates how the model maps
 $\mu$, which can range from $-\infty$ to $\infty$, to probability,
-$P$, through the logistic function.</li><li>$R_i \sim Bernoulli( P_i )$<br>This equation describes that each observed response is generated from
+$P$, through the logistic function.</li><li>$R_i \sim \text{Bernoulli}( P_i )$<br>This equation describes that each observed response is generated from
 a Bernoulli distribution with probability $P_i$. Or even simpler,
 $R_i$ would be $1$ with probability $P_i$ and $0$ with probability
 $1 - P_i$.</li></ul><p>These equations all look familiar because they are essentially
@@ -120,8 +120,8 @@ Instead of the logistic function, the second equation in (2) uses the
 <a href=https://en.wikipedia.org/wiki/Logit>logit</a> function. What is the
 logit?</p><p>$$
 \begin{align}
-& R_i \sim Bernoulli( P_i ) \\
-& logit(P_i) = \mu_i \\
+& R_i \sim \text{Bernoulli}( P_i ) \\
+& \text{logit}(P_i) = \mu_i \\
 & \mu_i = \alpha_{[S_i]} + \delta_{[I_i]}
 \end{align} \tag{2}
 $$</p><p>The logit function is simply the <strong>mirror of the logistic</strong>. They do the
@@ -139,11 +139,11 @@ logit can convert it back to the original real, and vice versa.</p><div class=hi
 [16]  0.5  0.6  0.7  0.8  0.9  1.0
 </code></pre><p>Some arithmetics would get us from the logistic to the logit:</p><p>$$
 \begin{aligned}
-logistic(x) &= \frac{1}{1 + e^{-x}} = p \\
+\text{logistic}(x) &= \frac{1}{1 + e^{-x}} = p \\
 & \Rightarrow ~~ e^{-x} = \frac{1-p}{p} \\
-& \Rightarrow ~ -x = log(\frac{1-p}{p}) \\
-& \Rightarrow ~~ x = -log(\frac{1-p}{p}) \\
-& \phantom{\Rightarrow ~~ x } = log(\frac{p}{1-p}) = logit(p)
+& \Rightarrow ~ -x = \text{log}(\frac{1-p}{p}) \\
+& \Rightarrow ~~ x = -\text{log}(\frac{1-p}{p}) \\
+& \phantom{\Rightarrow ~~ x } = \text{log}(\frac{p}{1-p}) = \text{logit}(p)
 \end{aligned}
 $$</p><p>There is really nothing special about the logit function. We have
 learned all the important things through the logistic back in <a href=/irt1>Part
@@ -177,8 +177,8 @@ simplicity, let’s assume here that we have only two items (A, B) and
 three subjects (J, K, L). For real data, equation (3.2) would be
 extremely long.</p><p>$$
 \begin{align}
-\tag{3.1} logit(\mu_i) &= \alpha_{[S_i]} + \delta_{[I_i]} \\
-\tag{3.2} logit(\mu_i) &= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
+\tag{3.1} \text{logit}(\mu_i) &= \alpha_{[S_i]} + \delta_{[I_i]} \\
+\tag{3.2} \text{logit}(\mu_i) &= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
 \end{align}
 $$</p><p>The variables ($J_i, K_i, L_i, A_i, B_i$) in front of the $\alpha$s and
 $\delta$s have a value of either 0 or 1. Here, they serve as a “switch”
@@ -309,7 +309,7 @@ S_25 -8.194e-01  5.775e-01  -1.419 0.155962
 S_26  1.625e-01  5.704e-01   0.285 0.775661    
 S_27 -4.853e-01  5.705e-01  -0.851 0.394979    
 S_28 -3.227e-01  5.688e-01  -0.567 0.570509    
-S_29  1.969e-15  5.687e-01   0.000 1.000000    
+S_29  1.680e-15  5.687e-01   0.000 1.000000    
 S_30  6.712e-01  5.831e-01   1.151 0.249706    
 S_31  6.712e-01  5.831e-01   1.151 0.249706    
 S_32  3.618e+00  1.111e+00   3.256 0.001131 ** 
@@ -381,7 +381,7 @@ imprecision). You can play with the code below by changing the value of
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>p1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( A[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D[d<span style=color:#f92672>$</span>I] )    <span style=color:#75715e># Probabilities before shift</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>p2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>logistic</span>( A2[d<span style=color:#f92672>$</span>S] <span style=color:#f92672>-</span> D2[d<span style=color:#f92672>$</span>I] )  <span style=color:#75715e># Probabilities after shift</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span><span style=color:#a6e22e>sum</span>( <span style=color:#a6e22e>abs</span>(p1 <span style=color:#f92672>-</span> p2) )  <span style=color:#75715e># Should be extremely close to zero</span>
-</span></span></code></pre></div><pre><code>[1] 9.456325e-14
+</span></span></code></pre></div><pre><code>[1] 9.453549e-14
 </code></pre><p>The way R deals with this issue of identifiability is not preferable
 since we want to recover the parameters in our simulation (i.e., the set
 of parameters without the shift). To get around R’s default treatment,
@@ -551,7 +551,7 @@ formula as <code>y ~ x</code> in R’s model syntax. The estimate of the global
 intercept $\alpha$ would be given as the intercept coefficient in
 the model output.</p><p>$$
 \begin{aligned}
-y_i &\sim Normal(\mu_i, \sigma) \\
+y_i &\sim \text{Normal}(\mu_i, \sigma) \\
 \mu_i &= \alpha + \beta x_i
 \end{aligned}
 $$&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>I haven’t mentioned the <a href=https://en.wikipedia.org/wiki/Binomial_distribution>binomial

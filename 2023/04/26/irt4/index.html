@@ -51,7 +51,7 @@ draw the analogy to the previous IRT context, where $W$ can be thought
 of as corresponding to the person ability and $J$ to the item easiness.
 The analogy isn’t exact though. It’s equally sensible to think in the
 other direction. There’s nothing wrong to think of $W$ as corresponding
-to item easiness and $J$ to person ability.</p><div class="goat svg-container"><svg xmlns="http://www.w3.org/2000/svg" font-family="Menlo,Lucida Console,monospace" viewBox="0 0 152 121"><g transform="translate(8,16)"><path d="M32 64 48 32" fill="none" stroke="currentcolor"/><path d="M80 32 96 64" fill="none" stroke="currentcolor"/><polygon points="60.000000,32.000000 48.000000,26.400000 48.000000,37.599998" fill="currentcolor" transform="rotate(300.000000, 48.000000, 32.000000)"/><polygon points="92.000000,32.000000 80.000000,26.400000 80.000000,37.599998" fill="currentcolor" transform="rotate(240.000000, 80.000000, 32.000000)"/><path d="M24 64A16 16 0 008 80" fill="none" stroke="currentcolor"/><path d="M24 64A16 16 0 0140 80" fill="none" stroke="currentcolor"/><path d="M104 64A16 16 0 0088 80" fill="none" stroke="currentcolor"/><path d="M104 64a16 16 0 0116 16" fill="none" stroke="currentcolor"/><path d="M8 80A16 16 0 0024 96" fill="none" stroke="currentcolor"/><path d="M40 80A16 16 0 0124 96" fill="none" stroke="currentcolor"/><path d="M88 80a16 16 0 0016 16" fill="none" stroke="currentcolor"/><path d="M120 80A16 16 0 01104 96" fill="none" stroke="currentcolor"/><text text-anchor="middle" x="24" y="84" fill="currentcolor" style="font-size:1em">W</text><text text-anchor="middle" x="64" y="4" fill="currentcolor" style="font-size:1em">R</text><text text-anchor="middle" x="104" y="84" fill="currentcolor" style="font-size:1em">J</text></g></svg></div><p>The only thing new is that instead of a binary response, $R$ can take
+to item easiness and $J$ to person ability.</p><img src=dag.svg style=max-height:140px><p>The only thing new is that instead of a binary response, $R$ can take
 more than two values. We need new machinery to map the aggregated
 influence from the two factors ($W$ and $J$), which is a latent score in
 the real space, to the outcome ordinal scale. Lower latent scores should
@@ -60,7 +60,7 @@ in general. How is this achieved? Let’s dive into the intricacy of this
 machinery.</p><h2 id=from-latent-to-rating>From Latent to Rating</h2><p>$$
 L ~~ \rightarrow ~~ P_{cum.}
 ~~ \rightarrow ~~ \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix}
-~~ \rightarrow ~~ R \sim Categorical( \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix} )
+~~ \rightarrow ~~ R \sim \text{Categorical}( \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix} )
 \tag{1}
 $$</p><p>The path along the mapping of the latent scores onto the rating-scale
 (ordinal) space is sketched above. The leftmost term $L$ stands for the
@@ -90,16 +90,16 @@ normalizes this vector to the correct probability scale.</p><div class=highlight
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>)
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>  <span style=color:#a6e22e>lines</span>( x<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(i,i), y<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,P[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
 </span></span></code></pre></div><p><img src=part4_files/figure-commonmark/unnamed-chunk-1-1.svg style=width:100% data-fig-align=center></p><p>Now, to sample from this distribution,
-$Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
+$\text{Categorical}( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the <code>sample()</code> function:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Sample one category from the distribution</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, prob<span style=color:#f92672>=</span>P )
-</span></span></code></pre></div><pre><code>[1] 1
+</span></span></code></pre></div><pre><code>[1] 3
 </code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Repeatedly sample from the distribution</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>s <span style=color:#f92672>=</span> <span style=color:#a6e22e>sample</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>, size<span style=color:#f92672>=</span><span style=color:#ae81ff>1e5</span>, replace<span style=color:#f92672>=</span>T, prob<span style=color:#f92672>=</span>P )
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>( P2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>table</span>(s) <span style=color:#f92672>/</span> <span style=color:#a6e22e>length</span>(s) )
 </span></span></code></pre></div><pre><code>s
       1       2       3       4 
-0.12524 0.37464 0.37692 0.12320 
+0.12484 0.37579 0.37439 0.12498 
 </code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Empirical frequency distibution obtained through sampling</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>plot</span>( <span style=color:#ae81ff>1</span>, type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;n&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Category&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Prob&#34;</span>, 
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>      xlim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>.5</span>,<span style=color:#ae81ff>4.5</span>), ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>.5</span>) )
@@ -144,12 +144,13 @@ vector of rating probabilities (<code>P</code>) through the function <code>cumsu
 (cumulative sum). Note that both vectors contain the same information.
 The original vector can well be reconstructed from the cumulative
 version. In math terms, their relationship is as follows:</p><p>$$
+\gdef\Pr{\textrm{Pr}}
 \begin{aligned}
-Pr(R=1) = Pr(R \leq 1)& \\
-Pr(R=2) = Pr(R \leq 2)& - Pr(R \leq 1) \\
-Pr(R=3) = Pr(R \leq 3)& - Pr(R \leq 2) \\
-Pr(R=4) = Pr(R \leq 4)& - Pr(R \leq 3) \\
-= \phantom{PPaa} 1 \phantom{aaa}& - Pr(R \leq 3)
+\Pr(R=1) = \Pr(R \leq 1)& \\
+\Pr(R=2) = \Pr(R \leq 2)& - \Pr(R \leq 1) \\
+\Pr(R=3) = \Pr(R \leq 3)& - \Pr(R \leq 2) \\
+\Pr(R=4) = \Pr(R \leq 4)& - \Pr(R \leq 3) \\
+= \phantom{PPaa} 1 \phantom{aaa}& - \Pr(R \leq 3)
 \end{aligned}
 \tag{2}
 $$</p><p>and in code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>Ps <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#ae81ff>0</span>, Pc )
@@ -201,7 +202,7 @@ the same machinery in reverse:</p><div class=highlight><pre tabindex=0 style=col
 </span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591      Inf
 [1] 0.125 0.500 0.875 1.000
 [1] 0.125 0.375 0.375 0.125
-[1] 4
+[1] 2
 </code></pre><p>This second expression aligns well with the simulation perspective and
 precisely lays out the data-generating process of the rating scores. It
 also makes it clear that a <em>predetermined</em> set of latent scores (or
@@ -281,28 +282,29 @@ onto the response scale (i.e., discrete ratings). In math terms,
 resuming our wine rating example, the distribution is shown in
 <a href=#math-eq3>(3)</a>:</p><p>$$
 \begin{aligned}
-R_i & \sim OrderedLogit(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1 \\ \kappa_2 \\ \kappa_3 \end{bmatrix} ) \\
+R_i & \sim \text{OrderedLogit}(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1 \\ \kappa_2 \\ \kappa_3 \end{bmatrix} ) \\
 \phi_i & = W_{Wid[i]} + J_{Jid[i]} \\
 \tag{3}
 \end{aligned}
-$$</p><p>The $OrderedLogit$ expression hides all the details from the reader. But
-you’ve already seen the details at work in code form in previous
-sections, albeit in a quite scattered manner. Later, I will collect them
-into a single function. If you prefer clarity now, the monstrous
-expressions in <a href=#math-eq4>(4)</a> should suffice.</p><p>$$
+$$</p><p>The $\text{OrderedLogit}$ expression hides all the details from the
+reader. But you’ve already seen the details at work in code form in
+previous sections, albeit in a quite scattered manner. Later, I will
+collect them into a single function. If you prefer clarity now, the
+monstrous expressions in <a href=#math-eq4>(4)</a> should suffice.</p><p>$$
+\newcommand{\logit}{\textrm{logit}}
 \begin{aligned}
-R_i \sim Categorical & (
+R_i \sim \text{Categorical} & (
 \begin{bmatrix}
-Pr(R_i = 1) = Pr(R_i \le 1) \phantom{- Pr(R_i \le 1)} \\
-Pr(R_i = 2) = Pr(R_i \le 2) - Pr(R_i \le 1) \\
-Pr(R_i = 3) = Pr(R_i \le 3) - Pr(R_i \le 2) \\
-Pr(R_i = 4) = Pr(R_i \le 4) - Pr(R_i \le 3) \\
+\Pr(R_i = 1) = \Pr(R_i \le 1) \phantom{- \Pr(R_i \le 1)} \\
+\Pr(R_i = 2) = \Pr(R_i \le 2) - \Pr(R_i \le 1) \\
+\Pr(R_i = 3) = \Pr(R_i \le 3) - \Pr(R_i \le 2) \\
+\Pr(R_i = 4) = \Pr(R_i \le 4) - \Pr(R_i \le 3) \\
 \end{bmatrix}
 ) \\
-logit[ Pr(R_i \le 1) ] &= logit[ Pr(R_i = 1) ] = \kappa_1 - \phi_i \\
-logit[ Pr(R_i \le 2) ] &= \kappa_2 - \phi_i \\
-logit[ Pr(R_i \le 3) ] &= \kappa_3 - \phi_i \\
-logit[ Pr(R_i \le 4) ] &= logit(1) = \infty \\
+\logit[ \Pr(R_i \le 1) ] &= \logit[ Pr(R_i = 1) ] = \kappa_1 - \phi_i \\
+\logit[ \Pr(R_i \le 2) ] &= \kappa_2 - \phi_i \\
+\logit[ \Pr(R_i \le 3) ] &= \kappa_3 - \phi_i \\
+\logit[ \Pr(R_i \le 4) ] &= \logit(1) = \infty \\
 \phi_i &= W_{Wid[i]} + J_{Jid[i]}
 \tag{4}
 \end{aligned}
@@ -333,7 +335,7 @@ form of the $OrderedLogit$ distribution in the function <code>rOrdLogit()</code>
 </span></span></code></pre></div><pre><code>[1] -1.94591  0.00000  1.94591
 draws
      1      2      3      4 
-0.1183 0.3723 0.3815 0.1279 
+0.1282 0.3788 0.3678 0.1252 
 </code></pre><h2 id=simulating-and-fitting-wine-ratings>Simulating and Fitting Wine Ratings</h2><p>Having all concepts in place, let’s start synthesizing data for our
 later model fitting. We will simulate data from the Ordered Logit
 distribution. One minor limitation with <code>rOrdLogit()</code> defined previously

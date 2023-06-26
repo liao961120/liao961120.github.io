@@ -51,31 +51,7 @@ of as corresponding to the person ability and $J$ to the item easiness.
 The analogy isn’t exact though. It’s equally sensible to think in the
 other direction. There’s nothing wrong to think of $W$ as corresponding
 to item easiness and $J$ to person ability.&lt;/p>
-&lt;div class="goat svg-container ">
-&lt;svg
-xmlns="http://www.w3.org/2000/svg"
-font-family="Menlo,Lucida Console,monospace"
-viewBox="0 0 152 121"
->
-&lt;g transform='translate(8,16)'>
-&lt;path d='M 32,64 L 48,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 80,32 L 96,64' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='60.000000,32.000000 48.000000,26.400000 48.000000,37.599998' fill='currentColor' transform='rotate(300.000000, 48.000000, 32.000000)'>&lt;/polygon>
-&lt;polygon points='92.000000,32.000000 80.000000,26.400000 80.000000,37.599998' fill='currentColor' transform='rotate(240.000000, 80.000000, 32.000000)'>&lt;/polygon>
-&lt;path d='M 24,64 A 16,16 0 0,0 8,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 24,64 A 16,16 0 0,1 40,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 104,64 A 16,16 0 0,0 88,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 104,64 A 16,16 0 0,1 120,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 8,80 A 16,16 0 0,0 24,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 40,80 A 16,16 0 0,1 24,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 88,80 A 16,16 0 0,0 104,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 120,80 A 16,16 0 0,1 104,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>W&lt;/text>
-&lt;text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>R&lt;/text>
-&lt;text text-anchor='middle' x='104' y='84' fill='currentColor' style='font-size:1em'>J&lt;/text>
-&lt;/g>
-&lt;/svg>
-&lt;/div>
+&lt;img src="dag.svg" style="max-height:140px" />
 &lt;p>The only thing new is that instead of a binary response, $R$ can take
 more than two values. We need new machinery to map the aggregated
 influence from the two factors ($W$ and $J$), which is a latent score in
@@ -87,7 +63,7 @@ machinery.&lt;/p>
 &lt;p>$$
 L ~~ \rightarrow ~~ P_{cum.}
 ~~ \rightarrow ~~ \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix}
-~~ \rightarrow ~~ R \sim Categorical( \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix} )
+~~ \rightarrow ~~ R \sim \text{Categorical}( \begin{bmatrix} P_1 \\ P_2 \\ P_3 \\ P_4 \end{bmatrix} )
 \tag{1}
 $$&lt;/p>
 &lt;p>The path along the mapping of the latent scores onto the rating-scale
@@ -125,18 +101,18 @@ normalizes this vector to the correct probability scale.&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="part4_files/figure-commonmark/unnamed-chunk-1-1.svg"
 style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;p>Now, to sample from this distribution,
-$Categorical( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
+$\text{Categorical}( \begin{bmatrix} .125 \\ .375 \\ .375 \\ .125 \end{bmatrix} )$,
 we simply use the &lt;code>sample()&lt;/code> function:&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Sample one category from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, prob&lt;span style="color:#f92672">=&lt;/span>P )
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 3
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Repeatedly sample from the distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>s &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">sample&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e5&lt;/span>, replace&lt;span style="color:#f92672">=&lt;/span>T, prob&lt;span style="color:#f92672">=&lt;/span>P )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>( P2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">table&lt;/span>(s) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">length&lt;/span>(s) )
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>s
 1 2 3 4
-0.12524 0.37464 0.37692 0.12320
+0.12484 0.37579 0.37439 0.12498
 &lt;/code>&lt;/pre>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>&lt;span style="color:#75715e"># Empirical frequency distibution obtained through sampling&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Category&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Prob&amp;#34;&lt;/span>,
@@ -191,12 +167,13 @@ vector of rating probabilities (&lt;code>P&lt;/code>) through the function &lt;c
 The original vector can well be reconstructed from the cumulative
 version. In math terms, their relationship is as follows:&lt;/p>
 &lt;p>$$
+\gdef\Pr{\textrm{Pr}}
 \begin{aligned}
-Pr(R=1) = Pr(R \leq 1)&amp;amp; \\
-Pr(R=2) = Pr(R \leq 2)&amp;amp; - Pr(R \leq 1) \\
-Pr(R=3) = Pr(R \leq 3)&amp;amp; - Pr(R \leq 2) \\
-Pr(R=4) = Pr(R \leq 4)&amp;amp; - Pr(R \leq 3) \\
-= \phantom{PPaa} 1 \phantom{aaa}&amp;amp; - Pr(R \leq 3)
+\Pr(R=1) = \Pr(R \leq 1)&amp;amp; \\
+\Pr(R=2) = \Pr(R \leq 2)&amp;amp; - \Pr(R \leq 1) \\
+\Pr(R=3) = \Pr(R \leq 3)&amp;amp; - \Pr(R \leq 2) \\
+\Pr(R=4) = \Pr(R \leq 4)&amp;amp; - \Pr(R \leq 3) \\
+= \phantom{PPaa} 1 \phantom{aaa}&amp;amp; - \Pr(R \leq 3)
 \end{aligned}
 \tag{2}
 $$&lt;/p>
@@ -261,7 +238,7 @@ the same machinery in reverse:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591 Inf
 [1] 0.125 0.500 0.875 1.000
 [1] 0.125 0.375 0.375 0.125
-[1] 4
+[1] 2
 &lt;/code>&lt;/pre>
 &lt;p>This second expression aligns well with the simulation perspective and
 precisely lays out the data-generating process of the rating scores. It
@@ -367,30 +344,31 @@ resuming our wine rating example, the distribution is shown in
 &lt;a href="#math-eq3">(3)&lt;/a>:&lt;/p>
 &lt;p>$$
 \begin{aligned}
-R_i &amp;amp; \sim OrderedLogit(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1 \\ \kappa_2 \\ \kappa_3 \end{bmatrix} ) \\
+R_i &amp;amp; \sim \text{OrderedLogit}(\phi_i, ~ \bm{\kappa} = \begin{bmatrix} \kappa_1 \\ \kappa_2 \\ \kappa_3 \end{bmatrix} ) \\
 \phi_i &amp;amp; = W_{Wid[i]} + J_{Jid[i]} \\
 \tag{3}
 \end{aligned}
 $$&lt;/p>
-&lt;p>The $OrderedLogit$ expression hides all the details from the reader. But
-you’ve already seen the details at work in code form in previous
-sections, albeit in a quite scattered manner. Later, I will collect them
-into a single function. If you prefer clarity now, the monstrous
-expressions in &lt;a href="#math-eq4">(4)&lt;/a> should suffice.&lt;/p>
+&lt;p>The $\text{OrderedLogit}$ expression hides all the details from the
+reader. But you’ve already seen the details at work in code form in
+previous sections, albeit in a quite scattered manner. Later, I will
+collect them into a single function. If you prefer clarity now, the
+monstrous expressions in &lt;a href="#math-eq4">(4)&lt;/a> should suffice.&lt;/p>
 &lt;p>$$
+\newcommand{\logit}{\textrm{logit}}
 \begin{aligned}
-R_i \sim Categorical &amp;amp; (
+R_i \sim \text{Categorical} &amp;amp; (
 \begin{bmatrix}
-Pr(R_i = 1) = Pr(R_i \le 1) \phantom{- Pr(R_i \le 1)} \\
-Pr(R_i = 2) = Pr(R_i \le 2) - Pr(R_i \le 1) \\
-Pr(R_i = 3) = Pr(R_i \le 3) - Pr(R_i \le 2) \\
-Pr(R_i = 4) = Pr(R_i \le 4) - Pr(R_i \le 3) \\
+\Pr(R_i = 1) = \Pr(R_i \le 1) \phantom{- \Pr(R_i \le 1)} \\
+\Pr(R_i = 2) = \Pr(R_i \le 2) - \Pr(R_i \le 1) \\
+\Pr(R_i = 3) = \Pr(R_i \le 3) - \Pr(R_i \le 2) \\
+\Pr(R_i = 4) = \Pr(R_i \le 4) - \Pr(R_i \le 3) \\
 \end{bmatrix}
 ) \\
-logit[ Pr(R_i \le 1) ] &amp;amp;= logit[ Pr(R_i = 1) ] = \kappa_1 - \phi_i \\
-logit[ Pr(R_i \le 2) ] &amp;amp;= \kappa_2 - \phi_i \\
-logit[ Pr(R_i \le 3) ] &amp;amp;= \kappa_3 - \phi_i \\
-logit[ Pr(R_i \le 4) ] &amp;amp;= logit(1) = \infty \\
+\logit[ \Pr(R_i \le 1) ] &amp;amp;= \logit[ Pr(R_i = 1) ] = \kappa_1 - \phi_i \\
+\logit[ \Pr(R_i \le 2) ] &amp;amp;= \kappa_2 - \phi_i \\
+\logit[ \Pr(R_i \le 3) ] &amp;amp;= \kappa_3 - \phi_i \\
+\logit[ \Pr(R_i \le 4) ] &amp;amp;= \logit(1) = \infty \\
 \phi_i &amp;amp;= W_{Wid[i]} + J_{Jid[i]}
 \tag{4}
 \end{aligned}
@@ -423,7 +401,7 @@ form of the $OrderedLogit$ distribution in the function &lt;code>rOrdLogit()&lt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] -1.94591 0.00000 1.94591
 draws
 1 2 3 4
-0.1183 0.3723 0.3815 0.1279
+0.1282 0.3788 0.3678 0.1252
 &lt;/code>&lt;/pre>
 &lt;h2 id="simulating-and-fitting-wine-ratings">Simulating and Fitting Wine Ratings&lt;/h2>
 &lt;p>Having all concepts in place, let’s start synthesizing data for our
@@ -1231,8 +1209,8 @@ Lots of things are going on here. Don’t panic, I’ll walk you through
 slowly.&lt;/p>
 &lt;p>$$
 \begin{align}
-&amp;amp; R_i \sim Bernoulli( P_i ) \\
-&amp;amp; P_i = logistic( \mu_i ) \\
+&amp;amp; R_i \sim \text{Bernoulli}( P_i ) \\
+&amp;amp; P_i = \text{logistic}( \mu_i ) \\
 &amp;amp; \mu_i = \alpha_{[S_i]} + \delta_{[I_i]}
 \end{align} \tag{1}
 $$&lt;/p>
@@ -1271,11 +1249,11 @@ the model.&lt;/p>
 &lt;li>$\mu_i = \alpha_{[S_i]} + \delta_{[I_i]}$&lt;br>
 No surprise here. This equation simply illustrates how the model
 computes a new variable $\mu$ from $\alpha$ and $\delta$.&lt;/li>
-&lt;li>$P_i = logistic( \mu_i )$&lt;br>
+&lt;li>$P_i = \text{logistic}( \mu_i )$&lt;br>
 The equation should look familiar. It indicates how the model maps
 $\mu$, which can range from $-\infty$ to $\infty$, to probability,
 $P$, through the logistic function.&lt;/li>
-&lt;li>$R_i \sim Bernoulli( P_i )$&lt;br>
+&lt;li>$R_i \sim \text{Bernoulli}( P_i )$&lt;br>
 This equation describes that each observed response is generated from
 a Bernoulli distribution with probability $P_i$. Or even simpler,
 $R_i$ would be $1$ with probability $P_i$ and $0$ with probability
@@ -1292,8 +1270,8 @@ Instead of the logistic function, the second equation in (2) uses the
 logit?&lt;/p>
 &lt;p>$$
 \begin{align}
-&amp;amp; R_i \sim Bernoulli( P_i ) \\
-&amp;amp; logit(P_i) = \mu_i \\
+&amp;amp; R_i \sim \text{Bernoulli}( P_i ) \\
+&amp;amp; \text{logit}(P_i) = \mu_i \\
 &amp;amp; \mu_i = \alpha_{[S_i]} + \delta_{[I_i]}
 \end{align} \tag{2}
 $$&lt;/p>
@@ -1321,11 +1299,11 @@ logit can convert it back to the original real, and vice versa.&lt;/p>
 &lt;p>Some arithmetics would get us from the logistic to the logit:&lt;/p>
 &lt;p>$$
 \begin{aligned}
-logistic(x) &amp;amp;= \frac{1}{1 + e^{-x}} = p \\
+\text{logistic}(x) &amp;amp;= \frac{1}{1 + e^{-x}} = p \\
 &amp;amp; \Rightarrow ~~ e^{-x} = \frac{1-p}{p} \\
-&amp;amp; \Rightarrow ~ -x = log(\frac{1-p}{p}) \\
-&amp;amp; \Rightarrow ~~ x = -log(\frac{1-p}{p}) \\
-&amp;amp; \phantom{\Rightarrow ~~ x } = log(\frac{p}{1-p}) = logit(p)
+&amp;amp; \Rightarrow ~ -x = \text{log}(\frac{1-p}{p}) \\
+&amp;amp; \Rightarrow ~~ x = -\text{log}(\frac{1-p}{p}) \\
+&amp;amp; \phantom{\Rightarrow ~~ x } = \text{log}(\frac{p}{1-p}) = \text{logit}(p)
 \end{aligned}
 $$&lt;/p>
 &lt;p>There is really nothing special about the logit function. We have
@@ -1367,8 +1345,8 @@ three subjects (J, K, L). For real data, equation (3.2) would be
 extremely long.&lt;/p>
 &lt;p>$$
 \begin{align}
-\tag{3.1} logit(\mu_i) &amp;amp;= \alpha_{[S_i]} + \delta_{[I_i]} \\
-\tag{3.2} logit(\mu_i) &amp;amp;= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
+\tag{3.1} \text{logit}(\mu_i) &amp;amp;= \alpha_{[S_i]} + \delta_{[I_i]} \\
+\tag{3.2} \text{logit}(\mu_i) &amp;amp;= J_i \alpha_J + K_i \alpha_K + L_i \alpha_L + A_i \delta_A + B_i \delta_B
 \end{align}
 $$&lt;/p>
 &lt;p>The variables ($J_i, K_i, L_i, A_i, B_i$) in front of the $\alpha$s and
@@ -1587,7 +1565,7 @@ S_25 -8.194e-01 5.775e-01 -1.419 0.155962
 S_26 1.625e-01 5.704e-01 0.285 0.775661
 S_27 -4.853e-01 5.705e-01 -0.851 0.394979
 S_28 -3.227e-01 5.688e-01 -0.567 0.570509
-S_29 1.969e-15 5.687e-01 0.000 1.000000
+S_29 1.680e-15 5.687e-01 0.000 1.000000
 S_30 6.712e-01 5.831e-01 1.151 0.249706
 S_31 6.712e-01 5.831e-01 1.151 0.249706
 S_32 3.618e+00 1.111e+00 3.256 0.001131 **
@@ -1662,7 +1640,7 @@ imprecision). You can play with the code below by changing the value of
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>p1 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities before shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>p2 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( A2[d&lt;span style="color:#f92672">$&lt;/span>S] &lt;span style="color:#f92672">-&lt;/span> D2[d&lt;span style="color:#f92672">$&lt;/span>I] ) &lt;span style="color:#75715e"># Probabilities after shift&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">sum&lt;/span>( &lt;span style="color:#a6e22e">abs&lt;/span>(p1 &lt;span style="color:#f92672">-&lt;/span> p2) ) &lt;span style="color:#75715e"># Should be extremely close to zero&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.456325e-14
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>[1] 9.453549e-14
 &lt;/code>&lt;/pre>
 &lt;p>The way R deals with this issue of identifiability is not preferable
 since we want to recover the parameters in our simulation (i.e., the set
@@ -1965,7 +1943,7 @@ intercept $\alpha$ would be given as the intercept coefficient in
 the model output.&lt;/p>
 &lt;p>$$
 \begin{aligned}
-y_i &amp;amp;\sim Normal(\mu_i, \sigma) \\
+y_i &amp;amp;\sim \text{Normal}(\mu_i, \sigma) \\
 \mu_i &amp;amp;= \alpha + \beta x_i
 \end{aligned}
 $$&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
@@ -1984,8 +1962,8 @@ special case of the binomial distribution where $n=1$.&amp;#160;&lt;a href="#fnr
 &lt;/ol>
 &lt;/div></description><category>r</category><category>stats</category><category>psychology</category></item><item><title>Demystifying Item Response Theory (1/4)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
 &lt;img src="irt.jpg" style="width:70.0%"
-alt="Ok, so these are the item characteristic curves. What then?" />
-&lt;figcaption aria-hidden="true">&lt;em>Ok, so these are the &lt;a
+alt="Okay, so these are the item characteristic curves. What then?" />
+&lt;figcaption aria-hidden="true">&lt;em>Okay, so these are the &lt;a
 href="https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715">item
 characteristic curves&lt;/a>. What then?&lt;/em>&lt;/figcaption>
 &lt;/figure>
@@ -2177,7 +2155,7 @@ linked to probability? How can we map $\mu$ to probability in a
 principled manner? The solution is to take advantage of the &lt;a href="https://en.wikipedia.org/wiki/Logistic_function">logistic
 function&lt;/a>.&lt;/p>
 &lt;p>$$
-logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
+\text{logistic}( x ) = \frac{ 1 }{ 1 + e^{-x} }
 $$&lt;/p>
 &lt;p>The &lt;em>&lt;strong>logistic&lt;/strong>&lt;/em> is a function that maps a real number $x$ to a
 probability $p$. In other words, the logistic function transforms the

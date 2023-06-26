@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>reproducibility on Yongfu's Blog</title><link>https://yongfu.name/tags/reproducibility/</link><description>Recent content in reproducibility on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 25 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/reproducibility/feed.xml" rel="self" type="application/rss+xml"/><item><title>Demystifying Item Response Theory (1/4)</title><link>https://yongfu.name/2023/02/25/irt1/</link><pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/25/irt1/</guid><description>&lt;figure>
 &lt;img src="irt.jpg" style="width:70.0%"
-alt="Ok, so these are the item characteristic curves. What then?" />
-&lt;figcaption aria-hidden="true">&lt;em>Ok, so these are the &lt;a
+alt="Okay, so these are the item characteristic curves. What then?" />
+&lt;figcaption aria-hidden="true">&lt;em>Okay, so these are the &lt;a
 href="https://www.researchgate.net/figure/Item-characteristic-curves-Item-Response-Theory-IRT-1PL-model_fig1_342560715">item
 characteristic curves&lt;/a>. What then?&lt;/em>&lt;/figcaption>
 &lt;/figure>
@@ -193,7 +193,7 @@ linked to probability? How can we map $\mu$ to probability in a
 principled manner? The solution is to take advantage of the &lt;a href="https://en.wikipedia.org/wiki/Logistic_function">logistic
 function&lt;/a>.&lt;/p>
 &lt;p>$$
-logistic( x ) = \frac{ 1 }{ 1 + e^{-x} }
+\text{logistic}( x ) = \frac{ 1 }{ 1 + e^{-x} }
 $$&lt;/p>
 &lt;p>The &lt;em>&lt;strong>logistic&lt;/strong>&lt;/em> is a function that maps a real number $x$ to a
 probability $p$. In other words, the logistic function transforms the

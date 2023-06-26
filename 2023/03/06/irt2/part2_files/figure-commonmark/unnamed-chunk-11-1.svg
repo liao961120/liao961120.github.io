@@ -44,8 +44,8 @@
 <text transform='translate(40.32,145.25) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>1</text>
 <text transform='translate(40.32,92.50) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
 <polygon points='57.60,352.80 696.96,352.80 696.96,43.20 57.60,43.20 ' style='stroke-width: 0.75;' />
-<text x='377.28' y='407.52' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='29.36px' lengthAdjust='spacingAndGlyphs'>Index</text>
-<text transform='translate(11.52,198.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='30.47px' lengthAdjust='spacingAndGlyphs'>Effect</text>
+<text x='377.28' y='407.52' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='29.35px' lengthAdjust='spacingAndGlyphs'>Index</text>
+<text transform='translate(11.52,198.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='30.68px' lengthAdjust='spacingAndGlyphs'>Effect</text>
 </g>
 <defs>
   <clipPath id='cpNTcuNjB8Njk2Ljk2fDQzLjIwfDM1Mi44MA=='>
@@ -327,7 +327,7 @@
 <polyline points='666.70,178.90 666.70,175.20 ' style='stroke-width: 0.75; stroke: #2297E6;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHwzOTYuMDA=)'>
-<text x='265.46' y='36.02' text-anchor='middle' style='font-size: 12.00px;fill: #DF536B; font-family: "Arial";' textLength='54.02px' lengthAdjust='spacingAndGlyphs'>Items (60)</text>
-<text x='574.61' y='36.02' text-anchor='middle' style='font-size: 12.00px;fill: #2297E6; font-family: "Arial";' textLength='70.71px' lengthAdjust='spacingAndGlyphs'>Subjects (30)</text>
+<text x='265.46' y='36.01' text-anchor='middle' style='font-size: 12.00px;fill: #DF536B; font-family: "Arial";' textLength='54.01px' lengthAdjust='spacingAndGlyphs'>Items (60)</text>
+<text x='574.61' y='36.01' text-anchor='middle' style='font-size: 12.00px;fill: #2297E6; font-family: "Arial";' textLength='70.70px' lengthAdjust='spacingAndGlyphs'>Subjects (30)</text>
 </g>
 </svg>
