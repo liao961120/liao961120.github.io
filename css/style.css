@@ -20,7 +20,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 18.5px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -45,7 +45,7 @@ p > code, li > code, a > code {
 
 .main article.post {
     width: 71%;
-    max-width: 72ch;
+    max-width: 80ch;
     margin: 0;
     padding-left: .34em;
     /* padding-right: 2%; */
@@ -82,11 +82,6 @@ p > code, li > code, a > code {
     font-size: 1.22em;
     word-spacing: 0.1em;
 }
-.article_content h2, 
-.article_content h3, 
-.article_content h4 {
-    font-style: italic;
-}
 .article_content h4 {
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -114,7 +109,7 @@ p > code, li > code, a > code {
     font-family: 'Libre Caslon Text', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
 }
 .article_content p {
-    font-size: .95em;
+    font-size: .9em;
     line-height: 1.65;
     margin-bottom: 1.5em;
 }
@@ -159,7 +154,15 @@ div.two-column > * {
     padding: 0 auto;
     line-height: 1.26;
 }
-
+.article_content .references::before {
+    content: "References";
+    display: block;
+    /* font-style: italic; */
+    font-weight: bold;
+    font-size: 1.22em;
+    margin-top: 2.5em;
+    margin-bottom: -.4em;
+}
 div.footnotes::before {
     content: "Notes";
     display: block;
@@ -415,7 +418,7 @@ table th {
     background-color: var(--header-background);
     color: white;
 }
-.highlight pre {
+.highlight > pre {
     width: 98%;
     padding: .5em 1%;
     border-radius: 0.35em;
@@ -424,8 +427,9 @@ table th {
     margin: 0;
     border-left: none;
     transition: max-width 0.4s ease-out;
+    overflow-x: auto;
 }
-pre {
+div.article_content > pre {
     width: 98%;
     padding: .5em 0 .5em 1.5%;
     margin: .6em 0 .8em 0.25%;

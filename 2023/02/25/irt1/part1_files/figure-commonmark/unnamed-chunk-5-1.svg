@@ -21,7 +21,7 @@
   </clipPath>
 </defs>
 <g clip-path='url(#cpMC4wMHw1OTAuNDB8MC4wMHwyODguMDA=)'>
-<polyline points='64.80,244.80 554.40,244.80 554.40,14.40 64.80,14.40 64.80,244.80 ' style='stroke-width: 0.75;' />
+<polygon points='64.80,244.80 554.40,244.80 554.40,14.40 64.80,14.40 ' style='stroke-width: 0.75;' />
 <text transform='translate(18.72,129.60) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='56.03px' lengthAdjust='spacingAndGlyphs'>Probability</text>
 </g>
 <defs>

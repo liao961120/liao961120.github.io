@@ -43,7 +43,8 @@
 <text transform='translate(40.32,198.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text transform='translate(40.32,145.25) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>1</text>
 <text transform='translate(40.32,92.50) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
-<polyline points='57.60,352.80 696.96,352.80 696.96,43.20 57.60,43.20 57.60,352.80 ' style='stroke-width: 0.75;' />
+<polygon points='57.60,352.80 696.96,352.80 696.96,43.20 57.60,43.20 ' style='stroke-width: 0.75;' />
+<text x='377.28' y='407.52' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='29.36px' lengthAdjust='spacingAndGlyphs'>Index</text>
 <text transform='translate(11.52,198.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='30.47px' lengthAdjust='spacingAndGlyphs'>Effect</text>
 </g>
 <defs>

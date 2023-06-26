@@ -97,16 +97,7 @@ DAG here), but with a slight modification that emphasizes the perspective from
 the statistical model. Here, the observed $S$ and $I$ take place of the
 unobserved $A$ and $D$, respectively. So why the difference? 
 
-```goat
-       .-.                     .-.        
-      | P |---->  R  |        | P |---->  R
-       '-'           |         '-'        
-      ^   ^          |        ^   ^       
-     /     \         |       /     \      
-  .-+       +-.      |      /       \    
- | A |     | D |     |     S         I    
-  '-'       '-'                           
-```
+![](dag.svg){style="max-height:150px"}
 
 Recall that the nodes $A$ and $D$ represent the joint influences of a subject's
 ability and an item's difficulty on the probability of success on that item.

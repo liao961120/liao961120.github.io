@@ -155,7 +155,7 @@
 <text transform='translate(47.52,143.07) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='16.68px' lengthAdjust='spacingAndGlyphs'>0.6</text>
 <text transform='translate(47.52,83.61) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='16.68px' lengthAdjust='spacingAndGlyphs'>0.8</text>
 <text transform='translate(47.52,24.14) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='16.68px' lengthAdjust='spacingAndGlyphs'>1.0</text>
-<polyline points='64.80,331.20 676.80,331.20 676.80,14.40 64.80,14.40 64.80,331.20 ' style='stroke-width: 0.75;' />
+<polygon points='64.80,331.20 676.80,331.20 676.80,14.40 64.80,14.40 ' style='stroke-width: 0.75;' />
 <text x='370.80' y='385.92' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>x</text>
 <text transform='translate(18.72,172.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>p</text>
 </g>

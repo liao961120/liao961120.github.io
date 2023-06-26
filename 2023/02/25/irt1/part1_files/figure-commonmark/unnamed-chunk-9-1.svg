@@ -45,7 +45,8 @@
 <text transform='translate(40.32,129.60) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.50</text>
 <text transform='translate(40.32,76.27) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.51</text>
 <text transform='translate(40.32,22.93) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.52</text>
-<polyline points='57.60,244.80 588.96,244.80 588.96,14.40 57.60,14.40 57.60,244.80 ' style='stroke-width: 0.75;' />
+<polygon points='57.60,244.80 588.96,244.80 588.96,14.40 57.60,14.40 ' style='stroke-width: 0.75;' />
+<text x='323.28' y='299.52' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='29.36px' lengthAdjust='spacingAndGlyphs'>Index</text>
 <text transform='translate(11.52,129.60) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>P</text>
 </g>
 <defs>

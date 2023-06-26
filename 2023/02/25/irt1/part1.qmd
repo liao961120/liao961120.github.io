@@ -98,7 +98,7 @@ response theory, with the help of simulations and generalized linear models. No
 need to worry if you don't know GLMs yet. We have another ally---[R][r], in
 which we will be simulating artificial data and fitting statistical models along
 the way. Although it might seem intimidating at first, coding simulations and
-models in fact provides scaffolding for learning. When feeling unsure or
+models in fact provide scaffolding for learning. When feeling unsure or
 confused, you can always resort to these simulation-based experiments to resolve
 the issues at hand. In this very first post, I will start by teaching you
 **_simulations_**.
@@ -131,16 +131,7 @@ observable variables (i.e., stuff that gets recorded during data collection).
 This graphical representation of the variables and their relationships is known
 as a [Directed Acyclic Graph (DAG)][DAG].
 
-```goat
-                              .-.         
-       R           |         | P |---->  R 
-                   |          '-'         
-     ^   ^         |         ^   ^        
-    /     \        |        /     \       
- .-+       +-.     |     .-+       +-.    
-| A |     | D |    |    | A |     | D |   
- '-'       '-'           '-'       '-'    
-```
+![](dag.svg){style="max-height:150px"}
 
 The DAGs laid out here represent the concept behind the simplest kind of item
 response models, known as the **1-parameter logistic (1PL) model** (or the Rasch

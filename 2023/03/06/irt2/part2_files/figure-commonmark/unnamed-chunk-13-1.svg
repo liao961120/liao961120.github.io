@@ -43,7 +43,7 @@
 <text transform='translate(41.76,190.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
 <text transform='translate(41.76,142.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>1</text>
 <text transform='translate(41.76,93.20) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
-<polyline points='59.04,322.56 689.76,322.56 689.76,59.04 59.04,59.04 59.04,322.56 ' style='stroke-width: 0.75;' />
+<polygon points='59.04,322.56 689.76,322.56 689.76,59.04 59.04,59.04 ' style='stroke-width: 0.75;' />
 <text x='374.40' y='377.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='26.68px' lengthAdjust='spacingAndGlyphs'>m1.2</text>
 <text transform='translate(12.96,190.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='26.68px' lengthAdjust='spacingAndGlyphs'>m1.1</text>
 </g>
@@ -115,6 +115,7 @@
 <circle cx='372.94' cy='191.41' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />
 <circle cx='451.34' cy='158.65' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />
 <circle cx='451.34' cy='158.65' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />
+<circle cx='795.56' cy='14.84' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />
 <circle cx='354.10' cy='199.28' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />
 <circle cx='277.24' cy='231.39' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />
 <circle cx='316.27' cy='215.09' r='2.70' style='stroke-width: 0.75; stroke: #2297E6; fill: #2297E6;' />

@@ -1204,57 +1204,7 @@ again. The DAG on the right below is identical to the one in &lt;a href="https:/
 emphasizes the perspective from the statistical model. Here, the
 observed $S$ and $I$ take place of the unobserved $A$ and $D$,
 respectively. So why the difference?&lt;/p>
-&lt;div class="goat svg-container ">
-&lt;svg
-xmlns="http://www.w3.org/2000/svg"
-font-family="Menlo,Lucida Console,monospace"
-viewBox="0 0 352 137"
->
-&lt;g transform='translate(8,16)'>
-&lt;path d='M 88,16 L 120,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 280,16 L 312,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 168,16 L 168,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 32,80 L 48,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 224,80 L 240,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 80,48 L 96,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 272,48 L 288,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 48,48 L 56,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='66.000000,48.000000 54.000000,42.400002 54.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 48.000000, 48.000000)'>&lt;/polygon>
-&lt;path d='M 72,32 L 80,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='98.000000,48.000000 86.000000,42.400002 86.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 80.000000, 48.000000)'>&lt;/polygon>
-&lt;polygon points='128.000000,16.000000 116.000000,10.400000 116.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 120.000000, 16.000000)'>&lt;/polygon>
-&lt;path d='M 240,48 L 248,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='258.000000,48.000000 246.000000,42.400002 246.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 240.000000, 48.000000)'>&lt;/polygon>
-&lt;path d='M 264,32 L 272,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='290.000000,48.000000 278.000000,42.400002 278.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 272.000000, 48.000000)'>&lt;/polygon>
-&lt;polygon points='320.000000,16.000000 308.000000,10.400000 308.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 312.000000, 16.000000)'>&lt;/polygon>
-&lt;path d='M 64,0 A 16,16 0 0,0 48,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 64,0 A 16,16 0 0,1 80,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 256,0 A 16,16 0 0,0 240,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 256,0 A 16,16 0 0,1 272,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 48,16 A 16,16 0 0,0 64,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 80,16 A 16,16 0 0,1 64,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 240,16 A 16,16 0 0,0 256,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 272,16 A 16,16 0 0,1 256,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 24,80 A 16,16 0 0,0 8,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 24,80 A 16,16 0 0,1 40,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 104,80 A 16,16 0 0,0 88,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 104,80 A 16,16 0 0,1 120,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 8,96 A 16,16 0 0,0 24,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 40,96 A 16,16 0 0,1 24,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 88,96 A 16,16 0 0,0 104,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 120,96 A 16,16 0 0,1 104,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;text text-anchor='middle' x='24' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
-&lt;text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>P&lt;/text>
-&lt;text text-anchor='middle' x='104' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
-&lt;text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
-&lt;text text-anchor='middle' x='216' y='100' fill='currentColor' style='font-size:1em'>S&lt;/text>
-&lt;text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>P&lt;/text>
-&lt;text text-anchor='middle' x='296' y='100' fill='currentColor' style='font-size:1em'>I&lt;/text>
-&lt;text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
-&lt;/g>
-&lt;/svg>
-&lt;/div>
+&lt;img src="dag.svg" style="max-height:150px" />
 &lt;p>Recall that the nodes $A$ and $D$ represent the joint influences of a
 subject’s ability and an item’s difficulty on the probability of success
 on that item. However, the statistical model cannot notice $A$ and $D$
@@ -2095,7 +2045,7 @@ generalized linear models. No need to worry if you don’t know GLMs yet.
 We have another ally—&lt;a href="https://www.r-project.org">R&lt;/a>, in which we will be
 simulating artificial data and fitting statistical models along the way.
 Although it might seem intimidating at first, coding simulations and
-models in fact provides scaffolding for learning. When feeling unsure or
+models in fact provide scaffolding for learning. When feeling unsure or
 confused, you can always resort to these simulation-based experiments to
 resolve the issues at hand. In this very first post, I will start by
 teaching you &lt;em>&lt;strong>simulations&lt;/strong>&lt;/em>.&lt;/p>
@@ -2116,66 +2066,17 @@ graphs below. Let’s focus on the left one first. Here, $A$ represents
 the &lt;strong>ability&lt;/strong> of the testee, $D$ represents the &lt;strong>difficulty&lt;/strong> of the
 item, and $R$ represents the &lt;strong>item response&lt;/strong>, or &lt;strong>score&lt;/strong> on the
 item. A response for an item is coded as &lt;code>1&lt;/code> ($R=1$) if it is solved
-correctly. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows $A \rightarrow R$
-and $D \rightarrow R$ indicate the direction of influence. The arrows enter $R$
-since item difficulty and testee ability influence the score on the item
-(not the other way around). $A$ and $D$ are drawn as a circled node to
-indicate that they are &lt;strong>unobserved&lt;/strong> (or &lt;strong>latent&lt;/strong>, if you prefer a
-fancier term), whereas uncircled nodes represent directly observable
-variables (i.e., stuff that gets recorded during data collection). This
-graphical representation of the variables and their relationships is
-known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
+correctly. Otherwise, it is coded as &lt;code>0&lt;/code> ($R=0$). The arrows
+$A \rightarrow R$ and $D \rightarrow R$ indicate the direction of
+influence. The arrows enter $R$ since item difficulty and testee ability
+influence the score on the item (not the other way around). $A$ and $D$
+are drawn as a circled node to indicate that they are &lt;strong>unobserved&lt;/strong> (or
+&lt;strong>latent&lt;/strong>, if you prefer a fancier term), whereas uncircled nodes
+represent directly observable variables (i.e., stuff that gets recorded
+during data collection). This graphical representation of the variables
+and their relationships is known as a &lt;a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">Directed Acyclic Graph
 (DAG)&lt;/a>.&lt;/p>
-&lt;div class="goat svg-container ">
-&lt;svg
-xmlns="http://www.w3.org/2000/svg"
-font-family="Menlo,Lucida Console,monospace"
-viewBox="0 0 352 137"
->
-&lt;g transform='translate(8,16)'>
-&lt;path d='M 272,16 L 304,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 152,16 L 152,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 24,80 L 40,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 216,80 L 232,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 72,48 L 88,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 264,48 L 280,80' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='52.000000,48.000000 40.000000,42.400002 40.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 40.000000, 48.000000)'>&lt;/polygon>
-&lt;polygon points='84.000000,48.000000 72.000000,42.400002 72.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 72.000000, 48.000000)'>&lt;/polygon>
-&lt;path d='M 232,48 L 240,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='250.000000,48.000000 238.000000,42.400002 238.000000,53.599998' fill='currentColor' transform='rotate(300.000000, 232.000000, 48.000000)'>&lt;/polygon>
-&lt;path d='M 256,32 L 264,48' fill='none' stroke='currentColor'>&lt;/path>
-&lt;polygon points='282.000000,48.000000 270.000000,42.400002 270.000000,53.599998' fill='currentColor' transform='rotate(240.000000, 264.000000, 48.000000)'>&lt;/polygon>
-&lt;polygon points='312.000000,16.000000 300.000000,10.400000 300.000000,21.600000' fill='currentColor' transform='rotate(0.000000, 304.000000, 16.000000)'>&lt;/polygon>
-&lt;path d='M 248,0 A 16,16 0 0,0 232,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 248,0 A 16,16 0 0,1 264,16' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 232,16 A 16,16 0 0,0 248,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 264,16 A 16,16 0 0,1 248,32' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 16,80 A 16,16 0 0,0 0,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 16,80 A 16,16 0 0,1 32,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 96,80 A 16,16 0 0,0 80,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 96,80 A 16,16 0 0,1 112,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 208,80 A 16,16 0 0,0 192,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 208,80 A 16,16 0 0,1 224,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 288,80 A 16,16 0 0,0 272,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 288,80 A 16,16 0 0,1 304,96' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 0,96 A 16,16 0 0,0 16,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 32,96 A 16,16 0 0,1 16,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 80,96 A 16,16 0 0,0 96,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 112,96 A 16,16 0 0,1 96,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 192,96 A 16,16 0 0,0 208,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 224,96 A 16,16 0 0,1 208,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 272,96 A 16,16 0 0,0 288,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;path d='M 304,96 A 16,16 0 0,1 288,112' fill='none' stroke='currentColor'>&lt;/path>
-&lt;text text-anchor='middle' x='16' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
-&lt;text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
-&lt;text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
-&lt;text text-anchor='middle' x='208' y='100' fill='currentColor' style='font-size:1em'>A&lt;/text>
-&lt;text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>P&lt;/text>
-&lt;text text-anchor='middle' x='288' y='100' fill='currentColor' style='font-size:1em'>D&lt;/text>
-&lt;text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>R&lt;/text>
-&lt;/g>
-&lt;/svg>
-&lt;/div>
+&lt;img src="dag.svg" style="max-height:150px" />
 &lt;p>The DAGs laid out here represent the concept behind the simplest kind of
 item response models, known as the &lt;strong>1-parameter logistic (1PL) model&lt;/strong>
 (or the Rasch Model). In more formal terms, this model posits that the
@@ -2214,7 +2115,7 @@ function &lt;code>expand.grid()&lt;/code> would pair up the 6 combinations for u
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span> T &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( &lt;span style="color:#e6db74">&amp;#34;R&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;T&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;J&amp;#34;&lt;/span> ) &lt;span style="color:#75715e"># Testee index&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 2
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 2
 I T
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;
 1 A R
@@ -2230,7 +2131,7 @@ data frame.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">=&lt;/span> A[ dat&lt;span style="color:#f92672">$&lt;/span>T ] &lt;span style="color:#75715e"># map ability to df by testee index T&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>D &lt;span style="color:#f92672">=&lt;/span> D[ dat&lt;span style="color:#f92672">$&lt;/span>I ] &lt;span style="color:#75715e"># map difficulty to df by item index I&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 4
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 4
 I T A D
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 A R 0.5 0.4
@@ -2253,7 +2154,7 @@ the data. This would give us a new variable $\mu$. I save the values of
 $\mu$ to column &lt;code>Mu&lt;/code> in the data frame.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>Mu &lt;span style="color:#f92672">=&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>A &lt;span style="color:#f92672">-&lt;/span> dat&lt;span style="color:#f92672">$&lt;/span>D
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 5
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 5
 I T A D Mu
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 A R 0.5 0.4 0.1
@@ -2341,7 +2242,7 @@ item responses, through the Bernoulli distribution.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>P &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">logistic&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>Mu )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6&lt;/span>&lt;span>dat&lt;span style="color:#f92672">$&lt;/span>R &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rbern&lt;/span>( dat&lt;span style="color:#f92672">$&lt;/span>P ) &lt;span style="color:#75715e"># Generate 0/1 from Bernoulli distribution&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7&lt;/span>&lt;span>dat
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 × 7
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 6 x 7
 I T A D Mu P R
 &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;
 1 A R 0.5 0.4 0.1 0.525 0
