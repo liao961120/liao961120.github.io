@@ -1788,7 +1788,7 @@ variable is “fixed” or “random” has nothing to do with the nature of the
 variable (e.g., &lt;em>gender&lt;/em> doesn’t have to be fixed) or how the levels
 within a variable are selected (randomly drawn or chosen by
 researchers). Whether a variable is modeled as fixed or random is a
-decision to be made by the modeler. And the modeler should &lt;strong>always
+decision to be made by the modeler. And the modeler &lt;strong>should
 model variables as random&lt;/strong> if there are no justifiable prohibitive
 reasons. Let me explain.&lt;/p>
 &lt;h2 id="multilevel-instead-of-mixed">Multilevel Instead of Mixed&lt;/h2>

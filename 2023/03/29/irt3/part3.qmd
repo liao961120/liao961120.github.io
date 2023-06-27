@@ -59,8 +59,8 @@ also misleading. In principle, whether a categorical variable is "fixed" or
 "random" has nothing to do with the nature of the variable (e.g., *gender*
 doesn't have to be fixed) or how the levels within a variable are selected
 (randomly drawn or chosen by researchers). Whether a variable is modeled as
-fixed or random is a decision to be made by the modeler. And the modeler should
-**always model variables as random** if there are no justifiable prohibitive
+fixed or random is a decision to be made by the modeler. And the modeler 
+**should model variables as random** if there are no justifiable prohibitive
 reasons. Let me explain.
 
 [fixef]: https://dictionary.apa.org/fixed-effect
