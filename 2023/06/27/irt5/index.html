@@ -1,0 +1,968 @@
+<!doctype html><html><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="About Learning"><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link rel=stylesheet href=/css/custom.css><title>Beyond Item Response Theory |
+Yongfu's Blog</title></head><body><div class=header><div class=header_title><span class=logo><!doctype html><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="346pt" height="346pt" viewBox="0 0 346 346"><g transform="translate(0.000000,346.000000) scale(0.100000,-0.100000)" fill="#000" stroke="none"><path d="M1484 3328c8-40 19-53 84-94 36-24 52-40 50-52-2-10-12-16-23-15-173 21-208 16-293-38-17-12-66-30-108-40-117-29-354-149-354-178 0-5 20-6 45-3 28 3 45 1 45-6 0-6-32-32-70-57-98-65-105-78-90-162 7-38 20-88 30-113 21-50 17-65-33-117-23-25-32-46-38-93-7-49-17-70-50-112-39-50-41-55-33-98 4-25 8-95 8-156 1-104 3-113 29-151 15-22 41-52 58-67 16-14 29-33 29-41 0-33 71-189 122-267 30-46 82-113 116-149 56-60 60-67 47-85-27-39-155-291-155-305 1-8 45-43 99-79l97-64-7-47c-4-25-22-73-40-104-33-59-38-93-31-205 2-43-13-179-23-202-4-10-10-16-14-14-16 10-39-21-34-47 5-23 9-26 32-20 41 12 94 9 98-4 7-21-131-17-152 3-12 13-19 14-30 4-8-7-15-19-15-26 0-12 68-14 405-14 263 0 405 3 405 10 0 6-83 10-230 10h-230l-11 27c-7 20-6 28 3 35 24 15 136 8 272-17 167-31 201-31 351 0 123 25 190 30 283 18 47-5 53-8 50-27-3-21-8-21-235-24-198-2-233-5-233-17 0-13 54-15 409-15 406 0 409 0 404 20-7 27-43 48-43 25 0-22-34-19-56 6-15 17-16 22-4 29 9 6 17 5 22-3 4-6 10-8 14-4s-1 16-11 27c-14 16-21 18-28 8-6-9-7-8-3 5 3 10 0 20-9 23-7 3-11 12-8 20s0 21-7 29c-20 24-30 87-17 103 6 8 11 44 11 82-1 53-8 82-32 136-28 60-58 163-50 168 2 1 41 19 88 40s89 42 94 46c17 17-80 244-135 314l-20 25-44-30c-48-32-188-1e2-245-118-19-6-83-27-142-46-116-39-236-53-303-37-39 10-38 10 27 11 37 1 102 7 145 13l78 13-140 6c-209 10-363 60-526 169-192 130-358 370-403 587l-7 31 78 7c43 3 90 8 104 11l26 5 17-148c11-91 23-157 33-172 15-24 16-24 147-18 203 9 528 54 544 75 11 13 13 54 10 179-4 165-3 173 33 173 5 0 9-30 9-67 0-87 18-240 30-263 16-29 99-34 392-23 222 8 270 12 292 26l26 17v160 160h28c16 0 63 3 104 6l75 7 7-42c6-40 3-47-49-122-31-43-51-79-45-79s37 13 69 30c64 32 73 47 87 140 9 63 36 112 84 152 45 39 49 52 20 68-11 6-38 35-61 66-39 51-42 60-50 144-5 49-15 106-24 126-14 35-14 39 4 58 27 29 35 69 21 110-8 26-24 42-63 64-58 33-81 55-95 93-15 37 17 103 63 130 19 12 35 25 35 30 0 17-68 9-147-16-42-13-79-22-81-20-12 11 33 56 80 82l52 28-34 3c-22 2-52-6-92-27-32-17-65-31-73-31-25 0-108 46-155 85-57 48-142 85-192 85-46 0-57 5-163 76-81 54-192 94-262 94-21 0-54 15-99 45-36 25-69 45-72 45-2 0-2-14 2-32zm-143-641c-13-16-43-98-38-104 2-2 20 11 40 29s56 44 79 56l43 24-48-48c-31-30-64-79-94-138l-45-91 59 61c45 48 84 75 178 124 66 34 130 70 143 79 32 23 183 11 261-21 50-20 72-23 204-23 143 0 149 1 166 23l17 24 19-44c23-51 167-203 279-295 48-39 81-73 82-86 2-12 12-62 22-112 11-49 18-91 17-93-4-4-199 50-208 58-4 4-9 45-11 91l-3 84-83-1c-82-1-83-1-112 32-42 48-124 84-191 84-49 0-66-7-186-76-90-52-130-81-127-90 4-10-2-14-19-14-24 0-24-2-27-92-3-87-4-93-25-96-20-3-22 2-28 75-3 43-8 83-10 90-3 9-79 10-307 6-167-3-334-8-373-12-80-7-75 2-61-121l7-66-93-38c-51-21-99-41-107-44-12-4-13 5-8 49 4 30 14 76 23 102 14 42 23 51 68 74 30 15 88 63 142 117 70 71 106 118 162 212 58 1e2 82 130 134 172 65 53 78 62 59 39zm897-336c20-10 48-30 61-44l23-25-43-7c-71-9-389-41-389-39 0 7 120 94 155 112 53 28 142 29 193 3zm216-399c4-152 4-285 1-294-4-9-14-19-23-23s-143-9-298-12c-248-5-281-4-287 10-7 18-24 241-31 413l-6 122 113 12c61 6 184 20 272 30 88 9 181 18 206 19l46 1 7-278zm-810 171c16-80 37-505 26-516-17-16-580-71-593-58-5 5-10 28-13 52-2 31-1 37 4 19 5-16 17-26 32-28 23-4 421 34 469 44 13 3 21 7 18 10-2 3-114-7-247-21-134-14-247-22-251-18-10 11-53 448-45 468 5 13 42 15 265 15 181 0 262 3 267 11s-65 10-260 7c-217-3-268-6-280-18-12-13-13-33-1-150 8-74 14-151 13-170-1-40-23 141-34 277l-7 93 169 3c93 1 235 4 316 5l146 2 6-27zm-587-455c-2-13-4-3-4 22s2 35 4 23c2-13 2-33 0-45zM975 191c3-5 1-12-5-16-5-3-10 1-10 9 0 18 6 21 15 7zm210-59c-9-9-25 19-24 43 0 16 2 15 15-8 9-16 13-32 9-35zm-55 9c0-11-4-9-14 4-8 11-12 24-9 28 7 11 23-12 23-32zm1108 17c-2-6-10-14-16-16-7-2-10 2-6 12 7 18 28 22 22 4zm44-10c-7-7-12-8-12-2 0 14 12 26 19 19 2-3-1-11-7-17zm83 2c4-6-5-10-20-10s-24 4-20 10c3 6 12 10 20 10s17-4 20-10z"/><path d="M1260 2374c-42-23-1e2-75-1e2-89 0-4 16 7 35 24 56 49 95 65 155 65 66 0 115-23 214-1e2 71-57 90-63 121-40 16 12 6 20-116 90-131 74-137 76-199 75-49 0-76-7-110-25z"/><path d="M2070 2158c-102-11-189-25-195-30-7-7 2-9 30-4 104 16 474 48 489 43 15-6 16-32 14-244l-3-238-247-3c-141-1-248-6-248-11 0-9 469-4 498 5 10 3 12 58 10 251l-3 248-80 2c-44 0-163-8-265-19z"/><path d="M1969 1961c-62-62-20-171 66-171 27 0 44 8 66 29 62 62 20 171-66 171-27 0-44-8-66-29z"/><path d="M1414 1940c-60-24-73-112-25-161 39-38 87-39 130-3 26 22 31 33 31 71 0 77-65 122-136 93z"/><path d="M1512 1343c2-10 32-33 67-52 91-48 176-54 255-18 52 24 77 49 62 64-3 3-29-6-57-21-76-42-149-39-243 8-81 41-89 43-84 19z"/><path d="M933 693c15-2 39-2 55 0 15 2 2 4-28 4s-43-2-27-4z"/><path d="M2388 673c6-2 18-2 25 0 6 3 1 5-13 5s-19-2-12-5z"/><path d="M870 155c-6-8-10-19-8-24 1-6 8 1 15 14 13 28 11 31-7 10z"/><path d="M2546 157c3-10 9-15 12-12s0 11-7 18c-10 9-11 8-5-6z"/></g></svg></span><span>Yongfu's Blog</span></div><div class=site_nav><span class=nav_link><a href=/>Home</a></span>
+<span class=nav_link><a href=/post/>Posts</a></span>
+<span class=nav_link><a href=/about/>About</a></span>
+<span class=nav_link><a href=/feed.xml>Subscribe</a></span></div></div><div class=main><article class=post><div class=article_header><div class=titles><h1>Beyond Item Response Theory</h1><p class=subtitle>Growth Curve Modeling of Latent Variables with Bayes</p></div><div class=meta><div class=tags><a href="/post/?tag=r">r</a>
+<a href="/post/?tag=stan">stan</a>
+<a href="/post/?tag=bayes">bayes</a>
+<a href="/post/?tag=stats">stats</a>
+<a href="/post/?tag=psychology">psychology</a></div><div class=date><span class=inline-icon><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" class="svg-inline--fa fa-calendar-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="rgb(95, 95, 95)" d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg></span><span class=str>Jun 27, 2023</span></div></div></div><div class=article_content><p>My previous four posts have focused on basic item response models<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.
+These models are commonly found in an educational testing context but
+are less often seen in clinical research settings where questionnaires
+are used for the measuring and assessment of individuals’ conditions.
+Due to the higher level of complexity in the study design of clinical
+studies, IRT models are often discarded for the analyses of
+questionnaires. Simple sum scores of the questionnaires, instead of the
+more robust estimates derived from IRT models, are taken directly to
+represent the quantity of the latent constructs. This has undesirable
+effects of introducing bias and overconfidence and ignoring uncertainty
+in measuring these latent constructs.</p><p>There is no need to trade measurement inefficiency for study design
+complexity. Complex models arising from complicated study designs can be
+naturally extended to incorporate IRT models that deal with latent
+construct measurement, thus enhancing the quality of the study. In this
+post, we will walk through such an example by building up a model for
+analyzing individuals’ changes—in terms of latent variables—over time. A
+Bayesian framework will be adopted, and we will be working with
+<a href=https://mc-stan.org>Stan</a> code directly. As always, we begin with
+simulations. But since the model we are building is quite complicated—as
+any model trying to mirror reality is—I’ll first provide some
+context.</p><h2 id=treatment-of-alcohol-dependence>Treatment of Alcohol Dependence</h2><p>Suppose some researchers were carrying out a study to examine the
+effectiveness of treatments on alcohol dependence. Individuals were
+recruited and randomly assigned to one of the three treatment
+conditions. All treatments lasted for three months, during which the
+participants were assessed for the effectiveness of the treatments to
+track their clinical progress. The assessments included collecting data
+such as measures of treatment outcomes (e.g., days of heavy drinking in
+the past 14 days) and mediating factors on treatment effectiveness
+suggested by previous studies (e.g., self-efficacy). It was hypothesized
+that treatments for alcohol dependence work partially through raising
+individuals’ self-efficacy in controlling alcohol use. Hence, during the
+assessments, questionnaires on self-efficacy in alcohol control were
+also administered to measure this potential mediating factor.</p><figure><img src=dag.svg style=max-height:210px alt="Causal assumptions of the alcohol dependence treatment study"><figcaption aria-hidden=true>Causal assumptions of the alcohol
+dependence treatment study</figcaption></figure><p>The DAG above explicates the causal assumptions of this fictitious
+study<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>. Here’s the description of the variables in the DAG.</p><ul><li><p>$E$: Participants’ self-efficacy on alcohol use control</p><p>Since self-efficacy $E$ is not directly observed, it is represented as
+a circled node in the DAG.</p></li><li><p>$R$: Item responses collected through self-efficacy questionnaires</p><p>To measure the unobserved self-efficacy $E$, tools like questionnaires
+are required to measure such a latent construct. $R$ stands for the
+responses collected through the questionnaire. These responses would
+allow the estimation of the variable $E$ for each participant. Note
+that the item parameter $I$ is left out for simplicity. If present, it
+would point to $R$ as item estimates also affect the responses $R$.</p></li><li><p>$A$: Participants’ age</p></li><li><p>$T$: Treatment condition received by a participant</p></li><li><p>$D$: Latent treatment outcome</p><p>$D$ is the latent quantity that underlies the (observed) treatment
+outcome.</p></li><li><p>$D^{\ast}$: Treatment outcome. Here, it is the days of heavy drinking
+in the past 14 days.</p></li></ul><p>The arrows among the nodes in the DAG indicate the directions of
+influence. Therefore, the graph is basically saying that the treatments
+affect the outcomes through two pathways. One direct, and the other
+indirect, through self-efficacy. Age also has direct influences on
+self-efficacy and the treatment outcome. The labels on the edges mark
+the regression coefficients, which are the parameters of interest for
+our later simulations and model testing.</p><p>The DAG presented above ignores the time dimension for simplicity. The
+second DAG below includes it. To avoid cluttering the graph, only three,
+instead of four, time points are shown. The subscripts on the variables
+mark the time points. $t=0$ indicates the baseline (i.e., the first)
+assessment. A cautionary note here is that age only <em>directly</em>
+influences self-efficacy and the latent treatment outcome at baseline
+($A \rightarrow E_0, D_0$). At subsequent time points, they are
+influenced by age only <em>indirectly</em> through $E_0$ and $D_0$. This slight
+complication will become clearer in the following description of the
+simulation.</p><figure><img src=dag-longitudinal.svg style=max-height:280px alt="Causal assumptions of the alcohol dependence treatment study (simplified illustration of three time points)."><figcaption aria-hidden=true>Causal assumptions of the alcohol
+dependence treatment study (simplified illustration of three time
+points).</figcaption></figure><h2 id=simulating-treatments>Simulating Treatments</h2><p>With the background provided, let’s now simulate the above scenario. The
+code for the simulation, as well as later model fitting, will be
+inevitably long. It’s a natural consequence of realistic stats modeling.
+This post is thus less of a pedagogical step-by-step guide and more of a
+conceptual demonstration of practical real-world data analyses. That
+said, intricate details of code implementation won’t be hidden and are
+laid out as is. If anything seems mysterious, the key to demystifying it
+is to run some code. Experimentation is an ally that you should always
+trust.</p><h3 id=efficacy-and-treatment-outcome>Efficacy and Treatment Outcome</h3><p>Let’s first sketch out the overall scenario by simulating 30
+participants for each treatment condition. The age, gender, and the
+assigned treatment condition of each participant are saved in the
+variable <code>A</code>, <code>G</code>, and <code>Tx</code>, respectively. I also simulated a “baseline”
+for each of the participants. These baselines are the quantification of
+individual differences and can be more or less thought of as the amount
+of efficacy possessed by the individuals before receiving any treatment.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># remotes::install_github(&#34;liao961120/stom&#34;)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>library</span>(stom)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>1977</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>Ntx <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>        <span style=color:#75715e># number of treatments</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>Ns <span style=color:#f92672>=</span> Ntx <span style=color:#f92672>*</span> <span style=color:#ae81ff>30</span>  <span style=color:#75715e># number of subjects</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>Nt <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>         <span style=color:#75715e># number of time points</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>Tx <span style=color:#f92672>=</span> <span style=color:#a6e22e>rep</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Ntx, each <span style=color:#f92672>=</span> Ns <span style=color:#f92672>/</span> Ntx)  <span style=color:#75715e># Treatment condition for each subj</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>G <span style=color:#f92672>=</span> <span style=color:#a6e22e>rep</span>(<span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>2</span>, times <span style=color:#f92672>=</span> Ns <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>)      <span style=color:#75715e># Gender of each subj</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>A <span style=color:#f92672>=</span> <span style=color:#a6e22e>rtnorm</span>( Ns, m <span style=color:#f92672>=</span> <span style=color:#ae81ff>36</span>, lower <span style=color:#f92672>=</span> <span style=color:#ae81ff>18</span>, upper <span style=color:#f92672>=</span> <span style=color:#ae81ff>80</span>, s <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span> )  <span style=color:#75715e># Age</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>tau <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.8</span>                 <span style=color:#75715e># std for Subject baseline Efficacy</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>subj <span style=color:#f92672>=</span> <span style=color:#a6e22e>rnorm</span>(Ns, <span style=color:#ae81ff>0</span>, tau)  <span style=color:#75715e># Subject baseline Efficacy (subject intercept)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#75715e># Transform Age to a reasonable scale</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>minA <span style=color:#f92672>=</span> <span style=color:#a6e22e>min</span>(A)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>A <span style=color:#f92672>=</span> (A <span style=color:#f92672>-</span> minA) <span style=color:#f92672>/</span> <span style=color:#ae81ff>10</span>  <span style=color:#75715e># 1 unit = 10 years in original age</span>
+</span></span></code></pre></div><p>The simulation of the participants’ age deserves some elaboration. These
+ages are drawn from a <em>truncated normal distribution</em>, which is
+essentially a normal distribution with an upper and a lower bound
+applied. The boundaries are set here such that the participants come
+from a normal distribution with a mean age of 36 and a standard
+deviation of 20, with ages below 18 or over 80 left out from the
+sample<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>. After drawing samples for the ages, the ages are scaled such
+that (1) the youngest participant has a scaled age of zero, and (2) a
+unit of difference in the scaled age corresponds to a 10-year difference
+in the raw age. This is done to align the scale of the age to the scales
+of the other variables. Otherwise, the original large scale of the age
+would make the effects difficult to interpret.</p><p>Now, let’s lay out the parameters for generating participants’
+self-efficacy ($E$) and treatment outcomes ($D$):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>B_AE <span style=color:#f92672>=</span> <span style=color:#ae81ff>.1</span>             <span style=color:#75715e># Effect of Age on Efficacy</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>B_TE <span style=color:#f92672>=</span> <span style=color:#a6e22e>matrix</span>(<span style=color:#a6e22e>c</span>(      <span style=color:#75715e># Effect of Treatment on Efficacy</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>      <span style=color:#ae81ff>.3</span>, <span style=color:#ae81ff>.7</span>,  <span style=color:#ae81ff>1.3</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>      <span style=color:#ae81ff>.3</span>,  <span style=color:#ae81ff>1</span>,   <span style=color:#ae81ff>.7</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>    ), byrow<span style=color:#f92672>=</span>T, nrow<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>B_AD <span style=color:#f92672>=</span> <span style=color:#ae81ff>.2</span>             <span style=color:#75715e># Effect of Age on Outcome</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>B_ED <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>              <span style=color:#75715e># Effect of Efficacy on Outcome</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>B_TD <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>)     <span style=color:#75715e># Effect of Treatment on Outcome</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>delta <span style=color:#f92672>=</span> <span style=color:#ae81ff>-1.8</span>   <span style=color:#75715e># Global Intercept for &#34;E model&#34;</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>alpha <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>      <span style=color:#75715e># Global Intercept for &#34;D model&#34;</span>
+</span></span></code></pre></div><p>As mentioned previously, it is assumed that the treatments
+differentially affect efficacy according to gender (i.e., the treatment
+effect on efficacy interacts with gender). This is specified in <code>B_TE</code>
+($\beta_{TE}$) as a 2-by-3 matrix. The first row of <code>B_TE</code> corresponds
+to male and the second to female. The three columns correspond to
+Treatment 1 (<code>Tx == 1</code>), 2 (<code>Tx == 2</code>), and 3 (<code>Tx == 3</code>) respectively.
+For the direct treatment effects on the outcomes ($\beta_{TD}$), I set
+them all to zero and assume no interaction with the gender, to keep
+things simple.</p><p>With all these parameters prepared, we can build up the generative
+process of efficacy and the outcomes.</p><p>As shown in the code chunk below, we first set up the time points <code>t</code>.
+<code>t</code> starts with zero because it is assumed that the first assessment
+took place <em>right before</em> the treatments started. Hence, any treatment
+effects at this point of measure should be zero. <code>t = 0</code> does us the
+favor as it naturally cancels out the treatment effects $\beta_{TD}$ and
+$\beta_{TE}$.</p><p>Let’s now simulate self-efficacy $E$. Before receiving the treatments,
+the efficacy is assumed to be slightly influenced by age, through
+<code>B_AE</code>. In addition, baseline individual differences are modeled through
+the random subject intercept <code>subj</code>. After receiving the treatments,
+treatment effects get added on through the term <code>B_TE</code>. Efficacy is then
+modeled as the sum of the aforementioned effects.</p><p>After generating participants’ efficacy, we can again follow the arrows
+of the DAGs to write down the generative process of $D^{\ast}$, coded as
+<code>D_latent</code> below.</p><p>Finally, the treatment outcomes here, days of heavy drinking in the past
+14 days, are assumed to follow a binomial distribution
+$D \sim \text{Binomial}(14, p)$. The latent score <code>D_latent</code> is reversed
+with the negative sign since we want higher latent scores to result in
+fewer heavy drinking days. Next, we simply map the latent scores to
+probabilities with the logistic function.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>t <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span><span style=color:#f92672>:</span>(Nt <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>)  <span style=color:#75715e># time points of measure</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#75715e># E model (causes of E)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>E <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>(t, <span style=color:#a6e22e>function</span>(time) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>    b_TE <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Ns, <span style=color:#a6e22e>function</span>(i) B_TE[ G[i],Tx[i] ] )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>    delta <span style=color:#f92672>+</span> subj <span style=color:#f92672>+</span> B_AE <span style=color:#f92672>*</span> A <span style=color:#f92672>+</span> b_TE <span style=color:#f92672>*</span> time
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>})
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#75715e># D model (causes of D)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>D_latent <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>(t, <span style=color:#a6e22e>function</span>(time) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>   alpha <span style=color:#f92672>+</span> B_TD[Tx]<span style=color:#f92672>*</span>time <span style=color:#f92672>+</span> B_AD <span style=color:#f92672>*</span> A <span style=color:#f92672>+</span> B_ED <span style=color:#f92672>*</span> E[, time <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>})
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>D <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>(t, <span style=color:#a6e22e>function</span>(time) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>   mu <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>D_latent[, time<span style=color:#ae81ff>+1</span>]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>   <span style=color:#a6e22e>rbinom</span>( Ns, size<span style=color:#f92672>=</span><span style=color:#ae81ff>14</span>, prob<span style=color:#f92672>=</span><span style=color:#a6e22e>logistic</span>(mu) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>})
+</span></span></code></pre></div><p>Now, let’s collect the values we have simulated into a long-form data
+frame. Each row of the data frame corresponds to a response ($D$) of a
+participant collected at a specific time point. I will name this data
+frame the <em>(treatment-)outcome-level</em> data frame. Later, we will see
+another data frame that records <em>item-level</em> responses.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># Outcome-level responses (subject-time)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>dO <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand.grid</span>( Sid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Ns, time<span style=color:#f92672>=</span>t, KEEP.OUT.ATTRS<span style=color:#f92672>=</span>F )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>dO<span style=color:#f92672>$</span>A <span style=color:#f92672>=</span> <span style=color:#a6e22e>with</span>( dO, A[Sid] )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>dO<span style=color:#f92672>$</span>Tx <span style=color:#f92672>=</span> <span style=color:#a6e22e>with</span>( dO, Tx[Sid] )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>dO<span style=color:#f92672>$</span>G <span style=color:#f92672>=</span> <span style=color:#a6e22e>with</span>( dO, G[Sid] )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>dO<span style=color:#f92672>$</span>D <span style=color:#f92672>=</span> <span style=color:#66d9ef>NA</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>dO<span style=color:#f92672>$</span>D_latent <span style=color:#f92672>=</span> <span style=color:#66d9ef>NA</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>dO<span style=color:#f92672>$</span>E <span style=color:#f92672>=</span> <span style=color:#66d9ef>NA</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#a6e22e>for </span>( i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#a6e22e>nrow</span>(dO) ) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>   s <span style=color:#f92672>=</span> dO<span style=color:#f92672>$</span>Sid[i]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>   t_ <span style=color:#f92672>=</span> dO<span style=color:#f92672>$</span>time[i] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>   dO<span style=color:#f92672>$</span>E[i] <span style=color:#f92672>=</span> E[s, t_]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>   dO<span style=color:#f92672>$</span>D_latent[i] <span style=color:#f92672>=</span> D_latent[s, t_]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>   dO<span style=color:#f92672>$</span>D[i] <span style=color:#f92672>=</span> D[s, t_]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span><span style=color:#a6e22e>str</span>(dO)
+</span></span></code></pre></div><pre><code>'data.frame':   360 obs. of  8 variables:
+ $ Sid     : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ time    : int  0 0 0 0 0 0 0 0 0 0 ...
+ $ A       : num  1.57 2.58 1.21 0.92 0 ...
+ $ Tx      : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ G       : int  1 2 1 2 1 2 1 2 1 2 ...
+ $ D       : int  13 9 6 11 12 13 7 12 13 12 ...
+ $ D_latent: num  -2.534 -1.132 0.286 -0.942 -2.003 ...
+ $ E       : num  -2.8466 -1.6485 0.0451 -1.1261 -2.0029 ...
+</code></pre><h3 id=item-responses>Item Responses</h3><p>Item responses are generated similarly to $D$ since they both depend on
+efficacy $E$. Let’s assume the questionnaire for measuring participants’
+efficacy contains 20 items (<code>Ni = 20</code>), and that the easiness of the
+items is equally spaced and ranges from -.6.3 to 6.3.</p><p>With the item easiness and a baseline choice preference <code>kappa</code> set, we
+now can generate the item responses $R$ from the participants’ efficacy.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>Ni <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>  <span style=color:#75715e># number of items</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>I <span style=color:#f92672>=</span> <span style=color:#a6e22e>seq</span>(<span style=color:#ae81ff>-4.5</span>, <span style=color:#ae81ff>4.5</span>, length <span style=color:#f92672>=</span> Ni)  <span style=color:#75715e># item easiness (sums to zero)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>kappa <span style=color:#f92672>=</span> <span style=color:#a6e22e>logit</span>(<span style=color:#a6e22e>cumsum</span>(<span style=color:#a6e22e>simplex</span>(<span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>1</span>))))
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>kappa <span style=color:#f92672>=</span> kappa[<span style=color:#f92672>-</span><span style=color:#a6e22e>length</span>(kappa)]
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span><span style=color:#75715e># Item-level responses (subject-item-time)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>dI <span style=color:#f92672>=</span> <span style=color:#a6e22e>expand.grid</span>( Sid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Ns, Iid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>Ni, time<span style=color:#f92672>=</span>t, KEEP.OUT.ATTRS<span style=color:#f92672>=</span>F )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#a6e22e>for </span>(i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#a6e22e>nrow</span>(dI)) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>   dI<span style=color:#f92672>$</span>R[i] <span style=color:#f92672>=</span> <span style=color:#a6e22e>with</span>(dI, {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>      <span style=color:#a6e22e>rordlogit</span>(E[Sid[i], time[i] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> I[Iid[i]], kappa <span style=color:#f92672>=</span> kappa)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>   })
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#a6e22e>str</span>(dI)
+</span></span></code></pre></div><pre><code>'data.frame':   7200 obs. of  4 variables:
+ $ Sid : int  1 2 3 4 5 6 7 8 9 10 ...
+ $ Iid : int  1 1 1 1 1 1 1 1 1 1 ...
+ $ time: int  0 0 0 0 0 0 0 0 0 0 ...
+ $ R   : int  1 1 1 1 1 1 1 1 1 1 ...
+</code></pre><h3 id=wrapping-up>Wrapping up</h3><p>When a simulation gets massive, it is always better to pack up all the
+code into a function. There will certainly be times when we have to
+modify the structure of, or the parameter values in, the simulation. A
+function helps a lot in these situations.</p><p>The simulation code we have gone through so far is condensed into the
+<code>sim_data()</code> function in <a href=simulation.R><code>simulation.R</code></a>. You can just
+load it and run the simulation:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>source</span>(<span style=color:#e6db74>&#34;simulation.R&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>d <span style=color:#f92672>=</span> <span style=color:#a6e22e>sim_data</span>()  <span style=color:#75715e># Change param vals by overwriting default args</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#a6e22e>str</span>(d)
+</span></span></code></pre></div><pre><code>List of 3
+ $ dat   :List of 18
+  ..$ Ns      : num 90
+  ..$ Ntx     : num 3
+  ..$ Nt      : num 4
+  ..$ Nk      : num 6
+  ..$ Ni      : num 20
+  ..$ NI      : num 7200
+  ..$ Sid_I   : int [1:7200] 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ Iid_I   : int [1:7200] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ time_I  : int [1:7200] 0 0 0 0 0 0 0 0 0 0 ...
+  ..$ R       : int [1:7200] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ NO      : num 360
+  ..$ Sid_O   : int [1:360] 1 2 3 4 5 6 7 8 9 10 ...
+  ..$ time_O  : int [1:360] 0 0 0 0 0 0 0 0 0 0 ...
+  ..$ G       : int [1:360] 1 2 1 2 1 2 1 2 1 2 ...
+  ..$ A       : num [1:360] 1.947 5.137 0.634 2.086 5.84 ...
+  ..$ Tx      : int [1:360] 1 1 1 1 1 1 1 1 1 1 ...
+  ..$ D       : int [1:360] 5 9 13 6 8 14 6 14 9 11 ...
+  ..$ D_latent: num [1:360] -0.534 -2.038 -1.235 -0.354 -0.725 ...
+ $ params:List of 13
+  ..$ alpha  : num 0
+  ..$ delta  : num -1.8
+  ..$ B_AE   : num 0.1
+  ..$ B_TE   : num [1:2, 1:3] 0.3 0.3 0.7 1 1.3 0.7
+  .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+  .. .. ..$ : chr [1:2] &quot;male&quot; &quot;female&quot;
+  .. .. ..$ : NULL
+  ..$ B_AD   : num 0.2
+  ..$ B_ED   : num 1
+  ..$ B_TD   : num [1:3] 0 0 0
+  ..$ E      : num [1:90, 1:4] -0.923 -3.065 -1.362 -0.772 -1.893 ...
+  .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+  .. .. ..$ : chr [1:90] &quot;male&quot; &quot;female&quot; &quot;male&quot; &quot;female&quot; ...
+  .. .. ..$ : NULL
+  ..$ I      : num [1:20] -4.5 -4.03 -3.55 -3.08 -2.61 ...
+  ..$ sigma_I: num 2.8
+  ..$ kappa  : num [1:5] -2.56 -1.3 0 1.3 2.56
+  ..$ tau    : num 0.8
+  ..$ subj   : num [1:90] 0.682 -1.779 0.374 0.82 -0.677 ...
+ $ others:List of 3
+  ..$ minA    : num 18.5
+  ..$ D       : int [1:90, 1:4] 5 9 13 6 8 14 6 14 9 11 ...
+  ..$ D_latent: num [1:90, 1:4] -0.534 -2.038 -1.235 -0.354 -0.725 ...
+  .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+  .. .. ..$ : chr [1:90] &quot;male&quot; &quot;female&quot; &quot;male&quot; &quot;female&quot; ...
+  .. .. ..$ : NULL
+</code></pre><p>Notice the structure of the returned value by <code>sim_data()</code>. It is a
+nested named list with three elements at the top level: <code>$dat</code>,
+<code>$params</code>, and <code>$others</code>.</p><ul><li><p><code>$dat</code> holds the data for model fitting. It has this specific
+structure to match stan’s data block. It makes more sense later when
+we see stan’s counterpart of the code.</p></li><li><p><code>$params</code> are the true parameter values used in the simulation. They
+are returned so we can later compare the true parameter values to
+those estimated by the model.</p></li><li><p><code>$others</code> holds other information that does not belong to the former
+two but is nevertheless needed. For instance, the minimum age <code>minA</code>
+is saved in <code>$others</code> so that raw ages in new data can be scaled
+accordingly if one would like to make predictions with new datasets.</p></li></ul><h2 id=model-formulation>Model Formulation</h2><p>Now we have the simulated data, let’s begin constructing the model. In a
+Bayesian framework, model construction feels pretty much like a
+simulation (assume you are using Stan, not some wrappers around it)
+since both are essentially describing the same <em>data-generating
+process</em>. Bayes, as complicated as it may seem, really just comes down
+to four simple components:</p><ol><li>Data-generating process</li><li>Prior distribution</li><li>Data</li><li>Posterior distribution</li></ol><p>The <em>data-generating process</em> describes the relations between the
+parameters, that is, how the parameters arise from others. The <em>priors</em>
+give preliminary information on the parameters (the priors could be
+thought of as part of the data-generating process as well). With these
+prepared, the Bayesian machine incorporates the information from the
+data to update the priors—according to the data-generating process—and
+arrives at the <em>posterior distribution</em>.</p><p>The posterior is nothing else but a <em>joint probability distribution of
+all parameters</em>, after combining the information from the priors, the
+data-generating process, and the data. It is what we believe the
+parameters are, given the data and our assumptions. Everything we need
+for inference derives from the posterior.</p><p>So we’re now ready to formulate our model (data-generating process) in
+Bayesian terms. This massive model can be chopped into three parts.
+Let’s divide and conquer.</p><h3 id=causes-of-efficacy>Causes of Efficacy</h3><p>The first part of the model deals with the generation of Efficacy. The
+formulation is shown below.</p><img src=model-formulation_1.svg style=max-width:24ch><p>The first two lines of the formulation describe how efficacy $E$ is
+generated from the effects of participant baseline $\gamma_{Sid}$, age
+$\beta_{AE}$, and treatment $\beta_{TE}$. The last three lines specify
+the prior distributions for the relevant parameters. The “+” sign on the
+prior distribution of $\tau$ is an abbreviation for the truncated normal
+distribution with negative values removed. Since $\tau$ is a standard
+deviation, it must not be negative. The truncation at zero imposes this
+constraint on $\tau$.</p><h3 id=causes-of-treatment-outcome>Causes of Treatment Outcome</h3><p>With $E$ generated, we can then describe the process generating the
+treatment outcome $D^{\ast}$. The outcomes in the current example are
+the number of heavy-drinking days in the past 14 days. Hence, it is a
+<em>count</em> variable with an upper bound of 14, which makes the binomial an
+ideal distribution for modeling the outcome. The binomial and the logit
+link are used here to map the count outcomes to the underlying latent
+variable $D$. As seen in the simulation, a negative sign is needed here
+to reverse the relation between $D^{\ast}$ and $D$ such that a higher
+value of $D$ corresponds to a fewer count of heavy-drinking days. The
+third formula lays out the generative process of $D$, linking the
+influences of the treatment, age, and efficacy to $D$.</p><img src=model-formulation_2.svg style=max-width:38ch><p>A special kind of prior distribution—exemplified by the distribution of
+$\beta_{TD}$ here—deserves some attention. The distribution is assumed
+to be a normal distribution with an unknown mean $\mu_{\beta_{TD}}$ and
+unknown standard deviation $\sigma_{\beta_{TD}}$. Their priors are then
+given by the next two lines. This nested structure of prior
+distributions is known as hierarchical priors. By specifying such a
+hierarchical structure in the priors, one can <em>partial-pool</em> information
+across the three treatment effects, thus reducing variation among the
+$\beta_{TD}$ parameters.</p><p>Partial pooling is used here for two reasons. First, it makes sense
+theoretically to partial-pool the direct treatment effects on the
+outcome since different treatments are still similar in some sense that
+information across all treatments is useful and should be shared.
+Second, partial pooling has the effect of reducing variation among the
+pooled parameters. Without such a soft constraint on the $\beta_{TD}$
+parameters, the model here will be unidentified (i.e., multiple sets of
+solutions exist).</p><h3 id=causes-of-item-response>Causes of Item Response</h3><p>The final piece of the model describes the generation of participants’
+responses to the items measuring efficacy. The submodel here has a
+structure nearly identical to the rating scale model described in the
+<a href=/irt4>previous post</a>. The only difference here is that a sum-to-zero
+constraint is imposed on the item parameters, which allows the item
+easiness to be anchored and thus comparable to the true parameter values
+from the simulation. The item parameters are also partially pooled here,
+achieved through the hierarchical prior on $\sigma_I$.</p><img src=model-formulation_3.svg style=max-width:27ch><h2 id=stan-a-brief-introduction>Stan: A Brief Introduction</h2><p>We have completed our formal model-building. Now, we have to code it in
+Stan, a language for implementing Bayesian models.</p><p>Stan is hard for anyone first meeting it. Sadly, I think there is really
+no “introductory” material on Stan because Bayesian statistics is
+already an advanced topic. How, then, could anyone get started with
+Bayes if everything is advanced and hard?</p><p>We need <em>scaffolds</em>. The scaffolds for learning statistics are
+simulations and programming skills that license them. Building up
+simulations allows one to experiment with stat models and therefore
+provides opportunities for understanding. So to learn Stan, one should
+probably begin with examples. The <a href=https://mc-stan.org/docs/stan-users-guide>Stan User’s
+Guide</a> provides tons of
+<a href=https://mc-stan.org/docs/stan-users-guide/example-models.html>example
+models</a>.
+Start with simple models or any one that you’re familiar with. Simulate
+data based on the model’s assumption, construct the model by modifying
+the example code, and fit the model to see if it correctly recovers the
+parameters. If succeeded, extend the simulation and the model for the
+next round of testing. If failed, simplify the model (and the
+simulation, if needed) to pinpoint the potential problems.</p><p>Interestingly, the process of learning Stan is no different from using
+Stan. In both situations, one is unable to proceed without scaffolds.
+Stan gives you full flexibility, and with this modeling power, one
+immediately finds out there are infinite ways to go wrong. Simulation is
+the only basis that keeps us oriented while navigating through the mess
+of modeling. That said, some acquaintance with the structure of Stan
+files does help when getting started.</p><h3 id=stan-file-structure>Stan File Structure</h3><p>The template below sketches the most common structure of a Stan program.
+A Stan program consists of several “blocks”. Three of the most basic
+blocks are shown here: the <em>data</em>, the <em>parameters</em>, and the <em>model</em>
+blocks. The data block simply contains variable-declaration code for the
+data. The parameters block declares variables that hold the parameters.
+The model block is where the data-generating process and the priors get
+specified.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>data {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>   <span style=color:#75715e>// Declare varaiables for data (passed in from R)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>parameters {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>   <span style=color:#75715e>// Declare model parameters
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>model {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>   <span style=color:#75715e>// Describe data-generating process (including priors)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9</span><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>With the blocks written up, one then compiles the stan program and feeds
+it the data. Stan would then construct and sample from the posterior.
+When all of these are done, posterior samples along with diagnostic
+information of sample quality are returned.</p><p>That’s it. Don’t read too much while learning Stan. Getting the hands
+dirty is a much better way. So now let’s proceed to our massive model.</p><h2 id=stan-model>Stan Model</h2><p>I’ll present our model coded in Stan one block at a time so that we
+don’t get overwhelmed. The stan file gets executed from the top to the
+bottom, and the blocks have to be defined in the given order as shown in
+the above template. Through this structure, the <em>parameters</em> and the
+<em>model</em> blocks have access to the data variables defined in the <em>data</em>
+block, and the <em>model</em> block has access to the parameter and data
+variables defined in previous blocks. Let’s first look at the <em>data</em>
+block of our model.</p><h3 id=the-data-block>The data block</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>data {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>    <span style=color:#66d9ef>int</span> Ns;  <span style=color:#75715e>// num of subjects
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Ntx; <span style=color:#75715e>// num of treatments
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Nt;  <span style=color:#75715e>// num of time points
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Nk;  <span style=color:#75715e>// num of Likert scale choices
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> Ni;  <span style=color:#75715e>// num of items in the self-efficacy scale
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>    <span style=color:#75715e>// Item-level responses (NI=Ns*Ni*Nt)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> NI;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>    array[NI] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,upper<span style=color:#f92672>=</span>Ns<span style=color:#f92672>&gt;</span> Sid_I;     <span style=color:#75715e>// Subject ID
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#75715e></span>    array[NI] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,upper<span style=color:#f92672>=</span>Ni<span style=color:#f92672>&gt;</span> Iid_I;     <span style=color:#75715e>// Item ID
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#75715e></span>    array[NI] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>,upper<span style=color:#f92672>=</span>Nt<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>&gt;</span> time_I;  <span style=color:#75715e>// time point of obs.
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#75715e></span>    array[NI] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,upper<span style=color:#f92672>=</span>Nk<span style=color:#f92672>&gt;</span> R;         <span style=color:#75715e>// Responses on Efficacy scale
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>    <span style=color:#75715e>// Outcome-level responses (NO=Ns*Nt)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> NO;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>    array[NO] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,upper<span style=color:#f92672>=</span>Ns<span style=color:#f92672>&gt;</span> Sid_O;     <span style=color:#75715e>// Subject ID
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span><span style=color:#75715e></span>    array[NO] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>,upper<span style=color:#f92672>=</span>Nt<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>&gt;</span> time_O;  <span style=color:#75715e>// time point of obs.
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span><span style=color:#75715e></span>    array[NO] real<span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>,upper<span style=color:#f92672>=</span><span style=color:#ae81ff>20</span><span style=color:#f92672>&gt;</span> A;        <span style=color:#75715e>// Age scaled: (A-min(A))/10 
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span><span style=color:#75715e></span>    array[NO] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>&gt;</span> Tx;                 <span style=color:#75715e>// Treatment received
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21</span><span><span style=color:#75715e></span>    array[NO] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,upper<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>&gt;</span> G;          <span style=color:#75715e>// Gender
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22</span><span><span style=color:#75715e></span>    array[NO] <span style=color:#66d9ef>int</span><span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>,upper<span style=color:#f92672>=</span><span style=color:#ae81ff>14</span><span style=color:#f92672>&gt;</span> D;         <span style=color:#75715e>// Binomial outcome (heavy-drinking in past 14 days)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23</span><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><p>In our data block, we simply define all variables that hold information
+about the data we pass in through R. Thus, the variables here correspond
+exactly to the <code>$dat</code> element of the simulated data list.</p><p>Stan is a statically typed language, meaning that the type must be
+specified for any variables defined. In addition, boundaries could also
+be imposed on the typed variables. This is done through the angle
+brackets <code>&lt;></code> after the type definition, as shown in some of the
+variables above. For the <em>data</em> block, the constraint on the boundaries
+guards against unexpected input data format. For the <em>parameters</em> block,
+these constraints are often used to truncate the prior distributions
+later assigned to the parameters.</p><h3 id=parameters-and-transformed-parameters>parameters and transformed parameters</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>parameters {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>    <span style=color:#75715e>// IRT model params
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#75715e></span>    real<span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&gt;</span> sigma_I;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>    vector[Ni<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] zI_raw;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>    ordered[Nk<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] kappa;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>    <span style=color:#75715e>// E model params
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#75715e></span>    matrix[<span style=color:#ae81ff>2</span>,Ntx] B_TE;  <span style=color:#75715e>// Treatment on Efficacy (indirect effect)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#75715e></span>    real B_AE;           <span style=color:#75715e>// Age on Efficacy
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#75715e></span>    real delta;          <span style=color:#75715e>// global intercept (E linear model)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#75715e></span>    real<span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&gt;</span> tau;   <span style=color:#75715e>// subj baseline std (E linear model)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#75715e></span>    vector[Ns] zSubj;    <span style=color:#75715e>// subject baseline
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#75715e></span>    
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>    <span style=color:#75715e>// D model params
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#75715e></span>    vector[Ntx] zB_TD;       <span style=color:#75715e>// Treatment on Outcome (direct effect)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span><span style=color:#75715e></span>    real mu_TD;              <span style=color:#75715e>// Common mean among direct treatment effects 
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#75715e></span>    real<span style=color:#f92672>&lt;</span>lower<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&gt;</span> sigma_TD;  <span style=color:#75715e>// Common std among direct treatment effects
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span><span style=color:#75715e></span>    real B_AD;               <span style=color:#75715e>// Age on outcome
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span><span style=color:#75715e></span>    real B_ED;               <span style=color:#75715e>// Efficacy on outcome
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span><span style=color:#75715e></span>    real alpha;              <span style=color:#75715e>// global intercept (D linear model)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21</span><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22</span><span>transformed parameters {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23</span><span>    <span style=color:#75715e>// IRT item params (sum-to-zero contrained)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24</span><span><span style=color:#75715e></span>    vector[Ni] I <span style=color:#f92672>=</span> sigma_I <span style=color:#f92672>*</span> append_row( <span style=color:#f92672>-</span>sum(zI_raw), zI_raw );
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26</span><span>    <span style=color:#75715e>// subject baseline efficacy
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27</span><span><span style=color:#75715e></span>    vector[Ns] subj;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28</span><span>    subj <span style=color:#f92672>=</span> tau <span style=color:#f92672>*</span> zSubj;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30</span><span>    matrix[Ns,Nt] E;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31</span><span>    <span style=color:#75715e>// Transformed E
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32</span><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> ( i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>NO ) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33</span><span>        <span style=color:#66d9ef>int</span> sid <span style=color:#f92672>=</span> Sid_O[i];
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34</span><span>        <span style=color:#66d9ef>int</span> time <span style=color:#f92672>=</span> time_O[i];
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35</span><span>        E[sid,time<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> delta <span style=color:#f92672>+</span> subj[sid] <span style=color:#f92672>+</span> B_AE<span style=color:#f92672>*</span>A[i] <span style=color:#f92672>+</span> B_TE[G[i],Tx[i]]<span style=color:#f92672>*</span>time;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36</span><span>    }
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38</span><span>    <span style=color:#75715e>// Direct treatment effect
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39</span><span><span style=color:#75715e></span>    vector[Ntx] B_TD <span style=color:#f92672>=</span> fma(zB_TD, sigma_TD, mu_TD);
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40</span><span>}
+</span></span></code></pre></div><p>The <em>parameters</em> block defines variables for the parameters in a stan
+model. This should be enough, theoretically. However, Bayesian models
+are often very complex (such as our massive model). This can lead to
+complications in posterior geometries such that Stan’s algorithm would
+have difficulty exploring the distribution. To deal with this issue, it
+is often required to apply mathematical tricks known as
+<em>reparameterization</em> to modify the posterior such that it becomes easier
+for Stan to sample from.</p><p>This is where the <em>transformed parameters</em> block comes into play. In
+general, when reparameterizing our model, we define those
+reparameterized parameters in the <em>parameters</em> block. These parameters,
+however, are often in forms that are unintuitive for us. We thus utilize
+the <em>transformed parameters</em> block to transform those parameters back
+into the forms we are familiar with. The transformed parameters get
+returned from Stan as if they are parameters after sampling. But they
+are not actual parameters per se but only functions of parameters. That
+said, once we have the <em>transformed parameters</em> block set up and the
+sampler working, it’s safe to simply treat them all as parameters.
+Understanding the details of the transform block helps when we have
+trouble coding the model.</p><p>Here, we utilize the transform block to convert the <a href=https://mc-stan.org/docs/stan-users-guide/reparameterization.html>non-centered
+parameters</a>
+(<code>zB_TD</code> and <code>zE</code>) back to the familiar centered forms (<code>subj</code>, <code>B_TD</code>
+and <code>E</code>). In addition to non-centered reparameterizations, another
+transformation is performed here to reconstruct the full vector of the
+sum-to-zero constrained item easiness parameters.</p><h3 id=model>model</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>model {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>    <span style=color:#75715e>// Priors for IRT parameters
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#75715e></span>    zI_raw <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>    sigma_I <span style=color:#f92672>~</span> exponential(<span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>    kappa <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>    <span style=color:#75715e>// Priors for causes of E (T -&gt; E)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#75715e></span>    to_vector(B_TE) <span style=color:#f92672>~</span> normal(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1.5</span>);
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>    B_AE <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>    delta <span style=color:#f92672>~</span> normal(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1.5</span>);
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>    tau <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>    zSubj <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>    <span style=color:#75715e>// Priors for causes of D (T -&gt; D &lt;- E)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#75715e></span>    zB_TD <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>    mu_TD <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>    sigma_TD <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span>    B_AD <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span>    alpha <span style=color:#f92672>~</span> normal(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1.5</span>);
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span>    B_ED <span style=color:#f92672>~</span> std_normal();
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22</span><span>    <span style=color:#75715e>// Causes of E (see transformed parameters block)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23</span><span><span style=color:#75715e></span>    
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24</span><span>    <span style=color:#75715e>// Causes of D
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25</span><span><span style=color:#75715e></span>    vector[NO] mu;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26</span><span>    <span style=color:#66d9ef>for</span> ( i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>NO ) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27</span><span>        <span style=color:#66d9ef>int</span> sid, time;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28</span><span>        sid <span style=color:#f92672>=</span> Sid_O[i];
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29</span><span>        time <span style=color:#f92672>=</span> time_O[i];
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30</span><span>        mu[i] <span style=color:#f92672>=</span> alpha <span style=color:#f92672>+</span> B_TD[Tx[i]]<span style=color:#f92672>*</span>time <span style=color:#f92672>+</span> B_AD<span style=color:#f92672>*</span>A[i] <span style=color:#f92672>+</span> B_ED<span style=color:#f92672>*</span>E[sid,time<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31</span><span>    }
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32</span><span>    D <span style=color:#f92672>~</span> binomial_logit( <span style=color:#ae81ff>14</span>, <span style=color:#f92672>-</span>mu );
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34</span><span>    <span style=color:#75715e>// Measurement model (IRT)
+</span></span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35</span><span><span style=color:#75715e></span>    vector[NI] phi;
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36</span><span>    <span style=color:#66d9ef>for</span> ( i in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>NI )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37</span><span>        phi[i] <span style=color:#f92672>=</span> E[Sid_I[i],time_I[i]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> I[Iid_I[i]];
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38</span><span>    R <span style=color:#f92672>~</span> ordered_logistic( phi, kappa );
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39</span><span>}
+</span></span></code></pre></div><p>We are finally at the <em>model</em> block, often the most terrifying part of a
+stan program. It becomes less terrifying if one knows that the code in
+the model block can be classified into two functional groups. The first
+is the <a href=https://mc-stan.org/docs/reference-manual/sampling-statements.html><em>sampling
+statements</em></a>.
+These statements tell Stan to update the posterior distribution, with
+information from the priors, the data, or the combination of both. The
+posterior gets updated by adding values to itself. This means that the
+<em>order</em> of the sampling statements does not influence the output
+(ignoring differences resulting from numerical instability). In general,
+although it is legitimate to switch the order of the sampling
+statements, we usually organize them in ways that make our modeling
+logic easier to grasp.</p><p>The function of the second type of code in the model block is
+computation. Often, before reaching a sampling statement, some
+intermediate computation is required. For instance,
+<code>D ~ binomial_logit( 14, -mu )</code> depends on the variable <code>mu</code>. So <code>mu</code>
+has to be computed before one can invoke the sampling statement.</p><p>For our massive model here, I first define the prior distributions in
+the first three blocks, with those related grouped into the same block of
+code. I then proceed to specify the relations between the parameters and
+the data. For efficacy $E$, the relevant relationships are already
+defined in the <em>transformed parameters</em> block, so only a line of comment
+is left as a placeholder. Below $E$ is the block for the “causes of D”,
+which defines the upstream variables influencing <code>D</code> (through <code>mu</code>).
+Finally, the last block defines the generative process for the item
+responses.</p><h3 id=r-interface>R Interface</h3><p>There are interfaces written in many interpreted languages built to
+interact with Stan. In R, the most commonly used are
+<a href=https://github.com/stan-dev/rstan><code>rstan</code></a> and
+<a href=https://github.com/stan-dev/cmdstanr><code>cmdstanr</code></a>. I will be using
+<code>cmdstanr</code>.</p><p>Here’s the code for calling Stan to fit our model. The model takes about
+5 minutes to run on an M1 Macbook Air and 16 minutes on a much older
+Windows laptop. So it would be wise to save the fitted model once Stan
+finishes sampling.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#a6e22e>source</span>(<span style=color:#e6db74>&#34;simulation.R&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>1977</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>d <span style=color:#f92672>=</span> <span style=color:#a6e22e>sim_data</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e># Compile stan file</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>m <span style=color:#f92672>=</span> cmdstanr<span style=color:#f92672>::</span><span style=color:#a6e22e>cmdstan_model</span>(<span style=color:#e6db74>&#34;m1.stan&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#75715e># Fit model</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>fit <span style=color:#f92672>=</span> m<span style=color:#f92672>$</span><span style=color:#a6e22e>sample</span>(
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>    data<span style=color:#f92672>=</span>d<span style=color:#f92672>$</span>dat,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>    chains<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>, 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>    parallel_chains<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#75715e># Save fitted model for later use</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>fit<span style=color:#f92672>$</span><span style=color:#a6e22e>save_object</span>(<span style=color:#e6db74>&#34;m1.RDS&#34;</span>)
+</span></span></code></pre></div><p>I’ve put the fitted model <code>m1.RDS</code> on <a href=https://drive.google.com/drive/folders/1hCltt7aM4pV2GhFiQQNUhFdTgm09snGB>Google
+Drive</a>
+so you don’t have to refit the model. All the scripts in this post are
+also available on
+<a href=https://github.com/liao961120/stom/tree/main/inst/cases/treatment_dynamics/post>GitHub</a>.</p><h2 id=model-checking>Model Checking</h2><p>With our model fitted, we can now check if it correctly recovers the
+parameter. But before doing so, we need to first assess the quality of
+the posterior samples.</p><h3 id=quality-of-posterior-samples>Quality of Posterior Samples</h3><p>When fitting Bayesian models, at least two chains (i.e., two independent
+sets of samples) are required to evaluate the quality of the posterior
+samples. These chains could be visualized in trace plots, which record
+the parameter values in the order they are sampled. Thus, a curve in a
+trace plot is essentially the trace of a sampler exploring the posterior
+(in one of the dimensions). For high-quality sampling, traces of
+different samplers should be independent and fluctuate at similar ranges
+of values. This results in chains that mix well, and the trace plots
+would then look like caterpillars. Conversely, if the posterior
+geometries are difficult to explore, the samplers may be stuck in local
+regions. Or, they may explore different regions of the posterior (e.g.,
+when the posterior is multi-modal), resulting in a complete separation
+of the chains in the trace plots. When these happen, the chains may
+disagree with each other, leading to the non-convergence of samples from
+different chains.</p><p>Non-convergence indicates that inferences based on the posterior samples
+are problematic and shouldn’t be trusted. Upon such circumstances, the
+modeler should try to locate the sources of non-convergence and fix the
+model. Misspecification of the generative process, loose priors,
+unidentifiability, and unexpected data are all potential causes of
+non-convergence.</p><p>To evaluate how well the chains mix, we look at a statistic known as
+$\hat{R}$ (rhat). Typically, an $\hat{R}$ value less than 1.05 for a
+particular parameter indicates a good enough mixing of chains. Let’s
+load our fitted model and look at the sampling quality. I will use some
+handy wrappers around the functions from <code>cmdstanr</code> through my package
+<code>stom</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>source</span>(<span style=color:#e6db74>&#34;simulation.R&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>set.seed</span>(<span style=color:#ae81ff>1977</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>d <span style=color:#f92672>=</span> <span style=color:#a6e22e>sim_data</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>m <span style=color:#f92672>=</span> <span style=color:#a6e22e>readRDS</span>(<span style=color:#e6db74>&#34;m1.RDS&#34;</span>)   <span style=color:#75715e># Load fitted model</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>s <span style=color:#f92672>=</span> stom<span style=color:#f92672>::</span><span style=color:#a6e22e>precis</span>(m, <span style=color:#ae81ff>5</span>)  <span style=color:#75715e># Compute posterior summary</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span><span style=color:#a6e22e>head</span>(s)
+</span></span></code></pre></div><pre><code># A tibble: 6 x 8
+  variable    mean    sd    q5    q95  rhat ess_bulk ess_tail
+  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 sigma_I    2.56  0.379  2.02  3.26   1.01     330.     543.
+2 zI_raw[1] -1.68  0.248 -2.11 -1.29   1.01     349.     567.
+3 zI_raw[2] -1.43  0.208 -1.79 -1.10   1.01     360.     565.
+4 zI_raw[3] -1.17  0.175 -1.48 -0.891  1.01     349.     525.
+5 zI_raw[4] -1.05  0.156 -1.31 -0.802  1.01     355.     635.
+6 zI_raw[5] -0.826 0.126 -1.04 -0.626  1.01     354.     698.
+</code></pre><p>The function <code>stom::precis</code> computes parameter summaries from the
+posterior samples, including the $\hat{R}$ statistic. Let’s plot the
+$\hat{R}$ values for all of the parameters to see if any of them are
+unexpectedly large.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>plot</span>(s<span style=color:#f92672>$</span>rhat)
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-8-1.svg style=width:100% data-fig-align=center></p><p>The $\hat{R}$ values look fine. The largest one is 1.0106079, which is
+much lower than 1.05. Just to be careful, let’s inspect the trace plots
+of those parameters with the largest $\hat{R}$ values and the lowest
+<a href=https://mc-stan.org/docs/reference-manual/effective-sample-size.html>effective sample size
+(ESS)</a>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#a6e22e>library</span>(bayesplot)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>color_scheme_set</span>(<span style=color:#e6db74>&#34;viridis&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>pars <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>   s<span style=color:#f92672>$</span>variable[s<span style=color:#f92672>$</span>rhat <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1.006</span>],
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>   s<span style=color:#f92672>$</span>variable[s<span style=color:#f92672>$</span>ess_bulk <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>400</span>],
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>   s<span style=color:#f92672>$</span>variable[s<span style=color:#f92672>$</span>ess_tail <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>400</span>] 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span><span style=color:#a6e22e>mcmc_trace</span>(m<span style=color:#f92672>$</span><span style=color:#a6e22e>draws</span>(), pars<span style=color:#f92672>=</span>pars)
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-9-1.svg style=width:100% data-fig-align=center></p><p>The trace plots seem fine too. Now we can proceed to check the recovery
+of the parameters.</p><h3 id=parameter-recovery>Parameter Recovery</h3><p>Let’s first look at how well the IRT submodel works. I plot the
+estimated (y-axis) against the true (x-axis) parameter values. The grey
+dashed line shows the identity. Points lying on this line indicate
+perfect recovery through the posterior mean. The vertical pink bars
+cover 90% of posterior density around the mean.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#a6e22e>par</span>( mfrow <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>for </span>( p in <span style=color:#a6e22e>c</span>(<span style=color:#e6db74>&#34;I&#34;</span>, <span style=color:#e6db74>&#34;kappa&#34;</span>, <span style=color:#e6db74>&#34;E&#34;</span>) ) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>    <span style=color:#a6e22e>if </span>( p <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;E&#34;</span> ) <span style=color:#a6e22e>par</span>(mfrow <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>))    
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>    mt <span style=color:#f92672>=</span> d<span style=color:#f92672>$</span>params[[p]]        <span style=color:#75715e># True value</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>    mm <span style=color:#f92672>=</span> <span style=color:#a6e22e>get_pars</span>(s, p)<span style=color:#f92672>$</span>mean  <span style=color:#75715e># Posterior mean</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>    u <span style=color:#f92672>=</span> <span style=color:#a6e22e>get_pars</span>(s, p)<span style=color:#f92672>$</span>q95    <span style=color:#75715e># Posterior .05 quantile </span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>    l <span style=color:#f92672>=</span> <span style=color:#a6e22e>get_pars</span>(s, p)<span style=color:#f92672>$</span>q5     <span style=color:#75715e># Posterior .95 quantile </span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>    <span style=color:#a6e22e>plot</span>( mt, mm , main<span style=color:#f92672>=</span>p, ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-4.6</span>,<span style=color:#ae81ff>4.6</span>),
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>          xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;True&#34;</span>, ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Estimated&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>    <span style=color:#a6e22e>for </span>( i in <span style=color:#a6e22e>seq_along</span>(mm) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>        <span style=color:#a6e22e>lines</span>( <span style=color:#a6e22e>c</span>(mt[i],mt[i]), <span style=color:#a6e22e>c</span>(u[i],l[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>, col<span style=color:#f92672>=</span><span style=color:#a6e22e>col.alpha</span>(<span style=color:#ae81ff>2</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>    <span style=color:#a6e22e>abline</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>}
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-10-1.svg style=width:100% data-fig-align=center></p><p><img src=part5_files/figure-commonmark/unnamed-chunk-10-2.svg style=width:100% data-fig-align=center></p><p>Let’s next look at the parameters for modeling the causes of $E$ and
+$D$. This time I plot the true parameter values as solid black dots. The
+pink open circles are the posterior mean estimates, and the bars mark
+the 90% density around the mean.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>beta <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>( <span style=color:#e6db74>&#34;B_TE&#34;</span>, <span style=color:#e6db74>&#34;B_AE&#34;</span>, <span style=color:#e6db74>&#34;B_AD&#34;</span>, <span style=color:#e6db74>&#34;B_ED&#34;</span>, <span style=color:#e6db74>&#34;B_TD&#34;</span>, <span style=color:#e6db74>&#34;delta&#34;</span>, <span style=color:#e6db74>&#34;alpha&#34;</span>, <span style=color:#e6db74>&#34;tau&#34;</span>, <span style=color:#e6db74>&#34;sigma_I&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>b_true <span style=color:#f92672>=</span> <span style=color:#a6e22e>lapply</span>( beta, <span style=color:#a6e22e>function</span>(p) d<span style=color:#f92672>$</span>params[[p]] ) <span style=color:#f92672>|&gt;</span> <span style=color:#a6e22e>unlist</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>b_est <span style=color:#f92672>=</span> <span style=color:#a6e22e>lapply</span>( beta, <span style=color:#a6e22e>function</span>(p) <span style=color:#a6e22e>get_pars</span>(s, p)<span style=color:#f92672>$</span>mean ) <span style=color:#f92672>|&gt;</span> <span style=color:#a6e22e>unlist</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>b_est_upp <span style=color:#f92672>=</span> <span style=color:#a6e22e>lapply</span>( beta, <span style=color:#a6e22e>function</span>(p) <span style=color:#a6e22e>get_pars</span>(s, p)<span style=color:#f92672>$</span>q5 ) <span style=color:#f92672>|&gt;</span> <span style=color:#a6e22e>unlist</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>b_est_low <span style=color:#f92672>=</span> <span style=color:#a6e22e>lapply</span>( beta, <span style=color:#a6e22e>function</span>(p) <span style=color:#a6e22e>get_pars</span>(s, p)<span style=color:#f92672>$</span>q95 ) <span style=color:#f92672>|&gt;</span> <span style=color:#a6e22e>unlist</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span><span style=color:#a6e22e>plot</span>( b_true, pch<span style=color:#f92672>=</span><span style=color:#ae81ff>19</span>, ylim<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>-2.6</span>, <span style=color:#ae81ff>3.2</span>), ylab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Parameter value&#34;</span>, xlab<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#a6e22e>abline</span>(h <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#a6e22e>points</span>( b_est, col<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>for </span>( i in <span style=color:#a6e22e>seq_along</span>(b_est) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>    <span style=color:#a6e22e>lines</span>( <span style=color:#a6e22e>c</span>(i,i), <span style=color:#a6e22e>c</span>(b_est_upp[i],b_est_low[i]), lwd<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>, col<span style=color:#f92672>=</span><span style=color:#a6e22e>col.alpha</span>(<span style=color:#ae81ff>2</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#a6e22e>for </span>( v in <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>6</span><span style=color:#f92672>:</span><span style=color:#ae81ff>9</span>,<span style=color:#ae81ff>12</span>) )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>    <span style=color:#a6e22e>abline</span>( v<span style=color:#f92672>=</span>v<span style=color:#ae81ff>+.5</span>, lty<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;dashed&#34;</span>, col<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;grey&#34;</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span><span style=color:#a6e22e>for </span>( v in <span style=color:#ae81ff>7</span><span style=color:#f92672>:</span><span style=color:#ae81ff>9</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>    <span style=color:#a6e22e>mtext</span>( beta[v<span style=color:#ae81ff>-5</span>], at<span style=color:#f92672>=</span>v )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span><span style=color:#a6e22e>mtext</span>( beta[1], at <span style=color:#f92672>=</span> <span style=color:#a6e22e>length</span>(<span style=color:#a6e22e>get_pars</span>(d,<span style=color:#e6db74>&#34;B_TE&#34;</span>)) <span style=color:#f92672>*</span> <span style=color:#ae81ff>.5</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#a6e22e>mtext</span>( beta[5], at <span style=color:#f92672>=</span> <span style=color:#ae81ff>11</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span><span style=color:#a6e22e>for </span>( i in <span style=color:#ae81ff>6</span><span style=color:#f92672>:</span><span style=color:#ae81ff>9</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span>    <span style=color:#a6e22e>mtext</span>( beta[i], at <span style=color:#f92672>=</span> i<span style=color:#ae81ff>+7</span> )
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-11-1.svg style=width:100% data-fig-align=center></p><p>With all these checks, we can see that the model does pretty well in
+recovering the parameters! So now, we’re ready to utilize the posterior
+samples for inference.</p><h2 id=posterior-predictions>Posterior Predictions</h2><p>Bayesian models are <em>generative</em> in the sense that they can generate
+samples, much like nature generates stochastic observations of various
+kinds. This can be done because, instead of providing point estimates, a
+Bayesian model returns a full distribution of parameter estimates (i.e.,
+the posterior distribution). A distribution contains information of
+uncertainty. Thus, the samples computed from the posterior also retain
+such uncertainty.</p><p>Given the generative nature of Bayesian models, we can utilize the
+posterior distribution to compute various predictions. These predictions
+carry forward the uncertainty of the posterior and are thus known as
+<em>posterior predictive distributions</em>. Based on the purpose of the
+inference, we can design how the predictions are computed. Here, I
+provide two examples. The first computes the predicted <strong>trajectory of
+the clinical outcomes</strong> for all six treatment-gender combinations. The
+second compares the effect of the treatments in terms of the <strong>expected
+reduction in days of heavy drinking</strong> relative to the baseline
+treatment. Since everything derived from the posterior is a
+distribution, we have to plot, rather than tabulate, our predictions.</p><p>Before starting, let me first demonstrate the computation of a single
+prediction from the posterior. The rest should be more straightforward
+since posterior predictive distributions are simply the generalization
+from a single prediction to multiple predictions using all posterior
+samples.</p><h3 id=a-single-posterior-prediction>A Single Posterior Prediction</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>post <span style=color:#f92672>=</span> stom<span style=color:#f92672>::</span><span style=color:#a6e22e>extract2</span>(m)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#a6e22e>str</span>(post<span style=color:#f92672>$</span><span style=color:#a6e22e>delta</span>())
+</span></span></code></pre></div><pre><code> num [1:3000] -2.51 -2.12 -1.76 -2.16 -1.86 ...
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>post<span style=color:#f92672>$</span><span style=color:#a6e22e>delta</span>(idx <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>6</span>))
+</span></span></code></pre></div><pre><code>[1] -2.11809 -2.15574 -1.69995
+</code></pre><p><code>stom::extract2()</code> extracts the posterior and exposes its parameters as
+R6 methods. To access the values of a parameter, we use the syntax
+<code>${param}()</code>. In our example here, doing so would return 3000 samples
+since 1000 samples were drawn for each of the 3 chains from our model.
+We can control the samples drawn by passing an optional argument <code>idx</code>
+into the parameter method. For instance, <code>post$delta(2)</code> would return
+the second set of posterior samples.</p><p>What I would like to do here is to compute the latent scores $D$
+underlying the treatment outcome for a single participant at time 1, 2,
+3, and 4. I will use subject 31 (<code>Sid == 31</code>) as an example here. So
+let’s first prepare the data.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>Sid <span style=color:#f92672>=</span> <span style=color:#ae81ff>31</span>  <span style=color:#75715e># subject ID</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>idx_subj <span style=color:#f92672>=</span> d<span style=color:#f92672>$</span>dat<span style=color:#f92672>$</span>Sid_O <span style=color:#f92672>==</span> Sid
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>A <span style=color:#f92672>=</span> d<span style=color:#f92672>$</span>dat<span style=color:#f92672>$</span>A[idx_subj][1]     <span style=color:#75715e># Age of subject 31</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>G <span style=color:#f92672>=</span> d<span style=color:#f92672>$</span>dat<span style=color:#f92672>$</span>G[idx_subj][1]     <span style=color:#75715e># Gender of subject 31</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>Tid <span style=color:#f92672>=</span> d<span style=color:#f92672>$</span>dat<span style=color:#f92672>$</span>Tx[idx_subj][1]  <span style=color:#75715e># Treatment received by subject 31</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span><span style=color:#a6e22e>c</span>(A, G, Tid)
+</span></span></code></pre></div><pre><code>[1] 0.987944 1.000000 2.000000
+</code></pre><p>Now, let’s extract 1 of the 3000 sets of the posterior samples.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>idx <span style=color:#f92672>=</span> <span style=color:#ae81ff>2999</span>  <span style=color:#75715e># posterior sample drawn</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>alpha <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>alpha</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>delta <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>delta</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>b_AD  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_AD</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>b_ED  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_ED</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>b_AE  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_AE</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>b_TD  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_TD</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>b_TE  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_TE</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">9</span><span>subj  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>subj</span>(idx)
+</span></span></code></pre></div><p>With the parameters and the data prepared, we can compute our
+prediction.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>time <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>D <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( time, <span style=color:#a6e22e>function</span>(t) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>    E <span style=color:#f92672>=</span> delta <span style=color:#f92672>+</span> subj[Sid] <span style=color:#f92672>+</span> b_AE<span style=color:#f92672>*</span>A <span style=color:#f92672>+</span> b_TE[G,Tid]<span style=color:#f92672>*</span>(t<span style=color:#ae81ff>-1</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>    alpha <span style=color:#f92672>+</span> b_TD[Tid]<span style=color:#f92672>*</span>(t<span style=color:#ae81ff>-1</span>) <span style=color:#f92672>+</span> b_AD<span style=color:#f92672>*</span>A <span style=color:#f92672>+</span> b_ED<span style=color:#f92672>*</span>E
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>})
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>D
+</span></span></code></pre></div><pre><code>[1] -0.8849468 -0.1329965  0.6189538  1.3709041
+</code></pre><p>Okay, now we have a prediction from a single set of posterior samples.
+In general, we would like to have predictions based on <em>all</em> the
+posterior samples. To do this, we simply wrap the code above in a
+function and repeat it for all of the posterior samples.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>predict_obs <span style=color:#f92672>=</span> <span style=color:#a6e22e>function</span>(Tid, Sid, A, G, idx) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>    alpha <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>alpha</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>    delta <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>delta</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>    b_AD  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_AD</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>    b_ED  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_ED</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>    b_AE  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_AE</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>    b_TD  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_TD</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>    b_TE  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>B_TE</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>    subj  <span style=color:#f92672>=</span> post<span style=color:#f92672>$</span><span style=color:#a6e22e>subj</span>(idx)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>    
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>    time <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>    D <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( time, <span style=color:#a6e22e>function</span>(t) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>        E <span style=color:#f92672>=</span> delta <span style=color:#f92672>+</span> subj[Sid] <span style=color:#f92672>+</span> b_AE<span style=color:#f92672>*</span>A <span style=color:#f92672>+</span> b_TE[G,Tid]<span style=color:#f92672>*</span>(t<span style=color:#ae81ff>-1</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>        alpha <span style=color:#f92672>+</span> b_TD[Tid]<span style=color:#f92672>*</span>(t<span style=color:#ae81ff>-1</span>) <span style=color:#f92672>+</span> b_AD<span style=color:#f92672>*</span>A <span style=color:#f92672>+</span> b_ED<span style=color:#f92672>*</span>E
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>    })
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>    D
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>}
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span><span style=color:#75715e># A single prediction based on the 2999th set of posterior samples</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span>( <span style=color:#a6e22e>predict_obs</span>(Tid, Sid, A, G, idx<span style=color:#f92672>=</span><span style=color:#ae81ff>2999</span>) )
+</span></span></code></pre></div><pre><code>[1] -0.8849468 -0.1329965  0.6189538  1.3709041
+</code></pre><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Compute over the full posterior</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>D <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>3000</span>, <span style=color:#a6e22e>function</span>(i) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>    <span style=color:#a6e22e>predict_obs</span>(Tid, Sid, A, G, idx<span style=color:#f92672>=</span>i)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>})
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span><span style=color:#a6e22e>str</span>(D)
+</span></span></code></pre></div><pre><code> num [1:4, 1:3000] -0.319 0.397 1.114 1.83 -0.891 ...
+</code></pre><h3 id=counterfactual-predictions>Counterfactual Predictions</h3><p>In the demonstration above, we compute the predictions based on one of
+the observations in our data, that is, the data from subject 31. We used
+his gender, age, and treatment condition as the data, and his estimated
+baseline efficacy <code>subj[Sid]</code>, to compute the prediction. But we can do
+something more interesting by going beyond our current data to compute
+<em>counterfactual predictions</em>. For instance, we can arbitrarily determine
+the treatment received and then compute the prediction. Doing so
+effectively asks the question: what would the outcome be if subject 31
+had been treated with Treatment 3 instead of 2? Likewise, the age and
+gender of the participant can be changed to ask similar questions. We
+can go even further to simulate a completely new population, with a
+different set of baseline subject efficacy parameters, if we have some
+idea of what such a population is like (e.g., the degree of variation in
+baseline conditions).</p><p>Another thing worth noting is the time variable. In our data and the
+above prediction, time is treated as discrete time points (1-4). But we
+can treat time as continuous when we compute predictions, simply by
+using a smaller time step, such as <code>time = seq(1,4,.01)</code>. Doing so
+results in a smoother trajectory—as we’ll see later—for the predictions
+across time.</p><h2 id=visualizing-treatment-effects>Visualizing Treatment Effects</h2><p>Now, let’s use the full posterior to compute the posterior predictive
+distributions. The posterior predictive distributions computed here are
+<em>counterfactuals</em>: all 90 subjects are used repeatedly for computing
+each of the six treatment-gender combinations. The treatment received
+and gender of the subjects are set to match the group’s condition when
+computing predictions for that combination.</p><p>The functions for plotting and calculating the relevant quantities are
+available in the script
+<a href=https://github.com/liao961120/stom/tree/main/inst/cases/treatment_dynamics/post/func_post_predict.R><code>func_post_predict.R</code></a>.
+The manipulation of the posterior samples in the script may seem
+sophisticated. But they are all based on the core function
+<code>predict_obs()</code>, which is nearly the same as its simplified version
+presented previously.</p><h3 id=trajectories-by-treatment-and-gender>Trajectories By Treatment and Gender</h3><p>The six charts below plot the trajectories of treatment outcomes for
+each of the treatment-gender conditions. The charts on the left (blue)
+are the trajectories for male participants, and those on the right (red)
+are the trajectories for female participants. The three rows counting
+from top to bottom correspond to the three treatment conditions,
+respectively.</p><p>Note that these trajectories are <strong>expected days of heavy drinking</strong>.
+Since we are modeling the outcomes as counts from the binomial
+distribution, the “expectation of the counts” is the product of $N$ and
+$P$, i.e., <code>14 * logistic(-D)</code>, where <code>D</code> is the latent quantity
+computed from <code>predict_obs()</code>. The means of these expected counts
+computed from the full posterior are shown as the thick curves in the
+charts below. The shaded regions cover 90% density of the expected
+trajectory distributions. The grey lines plot the empirical observation
+under that condition<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#a6e22e>source</span>(<span style=color:#e6db74>&#34;func_post_predict.R&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>post <span style=color:#f92672>=</span> stom<span style=color:#f92672>::</span><span style=color:#a6e22e>extract2</span>(m)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>mar <span style=color:#f92672>=</span> <span style=color:#a6e22e>par</span>(<span style=color:#e6db74>&#34;mar&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>mar[1] <span style=color:#f92672>=</span> <span style=color:#ae81ff>2.5</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>mar[3] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>mar[4] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1.5</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#a6e22e>par</span>( mfrow <span style=color:#f92672>=</span> <span style=color:#a6e22e>c</span>(<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>2</span>), mar <span style=color:#f92672>=</span> mar )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#a6e22e>plot_model_prediction</span>(Tid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, G<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, col_main<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>)  <span style=color:#75715e># Treatment 3</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>plot_model_prediction</span>(Tid<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, G<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, col_main<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)  <span style=color:#75715e># Treatment 3</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span><span style=color:#a6e22e>plot_model_prediction</span>(Tid<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, G<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, col_main<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>)  <span style=color:#75715e># Treatment 2</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span><span style=color:#a6e22e>plot_model_prediction</span>(Tid<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, G<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, col_main<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)  <span style=color:#75715e># Treatment 2</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#a6e22e>plot_model_prediction</span>(Tid<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>, G<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>, col_main<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>)  <span style=color:#75715e># Treatment 1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span><span style=color:#a6e22e>plot_model_prediction</span>(Tid<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>, G<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>, col_main<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)  <span style=color:#75715e># Treatment 1</span>
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-17-1.svg style=width:100% data-fig-align=center></p><p>From these charts, we can see that Treatment 3 works best for male
+participants. For females, however, it is Treatment 2 that is the best.
+These differences might not be apparent enough in the form of
+trajectories. So next, let’s directly compare the treatments by
+inspecting their contrasts.</p><h3 id=treatment-contrasts>Treatment Contrasts</h3><p>The code below computes the relevant contrasts for later uses. Recall
+that all 90 participants are used repeatedly for each treatment-gender
+condition. Since 3000 is indivisible by 90, I discarded 30 posterior
+samples and used the first 2970 samples just to keep things simpler. A
+more rigorous but quite computationally expensive alternative is to use
+all 3000 instead of 33 (2970/90) posterior samples for computing
+predictions for a single participant under each treatment-gender
+condition.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>Sids <span style=color:#f92672>=</span> <span style=color:#a6e22e>rep</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span>d<span style=color:#f92672>$</span>dat<span style=color:#f92672>$</span>Ns, length<span style=color:#f92672>=</span><span style=color:#ae81ff>2970</span> ) <span style=color:#f92672>|&gt;</span> <span style=color:#a6e22e>sample</span>()
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>times <span style=color:#f92672>=</span> <span style=color:#a6e22e>seq</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>.01</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#75715e># table(Sids)</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>cf <span style=color:#f92672>=</span> <span style=color:#a6e22e>list</span>(
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>    T1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>list</span>( G1<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(), G2<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(), all<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>() ),
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>    T2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>list</span>( G1<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(), G2<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(), all<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>() ),
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>    T3 <span style=color:#f92672>=</span> <span style=color:#a6e22e>list</span>( G1<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(), G2<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>(), all<span style=color:#f92672>=</span><span style=color:#a6e22e>c</span>() )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#a6e22e>for </span>( tx in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>3</span> ) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>    <span style=color:#a6e22e>for </span>( g in <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>2</span> )
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>        cf[[tx]][[g]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>2970</span>, <span style=color:#a6e22e>function</span>(i) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>            D <span style=color:#f92672>=</span> <span style=color:#a6e22e>predict_obs</span>(Tid<span style=color:#f92672>=</span>tx, Sid<span style=color:#f92672>=</span>Sids[i], A<span style=color:#f92672>=</span><span style=color:#66d9ef>NULL</span>, G<span style=color:#f92672>=</span>g, idx<span style=color:#f92672>=</span>i) 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>            <span style=color:#ae81ff>14</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>logistic</span>(<span style=color:#f92672>-</span>D)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>        })
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>    cf[[tx]][[3]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>sapply</span>( <span style=color:#ae81ff>1</span><span style=color:#f92672>:</span><span style=color:#ae81ff>2970</span>, <span style=color:#a6e22e>function</span>(i) {
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span>        D <span style=color:#f92672>=</span> <span style=color:#a6e22e>predict_obs</span>(Tid<span style=color:#f92672>=</span>tx, Sid<span style=color:#f92672>=</span>Sids[i], A<span style=color:#f92672>=</span><span style=color:#66d9ef>NULL</span>, G<span style=color:#f92672>=</span><span style=color:#66d9ef>NULL</span>, idx<span style=color:#f92672>=</span>i) 
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18</span><span>        <span style=color:#ae81ff>14</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>logistic</span>(<span style=color:#f92672>-</span>D)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19</span><span>    })
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20</span><span>}
+</span></span></code></pre></div><p>With the data prepared, we can now directly compare the treatments. For
+illustrative purposes, let’s first ignore gender and see how it might
+lead us to suboptimal decisions.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>T3T1_noG <span style=color:#f92672>=</span> <span style=color:#a6e22e>treatment_contrast</span>(<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>T2T1_noG <span style=color:#f92672>=</span> <span style=color:#a6e22e>treatment_contrast</span>(<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>3</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>p1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>plot_treatment_contrast_noG</span>(T3T1_noG, <span style=color:#e6db74>&#34;Treatment 3 - Treatment 1&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>p2 <span style=color:#f92672>=</span> <span style=color:#a6e22e>plot_treatment_contrast_noG</span>(T2T1_noG, <span style=color:#e6db74>&#34;Treatment 2 - Treatment 1&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span><span style=color:#a6e22e>plot_grid</span>(p1, p2,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>          align <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;h&#39;</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>          axis <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;lb&#34;</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>          ncol<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>)
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-19-1.svg style=width:100% data-fig-align=center></p><p>The figure above compares Treatment 3 to Treatment 2, with Treatment 1
+acting as the common baseline. The horizontal axis shows the difference
+in the treatment outcomes between the target and baseline treatments. A
+negative difference indicates that the target treatment results in fewer
+expected days of heavy drinking and is hence better compared to the
+baseline.</p><p>Judging from the figure alone, one might conclude that <strong>Treatment 3 is
+better than Treatment 2</strong> and supports prescribing Treatment 3 for all
+patients. However, since we simulated the data, we know this is not true
+because Treatment 3 and 2 work differentially for males and females. So
+let’s replot the figure but consider gender this time.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>T3T1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>treatment_contrast2</span>(<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>T2T1 <span style=color:#f92672>=</span> <span style=color:#a6e22e>treatment_contrast2</span>(<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>p3 <span style=color:#f92672>=</span> <span style=color:#a6e22e>plot_treatment_contrast</span>(T3T1, <span style=color:#e6db74>&#34;Treatment 3 - Treatment 1&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>p4 <span style=color:#f92672>=</span> <span style=color:#a6e22e>plot_treatment_contrast</span>(T2T1, <span style=color:#e6db74>&#34;Treatment 2 - Treatment 1&#34;</span>)
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span><span style=color:#a6e22e>plot_grid</span>(p3, p4,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>          align <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;h&#39;</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>          axis <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;lb&#34;</span>,
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>          ncol<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>)
+</span></span></code></pre></div><p><img src=part5_files/figure-commonmark/unnamed-chunk-20-1.svg style=width:100% data-fig-align=center></p><p>Now, it becomes apparent how the treatments work differentially for
+males and females. Treatment 3 seemingly gives better results overall
+because it works particularly well for males. However, it is much less
+effective for females. Female patients will benefit much more if they
+receive Treatment 2.</p><h2 id=can-we-do-better>Can We Do Better?</h2><p>Previously, we picture a rather “static” mechanism that underlies the
+working of the treatments (replot in the DAG below). In particular, we
+assume that self-efficacy mediates between the treatment and the
+clinical outcomes. In other words, it is assumed that the treatments
+unidirectionally affect self-efficacy and self-efficacy unidirectionally
+affects the treatment outcomes. However, this assumption becomes a bit
+oversimplified once we think harder about how people’s lives unfold
+during treatments. The treatments may have raised participants’
+self-efficacy in alcohol control, leading to improved clinical outcomes.
+Yet the improvement in clinical outcomes very likely also raises
+subsequent self-efficacy. So instead of a unidirectional influence from
+treatment to efficacy to clinical outcomes, a bi-directional interaction
+seems to be more plausible, with previous clinical outcomes and
+self-efficacy acting as feedback to later statuses.</p><figure><img src=dag.svg style=max-height:210px alt="(Simplistic) unidirectional causal assumptions"><figcaption aria-hidden=true>(Simplistic) unidirectional causal
+assumptions</figcaption></figure><p>Such a scenario might resemble something sketched in the DAG below.
+Here, each state of the efficacy ($E_t$) and the clinical outcomes
+($D_t$) at time $t$ influences the states at $t+1$ directly. $E_0$ and
+$D_0$ represent the initial states before receiving treatments. These
+initial states may be influenced by several variables (e.g., age,
+gender, ethnicity, etc.), as illustrated by the greyed nodes on the
+left-most part of the graph. $T$ represents the treatment and is assumed
+to influence only $E$ here for the sake of simplicity.</p><figure><img src=dag-feedback-dyn.svg style=max-height:270px alt="Dynamic feedback among variables over time"><figcaption aria-hidden=true>Dynamic feedback among variables over
+time</figcaption></figure><p>In addition to the variables we have modeled in our unidirectional
+causal model, the DAG here introduces additional variables, $S_i$. These
+variables indicate extraneous influences on the clinical outcomes at
+time $t$. For instance, they might be the stress level of each
+participant at time $t$. Stressful life events could worsen clinical
+outcomes and often come and go without signs. When these random events
+occur and lead to decreases in participants’ clinical outcomes, the
+negative effect is likely to carry over to future states, such as
+lowering participants’ self-efficacy subsequently. The arrows
+$D_t \rightarrow E_{t+1}$ and $E_t \rightarrow D_{t+1}$ would allow one
+to model such effects.</p><p>The assumption of this dynamic feedback interaction leads to two
+questions. First, such a fine-grained interaction across time requires
+denser longitudinal data for the model to make sense. When the dataset
+is sparse in terms of time, the link between the current and the next
+state might be too weak as multiple events may have occurred in between
+and obscure their relationship. Thus, experience sampling methods or
+ecological momentary assessments, where data are collected daily, are
+preferable for this model. Second, the model is only conceptual at best
+so far. To prove that this dynamic feedback model can work, we would
+need to run simulations, construct the model, and test it, as always.
+This would probably take weeks to months for me. Once I’m done, I might
+document the process in another post someday.</p><div id=refs class="references csl-bib-body hanging-indent"><div id=ref-bowen2014 class=csl-entry><p>Bowen, Sarah, Katie Witkiewitz, Seema L. Clifasefi, Joel Grow, Neharika
+Chawla, Sharon H. Hsu, Haley A. Carroll, et al. 2014. “Relative Efficacy
+of Mindfulness-Based Relapse Prevention, Standard Relapse Prevention,
+and Treatment as Usual for Substance Use Disorders: A Randomized
+Clinical Trial.” <em>JAMA Psychiatry</em> 71 (5): 547–56.
+<a href=https://doi.org/10.1001/jamapsychiatry.2013.4546>https://doi.org/10.1001/jamapsychiatry.2013.4546</a>.</p></div><div id=ref-moniz-lewis2022 class=csl-entry><p>Moniz-Lewis, David I. K., Elena R. Stein, Sarah Bowen, and Katie
+Witkiewitz. 2022. “Self-Efficacy as a Potential Mechanism of Behavior
+Change in Mindfulness-Based Relapse Prevention.” <em>Mindfulness</em> 13 (9):
+2175–85. <a href=https://doi.org/10.1007/s12671-022-01946-z>https://doi.org/10.1007/s12671-022-01946-z</a>.</p></div></div><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>The topic of the current post is quite advanced and assumes the
+readers have either read the previous four posts or have a solid
+understanding of IRT.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>The fictitious study here is largely inspired by and modified from
+Moniz-Lewis et al. (2022) and Bowen et al. (2014). The details
+differ quite a lot, but the main ideas are similar.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>If you are interested in the truncated normal distribution, take a
+look at the source code by typing <code>stom::rtnorm</code>. You will see that
+it simply draws samples from a normal distribution and drops out
+those beyond the boundaries until the required sample size is
+reached.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4><p>Note that these empirical observations have a larger variation
+than the trajectory distribution under the same condition. This is
+because the trajectories are <em>expectations</em> $NP$. That is, they are
+the means of—not samples from—the binomial distributions. Thus,
+there is no associated sampling variation.&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><br><br><br><script src=https://giscus.app/client.js data-repo=liao961120/yongfu.name data-repo-id=R_kgDOJZfylw data-category=Announcements data-category-id=DIC_kwDOJZfyl84CV71T data-mapping=pathname data-strict=1 data-reactions-enabled=0 data-emit-metadata=0 data-input-position=top data-theme=light_tritanopia data-lang=en data-loading=lazy crossorigin=anonymous async></script><div class=next-prev><div><span>PREV</span>
+<a href=https://yongfu.name/2023/04/26/irt4/>Demystifying Item Response Theory (4/4)</a></div></div></article><aside class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></aside></div><script>document.querySelectorAll("h3,h4,h5,h6").forEach(e=>{e.classList.add("ignoreToc")})</script><script src=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js></script>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css><script>tocbot.init({tocSelector:".js-toc",contentSelector:".article_content",ignoreSelector:".Box h2, .Box h3, .Box h4, .Box h5, .Box h6, .ignoreToc",headingSelector:"h2, h3, h4",scrollSmooth:!1,hasInnerContainers:!0,collapseDepth:3})</script><script>const ref=document.querySelector(".references");ref&&document.querySelector(".article_content").appendChild(ref)</script><style>ol.toc-list{list-style-type:none}aside{position:fixed;top:15%!important;right:2%}.next-prev{margin-top:2.5em;border-top:2px solid rgba(173,173,173,.548);display:flex;flex-wrap:wrap;justify-content:space-between}.next-prev>div{min-width:150px;width:43%}.next-prev>div>span{display:block;width:100%;color:grey;font-weight:600;letter-spacing:1.5px;padding-bottom:.3rem;margin-top:.4rem}.next-prev>div:nth-child(2){text-align:right}.next-prev>div>a{text-decoration:none;color:#000;font-weight:600}</style><footer><div class=social><span class=icon title="Send me an email"><a href=mailto:liao961120@gmail.com target=_blank><span class="social email"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V4e2c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5.0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg></span></a></span><span class=icon title="Follow me on Twitter"><a href=https://twitter.com/liao_yongfu target=_blank><span class="social twitter"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#fff" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645.0 138.72-105.583 298.558-298.558 298.558-59.452.0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055.0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421.0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391.0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04.0-57.828 46.782-104.934 104.934-104.934 30.213.0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span></a></span><span class=icon title="Follow me on Facebook"><a href=https://www.facebook.com/liao961120 target=_blank><span class="social facebook"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook-f" class="svg-inline--fa fa-facebook-f fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#fff" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43.0 225.36.0c-73.22.0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg></span></a></span><span class=icon title="Follow me on GitHub"><a href=https://github.com/liao961120 target=_blank><span class="social github"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="#fff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3.0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6.0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span></a></span></div><p class=site_info><span class=copyright>© Yongfu's Blog 2017-2023</span></p><p class=theme_info>Powered by <a href=https://gohugo.io target=_blank>Hugo</a> & <a href=https://github.com/liao961120/TeXtLite target=_blank>TeXtLite Theme</a>.</p></footer><script src=//yihui.org/js/math-code.js defer></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1}],throwOnError:!1}),document.querySelectorAll(".katex-display").forEach((e,t)=>{e.id=`math-eq${t+1}`})})</script><div class=scrollBtn><span id=scrolltop onclick=window.scrollTo(0,0)>&#9650;</span>
+<span id=scrollbottom onclick=window.scrollTo(0,document.body.scrollHeight)>&#9660;</span></div><style>div.scrollBtn{display:flex;flex-wrap:wrap;width:1em;position:fixed;bottom:1.1%;right:.8%}#scrolltop,#scrollbottom{line-height:1;font-size:1.4rem;color:var(--link-transitiion-light)}#scrolltop:hover,#scrollbottom:hover{cursor:pointer;color:green;font-size:1.6rem}</style><script src=https://unpkg.com/@popperjs/core@2></script>
+<script src=https://unpkg.com/tippy.js@6></script>
+<link rel=stylesheet href=https://unpkg.com/tippy.js@6/themes/light-border.css><script>function renderHoverNotes(){document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e=>{const t=new URL(e.href).hash;tippy(e,{content:`<div style="max-height:55vh; 
+                                              overflow-y:auto">
+                                <div style="width:94%; margin: 0 3%;">
+                            ${document.getElementById(t.substring(1)).innerHTML}
+                            </div></div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"40ch"})}),document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e=>{const n=new URL(e.href).hash;var t=document.getElementById(n.substring(1));if(t.classList.contains("Box")&&tippy(e,{content:`<div style="
+                                            max-height:55vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:94%; margin: 0 3%;">${t.innerHTML}</div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"}),t.classList.contains("katex-display")){let n=t.cloneNode(!0);n.querySelector("span.tag").remove(),tippy(e,{content:`<div style="
+                                            width: 33vw;
+                                            min-width: 370px;
+                                            max-height:85vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:95%; margin: 1em auto;">
+                                            <span>${n.innerHTML}</span>
+                                        </div>
+                                      </div>`,allowHTML:!0,theme:"light-border",interactive:!0,maxWidth:"50ch"})}})}document.addEventListener("DOMContentLoaded",function(){renderHoverNotes()})</script></body></html>
