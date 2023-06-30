@@ -1174,7 +1174,7 @@ Can We Do Better?
 -----------------
 
 Previously, we picture a rather "static" mechanism that underlies the working of
-the treatments (replot in the DAG below). In particular, we assume that
+the treatments (see the DAG below). In particular, we assume that
 self-efficacy mediates between the treatment and the clinical outcomes. In other
 words, it is assumed that the treatments unidirectionally affect self-efficacy
 and self-efficacy unidirectionally affects the treatment outcomes. However, this
