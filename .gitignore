@@ -1,0 +1,14 @@
+public
+.vscode
+__pycache__
+content/Posts.docx
+content/Posts.md
+_site
+.DS_Store
+.hugo_build.lock
+markdown-themes
+*.synctex.gz
+*.RDS
+*.rds
+/.luarc.json
+*.exe

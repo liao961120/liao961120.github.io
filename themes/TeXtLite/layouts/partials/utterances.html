@@ -1,0 +1,26 @@
+{{ if ($.Site.Params.comments.utterances) }}
+    <!-- Use giscus instead -->
+    <script src="https://giscus.app/client.js"
+        data-repo="liao961120/yongfu.name"
+        data-repo-id="R_kgDOJZfylw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJZfyl84CV71T"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light_tritanopia"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <!-- <script src="https://utteranc.es/client.js"
+            repo="{{$.Site.Params.comments.utterances}}"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script> -->
+{{ end }}

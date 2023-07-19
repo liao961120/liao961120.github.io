@@ -1,0 +1,607 @@
+---
+title: Demystifying Item Response Theory (3/4)
+subtitle: "Improving Estimation through Partial Pooling"
+description: "simulation, IRT, Rasch, generalized linear model (GLM), GLMM, mixed models, multilevel models"
+date: '2023-03-29'
+aliases:
+    - /irt3
+katex: true
+tags:
+- r
+- stats
+- psychology
+format: 
+   gfm:
+      output-file: "index"
+      output-ext: "md"
+      variant: +yaml_metadata_block
+      df-print: tibble
+editor:
+   render-on-save: false
+---
+
+## Fixed, Random and Mixed
+
+Statistics is confusing enough through its massive terminology.
+Psychology, which is largely experiment-oriented, further confuses
+people by adding in its own flavor. A peek at the definitions of
+[fixed](https://dictionary.apa.org/fixed-effect),
+[random](https://dictionary.apa.org/random-effect), and
+[mixed](https://dictionary.apa.org/mixed-effects-model) effects in the
+[APA Dictionary of Psychology](https://dictionary.apa.org) exemplifies
+this:
+
+> \[A mixed-effect model is\] any statistical procedure or experimental
+> design that uses one or more independent variables whose levels are
+> **specifically selected by the researcher** (fixed effects; e.g.,
+> gender) and one or more additional independent variables whose levels
+> are **chosen randomly** from a wide range of possible values (random
+> effects; e.g., age).  
+> <b></b>  
+> —Definition of “mixed-effect model” in the APA Dictionary of
+> Psychology
+
+The definitions for random and fixed effects above are not only
+confusing but also misleading. In principle, whether a categorical
+variable is “fixed” or “random” has nothing to do with the nature of the
+variable (e.g., *gender* doesn’t have to be fixed) or how the levels
+within a variable are selected (randomly drawn or chosen by
+researchers). Whether a variable is modeled as fixed or random is a
+decision to be made by the modeler. And the modeler **should
+model variables as random** if there are no justifiable prohibitive
+reasons. Let me explain.
+
+## Multilevel Instead of Mixed
+
+A better way to understand fixed and random effects is to think
+**hierarchically**. The levels of a random-effect variable are treated
+as **related** by the model, meaning that the effect of each level is
+estimated by also considering information from other levels in the
+variable. This is known as **partial pooling**, and it has several
+desirable properties. On the other hand, the levels within a
+fixed-effect variable are treated as independent: during parameter
+estimation, the model considers only information within each level. This
+is the **no-pooling** case. So how does the model incorporate
+information from the other levels during estimation in the
+partial-pooling case? To explain this, let me start with the no-pooling
+case.
+
+As an example, suppose we have a categorical variable with $n$ levels.
+Our goal is to obtain an estimate for each of these levels (and the
+variability in the estimates), labeled as
+$\alpha_1, \alpha_2, ..., \alpha_n$. To provide some context, we can
+think of the categorical variable here as *nationality*, and for each
+nation (a level), we want to estimate the average height (the parameter)
+of its citizens. When we are **not pooling information across the
+levels**, the structure of the data-generating process assumed by the
+statistical model is shown in the figure below. Here, the model assumes
+that there is a parameter associated with each level that generates the
+observations. However, the parameters here are assumed to be
+independent. Therefore, the model utilizes only the observations under
+each level to estimate its parameter. What has been learned about a
+nation is uninformative about another nation for the **no-pooling**
+model.
+
+![Levels within a categorical variable estimated
+independently.](tree0.svg)
+
+But there actually is some information, right? Take the perspective of
+an alien, for instance. Knowing the average height of the Americans, say
+5′9″, provides quite much information about the heights of the
+Japanese—they are unlikely to be 60 feet or 6 inches, agree? This is why
+we prefer to partial pool. Partial pooling allows the sharing of
+information across different levels, which, as elucidated below, leads
+to several desirable properties.
+
+When we want to incorporate—or partial pool—information from other
+levels during estimation, we can utilize models that assume a
+hierarchical structure on the levels within a variable. Such a
+hierarchical structure is exemplified in the figure below. This
+hierarchical structure assumes that all levels, or more precisely all
+parameters underlying the levels, come from a common distribution. Here,
+this common distribution is assumed to be a normal distribution with
+mean $\mu$ and variance $\sigma^2$. The mean and the variance are to be
+estimated from the data. When this structure is imposed, the
+observations under different levels will be naturally linked since now,
+the observations under every level all provide information for
+estimating the common distribution.
+
+![Levels within a categorical variable estimated by incorporating
+information from all levels. This is achieved through assuming all
+levels to come from a common distribution.](tree1.svg)
+
+What can be gained from partial pooling information across levels? As
+mentioned above, when we partial-pool, the information of the
+observations across all levels is shared. This means that the model
+considers **more information** for estimating the parameter of each
+level. As a direct result of this, the model uses the data
+(observations) more efficiently by squeezing out more information.
+Secondly, it reduces overfitting and thus provides better
+(out-of-sample) estimation. The model is less likely to overfit because
+it is more “objective” by considering information across different
+levels. Overfitting occurs when data are scarce, which is the case in
+the no-pooling case since only data within each level are considered. In
+such cases, the model bases the estimations on fewer observations and
+hence tends to be overly sensitive to idiosyncratic patterns in the
+local data. Another great thing about partial pooling is that it
+automatically adjusts according to the sample sizes under each level.
+For levels with fewer observations (e.g, North Korea, in which the alien
+managed to collect only heights from three of its citizens), the model
+places more weight on the overall information provided by other levels,
+resulting in larger adjustments of the levels’ estimates. For levels
+with abundant data, their estimates are only slightly affected by the
+observations from other levels.
+
+Partial pooling essentially arises from the hierarchical structure
+assumed in the models. Therefore, these models are known as
+**hierarchical** or **multilevel** models. **Mixed (effect)** models are
+another common label for these models, though, as explained above, the
+name is quite uninformative. To understand how these models work, it is
+better to start with their hierarchical structuring. I will use the term
+**multilevel models** from now on to save ourselves from confusion. This
+name is also nice in that it coincides in abbreviation with the mixed
+model—both of them are abbreviated as GLMM for Generalized Linear
+Multilevel/Mixed Models.
+
+## Back to IRT
+
+Now, we are acquainted with the concept of partial pooling and
+multilevel models, let’s apply them to the IRT context to improve our
+previous model, which is fitted without partial pooling across levels.
+To warm up, let me rephrase the structure of the simulated IRT dataset
+in terms of the multilevel terminologies.
+
+There are two variables at work here—the item variable and the person
+(or subject) variable. Within the item variable, there are several
+items. In other words, each item acts as a level within the item
+variable. Similarly, each person corresponds to a level within the
+person variable. For each item, we want to estimate a parameter, the
+item’s difficulty. Likewise, for each person, we also want to estimate a
+parameter, the person’s ability. To improve our model in estimating the
+item/person parameters, we can partial pool information across the
+levels **within** the item and/or the person variable.
+
+The chunk below copies the data simulation code from the previous post,
+with two minor changes. The first is the renaming of the variables for
+the item and subject ID as `Iid` (originally `I`) and `Sid` (originally
+`S`). The second is that, instead of item difficulty (`D` in the
+previous post), we conceptualize the effect of items as **easiness**
+(`E`) here. Item easiness is simply the negative of item difficulty.
+This simple switch would allow us to skip the step of reversing the item
+effects’ signs returned by the regression model.
+
+``` r
+logistic = function(x) 1 / (1 + exp(-x))
+logit = function( p ) log( p/(1-p) )
+rbern = function( p, n=length(p) ) rbinom( n=n, size=1, prob=p )
+
+set.seed(12)
+n_item = 30    # number of items
+n_subj = 60    # number of subjects
+n_resp = n_item * n_subj
+n_param = n_item + n_subj
+A = rnorm( n_subj )  # Person ability
+E = seq( -1.6, 1, length=n_item )  # Item easiness
+
+# The data
+d = expand.grid( Sid=1:n_subj, Iid=1:n_item, KEEP.OUT.ATTRS = F )
+d$mu = A[d$Sid] + E[d$Iid]
+d$R = rbern( logistic( d$mu ) )
+d$Sid = factor(d$Sid)
+d$Iid = factor(d$Iid)
+```
+
+### Unpooled Model
+
+With the data prepared, let’s refit model
+[`m1.2`](/2023/03/06/irt2/#coding-models-the-easy-route) from the
+previous post. Later, I will fit another model that partial pools the
+subject variable (`m2`) and compare it to the unpooled model here
+(`m1`).
+
+The code below for fitting `m1` is identical to those in the previous
+post, except that I adopt another method (starting from line 5) to
+reconstruct the dropped estimate (forced by the sum-to-zero constraint).
+This change is necessary, as it also allows us to reconstruct the
+standard errors of the dropped estimate. We will need the standard
+errors later to quantify the *uncertainty* in the estimates, which are
+used for comparing the unpooled and partial-pooled models. In addition,
+the method adopted here is more principled and general, which further
+consolidates our understanding of contrasts and dummy coding. However,
+it takes up some space for the explanation since a little matrix algebra
+is involved. I thus leave the details in the [box](#matrix-algebra) at
+the end of the post.
+
+``` r
+d1 = d
+contrasts(d1$Sid) = contr.sum( n_subj )
+m1 = glm( R ~ -1 + Iid + Sid, data=d1, family=binomial("logit") )
+
+# Construct contrast matrix
+Cmat = diag(0, nrow=n_item+n_subj)[, -1]
+diag(Cmat)[1:n_item] = 1
+idxS = 1:n_subj + n_item
+Cmat[idxS, idxS[-length(idxS)]] = contr.sum( n_subj )
+
+# Reconstruct estimates with the constrast matrix
+m1_eff = (Cmat %*% coef(m1))[, 1]
+# Reconstruct std. error of the estimates with the constrast matrix
+Vmat = Cmat %*% vcov(m1) %*% t(Cmat) 
+m1_se = sqrt(diag(Vmat))
+```
+
+### Partial-pooled Model
+
+To fit the partial-pooled model, `glmer()` from the `lme4` package is
+used.
+
+``` r
+library(lme4)
+m2 = glmer( R ~ -1 + Iid + (1|Sid), data=d, family=binomial('logit') )
+```
+
+`lme4` provides a syntax for expressing multilevel models of different
+structures. For our model here, which is one of the simplest multilevel
+models (known as the varying intercept models), we express the partial
+pooling of persons with the syntax `(1|Sid)`, as shown in the last term
+of the model formula. When such a partial pooling structure is
+specified, `glmer()` automatically imposes a constraint of **zero-meaned
+normal distribution** on the partial-pooled variable. In the case here,
+this means that the ability of each person is modeled as being drawn
+from a normal distribution with a mean of zero and an unknown standard
+deviation to be estimated from the data. This constraint on the
+distribution of the person ability naturally resolves the identification
+issue of the IRT model. Hence, there is no need to impose an additional
+sum-to-zero constraint as we did in `m1`. We are only partial-pooling
+the person variable here, so except for `(1|Sid)`, everything else in
+`glmer()` is identical to those in `m1`.
+
+After fitting the model, the estimates from `m2` can be obtained with
+the code below. Unpooled and partial-pooled estimates are extracted
+differently in `lme4`. To extract the unpooled estimates, one uses the
+`fixef()` function. These unpooled estimates, along with their standard
+errors and other information, are also found in the model summary table
+returned by `summary()`. The partial-pooled estimates, however, are not
+found in the table. To extract them, we need the `ranef()` function as
+shown below.
+
+``` r
+m2_eff.item = fixef(m2)
+m2_eff.subj = ranef(m2)$Sid[, 1]
+```
+
+In addition to the estimates, we would also like to retrieve their
+standard errors. Similar to the estimates, the standard errors of the
+estimates are extracted differently according to whether they are
+unpooled (fixed) or partial-pooled (random). We can utilize `se.fixef()`
+and `se.ranef()` from the `arm` package to extract these standard
+errors:
+
+``` r
+m2_se.item = arm::se.fixef(m2)
+m2_se.subj = arm::se.ranef(m2)$Sid[, 1]
+```
+
+Finally, to compare the estimates of `m1` and `m2`, I plot them together
+in the same figure. I also plot the uncertainty—calculated as
+$\pm 2 \times Standard~error$—around each estimate. Estimates and
+uncertainties from `m1` are plotted as blue, whereas those from `m2` are
+plotted as pink. The true effects for generating the simulated data are
+plotted as solid black points.
+
+``` r
+# Concatenate item & subj effect/std to match m1_eff/m1_se
+m2_eff = c( m2_eff.item, m2_eff.subj )
+m2_se = c( m2_se.item, m2_se.subj )
+
+#' Function stolen from `rethinking::col.alpha()`
+col.alpha = function (acol, alpha = 0.5) {
+  acol = col2rgb(acol)
+  acol = rgb(acol[1]/255, acol[2]/255, acol[3]/255, alpha)
+  acol
+}
+
+# Plot for comparing `m1` & `m2`
+plot( 1, type="n", ylim = c(-4.8, 4.8), xlim=c( 0, n_subj+n_item + 1 ), 
+      ylab="Effect", xlab="Item Index" )
+abline( v=n_item + .5, lty=2, col="grey" )
+segments( -5, mean(m2_eff.item), n_item+.5, lty=2, col="grey" )
+segments( n_item+.5, 0, 1000, lty=2, col="grey" )
+points( c(E, A), pch=19 )
+# Uncertainty bars
+for (i in seq_along(m2_se)) {
+  lines( c(i,i), m1_eff[i] + c(-2,2)*m1_se[i], col=col.alpha(4), lwd=6 )
+  lines( c(i,i), m2_eff[i] + c(-2,2)*m2_se[i], col=col.alpha(2,.7), lwd=3 )
+}
+points( m1_eff, col=4 )
+points( m2_eff, col=2 )
+```
+
+<img src="part3_files/figure-commonmark/unnamed-chunk-6-1.svg"
+style="width:100.0%" data-fig-align="center" />
+
+### Shrinkage
+
+Some of the benefits of partial pooling [discussed
+earlier](#multilevel-instead-of-mixed) are visualized in the comparison
+plot above. The most drastic changes from the unpooled to the
+partial-pooled model are seen in the ability estimates, which are
+exactly the levels that get partially pooled. Two things to notice here.
+First, there is less uncertainty in the partial-pooled estimates than in
+the unpooled ones (pink bars tend to be shorter than their blue
+counterparts). This follows naturally because, through partial pooling,
+the model has access to more information (hence less uncertainty) for
+each level. Secondly, the partial-pooled estimates tend to get “pulled”
+towards the center (i.e., the grand mean of the subject estimates). In
+addition, more extreme estimates are further pulled toward the center.
+Essentially, this means that the model behaves in a way that is robust
+against observations that result in extreme estimates. This is known as
+**shrinkage** and is also a feature that naturally arises from partial
+pooling.
+
+From the figure, we can see that partial pooling improves the estimation
+of the person abilities, as most pink circles are found to be much
+closer to the solid black dots (true effects) than the blue ones. For
+item easiness, which are not partial-pooled, the estimates also improve
+slightly. This results from the improvement in estimating abilities.
+Since ability and easiness are jointly estimated by the model, the
+improvement from ability estimation carries on to easiness estimation.
+Given the large improvement in ability estimates, one might consider
+also pooling the items. Indeed, there is no reason to not pool.
+**Partial pooling should be the default**.
+
+### Partial Pool Items and Subjects
+
+To specify the partial pooling of items in the model, we again utilize
+the “bar” syntax: `(1|Iid)`. This allows `glmer()` to also model the
+items as coming from a normal distribution with zero mean and unknown
+variance. Now, since both the items and the subjects are centered at
+zeros, an additional step is needed to reconstruct the zero-centered
+item estimates back to their original locations[^1]. This is why the
+model formula in `m2.2` uses `1` instead of `-1`. By specifying `1`,
+`glmer()` estimates an independent global intercept. In the case here,
+this intercept is identical to the amount subtracted from the item
+effects for centering. Hence, to reconstruct the original non-centered
+item estimates, we add the global intercept back to the item estimates,
+as shown in line 4 in the code below.
+
+``` r
+m2.2 = glmer( R ~ 1 + (1|Iid) + (1|Sid), data=d, family=binomial('logit') )
+
+m2.2_eff.subj = ranef(m2.2)$Sid[, 1]
+m2.2_eff.item = ranef(m2.2)$Iid[, 1] + fixef(m2.2)[["(Intercept)"]]
+m2.2_eff = c( m2.2_eff.item, m2.2_eff.subj )
+m2.2_se = arm::se.ranef( m2.2 )
+m2.2_se = c( m2.2_se$Iid, m2.2_se$Sid )
+```
+
+You can compare `m2.2` to `m2` by plotting their estimates with the
+plotting code previously shown and see that `m2.2` further improves the
+estimation (though not large). In the psychometric/measurement
+literature, partial pooling both item and person is uncommon. But as
+seen in our simulate-and-fit approach, partial pooling results in better
+estimation. This approach also refutes the unjustified belief that
+“*fixed* effects should be used when the levels are **specifically
+selected by the researcher**”. In our simulation, values of the item
+easiness are specifically “picked out”. They are deliberately set to be
+equally-spaced values. And still, we saw that modeling the item effects
+as *random* is not only benign but even improves estimation. This is
+true in general, and you can change the values of the item easiness in
+the simulation to see that partial pooling mostly, if not always, gives
+better estimates.
+
+## What’s next
+
+So far, we have been dealing with item response models with dichotomous
+item responses. That is, a response can only either be correct (`1`) or
+wrong (`0`). In [Part 4](/irt4), we move on to item response models for
+rating responses. These models are extremely useful since rating scales
+are common in the social sciences. The models also allow us to model the
+so-called “rater effect”, which quantifies the leniency of the raters.
+By incorporating such rater effects, the model corrects for potential
+biases introduced by subjective ratings, thereby giving more accurate
+person and item estimates.
+
+<!-- ####################################################################### -->
+
+<div id="matrix-algebra" class="Box"
+title="Reconstructing dropped levels with the contrast matrix">
+
+Don’t be intimidated by matrix algebra. It’s simply arithmetics in a
+fancy manner, and it looks scary only because it does many things at
+once. With some patience, you will be able to break down and understand
+the steps involved.
+
+#### Reconstructing Dropped Estimate
+
+Let’s first see how the contrast matrix reconstructs the dropped
+estimate from the sum-to-zero constrained model. I’ll start with a toy
+example with only three subjects, $S_1, S_2, S_3$. The contrast matrix
+for imposing a sum-to-zero constraint on the subjects is shown below.
+Recall that the sum-to-zero constraint is coded through the dropping of
+the last subject, $S_3$ (hence two columns left in the contrast matrix),
+and implicit coding of $S_3$’s information into $S_1$ and $S_2$ by the
+`-1`s on the third row. Given this coding, the effect of $S_3$ can be
+reconstructed from the effects of $S_1$ and $S_2$ by taking the negative
+of their sum. This can be done through the code
+`c(subj_eff.m1.2, -sum(subj_eff.m1.2) )` from the previous post.
+
+|       | $S_1$ | $S_2$ |
+|:-----:|:-----:|:-----:|
+| $S_1$ |   1   |   0   |
+| $S_2$ |   0   |   1   |
+| $S_3$ |  -1   |  -1   |
+
+The same thing can be done through **matrix multiplication**. Simply
+take the above 3-by-2 contrast matrix and multiply the 2-by-1 column
+vector of the estimated effects for $S_1$ and $S_2$, which I abbreviate
+as $E_1$ and $E_2$ here. The last entry of the resulting column vector
+would then give what we want.
+
+$$
+\begin{bmatrix}
+1 & 0 \\\\
+0 & 1 \\\\
+-1 & -1
+\end{bmatrix} 
+\begin{bmatrix}
+E_1 \\\\
+E_2
+\end{bmatrix} = 
+\begin{bmatrix}
+E_1 \\\\
+E_2 \\\\
+-E_1 - E_2
+\end{bmatrix}
+$$
+
+Here’s the R code version of the above matrix multiplication:
+
+``` r
+Cmat = contr.sum(3)  # Contrast matrix coding sum-to-zero constraint
+eff = c( E1=1.5, E2=1.7 )  # Made-up effect of S1 and S2
+Cmat %*% eff
+```
+
+      [,1]
+    1  1.5
+    2  1.7
+    3 -3.2
+
+#### Reconstructing Standard Error of Dropped Estimate
+
+The contrast matrix can similarly be applied to reconstruct the variance
+( hence the standard error) of the dropped subject’s estimate. The
+reconstruction is based on the **variance sum law**,
+$Var(X+Y) = Var(X) + Var(Y) + 2~Cov(X,Y)$, which has a natural
+generalization through matrix notations. Hence, given the variance of
+the estimates for $S_1$ and $S_2$ and their covariance, we will be able
+to reconstruct the variance of $E_3$ as
+
+$$
+\begin{equation}
+Var(E_3) = Var(E_1) + Var(E_2) + 2~Cov(E_1,E_2)  \tag{1}
+\end{equation}
+$$
+
+The variances and covariances of the estimates are given by the
+(variance-)covariance matrix of the fitted model. The formula below
+shows the matrix generalization to the variance sum law. Note that
+through the matrix generalization, we also get the reconstructed
+covariances, as shown in the off-diagonal entries in the reconstructed
+covariance matrix (the right-most matrix). The variance of $E_1$, $E_2$,
+and $E_3$ are found on the diagonal. The standard errors of the
+estimates are then obtained by taking the square roots of these diagonal
+entries.
+
+<img src="Cov.svg" style="width:95.0%" />
+
+In R, the same calculation is done with the code below.
+
+``` r
+Cmat = contr.sum(3)  # Contrast matrix for coding sum-to-zero constraint
+# Made-up variances-covariances matrix of the estimates
+Vmat = matrix(c( 0.3, -0.01,
+                 0.0,  0.4  ), 
+              byrow=T, nrow=2 )
+Cmat %*% Vmat %*% t(Cmat)  # Reconstructed variance-covariance matrix
+```
+
+         1     2     3
+    1  0.3 -0.01 -0.29
+    2  0.0  0.40 -0.40
+    3 -0.3 -0.39  0.69
+
+#### Back to the Code
+
+``` r
+d1 = d
+contrasts(d1$Sid) = contr.sum( n_subj )
+m1 = glm( R ~ -1 + Iid + Sid, data=d1, family=binomial("logit") )
+
+# Construct contrast matrix
+Cmat = diag(0, nrow=n_item+n_subj)[, -1]
+diag(Cmat)[1:n_item] = 1
+idxS = 1:n_subj + n_item
+Cmat[idxS, idxS[-length(idxS)]] = contr.sum( n_subj )
+
+# Reconstruct estimates with the constrast matrix
+m1_eff = (Cmat %*% coef(m1))[, 1]
+# Reconstruct std. error of the estimates with the constrast matrix
+Vmat = Cmat %*% vcov(m1) %*% t(Cmat) 
+m1_se = sqrt(diag(Vmat))
+```
+
+Once familiar with the matrix algebra discussed, the above code for
+reconstructing the dropped subject’s effect should become
+self-explaining. The only complication here is that instead of using the
+contrast matrix of the subjects, a larger matrix encompassing the coding
+of **all levels of both the item and the subject variables** is used to
+match the covariance matrix given by the model (which also contains all
+levels from all variables). This large contrast matrix can be thought of
+as the concatenation of two contrast matrices along the diagonal, with
+the remaining off-diagonal entries filled in with zeros. To better
+explain this, let me go back to our previous example with three
+subjects.
+
+To keep things simple, let’s assume additionally that there are only
+three items. Since in the model, the sum-to-zero constraint is only
+imposed on the subjects, the contrast matrix for the coding of items
+would be a 3-by-3 identity matrix. Concatenating the item and subject
+contrast matrices in the way mentioned above results in the matrix:
+
+`$$ \begin{bmatrix}     \begin{bmatrix}         1 & 0 & 0 \\         0 & 1 & 0 \\         0 & 0 & 1     \end{bmatrix}_{3 \times 3}      &      0~~~~~ \\      0     &      \begin{bmatrix}         1 & 0 \\         0 & 1 \\         -1 & -1     \end{bmatrix}_{3 \times 2} \end{bmatrix}_{6 \times 5} $$`
+
+In general, with $n_I$ items and $n_S$ subjects, this concatenated
+contrast matrix has the form:
+
+`$$ \begin{bmatrix}     ~~\mathrm{I}_{n_I \times n_I}~~~      &      0 ~~~~~~~~~~~~~~ \\                       \\      0     &      \begin{bmatrix}         1      & 0      & \cdots  & 0       \\         0      & 1      &         & 0       \\         \vdots &        & \ddots  & \vdots  \\         0      &   0   &  \cdots  & 1       \\         -1     & -1   &  \cdots &  -1     \end{bmatrix}_{n_S \times (n_S - 1)} \end{bmatrix}_{ (n_I + n_S) \times (n_I + n_S - 1) } $$`
+
+This is what the second part of the above code (reproduced below) is
+doing. It first sets up the correct shape of this large contrast matrix
+according to the number of items and subjects. The trick here is to use
+the `diag()` function to initialize a square matrix of zeros and drop
+one of the columns to match the correct number of dimensions. Then, line
+3 of the code sets the upper-left portion of this matrix (the item
+sub-matrix) as an identity matrix by filling in the diagonal with ones.
+Finally, the lower-right portion of the matrix (the subject sub-matrix)
+is replaced with the subject contrast matrix constructed by the
+`contr.sum()` function.
+
+``` r
+# Construct contrast matrix
+Cmat = diag(0, nrow=n_item+n_subj)[, -1]
+diag(Cmat)[1:n_item] = 1
+idxS = 1:n_subj + n_item
+Cmat[idxS, idxS[-length(idxS)]] = contr.sum( n_subj )
+```
+
+With the contrast matrix `Cmat` prepared, we can construct what we need
+through matrix algebra. The estimates for all levels, including the
+dropped one, are reconstructed by multiplying `Cmat` with the estimates
+returned by the model. This is illustrated in the line below. The
+estimates are given by `coef(m1)`, and the `[, 1]` at the end of the
+line forces the resulting one-column matrix into vector form.
+
+``` r
+m1_eff = ( Cmat %*% coef(m1) )[, 1]
+```
+
+The full covariance matrix is similarly reconstructed through `Cmat` and
+the covariance matrix extracted from the model (`vcov(m1)`):
+
+``` r
+Vmat = Cmat %*% vcov(m1) %*% t(Cmat) 
+```
+
+Since the final products we need are the standard errors, we extract the
+diagonal entries of `Vmat` and take the square root:
+
+``` r
+m1_se = sqrt( diag(Vmat) )
+```
+
+</div>
+
+[^1]: We don’t touch the subject estimates, though, since we assume them
+    to be centered at zero in the simulation, remember?

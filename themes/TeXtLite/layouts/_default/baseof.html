@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        
+        {{- block "main" . }}{{- end }}
+        
+        {{- partial "footer.html" . -}}
+
+        {{ if or .Params.mathjax .Params.katex }}
+        <!-- https://yihui.org/en/2018/07/latex-math-markdown/ -->
+        <script src="//yihui.org/js/math-code.js" defer></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                renderMathInElement(document.body, {
+                    // customised options
+                    // • auto-render specific keys, e.g.:
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                    ],
+                    // • rendering keys, e.g.:
+                    throwOnError : false,
+                });
+                document.querySelectorAll(".katex-display").forEach((e, i) => {
+                    e.id = `math-eq${i+1}`;
+                });
+            });
+        </script>
+        {{ end }}   
+
+        {{- partial "scrollBtn.html" -}}
+
+        <!-- Mermaid Diagram -->
+        {{ if .Page.Store.Get "hasMermaid" }}
+        <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+        {{ end }}
+
+
+
+        <!-- Floating modal on hover -->
+        <!-- <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script> -->
+        <!-- Production -->
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light-border.css"/>
+        <script>
+            function renderHoverNotes() {
+                // Footnotes
+                document.querySelectorAll('a[href^="#fn"]:not(.footnote-backref)').forEach(e => {
+                    const id = new URL(e.href).hash;
+                    // console.log(id)
+                    tippy(e, {
+                        content: `<div style="max-height:55vh; 
+                                              overflow-y:auto">
+                                <div style="width:94%; margin: 0 3%;">
+                            ${document.getElementById(id.substring(1)).innerHTML}
+                            </div></div>`,
+                        allowHTML: true,
+                        theme: 'light-border',
+                        interactive: true,
+                        maxWidth: "40ch",
+                    })
+                })
+
+                // .Box & math equations
+                document.querySelectorAll('a[href^="#"]:not(.footnote-backref)').forEach(e => {
+                    const id = new URL(e.href).hash;
+                    var elem = document.getElementById(id.substring(1));
+                    // .Box
+                    if ( elem.classList.contains('Box') ) {
+                        tippy(e, {
+                            content: `<div style="
+                                            max-height:55vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:94%; margin: 0 3%;">${elem.innerHTML}</div>
+                                      </div>`,
+                            allowHTML: true,
+                            theme: 'light-border',
+                            interactive: true,
+                            maxWidth: "50ch",
+                        })
+                    }
+                    // .katex-display
+                    if ( elem.classList.contains('katex-display') ) {
+                        let elem_n = elem.cloneNode(true);
+                        elem_n.querySelector("span.tag").remove();
+                        tippy(e, {
+                            content: `<div style="
+                                            width: 33vw;
+                                            min-width: 370px;
+                                            max-height:85vh; 
+                                            overflow-y:auto;">
+                                        <div style="width:95%; margin: 1em auto;">
+                                            <span>${elem_n.innerHTML}</span>
+                                        </div>
+                                      </div>`,
+                            allowHTML: true,
+                            theme: 'light-border',
+                            interactive: true,
+                            maxWidth: "50ch",
+                        })
+                    }
+                })
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                renderHoverNotes();
+            })
+        </script>
+    </body>
+</html>

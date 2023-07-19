@@ -1,0 +1,122 @@
+{{ define "main" }}
+
+<div class="main">
+    <article>
+        <div class="article_header">
+            <h1>Tags</h1>
+
+            <div class="tags">
+                <a onclick="switchTag('all')" data-tag="all">All<sup style="font-weight:normal"> 
+                    {{ len .Pages }}</sup></a>
+                {{ range $.Site.Taxonomies.tags.ByCount }}
+                    <a onclick="switchTag('{{ .Name }}')" data-tag="{{ .Name }}">{{ .Name }}<sup style="font-weight:normal"> {{ .Count }}</sup></a>
+                {{ end }}
+            </div>
+        </div>
+        
+
+        {{ range $tag, $pages := .Site.Taxonomies.tags }}
+            {{ $curr := newScratch }}
+            {{ $curr.Set "year" "2999" }}
+            <div class="article_list" data-tag="{{ $tag }}">
+                {{ range $index, $element := $pages }}
+                    {{ if $element.Params.date }}    
+                        {{ if not (eq ($curr.Get "year") (dateFormat "2006" $element.Params.date)) }}
+                            {{ if gt $index 0 }}</ul></section>{{end}}<section>
+                            <h2>{{ dateFormat "2006" .Params.date }}</h2><ul>
+                            {{ $curr.Set "year" ($element.Params.date.Format "2006") }}
+                        {{end}}
+                            <li data-date='{{$element.Params.date.Format "2006-01-02"}}'>
+                                <span class="published">{{ dateFormat "Jan 02" $element.Params.date }}</span>
+                                <a class="post-link" href="{{.RelPermalink}}" aria-label="{{.Content | truncate 250}}">
+                                    <span>{{ .Title }}</span>
+                                    {{ if $element.Params.subtitle }}
+                                    <span class="subtitle">{{ $element.Params.subtitle }}</span>
+                                    {{ end }}
+                                </a>
+                            </li>
+                    {{ end }}
+                {{end}}
+                </ul>
+                </section>
+            </div>
+        {{ end }}
+
+        <!-- All Posts -->
+        {{ $curr := newScratch }}
+        {{ $curr.Set "year" "2999" }}
+        <div class="article_list" data-tag="all">
+            {{ range $index, $element := .Pages }}
+                {{ if $element.Params.date }}    
+                    {{ if not (eq ($curr.Get "year") (dateFormat "2006" $element.Params.date)) }}
+                        {{ if gt $index 0 }}</ul></section>{{end}}<section>
+                        <h2>{{ dateFormat "2006" .Params.date }}</h2><ul>
+                        {{ $curr.Set "year" ($element.Params.date.Format "2006") }}
+                    {{end}}
+                        <li data-date='{{$element.Params.date.Format "2006-01-02"}}'>
+                            <span class="published">{{ dateFormat "Jan 02" $element.Params.date }}</span>
+                            <a class="post-link" href="{{.RelPermalink}}" aria-label="{{.Content | truncate 250}}">
+                                <span>{{ .Title }}</span>
+                                {{ if $element.Params.subtitle }}
+                                <span class="subtitle">{{ $element.Params.subtitle }}</span>
+                                {{ end }}
+                            </a>
+                        </li>
+                {{ end }}
+            {{end}}
+            </ul>
+            </section>
+        </div>
+
+    </article>
+</div>
+
+<script>
+    function cleanUp() {
+        document.querySelectorAll('.tags > a').forEach(e => {
+            e.className = "";
+        })
+        document.querySelectorAll("div.article_list").forEach(e => {
+            e.style.display = "none";
+        })
+    }
+    function listArticles() {
+        cleanUp();
+        var url = new URL(location.href);
+        var tag = url.searchParams.get('tag');
+
+        // No Query string
+        if (tag == null) {
+            // Highlight tag button
+            document.querySelector('.tags > a').className += " highlight";
+            // Show article list
+            document.querySelectorAll("div.article_list").forEach(e => {
+                var t = e.getAttribute('data-tag');
+                if (t == 'all') e.style.display = "block";
+            })
+        } else {
+            tag = decodeURI(tag);
+            // Highlight tag button
+            document.querySelectorAll('.tags > a').forEach(e => {
+                if (e.getAttribute('data-tag') == tag) e.className += " highlight";
+            })
+            // Show article list
+            document.querySelectorAll("div.article_list").forEach(e => {
+                var t = e.getAttribute('data-tag');
+                if (t == tag) e.style.display = "block";
+            })
+        }
+    }
+    function switchTag(tag) {
+        window.history.pushState("", "", `/post/?tag=${tag}`);
+        listArticles();
+    }
+
+    listArticles();
+</script>
+<style>
+    .tags > a:hover {
+        cursor: pointer;
+    }
+</style>
+{{ end }}

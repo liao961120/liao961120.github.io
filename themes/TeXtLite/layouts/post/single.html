@@ -1,0 +1,141 @@
+{{ define "main" }}
+
+<div class="main">
+    <article class="post">
+        <div class="article_header">
+            <div class="titles">
+                <h1>{{ .Title }}</h1>
+                {{ if .Params.subtitle }}
+                    {{ if not ( eq .Params.subtitle "") }}
+                    <p class="subtitle">{{ .Params.subtitle }}</p>
+                    {{ end }}
+                {{ end }}
+            </div>
+            
+
+            <!-- Taxonomies: https://gohugo.io/templates/taxonomy-templates/#example-list-tags-in-a-single-page-template -->
+            <div class="meta">
+                {{ if .Params.tags }}
+                <div class="tags">
+                    {{ range .Params.tags }}
+                        <a href="/post/?tag={{ . | urlize }}">{{ . | lower }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                
+                <!-- <ul>
+                    {{ range .Site.Taxonomies.tags.pandoc }}
+                        <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+                    {{ end }}
+                </ul> -->
+                <!-- Taxonomies -->
+                <div class="date">
+                    <span class="inline-icon">{{ readFile "/themes/TeXtLite/static/gadget/calendar.svg" | safeHTML }}</span>
+                    <span class="str">{{ .Date.Format "Jan 2, 2006" }}</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="article_content">
+            {{ .Content }}
+        </div>
+
+        <br><br><br>
+        {{ if or .Params.utterances (in .Site.Params.comments.default "utterances") }}
+            {{- partial "utterances.html" . -}}
+        {{ end }}
+
+        {{ if or .Params.disqus (in .Site.Params.comments.default "disqus")  }}
+            {{- partial "disqus.html" . -}}
+        {{ end }}
+
+        <div class="next-prev">
+            {{ with .PrevInSection }}
+                <div>
+                    <span>PREV</span>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </div>
+            {{ end }}
+            {{ with .NextInSection }}
+            <div>
+                <span>NEXT</span>
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </div>
+            {{ end }}
+        </div>
+    </article>
+    <aside class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></aside>
+    <!-- <aside>{{ .TableOfContents }}</aside> -->
+</div>
+
+{{ if .Params.ignoreToc }}
+<script>
+    document.querySelectorAll("{{ .Params.ignoreToc }}").forEach(e => {
+        e.classList.add("ignoreToc")
+    })
+</script>
+{{ end }}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
+<script>
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.article_content',
+        ignoreSelector: '.Box h2, .Box h3, .Box h4, .Box h5, .Box h6, .ignoreToc',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+        scrollSmooth: false,
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+        collapseDepth: 3,
+    });
+</script>
+<script>
+    // Place references at the end
+    const ref = document.querySelector(".references");
+    if ( ref ) 
+       document.querySelector(".article_content").appendChild(ref);
+</script>
+<style>
+    ol.toc-list {
+        list-style-type: none;
+    }
+    aside {
+        position: fixed;
+        top: 15% !important;
+        right: 2%;
+    }
+    .next-prev {
+        margin-top: 2.5em;
+        border-top: 2px solid rgba(173, 173, 173, 0.548);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .next-prev > div {
+        min-width: 150px;
+        width: 43%;
+    }
+    .next-prev > div > span {
+        display: block;
+        width: 100%;
+        color: grey;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        padding-bottom: 0.3rem;
+        margin-top: .4rem;
+    }
+    .next-prev > div:nth-child(2) {
+        text-align: right;
+    }
+    .next-prev > div > a {
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+    }
+</style>
+{{ end }}

@@ -1,0 +1,82 @@
+% \documentclass[12pt,preview,border=5mm]{standalone}
+\documentclass[12pt]{article}
+\usepackage[paperheight=3in,paperwidth=4.8in,margin=0.1in,heightrounded
+            % ,showframe
+            ]{geometry}
+\usepackage{amsmath}
+
+\usepackage{ifxetex}
+\ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra}  % also loads fontspec
+    \usepackage{xunicode}
+    \defaultfontfeatures{Mapping=tex-text}
+    \setmainfont[Scale=1,Ligatures={Common}]{Adobe Caslon Pro}
+    \setromanfont[Scale=1,Ligatures={Common}]{Adobe Caslon Pro}
+    % \setmathrm[Scale=1]{Adobe Caslon Pro}
+    \setmathfont(Digits,Latin)[Numbers={Lining,Proportional}]{Adobe Caslon Pro}
+    % \setmathsfont(Greek)[Uppercase=Regular,Lowercase=Italic,Scale=MatchUppercase]{GFS Porson}
+    \setmathsfont(Greek)[Scale=1.2]{GFS Porson}
+\else
+   \usepackage{tgtermes}
+\fi
+
+
+
+
+\begin{document} 
+\pagenumbering{gobble}
+
+% With subscript i
+% \newcommand{\midx}[2]{ \mathrm{#1}[\mathit{i}],\mathrm{#2}[\mathit{i}] }
+% \newcommand{\aidx}[3]{ \mathrm{#1}[\mathit{i}],\mathrm{#2}[\mathit{i}],\mathrm{#3}[\mathit{i}] }
+% \newcommand{\vidx}[1]{ \mathrm{#1}[\mathit{i}] } 
+% Without subscript i
+\newcommand{\midx}[2]{ \mathrm{#1},\mathrm{#2} }
+\newcommand{\aidx}[3]{ \mathrm{#1},\mathrm{#2},\mathrm{#3} }
+\newcommand{\vidx}[1]{ \mathrm{#1} }
+\newcommand{\annot}[1]{ \begin{center} {\scriptsize #1 \phantom{XXXXX} } \end{center}}
+\newcommand{\bb}[1]{ \beta_{\mathrm{#1}} }
+\newcommand{\gm}[1]{ \gamma_{\mathrm{#1}} }
+
+
+% \annot{Efficacy Submodel}
+\begin{align*}
+    E_{\midx{Sid}{t}}      & = \delta + \gamma_\vidx{Sid} \\
+                           & \phantom{= \delta}~ + \bb{AE} \text{A}_\vidx{Sid} + \bb{TE [G_\vidx{Sid}, T_\vidx{Sid}]} \text{t}  \\
+    \delta                 & \sim \text{Normal}(0, 1.5)    \\
+    \bb{AE}, \bb{TE}       & \sim \text{Normal}(0, 1)      \\
+    \gamma_\vidx{Sid}      & \sim \text{Normal}(0, \tau)   \\
+    \tau                   & \sim \text{Normal}^{+}(0, 1)  \\
+\end{align*}
+
+\newpage
+
+
+% \annot{Treatment Outcome Submodel}
+\begin{align*}
+    D^{\ast}_{\midx{Sid}{t}}          & \sim \text{Binomial}( 14, P_{\midx{Sid}{t}} )  \\
+    \text{logit}( P_{\midx{Sid}{t}} ) & = -D_{\midx{Sid}{t}} \\
+    D_{\midx{Sid}{t}}                 & = \alpha + \bb{TD [T_{\vidx{Sid}}]} \text{t} + \bb{AD} \text{A}_{\vidx{Sid}} + \bb{ED} E_{\midx{Sid}{t}} \\
+    \alpha                            & \sim \text{Normal}(0, 1.5) \\
+    \bb{AD}, \bb{ED}                  & \sim \text{Normal}(0, 1)  \\
+    \bb{TD}                           & \sim \text{Normal}(\mu_{\bb{TD}}, \sigma_{\bb{TD}}) \\
+    \mu_{\bb{TD}}                     & \sim \text{Normal}(0, 1)      \\
+    \sigma_{\bb{TD}}                  & \sim \text{Normal}^{+}(0, 1)  \\
+\end{align*}
+ 
+\newpage
+
+% \annot{Item Response Submodel}
+\begin{align*}
+    R_{\aidx{Sid}{Iid}{t}}    &\sim \text{OrderedLogit}( \phi_{\aidx{Sid}{Iid}{t}}, \kappa )    \\
+    \phi_{\aidx{Sid}{Iid}{t}} &= E_{\midx{Sid}{t}} + I_{\vidx{Iid}}                           \\
+    \kappa                    &\sim \text{Normal}(0, 1)         \\
+    I_1                       & = - \sum_{i=2}^{N_I} I_i ~~~ \text{\small(sum-to-zero)}  \\
+    I_2, I_3, ..., I_{N_I}    &\sim \text{Normal}(0, \sigma_I)  \\
+    \sigma_I                  &\sim \text{Exponential}(1)
+\end{align*}
+ 
+
+\end{document}
+ 

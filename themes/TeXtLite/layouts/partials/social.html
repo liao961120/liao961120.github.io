@@ -1,0 +1,30 @@
+<div class="social">
+    {{ if ($.Site.Params.social.email) }}
+    <span class="icon" title="Send me an email">
+        <a href="mailto:{{$.Site.Params.social.email}}" target="_blank">
+            <span class="social email">{{ readFile $.Site.Params.icon.email | safeHTML }}</span>
+        </a>
+    </span>
+    {{ end }}
+    {{ if ($.Site.Params.social.twitter) }}
+    <span class="icon" title="Follow me on Twitter">
+        <a href="{{$.Site.Params.social.twitter}}" target="_blank">
+            <span class="social twitter">{{ readFile $.Site.Params.icon.twitter | safeHTML }}</span>
+        </a>
+    </span>
+    {{ end }}
+    {{ if ($.Site.Params.social.facebook) }}
+    <span class="icon" title="Follow me on Facebook">
+        <a href="{{$.Site.Params.social.facebook}}" target="_blank">
+            <span class="social facebook">{{ readFile $.Site.Params.icon.facebook | safeHTML }}</span>
+        </a>
+    </span>
+    {{ end }}
+    {{ if ($.Site.Params.social.github) }}
+    <span class="icon" title="Follow me on GitHub">
+        <a href="{{$.Site.Params.social.github}}" target="_blank">
+            <span class="social github">{{ readFile $.Site.Params.icon.github | safeHTML }}</span>
+        </a>
+    </span>
+    {{ end }}
+</div>

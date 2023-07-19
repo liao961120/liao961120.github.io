@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+
+        <section class="bio">
+            <div class="container">
+                <div class="row">
+                    <div class="left personal-info">
+                        <div class="imgCircle">
+                            <img src="{{ .Params.avatar }}" alt="IMAGE HERE" class="avatar">
+                        </div>
+                        <p class="name">{{ .Params.name }}</p>
+                        <p class="position">{{ .Params.position }}</p>
+                        <p class="institute">{{ .Params.institute | safeHTML }}</p>
+                        {{- partial "social.html" . -}}
+                    </div>
+                    <div class="right bio">
+                        {{ .Content }}
+                        <div class="row left-align">
+                            <div class="left">
+                                <h3>{{ .Params.interests.title }}</h3>
+                                <ul>
+                                {{ range .Params.interests.items }}
+                                    <li>{{ . | markdownify }}</li>
+                                {{ end }}
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <h3>{{ .Params.education.title }}</h3>
+                                <ul class="edu-list">
+                                    {{ range .Params.education.items }}
+                                    <li>
+                                        <span class="icon">
+                                            {{ readFile "/themes/TeXtLite/static/gadget/graduation-cap.svg" | safeHTML }}
+                                        </span>
+                                        <div class="description">
+                                            <p class="course">{{ .course }}</p>
+                                            <p class="institute">{{ .institution }}</p>
+                                        </div>
+                                    </li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="left">
+                        <h2 id="{{ .Params.projects.title | urlize }}">{{ .Params.projects.title }}</h2>
+                    </div>
+                    <div class="right">
+                        <div id="proj-tags"><span data-tag="" class="clicked">All</span></div>
+                    {{ range .Params.projects.items }}
+                        <div class="project" data-tags='{{ delimit .tags "," }}'>
+                            <img src="{{ .img }}" alt="{{ .name }}">
+                            <div>
+                                <h3><a href="{{ .url }}" target="_blank">{{ .name }}</a></h3>
+                                <p class="project-about">{{ .about | markdownify }}</p>
+                                <div class="project-tags">
+                                    {{ range .tags }}
+                                        <span>{{ . }}</span>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {{ range .Params.sections }}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="left">
+                        <h2 id="{{ .title | urlize }}">{{ .title }}</h2>
+                    </div>
+                    <div class="right">
+                        {{ .about | markdownify }}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{ end }}
+
+        {{- partial "footer.html" . -}}
+
+        {{- partial "scrollBtn.html" -}}
+    </body>
+
+    <script>
+        var tags = [];
+        var select = document.getElementById('proj-tags');
+
+        document.querySelectorAll(".project").forEach(e => {
+            tags = tags.concat(e.getAttribute('data-tags').split(','));
+        })
+        tags = [...new Set(tags)].sort((a, b) => b.length - a.length)
+        function showTag() {
+            document.querySelectorAll('#proj-tags>span').forEach(e => e.className = "");
+            this.className = 'clicked';
+            var t = this.getAttribute('data-tag');
+            if (t == '') {
+                document.querySelectorAll('.project').forEach(e => {
+                    e.style.display = "flex";
+                });
+                return
+            }
+            document.querySelectorAll('.project').forEach(e => {
+                let dataTags = e.getAttribute('data-tags').split(',')
+                if (dataTags.includes(t)) 
+                    e.style.display = "flex";
+                else
+                    e.style.display = "none";
+            })
+        }
+        // Attach showTag() to button
+        select.children[0].onclick = showTag;
+        tags.forEach(t => {
+            var span = document.createElement("span");
+            span.innerText = t;
+            span.setAttribute('data-tag', t);
+            span.onclick = showTag;
+            select.appendChild(span)
+            console.log(span)
+        })
+    </script>
+
+    <style>
+        section {
+            padding: 4rem 0;
+        }
+        section:nth-child(2n+1) {
+            background-color: var(--landing-section-skin);
+        }
+        section p {
+            font-size: 1.3rem;
+            line-height: 1.35;
+        }
+        section li {
+            line-height: 1.7;
+        }
+        section h2 {
+            font-size: 2.3em;
+            font-weight: 600;
+            margin-top: 0;
+        }
+        section.featured h2 {
+            text-align: center;
+        }
+        section .container .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 7.5%;
+        }
+        section .container .row.left-align {
+            justify-content: space-between;
+            padding: 0;
+        }
+        section .container .row .left {
+            width: 32%;
+            margin-right: .8em;
+            margin-bottom: 1.5em;
+        }
+        section .container .row .right {
+            width: 62%;
+        }
+
+        /* Project */
+        #proj-tags {
+            margin-bottom: 1em;
+        }
+        #proj-tags > span,
+        .project-tags > span {
+            display: inline-block;
+            color: white;
+            background-color: var(--header-background);
+            padding: 0.1em 0.3em;
+            margin: 0 0.25em 0.18em 0;
+            border-radius: 0.2em;
+        }
+        #proj-tags > span:hover {
+            cursor: pointer;
+            color: var(--link-transitiion-light);
+        }
+        #proj-tags > span.clicked {
+            background-color: var(--header-background-darker); 
+        }
+        .project-tags {
+            margin-top: 0.5em;
+            font-size: 0.8em;
+        }
+        div.project {
+            margin-bottom: 2em;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        div.project h3 {
+            line-height: 1.1;
+        }
+        div.project h3,
+        div.project p.project-about {
+            margin: 0;
+        }
+        div.project p.project-about {
+            margin-top: 0.5rem;
+            font-size: 1.3rem;
+            color: var(--grey-text-darker);
+            font-family: FreeSerif, 'Times New Roman', Times, serif;
+        }
+        div.project h3 > a {
+            font-size: 1.9rem;
+            color: black;
+            font-weight: 600;
+        }
+        div.project h3 > a:hover {
+            text-decoration: none;
+        }
+        div.project > * {
+            width: 48%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+        }
+
+        /* Biography */
+        .imgCircle {
+            width: 190px;
+            height: 190px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            display: block;
+            margin: 12px auto 0 auto;
+            padding: 0 auto;
+        }
+        section.bio .imgCircle img.avatar {
+            display: inline;
+            margin: 0 auto 0 auto;
+            width: 100%;
+            height: auto;
+        }
+        section.bio .personal-info {
+            text-align: center;
+        }
+        section.bio .personal-info p {
+            margin: 0.35em 0;
+        }
+        section.bio .personal-info .name {
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+        section.bio .personal-info .position,
+        section.bio .personal-info .institute {
+            color: var(--grey-text);
+        }
+        section.bio .personal-info .institute {
+            margin-bottom: 0.8em;
+        }
+        section.bio .personal-info div.social span.social {
+            padding: 0.25rem 0.35rem 0.45rem 0.35rem;
+        }
+        section.bio div.right.bio div.left,
+        section.bio div.right.bio div.right {
+            width: 49%;
+            margin: 0;
+            padding: 0;
+        }
+        section.bio div.right.bio .left ul {
+            margin-left: -.4em;
+            margin-top: -.15em;
+        }
+        section.bio div.right.bio .left li {
+            margin: 0;
+            list-style-type: square;
+        }
+        div.right.bio p {
+            margin-top: 0;
+        }
+        div.right.bio > h2 {
+            margin-top: 0;
+            padding-top: 0;
+            margin-bottom: .4em;
+        }
+        div.right.bio > h3 {
+            margin-top: 1.5em;
+            margin-bottom: .5em;
+        }
+        div.bio > p {
+            text-align: justify;
+        }
+        span.icon > svg {
+            height: 1.2em;
+        }
+        .edu-list {
+            list-style-type: none;
+            padding-left: .5em;
+        }
+        ul.edu-list > li > *{
+            display: inline-block;
+            vertical-align: top;
+        }
+        ul.edu-list > li > span.icon {
+            margin-right: 0.5em;
+        }
+        ul.edu-list > li > .description > p {
+            margin: 0;
+            margin-bottom: 0.15em;
+        }
+        ul.edu-list p.course {
+            font-weight: 600;
+        }
+        ul.edu-list p.institute {
+            color: var(--grey-text);
+            font-size: 0.88em;
+        }
+
+
+
+
+        @media only screen and (max-width: 800px) {
+        section .container .row {
+            padding: 0 3.5%;    
+        }
+        section .container .row .left {
+            width: 100%;
+            /* min-width: 300px; */
+        }
+        section .container .row .right {
+            width: 100%;
+            /* min-width: 300px; */
+        }
+        section.bio div.right.bio div.left,
+        section.bio div.right.bio div.right {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        div.project > * {
+            width: 100%;
+        }
+        div.project > img {
+            margin-bottom: .5em;
+        }
+        div.bio > p {
+            text-align: left;
+        }
+        
+        }
+
+    </style>
+</html>

@@ -1,0 +1,1222 @@
+---
+title: Beyond Item Response Theory
+subtitle: "Growth Curve Modeling of Latent Variables with Bayes"
+description: "Bayesian statistics, causal inference, psychology, research design"
+date: '2023-06-27'
+aliases:
+    - /irt5
+katex: true
+draft: false
+ignoreToc: "h3,h4,h5,h6"
+tags:
+- r
+- stan
+- bayes
+- stats
+- psychology
+format: 
+   gfm:
+      output-file: "index"
+      output-ext: "md"
+      variant: +yaml_metadata_block+raw_html
+      df-print: tibble
+# filters:
+  # - quarto
+  # - list-table.lua
+editor:
+   render-on-save: false
+bibliography: ref.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	message = FALSE,
+	warning = FALSE,
+	#results = 'hold',
+	out.width = "100%",
+	fig.align = 'center',
+	comment = "",
+	fig.dim = c(10, 5.5),
+   dev='svglite',
+   dev.args = list(bg = "transparent"),
+   NULL
+)
+```
+
+My previous four posts have focused on basic item response models[^n1]. These models are commonly found in
+an educational testing context but are less often seen in clinical research
+settings where questionnaires are used for the measuring and assessment of
+individuals' conditions. Due to the higher level of complexity in the study
+design of clinical studies, IRT models are often discarded for the analyses of
+questionnaires. Simple sum scores of the questionnaires, instead of the more
+robust estimates derived from IRT models, are taken directly to represent the
+quantity of the latent constructs. This has undesirable effects of introducing
+bias and overconfidence and ignoring uncertainty in measuring these latent
+constructs.
+
+[^n1]: The topic of the current post is quite advanced and assumes the readers have either read the previous four posts or have a solid understanding of IRT.
+
+There is no need to trade measurement inefficiency for study design complexity.
+Complex models arising from complicated study designs can be naturally extended
+to incorporate IRT models that deal with latent construct measurement, thus
+enhancing the quality of the study. In this post, we will walk through such an
+example by building up a model for analyzing individuals' changes---in terms of
+latent variables---over time. A Bayesian framework will be adopted, and we will
+be working with [Stan](https://mc-stan.org) code directly. As always, we begin
+with simulations. But since the model we are building is quite complicated---as
+any model trying to mirror reality is---I'll first provide some context.
+
+
+Treatment of Alcohol Dependence
+-------------------------------
+
+Suppose some researchers were carrying out a study to examine the effectiveness
+of treatments on alcohol dependence. Individuals were recruited and randomly
+assigned to one of the three treatment conditions. All treatments lasted for
+three months, during which the participants were assessed for the effectiveness
+of the treatments to track their clinical progress. The assessments included
+collecting data such as measures of treatment outcomes (e.g., days of heavy
+drinking in the past 14 days) and mediating factors on treatment effectiveness
+suggested by previous studies (e.g., self-efficacy). It was hypothesized that
+treatments for alcohol dependence work partially through raising individuals'
+self-efficacy in controlling alcohol use. Hence, during the assessments,
+questionnaires on self-efficacy in alcohol control were also administered to
+measure this potential mediating factor.
+
+![Causal assumptions of the alcohol dependence treatment study](dag.svg){style="max-height:210px"}
+
+The DAG above explicates the causal assumptions of this fictitious study[^cite].
+Here's the description of the variables in the DAG.
+
+- $E$: Participants' self-efficacy on alcohol use control
+      
+     Since self-efficacy $E$ is not directly observed, it is represented as a
+     circled node in the DAG.
+
+- $R$: Item responses collected through self-efficacy questionnaires
+
+    To measure the unobserved self-efficacy $E$, tools like questionnaires are
+    required to measure such a latent construct. $R$ stands for the responses
+    collected through the questionnaire. These responses would allow the
+    estimation of the variable $E$ for each participant. Note that the item
+    parameter $I$ is left out for simplicity. If present, it would point to $R$
+    as item estimates also affect the responses $R$.
+
+- $A$: Participants' age
+
+- $T$: Treatment condition received by a participant
+
+- $D$: Latent treatment outcome 
+
+    $D$ is the latent quantity that underlies the (observed) treatment outcome.
+
+- $D^{\ast}$: Treatment outcome. Here, it is the days of heavy drinking in the
+              past 14 days.
+
+The arrows among the nodes in the DAG indicate the directions of influence.
+Therefore, the graph is basically saying that the treatments affect the outcomes
+through two pathways. One direct, and the other indirect, through self-efficacy.
+Age also has direct influences on self-efficacy and the treatment outcome. The
+labels on the edges mark the regression coefficients, which are the parameters
+of interest for our later simulations and model testing.
+
+The DAG presented above ignores the time dimension for simplicity. The second
+DAG below includes it. To avoid cluttering the graph, only three, instead of
+four, time points are shown. The subscripts on the variables mark the time
+points. $t=0$ indicates the baseline (i.e., the first) assessment. A cautionary
+note here is that age only *directly* influences self-efficacy and the latent
+treatment outcome at baseline ($A \rightarrow E_0, D_0$). At subsequent time
+points, they are influenced by age only *indirectly* through $E_0$ and $D_0$.
+This slight complication will become clearer in the following description of the
+simulation.
+
+![Causal assumptions of the alcohol dependence treatment study (simplified illustration of three time points).](dag-longitudinal.svg){style="max-height:280px"}
+
+
+[^cite]: The fictitious study here is largely inspired by and modified from
+    @moniz-lewis2022 and @bowen2014. The details differ quite a lot, but the
+    main ideas are similar. 
+
+
+Simulating Treatments
+---------------------
+
+With the background provided, let's now simulate the above scenario. The code
+for the simulation, as well as later model fitting, will be inevitably long.
+It's a natural consequence of realistic stats modeling. This post is thus less
+of a pedagogical step-by-step guide and more of a conceptual demonstration of
+practical real-world data analyses. That said, intricate details of code
+implementation won't be hidden and are laid out as is. If anything seems
+mysterious, the key to demystifying it is to run some code. Experimentation is
+an ally that you should always trust.
+
+
+### Efficacy and Treatment Outcome
+
+Let's first sketch out the overall scenario by simulating 30 participants for
+each treatment condition. The age, gender, and the assigned treatment
+condition of each participant are saved in the variable `A`, `G`, and `Tx`,
+respectively. I also simulated a "baseline" for each of the participants. These
+baselines are the quantification of individual differences and can be more or
+less thought of as the amount of efficacy possessed by the individuals before
+receiving any treatment.
+
+```{r}
+# remotes::install_github("liao961120/stom")
+library(stom)
+set.seed(1977)
+
+Ntx = 3        # number of treatments
+Ns = Ntx * 30  # number of subjects
+Nt = 4         # number of time points
+
+Tx = rep(1:Ntx, each = Ns / Ntx)  # Treatment condition for each subj
+G = rep(1:2, times = Ns / 2)      # Gender of each subj
+A = rtnorm( Ns, m = 36, lower = 18, upper = 80, s = 20 )  # Age
+tau = 0.8                 # std for Subject baseline Efficacy
+subj = rnorm(Ns, 0, tau)  # Subject baseline Efficacy (subject intercept)
+
+# Transform Age to a reasonable scale
+minA = min(A)
+A = (A - minA) / 10  # 1 unit = 10 years in original age
+```
+
+The simulation of the participants' age deserves some elaboration. These ages
+are drawn from a *truncated normal distribution*, which is essentially a normal
+distribution with an upper and a lower bound applied. The boundaries are set
+here such that the participants come from a normal distribution with a mean age
+of 36 and a standard deviation of 20, with ages below 18 or over 80 left out
+from the sample[^rtnorm]. After drawing samples for the ages, the ages are
+scaled such that (1) the youngest participant has a scaled age of zero, and (2)
+a unit of difference in the scaled age corresponds to a 10-year difference in
+the raw age. This is done to align the scale of the age to the scales of the
+other variables. Otherwise, the original large scale of the age would make the
+effects difficult to interpret.
+
+Now, let's lay out the parameters for generating participants' self-efficacy
+($E$) and treatment outcomes ($D$):
+
+```{r}
+B_AE = .1             # Effect of Age on Efficacy
+B_TE = matrix(c(      # Effect of Treatment on Efficacy
+      .3, .7,  1.3,
+      .3,  1,   .7
+    ), byrow=T, nrow=2
+)
+B_AD = .2             # Effect of Age on Outcome
+B_ED = 1              # Effect of Efficacy on Outcome
+B_TD = c(0, 0, 0)     # Effect of Treatment on Outcome
+
+delta = -1.8   # Global Intercept for "E model"
+alpha = 0      # Global Intercept for "D model"
+```
+
+As mentioned previously, it is assumed that the treatments differentially affect
+efficacy according to gender (i.e., the treatment effect on efficacy interacts
+with gender). This is specified in `B_TE` ($\beta_{TE}$) as a 2-by-3 matrix. The
+first row of `B_TE` corresponds to male and the second to female. The three
+columns correspond to Treatment 1 (`Tx == 1`), 2  (`Tx == 2`), and 3 (`Tx == 3`)
+respectively. For the direct treatment effects on the outcomes ($\beta_{TD}$), I
+set them all to zero and assume no interaction with the gender, to keep things
+simple. 
+
+With all these parameters prepared, we can build up the generative process of
+efficacy and the outcomes. 
+
+As shown in the code chunk below, we first set up the time points `t`. `t`
+starts with zero because it is assumed that the first assessment took place
+*right before* the treatments started. Hence, any treatment effects at this
+point of measure should be zero. `t = 0` does us the favor as it naturally
+cancels out the treatment effects $\beta_{TD}$ and $\beta_{TE}$.
+
+Let's now simulate self-efficacy $E$. Before receiving the treatments, the
+efficacy is assumed to be slightly influenced by age, through `B_AE`. In
+addition, baseline individual differences are modeled through the random subject
+intercept `subj`. After receiving the treatments, treatment effects get added on
+through the term `B_TE`. Efficacy is then modeled as the sum of the
+aforementioned effects.
+
+After generating participants' efficacy, we can again follow the arrows of the
+DAGs to write down the generative process of $D^{\ast}$, coded as `D_latent`
+below.
+
+Finally, the treatment outcomes here, days of heavy drinking in the past 14
+days, are assumed to follow a binomial distribution $D \sim \text{Binomial}(14,
+p)$. The latent score `D_latent` is reversed with the negative sign since we
+want higher latent scores to result in fewer heavy drinking days. Next, we
+simply map the latent scores to probabilities with the logistic function.
+
+```{r}
+t = 0:(Nt - 1)  # time points of measure
+
+# E model (causes of E)
+E = sapply(t, function(time) {
+    b_TE = sapply( 1:Ns, function(i) B_TE[ G[i],Tx[i] ] )
+    delta + subj + B_AE * A + b_TE * time
+})
+
+# D model (causes of D)
+D_latent = sapply(t, function(time) {
+   alpha + B_TD[Tx]*time + B_AD * A + B_ED * E[, time + 1]
+})
+D = sapply(t, function(time) {
+   mu = -D_latent[, time+1]
+   rbinom( Ns, size=14, prob=logistic(mu) )
+})
+```
+
+Now, let's collect the values we have simulated into a long-form data frame.
+Each row of the data frame corresponds to a response ($D$) of a participant
+collected at a specific time point. I will name this data frame the
+*(treatment-)outcome-level* data frame. Later, we will see another data frame
+that records *item-level* responses.
+
+```{r}
+# Outcome-level responses (subject-time)
+dO = expand.grid( Sid=1:Ns, time=t, KEEP.OUT.ATTRS=F )
+dO$A = with( dO, A[Sid] )
+dO$Tx = with( dO, Tx[Sid] )
+dO$G = with( dO, G[Sid] )
+dO$D = NA
+dO$D_latent = NA
+dO$E = NA
+for ( i in 1:nrow(dO) ) {
+   s = dO$Sid[i]
+   t_ = dO$time[i] + 1
+   dO$E[i] = E[s, t_]
+   dO$D_latent[i] = D_latent[s, t_]
+   dO$D[i] = D[s, t_]
+}
+str(dO)
+```
+
+
+### Item Responses
+
+Item responses are generated similarly to $D$ since they both depend on efficacy
+$E$. Let's assume the questionnaire for measuring participants' efficacy
+contains 20 items (`Ni = 20`), and that the easiness of the items is equally
+spaced and ranges from -.6.3 to 6.3.
+
+With the item easiness and a baseline choice preference `kappa` set, we now can
+generate the item responses $R$ from the participants' efficacy.
+
+```{r}
+Ni = 20  # number of items
+I = seq(-4.5, 4.5, length = Ni)  # item easiness (sums to zero)
+kappa = logit(cumsum(simplex(c(1, 2, 4, 4, 2, 1))))
+kappa = kappa[-length(kappa)]
+
+# Item-level responses (subject-item-time)
+dI = expand.grid( Sid=1:Ns, Iid=1:Ni, time=t, KEEP.OUT.ATTRS=F )
+for (i in 1:nrow(dI)) {
+   dI$R[i] = with(dI, {
+      rordlogit(E[Sid[i], time[i] + 1] + I[Iid[i]], kappa = kappa)
+   })
+}
+str(dI)
+```
+
+
+### Wrapping up
+
+When a simulation gets massive, it is always better to pack up all the code into
+a function. There will certainly be times when we have to modify the structure
+of, or the parameter values in, the simulation. A function helps a lot in these
+situations. 
+
+The simulation code we have gone through so far is condensed into the
+`sim_data()` function in [`simulation.R`](simulation.R). You can just load it
+and run the simulation:
+
+```{r}
+source("simulation.R")
+d = sim_data()  # Change param vals by overwriting default args
+str(d)
+```
+
+Notice the structure of the returned value by `sim_data()`. It is a nested named
+list with three elements at the top level: `$dat`, `$params`, and `$others`.
+
+- `$dat` holds the data for model fitting. It has this specific structure to
+  match stan's data block. It makes more sense later when we see stan's
+  counterpart of the code. 
+
+- `$params` are the true parameter values used in the simulation. They are
+  returned so we can later compare the true parameter values to those estimated
+  by the model.
+
+- `$others` holds other information that does not belong to the former two but
+  is nevertheless needed. For instance, the minimum age `minA` is saved in
+  `$others` so that raw ages in new data can be scaled accordingly if one would
+  like to make predictions with new datasets.
+
+
+[^rtnorm]: If you are interested in the truncated normal distribution, take a
+    look at the source code by typing `stom::rtnorm`. You will see that it
+    simply draws samples from a normal distribution and drops out those beyond
+    the boundaries until the required sample size is reached.
+
+
+Model Formulation
+-----------------
+
+Now we have the simulated data, let's begin constructing the model. In a
+Bayesian framework, model construction feels pretty much like a simulation
+(assume you are using Stan, not some wrappers around it) since both are
+essentially describing the same *data-generating process*. Bayes, as complicated
+as it may seem, really just comes down to four simple components:
+
+1. Data-generating process
+2. Prior distribution
+3. Data
+4. Posterior distribution
+
+The *data-generating process* describes the relations between the parameters,
+that is, how the parameters arise from others. The *priors* give preliminary
+information on the parameters (the priors could be thought of as part of the
+data-generating process as well). With these prepared, the Bayesian machine
+incorporates the information from the data to update the priors---according to
+the data-generating process---and arrives at the *posterior distribution*.
+
+The posterior is nothing else but a *joint probability distribution of all
+parameters*, after combining the information from the priors, the
+data-generating process, and the data. It is what we believe the parameters are,
+given the data and our assumptions. Everything we need for inference derives
+from the posterior.
+
+So we're now ready to formulate our model (data-generating process) in Bayesian
+terms. This massive model can be chopped into three parts. Let's divide and
+conquer.
+
+
+### Causes of Efficacy
+
+The first part of the model deals with the generation of Efficacy. The
+formulation is shown below.
+
+![](model-formulation_1.svg){style="max-width:24ch"}
+
+The first two lines of the formulation describe how efficacy $E$ is generated
+from the effects of participant baseline $\gamma_{Sid}$, age $\beta_{AE}$, and
+treatment $\beta_{TE}$. The last three lines specify the prior distributions for
+the relevant parameters. The "+" sign on the prior distribution of $\tau$ is an
+abbreviation for the truncated normal distribution with negative values removed.
+Since $\tau$ is a standard deviation, it must not be negative. The truncation at
+zero imposes this constraint on $\tau$.
+
+
+### Causes of Treatment Outcome
+
+With $E$ generated, we can then describe the process generating the treatment
+outcome $D^{\ast}$. The outcomes in the current example are the number of
+heavy-drinking days in the past 14 days. Hence, it is a *count* variable with an
+upper bound of 14, which makes the binomial an ideal distribution for modeling
+the outcome. The binomial and the logit link are used here to map the count
+outcomes to the underlying latent variable $D$. As seen in the simulation, a
+negative sign is needed here to reverse the relation between $D^{\ast}$ and $D$
+such that a higher value of $D$ corresponds to a fewer count of heavy-drinking
+days. The third formula lays out the generative process of $D$, linking the
+influences of the treatment, age, and efficacy to $D$. 
+
+![](model-formulation_2.svg){style="max-width:38ch"}
+
+A special kind of prior distribution---exemplified by the distribution of
+$\beta_{TD}$ here---deserves some attention. The distribution is assumed to be a
+normal distribution with an unknown mean $\mu_{\beta_{TD}}$ and unknown standard
+deviation $\sigma_{\beta_{TD}}$. Their priors are then given by the next two
+lines. This nested structure of prior distributions is known as hierarchical
+priors. By specifying such a hierarchical structure in the priors, one can
+*partial-pool* information across the three treatment effects, thus reducing
+variation among the $\beta_{TD}$ parameters. 
+
+Partial pooling is used here for two reasons. First, it makes sense
+theoretically to partial-pool the direct treatment effects on the outcome since
+different treatments are still similar in some sense that information across all
+treatments is useful and should be shared. Second, partial pooling has the
+effect of reducing variation among the pooled parameters. Without such a soft
+constraint on the $\beta_{TD}$ parameters, the model here will be unidentified
+(i.e., multiple sets of solutions exist).
+
+
+### Causes of Item Response
+
+The final piece of the model describes the generation of participants' responses
+to the items measuring efficacy. The submodel here has a structure nearly
+identical to the rating scale model described in the [previous post](/irt4). The
+only difference here is that a sum-to-zero constraint is imposed on the item
+parameters, which allows the item easiness to be anchored and thus comparable to
+the true parameter values from the simulation. The item parameters are also
+partially pooled here, achieved through the hierarchical prior on $\sigma_I$.
+
+![](model-formulation_3.svg){style="max-width:27ch"}
+
+
+
+Stan: A Brief Introduction
+--------------------------
+
+We have completed our formal model-building. Now, we have to code it in Stan, a
+language for implementing Bayesian models. 
+
+Stan is hard for anyone first meeting it. Sadly, I think there is really no
+"introductory" material on Stan because Bayesian statistics is already an
+advanced topic. How, then, could anyone get started with Bayes if everything is
+advanced and hard? 
+
+We need *scaffolds*. The scaffolds for learning statistics are simulations and
+programming skills that license them. Building up simulations allows one to
+experiment with stat models and therefore provides opportunities for
+understanding. So to learn Stan, one should probably begin with examples. The
+[Stan User's Guide](https://mc-stan.org/docs/stan-users-guide) provides tons of
+[example models](https://mc-stan.org/docs/stan-users-guide/example-models.html).
+Start with simple models or any one that you're familiar with. Simulate data
+based on the model's assumption, construct the model by modifying the example
+code, and fit the model to see if it correctly recovers the parameters. If
+succeeded, extend the simulation and the model for the next round of testing. If
+failed, simplify the model (and the simulation, if needed) to pinpoint the
+potential problems.
+
+Interestingly, the process of learning Stan is no different from using Stan. In
+both situations, one is unable to proceed without scaffolds. Stan gives you full
+flexibility, and with this modeling power, one immediately finds out there are
+infinite ways to go wrong. Simulation is the compass that keeps us oriented
+while navigating through the mess of modeling. That said, some acquaintance with
+the structure of Stan files does help when getting started.
+
+
+### Stan File Structure
+
+The template below sketches the most common structure of a Stan program. A Stan
+program consists of several "blocks". Three of the most basic blocks are shown
+here: the *data*, the *parameters*, and the *model* blocks. The data block
+simply contains variable-declaration code for the data. The parameters block
+declares variables that hold the parameters. The model block is where the
+data-generating process and the priors get specified.
+
+```cpp
+data {
+   // Declare varaiables for data (passed in from R)
+}
+parameters {
+   // Declare model parameters
+}
+model {
+   // Describe data-generating process (including priors)
+}
+```
+
+With the blocks written up, one then compiles the stan program and feeds it the
+data. Stan would then construct and sample from the posterior. When all of these
+are done, posterior samples along with diagnostic information of sample quality
+are returned. 
+
+That's it. Don't read too much while learning Stan. Getting the hands dirty is a
+much better way. So now let's proceed to our massive model.
+
+
+Stan Model
+----------
+
+I'll present our model coded in Stan one block at a time so that we don't get
+overwhelmed. The stan file gets executed from the top to the bottom, and the
+blocks have to be defined in the given order as shown in the above template.
+Through this structure, the *parameters* and the *model* blocks have access to
+the data variables defined in the *data* block, and the *model* block has access
+to the parameter and data variables defined in previous blocks. Let's first look
+at the *data* block of our model.
+
+
+### The data block
+
+```cpp
+data {
+    int Ns;  // num of subjects
+    int Ntx; // num of treatments
+    int Nt;  // num of time points
+    int Nk;  // num of Likert scale choices
+    int Ni;  // num of items in the self-efficacy scale
+
+    // Item-level responses (NI=Ns*Ni*Nt)
+    int NI;
+    array[NI] int<lower=1,upper=Ns> Sid_I;     // Subject ID
+    array[NI] int<lower=1,upper=Ni> Iid_I;     // Item ID
+    array[NI] int<lower=0,upper=Nt-1> time_I;  // time point of obs.
+    array[NI] int<lower=1,upper=Nk> R;         // Responses on Efficacy scale
+
+    // Outcome-level responses (NO=Ns*Nt)
+    int NO;
+    array[NO] int<lower=1,upper=Ns> Sid_O;     // Subject ID
+    array[NO] int<lower=0,upper=Nt-1> time_O;  // time point of obs.
+    array[NO] real<lower=0,upper=20> A;        // Age scaled: (A-min(A))/10 
+    array[NO] int<lower=1> Tx;                 // Treatment received
+    array[NO] int<lower=1,upper=2> G;          // Gender
+    array[NO] int<lower=0,upper=14> D;         // Binomial outcome (heavy-drinking in past 14 days)
+}
+```
+
+In our data block, we simply define all variables that hold information about
+the data we pass in through R. Thus, the variables here correspond exactly to
+the `$dat` element of the simulated data list. 
+
+Stan is a statically typed language, meaning that the type must be specified for
+any variables defined. In addition, boundaries could also be imposed on the
+typed variables. This is done through the angle brackets `<>` after the type
+definition, as shown in some of the variables above. For the *data* block, the
+constraint on the boundaries guards against unexpected input data format. For
+the *parameters* block, these constraints are often used to truncate the prior
+distributions later assigned to the parameters.
+
+
+### parameters and transformed parameters
+
+```cpp
+parameters {
+    // IRT model params
+    real<lower=0> sigma_I;
+    vector[Ni-1] zI_raw;
+    ordered[Nk-1] kappa;
+
+    // E model params
+    matrix[2,Ntx] B_TE;  // Treatment on Efficacy (indirect effect)
+    real B_AE;           // Age on Efficacy
+    real delta;          // global intercept (E linear model)
+    real<lower=0> tau;   // subj baseline std (E linear model)
+    vector[Ns] zSubj;    // subject baseline
+    
+    // D model params
+    vector[Ntx] zB_TD;       // Treatment on Outcome (direct effect)
+    real mu_TD;              // Common mean among direct treatment effects 
+    real<lower=0> sigma_TD;  // Common std among direct treatment effects
+    real B_AD;               // Age on outcome
+    real B_ED;               // Efficacy on outcome
+    real alpha;              // global intercept (D linear model)
+}
+transformed parameters {
+    // IRT item params (sum-to-zero contrained)
+    vector[Ni] I = sigma_I * append_row( -sum(zI_raw), zI_raw );
+
+    // subject baseline efficacy
+    vector[Ns] subj;
+    subj = tau * zSubj;
+
+    matrix[Ns,Nt] E;
+    // Transformed E
+    for ( i in 1:NO ) {
+        int sid = Sid_O[i];
+        int time = time_O[i];
+        E[sid,time+1] = delta + subj[sid] + B_AE*A[i] + B_TE[G[i],Tx[i]]*time;
+    }
+
+    // Direct treatment effect
+    vector[Ntx] B_TD = fma(zB_TD, sigma_TD, mu_TD);
+}
+```
+
+The *parameters* block defines variables for the parameters in a stan model.
+This should be enough, theoretically. However, Bayesian models are often very
+complex (such as our massive model). This can lead to complications in posterior
+geometries such that Stan's algorithm would have difficulty exploring the
+distribution. To deal with this issue, it is often required to apply
+mathematical tricks known as *reparameterization* to modify the posterior such
+that it becomes easier for Stan to sample from. 
+
+This is where the *transformed parameters* block comes into play. In general,
+when reparameterizing our model, we define those reparameterized parameters in
+the *parameters* block. These parameters, however, are often in forms that are
+unintuitive for us. We thus utilize the *transformed parameters* block to
+transform those parameters back into the forms we are familiar with. The
+transformed parameters get returned from Stan as if they are parameters after
+sampling. But they are not actual parameters per se but only functions of
+parameters. That said, once we have the *transformed parameters* block set up
+and the sampler working, it's safe to simply treat them all as parameters.
+Understanding the details of the transform block helps when we have trouble
+coding the model.
+
+Here, we utilize the transform block to convert the [non-centered
+parameters](https://mc-stan.org/docs/stan-users-guide/reparameterization.html)
+(`zB_TD` and `zE`) back to the familiar centered forms (`subj`, `B_TD` and `E`).
+In addition to non-centered reparameterizations, another transformation is
+performed here to reconstruct the full vector of the sum-to-zero constrained
+item easiness parameters.
+
+
+### model
+
+```cpp
+model {
+    // Priors for IRT parameters
+    zI_raw ~ std_normal();
+    sigma_I ~ exponential(1);
+    kappa ~ std_normal();
+
+    // Priors for causes of E (T -> E)
+    to_vector(B_TE) ~ normal(0, 1.5);
+    B_AE ~ std_normal();
+    delta ~ normal(0, 1.5);
+    tau ~ std_normal();
+    zSubj ~ std_normal();
+
+    // Priors for causes of D (T -> D <- E)
+    zB_TD ~ std_normal();
+    mu_TD ~ std_normal();
+    sigma_TD ~ std_normal();
+    B_AD ~ std_normal();
+    alpha ~ normal(0, 1.5);
+    B_ED ~ std_normal();
+
+    // Causes of E (see transformed parameters block)
+    
+    // Causes of D
+    vector[NO] mu;
+    for ( i in 1:NO ) {
+        int sid, time;
+        sid = Sid_O[i];
+        time = time_O[i];
+        mu[i] = alpha + B_TD[Tx[i]]*time + B_AD*A[i] + B_ED*E[sid,time+1];
+    }
+    D ~ binomial_logit( 14, -mu );
+
+    // Measurement model (IRT)
+    vector[NI] phi;
+    for ( i in 1:NI )
+        phi[i] = E[Sid_I[i],time_I[i]+1] + I[Iid_I[i]];
+    R ~ ordered_logistic( phi, kappa );
+}
+```
+
+We are finally at the *model* block, often the most terrifying part of a stan
+program. It becomes less terrifying if one knows that the code in the model
+block can be classified into two functional groups. The first is the [*sampling
+statements*][stan-sampling-statements]. These statements tell Stan to update the
+posterior distribution, with information from the priors, the data, or the
+combination of both. The posterior gets updated by adding values to itself. This
+means that the *order* of the sampling statements does not influence the output
+(ignoring differences resulting from numerical instability). In general,
+although it is legitimate to switch the order of the sampling statements, we
+usually organize them in ways that make our modeling logic easier to grasp.
+
+The function of the second type of code in the model block is computation.
+Often, before reaching a sampling statement, some intermediate computation is
+required. For instance, `D ~ binomial_logit( 14, -mu )` depends on the variable
+`mu`. So `mu` has to be computed before one can invoke the sampling statement.
+
+For our massive model here, I first define the prior distributions in the first
+three blocks, with those related grouped into the same block of code. I then
+proceed to specify the relations between the parameters and the data. For
+efficacy $E$, the relevant relationships are already defined in the *transformed
+parameters* block, so only a line of comment is left as a placeholder. Below $E$
+is the block for the "causes of D", which defines the upstream variables
+influencing `D` (through `mu`). Finally, the last block defines the generative
+process for the item responses.
+
+[stan-sampling-statements]: https://mc-stan.org/docs/reference-manual/sampling-statements.html
+
+
+### R Interface
+
+There are interfaces written in many interpreted languages built to interact
+with Stan. In R, the most commonly used are
+[`rstan`](https://github.com/stan-dev/rstan) and
+[`cmdstanr`](https://github.com/stan-dev/cmdstanr). I will be using `cmdstanr`.
+
+Here's the code for calling Stan to fit our model. The model takes about 5
+minutes to run on an M1 Macbook Air and 16 minutes on a much older Windows
+laptop. So it would be wise to save the fitted model once Stan finishes
+sampling. 
+
+```r
+source("simulation.R")
+set.seed(1977)
+d = sim_data()
+
+# Compile stan file
+m = cmdstanr::cmdstan_model("m1.stan")
+
+# Fit model
+fit = m$sample(
+    data=d$dat,
+    chains=3, 
+    parallel_chains=3
+)
+
+# Save fitted model for later use
+fit$save_object("m1.RDS")
+```
+
+I've put the fitted model `m1.RDS` on [Google Drive][drive] so you don't have to
+refit the model. All the scripts in this post are also available on
+[GitHub][scripts].
+
+[drive]: https://drive.google.com/drive/folders/1hCltt7aM4pV2GhFiQQNUhFdTgm09snGB
+[scripts]: https://github.com/liao961120/stom/tree/main/inst/cases/treatment_dynamics/post
+
+
+
+Model Checking
+--------------
+
+With our model fitted, we can now check if it correctly recovers the parameter.
+But before doing so, we need to first assess the quality of the posterior
+samples.
+
+
+### Quality of Posterior Samples
+
+When fitting Bayesian models, at least two chains (i.e., two independent sets of
+samples) are required to evaluate the quality of the posterior samples. These
+chains could be visualized in trace plots, which record the parameter values in
+the order they are sampled. Thus, a curve in a trace plot is essentially the
+trace of a sampler exploring the posterior (in one of the dimensions). For
+high-quality sampling, traces of different samplers should be independent and
+fluctuate at similar ranges of values. This results in chains that mix well, and
+the trace plots would then look like caterpillars. Conversely, if the posterior
+geometries are difficult to explore, the samplers may be stuck in local regions.
+Or, they may explore different regions of the posterior (e.g., when the
+posterior is multi-modal), resulting in a complete separation of the chains in
+the trace plots. When these happen, the chains may disagree with each other,
+leading to the non-convergence of samples from different chains.
+
+Non-convergence indicates that inferences based on the posterior samples are
+problematic and shouldn't be trusted. Upon such circumstances, the modeler
+should try to locate the sources of non-convergence and fix the model.
+Misspecification of the generative process, loose priors, unidentifiability, and
+unexpected data are all potential causes of non-convergence.
+
+To evaluate how well the chains mix, we look at a statistic known as $\hat{R}$
+(rhat). Typically, an $\hat{R}$ value less than 1.05 for a particular parameter
+indicates a good enough mixing of chains. Let's load our fitted model and look
+at the sampling quality. I will use some handy wrappers around the functions
+from `cmdstanr` through my package `stom`.
+
+
+```{r}
+source("simulation.R")
+set.seed(1977)
+d = sim_data()
+
+m = readRDS("m1.RDS")   # Load fitted model
+s = stom::precis(m, 5)  # Compute posterior summary
+head(s)
+```
+
+The function `stom::precis` computes parameter summaries from the posterior
+samples, including the $\hat{R}$ statistic. Let's plot the $\hat{R}$ values for
+all of the parameters to see if any of them are unexpectedly large.
+
+```{r}
+plot(s$rhat)
+```
+
+The $\hat{R}$ values look fine. The largest one is `r max(s$rhat)`, which is
+much lower than 1.05. Just to be careful, let's inspect the trace plots of those
+parameters with the largest $\hat{R}$ values and the lowest [effective sample
+size (ESS)][ess].
+
+```{r fig.dim = c(12, 7)}
+library(bayesplot)
+color_scheme_set("viridis")
+pars = c(
+   s$variable[s$rhat > 1.006],
+   s$variable[s$ess_bulk < 400],
+   s$variable[s$ess_tail < 400] 
+)
+mcmc_trace(m$draws(), pars=pars)
+```
+
+The trace plots seem fine too. Now we can proceed to check the recovery of the
+parameters.
+
+[ess]: https://mc-stan.org/docs/reference-manual/effective-sample-size.html
+
+
+### Parameter Recovery
+
+Let's first look at how well the IRT submodel works. I plot the estimated
+(y-axis) against the true (x-axis) parameter values. The grey dashed line shows
+the identity. Points lying on this line indicate perfect recovery through the
+posterior mean. The vertical pink bars cover 90% of posterior density around the
+mean.
+
+```{r fig.dim=c(12,7), fig.show='hold'}
+par( mfrow = c(1, 2) )
+for ( p in c("I", "kappa", "E") ) {
+    if ( p == "E" ) par(mfrow = c(1, 1))    
+    mt = d$params[[p]]        # True value
+    mm = get_pars(s, p)$mean  # Posterior mean
+    u = get_pars(s, p)$q95    # Posterior .05 quantile 
+    l = get_pars(s, p)$q5     # Posterior .95 quantile 
+    plot( mt, mm , main=p, ylim=c(-4.6,4.6),
+          xlab="True", ylab="Estimated")
+    for ( i in seq_along(mm) )
+        lines( c(mt[i],mt[i]), c(u[i],l[i]), lwd=3, col=col.alpha(2) )
+    abline(0,1, lty="dashed", col="grey")
+}
+```
+
+Let's next look at the parameters for modeling the causes of $E$ and $D$. This
+time I plot the true parameter values as solid black dots. The pink open circles
+are the posterior mean estimates, and the bars mark the 90% density around the
+mean.
+
+```{r fig.dim=c(11,7)}
+beta = c( "B_TE", "B_AE", "B_AD", "B_ED", "B_TD", "delta", "alpha", "tau", "sigma_I" )
+b_true = lapply( beta, function(p) d$params[[p]] ) |> unlist()
+b_est = lapply( beta, function(p) get_pars(s, p)$mean ) |> unlist()
+b_est_upp = lapply( beta, function(p) get_pars(s, p)$q5 ) |> unlist()
+b_est_low = lapply( beta, function(p) get_pars(s, p)$q95 ) |> unlist()
+
+plot( b_true, pch=19, ylim=c(-2.6, 3.2), ylab="Parameter value", xlab="" )
+abline(h = 0, lty="dashed", col="grey")
+points( b_est, col=2 )
+for ( i in seq_along(b_est) )
+    lines( c(i,i), c(b_est_upp[i],b_est_low[i]), lwd=4, col=col.alpha(2) )
+for ( v in c(6:9,12) )
+    abline( v=v+.5, lty="dashed", col="grey" )
+for ( v in 7:9 )
+    mtext( beta[v-5], at=v )
+mtext( beta[1], at = length(get_pars(d,"B_TE")) * .5 )
+mtext( beta[5], at = 11 )
+for ( i in 6:9 )
+    mtext( beta[i], at = i+7 )
+```
+
+With all these checks, we can see that the model does pretty well in recovering
+the parameters! So now, we're ready to utilize the posterior samples for
+inference.
+
+
+Posterior Predictions
+---------------------
+
+Bayesian models are *generative* in the sense that they can generate samples,
+much like nature generates stochastic observations of various kinds. This can be
+done because, instead of providing point estimates, a Bayesian model returns a
+full distribution of parameter estimates (i.e., the posterior distribution). A
+distribution contains information of uncertainty. Thus, the samples computed
+from the posterior also retain such uncertainty.
+
+Given the generative nature of Bayesian models, we can utilize the posterior
+distribution to compute various predictions. These predictions carry forward the
+uncertainty of the posterior and are thus known as *posterior predictive
+distributions*. Based on the purpose of the inference, we can design how the
+predictions are computed. Here, I provide two examples. The first computes the
+predicted **trajectory of the clinical outcomes** for all six treatment-gender
+combinations. The second compares the effect of the treatments in terms of the
+**expected reduction in days of heavy drinking** relative to the baseline
+treatment. Since everything derived from the posterior is a distribution, we
+have to plot, rather than tabulate, our predictions. 
+
+Before starting, let me first demonstrate the computation of a single prediction
+from the posterior. The rest should be more straightforward since posterior
+predictive distributions are simply the generalization from a single prediction
+to multiple predictions using all posterior samples.
+
+
+### A Single Posterior Prediction
+
+```{r}
+post = stom::extract2(m)
+str(post$delta())
+post$delta(idx = c(2, 4, 6))
+```
+
+`stom::extract2()` extracts the posterior and exposes its parameters as R6
+methods. To access the values of a parameter, we use the syntax `${param}()`. In
+our example here, doing so would return 3000 samples since 1000 samples were
+drawn for each of the 3 chains from our model. We can control the samples drawn
+by passing an optional argument `idx` into the parameter method. For instance,
+`post$delta(2)` would return the second set of posterior samples.
+
+What I would like to do here is to compute the latent scores $D$ underlying the
+treatment outcome for a single participant at time `r inline(1:4)`. I will use
+subject 31 (`Sid == 31`) as an example here. So let's first prepare the data. 
+
+```{r}
+Sid = 31  # subject ID
+idx_subj = d$dat$Sid_O == Sid
+A = d$dat$A[idx_subj][1]     # Age of subject 31
+G = d$dat$G[idx_subj][1]     # Gender of subject 31
+Tid = d$dat$Tx[idx_subj][1]  # Treatment received by subject 31
+c(A, G, Tid)
+```
+
+Now, let's extract 1 of the 3000 sets of the posterior samples.
+
+```{r}
+idx = 2999  # posterior sample drawn
+alpha = post$alpha(idx)
+delta = post$delta(idx)
+b_AD  = post$B_AD(idx)
+b_ED  = post$B_ED(idx)
+b_AE  = post$B_AE(idx)
+b_TD  = post$B_TD(idx)
+b_TE  = post$B_TE(idx)
+subj  = post$subj(idx)
+```
+
+With the parameters and the data prepared, we can compute our prediction.
+
+```{r}
+time = 1:4
+D = sapply( time, function(t) {
+    E = delta + subj[Sid] + b_AE*A + b_TE[G,Tid]*(t-1)
+    alpha + b_TD[Tid]*(t-1) + b_AD*A + b_ED*E
+})
+D
+```
+
+Okay, now we have a prediction from a single set of posterior samples. In
+general, we would like to have predictions based on *all* the posterior samples.
+To do this, we simply wrap the code above in a function and repeat it for all of
+the posterior samples.
+
+```{r}
+predict_obs = function(Tid, Sid, A, G, idx) {
+    alpha = post$alpha(idx)
+    delta = post$delta(idx)
+    b_AD  = post$B_AD(idx)
+    b_ED  = post$B_ED(idx)
+    b_AE  = post$B_AE(idx)
+    b_TD  = post$B_TD(idx)
+    b_TE  = post$B_TE(idx)
+    subj  = post$subj(idx)
+    
+    time = 1:4
+    D = sapply( time, function(t) {
+        E = delta + subj[Sid] + b_AE*A + b_TE[G,Tid]*(t-1)
+        alpha + b_TD[Tid]*(t-1) + b_AD*A + b_ED*E
+    })
+    D
+}
+
+# A single prediction based on the 2999th set of posterior samples
+( predict_obs(Tid, Sid, A, G, idx=2999) )
+
+# Compute over the full posterior
+D = sapply( 1:3000, function(i) {
+    predict_obs(Tid, Sid, A, G, idx=i)
+})
+str(D)
+```
+
+
+### Counterfactual Predictions
+
+In the demonstration above, we compute the predictions based on one of the
+observations in our data, that is, the data from subject 31. We used his gender,
+age, and treatment condition as the data, and his estimated baseline efficacy
+`subj[Sid]`, to compute the prediction. But we can do something more interesting
+by going beyond our current data to compute *counterfactual predictions*. For
+instance, we can arbitrarily determine the treatment received and then compute
+the prediction. Doing so effectively asks the question: what would the outcome
+be if subject 31 had been treated with Treatment 3 instead of 2? Likewise, the
+age and gender of the participant can be changed to ask similar questions. We
+can go even further to simulate a completely new population, with a different
+set of baseline subject efficacy parameters, if we have some idea of what such a
+population is like (e.g., the degree of variation in baseline conditions).
+
+Another thing worth noting is the time variable. In our data and the above
+prediction, time is treated as discrete time points (1-4). But we can treat time
+as continuous when we compute predictions, simply by using a smaller time step,
+such as `time = seq(1,4,.01)`. Doing so results in a smoother trajectory---as
+we'll see later---for the predictions across time.
+
+
+
+Visualizing Treatment Effects
+-----------------------------
+
+Now, let's use the full posterior to compute the posterior predictive
+distributions. The posterior predictive distributions computed here are
+*counterfactuals*: all 90 subjects are used repeatedly for computing each of the
+six treatment-gender combinations. The treatment received and gender of the
+subjects are set to match the group's condition when computing predictions for
+that combination. 
+
+The functions for plotting and calculating the relevant quantities are available
+in the script [`func_post_predict.R`][func_post_predict]. The manipulation of
+the posterior samples in the script may seem sophisticated. But they are all
+based on the core function `predict_obs()`, which is nearly the same as its
+simplified version presented previously. 
+
+[func_post_predict]: https://github.com/liao961120/stom/tree/main/inst/cases/treatment_dynamics/post/func_post_predict.R
+
+
+### Trajectories By Treatment and Gender
+
+The six charts below plot the trajectories of treatment outcomes for each of the
+treatment-gender conditions. The charts on the left (blue) are the trajectories
+for male participants, and those on the right (red) are the trajectories for
+female participants. The three rows counting from top to bottom correspond to
+the three treatment conditions, respectively. 
+
+Note that these trajectories are **expected days of heavy drinking**. Since we
+are modeling the outcomes as counts from the binomial distribution, the
+"expectation of the counts" is the product of $N$ and $P$, i.e., 
+`14 * logistic(-D)`, where `D` is the latent quantity computed from 
+`predict_obs()`. The means of these expected counts computed from the full 
+posterior are shown as the thick curves in the charts below. The shaded regions 
+cover 90% density of the expected trajectory distributions. The grey lines plot
+the empirical observation under that condition[^empirical-var].
+
+[^empirical-var]: Note that these empirical observations have a larger variation
+    than the trajectory distribution under the same condition. This is because
+    the trajectories are *expectations* $NP$. That is, they are the means
+    of---not samples from---the binomial distributions. Thus, there is no
+    associated sampling variation.
+
+```{r}
+source("func_post_predict.R")
+post = stom::extract2(m)
+
+mar = par("mar")
+mar[1] = 2.5
+mar[3] = 1
+mar[4] = 1.5
+par( mfrow = c(3, 2), mar = mar )
+plot_model_prediction(Tid=1, G=1, col_main=4)  # Treatment 3
+plot_model_prediction(Tid=1, G=2, col_main=2)  # Treatment 3
+plot_model_prediction(Tid=2, G=1, col_main=4)  # Treatment 2
+plot_model_prediction(Tid=2, G=2, col_main=2)  # Treatment 2
+plot_model_prediction(Tid=3, G=1, col_main=4)  # Treatment 1
+plot_model_prediction(Tid=3, G=2, col_main=2)  # Treatment 1
+```
+
+From these charts, we can see that Treatment 3 works best for male participants.
+For females, however, it is Treatment 2 that is the best. These differences
+might not be apparent enough in the form of trajectories. So next, let's
+directly compare the treatments by inspecting their contrasts.
+
+
+### Treatment Contrasts
+
+The code below computes the relevant contrasts for later uses. Recall that all
+90 participants are used repeatedly for each treatment-gender condition. Since
+3000 is indivisible by 90, I discarded 30 posterior samples and used the first
+2970 samples just to keep things simpler. A more rigorous but quite
+computationally expensive alternative is to use all 3000 instead of 33 (2970/90)
+posterior samples for computing predictions for a single participant under each
+treatment-gender condition.
+
+```{r}
+Sids = rep( 1:d$dat$Ns, length=2970 ) |> sample()
+times = seq(1, 4, .01)
+# table(Sids)
+
+cf = list(
+    T1 = list( G1=c(), G2=c(), all=c() ),
+    T2 = list( G1=c(), G2=c(), all=c() ),
+    T3 = list( G1=c(), G2=c(), all=c() )
+)
+for ( tx in 1:3 ) {
+    for ( g in 1:2 )
+        cf[[tx]][[g]] = sapply( 1:2970, function(i) {
+            D = predict_obs(Tid=tx, Sid=Sids[i], A=NULL, G=g, idx=i) 
+            14 * logistic(-D)
+        })
+    cf[[tx]][[3]] = sapply( 1:2970, function(i) {
+        D = predict_obs(Tid=tx, Sid=Sids[i], A=NULL, G=NULL, idx=i) 
+        14 * logistic(-D)
+    })
+}
+```
+
+With the data prepared, we can now directly compare the treatments. For
+illustrative purposes, let's first ignore gender and see how it might lead us
+to suboptimal decisions.
+
+```{r}
+T3T1_noG = treatment_contrast(3,1,3)
+T2T1_noG = treatment_contrast(2,1,3)
+
+p1 = plot_treatment_contrast_noG(T3T1_noG, "Treatment 3 - Treatment 1")
+p2 = plot_treatment_contrast_noG(T2T1_noG, "Treatment 2 - Treatment 1")
+plot_grid(p1, p2,
+          align = 'h',
+          axis = "lb",
+          ncol=1
+)
+```
+
+The figure above compares Treatment 3 to Treatment 2, with Treatment 1 acting as
+the common baseline. The horizontal axis shows the difference in the treatment
+outcomes between the target and baseline treatments. A negative difference
+indicates that the target treatment results in fewer expected days of heavy
+drinking and is hence better compared to the baseline.
+
+Judging from the figure alone, one might conclude that **Treatment 3 is better
+than Treatment 2** and supports prescribing Treatment 3 for all patients.
+However, since we simulated the data, we know this is not true because Treatment
+3 and 2 work differentially for males and females. So let's replot the figure
+but consider gender this time.
+
+```{r}
+T3T1 = treatment_contrast2(3,1)
+T2T1 = treatment_contrast2(2,1)
+p3 = plot_treatment_contrast(T3T1, "Treatment 3 - Treatment 1")
+p4 = plot_treatment_contrast(T2T1, "Treatment 2 - Treatment 1")
+
+plot_grid(p3, p4,
+          align = 'h',
+          axis = "lb",
+          ncol=1
+)
+```
+
+Now, it becomes apparent how the treatments work differentially for males and
+females. Treatment 3 seemingly gives better results overall because it works
+particularly well for males. However, it is much less effective for females.
+Female patients will benefit much more if they receive Treatment 2. 
+
+
+Can We Do Better?
+-----------------
+
+Previously, we picture a rather "static" mechanism that underlies the working of
+the treatments (see the DAG below). In particular, we assume that
+self-efficacy mediates between the treatment and the clinical outcomes. In other
+words, it is assumed that the treatments unidirectionally affect self-efficacy
+and self-efficacy unidirectionally affects the treatment outcomes. However, this
+assumption becomes a bit oversimplified once we think harder about how people's
+lives unfold during treatments. The treatments may have raised participants'
+self-efficacy in alcohol control, leading to improved clinical outcomes. Yet the
+improvement in clinical outcomes very likely also raises subsequent
+self-efficacy. So instead of a unidirectional influence from treatment to
+efficacy to clinical outcomes, a bi-directional interaction seems to be more
+plausible, with previous clinical outcomes and self-efficacy acting as feedback
+to later statuses.
+
+![(Simplistic) unidirectional causal assumptions](dag.svg){style="max-height:210px"}
+
+Such a scenario might resemble something sketched in the DAG below. Here, each
+state of the efficacy ($E_t$) and the clinical outcomes ($D_t$) at time $t$
+influences the states at $t+1$ directly. $E_0$ and $D_0$ represent the initial
+states before receiving treatments. These initial states may be influenced by
+several variables (e.g., age, gender, ethnicity, etc.), as illustrated by the
+greyed nodes on the left-most part of the graph. $T$ represents the treatment
+and is assumed to influence only $E$ here for the sake of simplicity. 
+
+![Dynamic feedback among variables over time](dag-feedback-dyn.svg){style="max-height:270px"}
+
+In addition to the variables we have modeled in our unidirectional causal model,
+the DAG here introduces additional variables, $S_i$. These variables indicate
+extraneous influences on the clinical outcomes at time $t$. For instance, they
+might be the stress level of each participant at time $t$. Stressful life events
+could worsen clinical outcomes and often come and go without signs. When these
+random events occur and lead to decreases in participants' clinical outcomes,
+the negative effect is likely to carry over to future states, such as lowering
+participants' self-efficacy subsequently. The arrows $D_t \rightarrow E_{t+1}$
+and $E_t \rightarrow D_{t+1}$ would allow one to model such effects.
+
+The assumption of this dynamic feedback interaction leads to two questions.
+First, such a fine-grained interaction across time requires denser longitudinal
+data for the model to make sense. When the dataset is sparse in terms of time,
+the link between the current and the next state might be too weak as multiple
+events may have occurred in between and obscure their relationship. Thus,
+experience sampling methods or ecological momentary assessments, where data are
+collected daily, are preferable for this model. Second, the model is only
+conceptual at best so far. To prove that this dynamic feedback model can work,
+we would need to run simulations, construct the model, and test it, as always.
+This would probably take weeks to months for me. Once I'm done, I might document the
+process in another post someday.

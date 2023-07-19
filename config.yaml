@@ -1,0 +1,83 @@
+baseURL: "https://yongfu.name/"
+languageCode: "en-us"
+title: "Yongfu's Blog"
+theme: "TeXtLite"
+disqusShortname: y-f-liao-s-page
+footnoteReturnLinkContents: "↩"
+
+permalinks:
+  post: /:year/:month/:day/:filename/
+
+outputFormats:
+  RSS:
+    baseName: feed
+    mediaType: application/rss
+
+summaryLength: 80
+
+menu:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Posts"
+      url: "/post/"
+      weight: 2
+    - name: "About"
+      url: "/about/"
+      weight: 4
+    - name: "Subscribe"
+      url: "/feed.xml"
+
+params:
+  description: "About Learning"
+  social: 
+    email: "liao961120@gmail.com"
+    github: "https://github.com/liao961120"
+    facebook: "https://www.facebook.com/liao961120"
+    twitter: "https://twitter.com/liao_yongfu"
+  icon:
+    logo: "/themes/TeXtLite/static/logo.svg"
+    email: "/themes/TeXtLite/static/social/email.svg"
+    twitter: "/themes/TeXtLite/static/social/twitter.svg"
+    github: "/themes/TeXtLite/static/social/github.svg"
+    facebook: "/themes/TeXtLite/static/social/facebook.svg"
+  comments:
+    utterances: "liao961120/comments"
+    disqus: "y-f-liao-s-page"
+    # Comment systems to include by default
+    default:
+      - utterances
+
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: false
+    noClasses: true
+    style: monokai
+    tabWidth: 4
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false

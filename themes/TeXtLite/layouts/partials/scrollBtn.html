@@ -1,0 +1,26 @@
+<div class="scrollBtn">
+    <span id="scrolltop" onclick="window.scrollTo(0, 0)">&#x25B2;</span>
+    <span id="scrollbottom" onclick="window.scrollTo(0,document.body.scrollHeight)">&#x25BC;</span>
+</div>
+<style>
+    div.scrollBtn {
+        display: flex;
+        flex-wrap: wrap;
+        width: 1em;
+        position: fixed;
+        bottom: 1.1%;
+        right: .8%;
+    }
+    #scrolltop, #scrollbottom {
+        line-height: 1;
+        font-size: 1.4rem;
+        /* opacity: 0.7; */
+        /* color: rgb(61, 61, 61); */
+        color: var(--link-transitiion-light);
+    }
+    #scrolltop:hover, #scrollbottom:hover {
+        cursor: pointer;
+        color: green;
+        font-size: 1.6rem;
+    }
+</style>
