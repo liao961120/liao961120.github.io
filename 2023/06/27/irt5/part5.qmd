@@ -480,7 +480,7 @@ potential problems.
 Interestingly, the process of learning Stan is no different from using Stan. In
 both situations, one is unable to proceed without scaffolds. Stan gives you full
 flexibility, and with this modeling power, one immediately finds out there are
-infinite ways to go wrong. Simulation is the only basis that keeps us oriented
+infinite ways to go wrong. Simulation is the compass that keeps us oriented
 while navigating through the mess of modeling. That said, some acquaintance with
 the structure of Stan files does help when getting started.
 
