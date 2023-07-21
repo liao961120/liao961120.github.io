@@ -2,4 +2,4 @@
 hugo --minify
 printf "yongfu.name" > public/CNAME
 cp favicon.ico public/
-
+cp -r redirects/* public/
