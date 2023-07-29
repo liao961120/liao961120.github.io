@@ -149,7 +149,7 @@ Currently, I use R for my job. In my spare time, I play with stats models in R
 and [Stan][stan]. I guess I will keep working with **_statistics_** (hopefully,
 for empirical sciences) in the future. 
 
-At times when I feel the need to unwind, I'll go hiking, diving, or travel to
+At times when I feel burned out, I'll go hiking, diving, or travel to
 a distant town.
 
 
