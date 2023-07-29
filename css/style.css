@@ -486,7 +486,15 @@ div.social span.social.github {
     background-color: black;
 }
 
-div.social .social>svg {
+body div.social > span.icon span.social>svg {
+    display: inline-block;
+    height: 1.28rem;
+    width: 1.1rem;
+    padding: 0;
+    margin: 0;
+}
+
+footer div.social > span.icon span.social>svg {
     display: inline-block;
     height: 1.1rem;
     width: 1.1rem;
@@ -494,8 +502,8 @@ div.social .social>svg {
     margin: 0;
 }
 
-div.social span.icon {
-    margin: 0 0em;
+div.social > span.icon {
+    margin: 0 0.1rem;
     padding: 0;
 }
 
