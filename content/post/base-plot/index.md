@@ -1,12 +1,12 @@
 ---
-title: Base R Plotting Notes
-# subtitle: "Base R"
+title: A Diary of R Charts
+subtitle: Some code sketches for Base R plotting
 description: "Base R, plot, graphics"
 date: '2023-10-27'
 aliases:
     - /base-plot
 katex: true
-draft: true
+# draft: true
 ignoreToc: "h3,h4,h5,h6"
 tags:
 - r
@@ -24,9 +24,9 @@ editor:
    render-on-save: false
 ---
 
-My admiration for the base R plotting system has been growing since I
-started plotting complicated statistics plots. Complexity in these plots
-can arise for many reasons. For one, it might simply result from the
+My love for the base R plotting system has been growing since I started
+plotting complicated statistics plots. Complexity in these plots can
+arise for many reasons. For one, it might simply result from the
 structure of data when working with complicated statistical models
 (e.g., multilevel models). Conventions are another source. People hate
 changes to conventions, and there might be good reasons for it. Or maybe
@@ -117,4 +117,46 @@ legend("right", legend=d$Species, inset=c(-.17,0), xpd=TRUE,
 ```
 
 <img src="main_files/figure-commonmark/unnamed-chunk-2-1.svg"
+style="width:100.0%" data-fig-align="center" />
+
+## Density Plots
+
+### Features
+
+- Line segments: `segments()`
+- Density: `density()`
+- text / label: `text()`
+
+### Code & Plot
+
+``` r
+library(stom)
+library(dplyr)
+
+#### Data ####
+set.seed(2020)
+d = data.frame(
+    x = rnorm(2000)
+)
+
+#### Annotations ####
+X  = d$x
+AVG = mean(X)
+SD  = sd(X)
+
+#### Plot ####
+plot( density(X), ylim=c(0,.46),
+      main = "A Standard Normal", xlab = "X" )
+# Mean line segment
+segments( x0=AVG, y0=0, y1=.43, col=2, lwd=3 )
+text( AVG, .46, labels = paste("AVG:",round(AVG,3)), col=2, cex=.8 )
+# SD line segment
+segments( x0=AVG+.06, x1=AVG+SD, y0=.02, lwd=2, col=4 )
+segments( x0=AVG+.06, y0=.01, y1=.03,    lwd=2, col=4 )
+segments( x0=AVG+SD,  y0=.01, y1=.03,    lwd=2, col=4 )
+text( .5*(AVG+SD+.06), .035, 
+      labels = paste("SD =",round(SD,3)), col=4, cex=.8 )
+```
+
+<img src="main_files/figure-commonmark/unnamed-chunk-3-1.svg"
 style="width:100.0%" data-fig-align="center" />

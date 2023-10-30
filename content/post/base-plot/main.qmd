@@ -1,12 +1,12 @@
 ---
-title: Base R Plotting Notes
-# subtitle: "Base R"
+title: A Diary of R Charts
+subtitle: Some code sketches for Base R plotting
 description: "Base R, plot, graphics"
 date: '2023-10-27'
 aliases:
     - /base-plot
 katex: true
-draft: true
+# draft: true
 ignoreToc: "h3,h4,h5,h6"
 tags:
 - r
@@ -39,7 +39,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-My admiration for the base R plotting system has been growing since I started plotting complicated statistics plots. Complexity in these plots can arise for many reasons. For one, it might simply result from the structure of data when working with complicated statistical models (e.g., multilevel models). Conventions are another source. People hate changes to conventions, and there might be good reasons for it. Or maybe not. Whatever the reasons though, the truth is that we often need to follow the conventions, and this introduces complexity. For instance, creating a plot in R to replicate the one originally drawn in Excel could be extremely hard, and it is nearly always impossible to do so with higher-level plotting packages such as `ggplot2`. To approach the look of a plot created outside of R, life would be much easier when a lower-level system such as the base R plotting system is utilized. Base R lets you tweak a lot of things, but this also annoys people because everyone always forgets the needed plotting parameters.
+My love for the base R plotting system has been growing since I started plotting complicated statistics plots. Complexity in these plots can arise for many reasons. For one, it might simply result from the structure of data when working with complicated statistical models (e.g., multilevel models). Conventions are another source. People hate changes to conventions, and there might be good reasons for it. Or maybe not. Whatever the reasons though, the truth is that we often need to follow the conventions, and this introduces complexity. For instance, creating a plot in R to replicate the one originally drawn in Excel could be extremely hard, and it is nearly always impossible to do so with higher-level plotting packages such as `ggplot2`. To approach the look of a plot created outside of R, life would be much easier when a lower-level system such as the base R plotting system is utilized. Base R lets you tweak a lot of things, but this also annoys people because everyone always forgets the needed plotting parameters.
 
 Below is just a cumulation of the base R plots I've created. It is intended to help me search and locate the code for plotting certain features. Hence, the remainder of this post is divided into sections by plots, each of which consists of (1) the code, (2) the output plot, and (3) a list of features presented in the plot.
 
@@ -55,7 +55,6 @@ Interaction Plots
 - text / label: `text()`
 
 ### Code & Plot
-
 
 ```{r results='hold'}
 library(stom)
@@ -106,3 +105,46 @@ legend("right", legend=d$Species, inset=c(-.17,0), xpd=TRUE,
        col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9, 
        y.intersp=1.8, box.col="transparent", bg="transparent" )
 ```
+
+
+Density Plots
+-------------
+
+### Features
+
+- Line segments: `segments()`
+- Density:  `density()`
+- text / label: `text()`
+
+
+### Code & Plot
+
+```{r}
+library(stom)
+library(dplyr)
+
+#### Data ####
+set.seed(2020)
+d = data.frame(
+    x = rnorm(2000)
+)
+
+#### Annotations ####
+X  = d$x
+AVG = mean(X)
+SD  = sd(X)
+
+#### Plot ####
+plot( density(X), ylim=c(0,.46),
+      main = "A Standard Normal", xlab = "X" )
+# Mean line segment
+segments( x0=AVG, y0=0, y1=.43, col=2, lwd=3 )
+text( AVG, .46, labels = paste("AVG:",round(AVG,3)), col=2, cex=.8 )
+# SD line segment
+segments( x0=AVG+.06, x1=AVG+SD, y0=.02, lwd=2, col=4 )
+segments( x0=AVG+.06, y0=.01, y1=.03,    lwd=2, col=4 )
+segments( x0=AVG+SD,  y0=.01, y1=.03,    lwd=2, col=4 )
+text( .5*(AVG+SD+.06), .035, 
+      labels = paste("SD =",round(SD,3)), col=4, cex=.8 )
+```
+
