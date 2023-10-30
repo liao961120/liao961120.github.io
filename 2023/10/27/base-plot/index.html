@@ -4,24 +4,20 @@ Yongfu's Blog</title></head><body><div class=header><div class=header_title><spa
 <span class=nav_link><a href=/about/>About</a></span>
 <span class=nav_link><a href=/feed.xml>Subscribe</a></span></div></div><div class=main><article class=post><div class=article_header><div class=titles><h1>A Diary of R Charts</h1><p class=subtitle>Some code sketches for Base R plotting</p></div><div class=meta><div class=tags><a href="/post/?tag=r">r</a>
 <a href="/post/?tag=stats">stats</a></div><div class=date><span class=inline-icon><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-alt" class="svg-inline--fa fa-calendar-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="rgb(95, 95, 95)" d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg></span><span class=str>Oct 27, 2023</span></div></div></div><div class=article_content><p>My love for the base R plotting system has been growing since I started
-plotting complicated statistics plots. Complexity in these plots can
-arise for many reasons. For one, it might simply result from the
-structure of data when working with complicated statistical models
-(e.g., multilevel models). Conventions are another source. People hate
-changes to conventions, and there might be good reasons for it. Or maybe
-not. Whatever the reasons though, the truth is that we often need to
-follow the conventions, and this introduces complexity. For instance,
-creating a plot in R to replicate the one originally drawn in Excel
-could be extremely hard, and it is nearly always impossible to do so
-with higher-level plotting packages such as <code>ggplot2</code>. To approach the
-look of a plot created outside of R, life would be much easier when a
-lower-level system such as the base R plotting system is utilized. Base
-R lets you tweak a lot of things, but this also annoys people because
-everyone always forgets the needed plotting parameters.</p><p>Below is just a cumulation of the base R plots I’ve created. It is
-intended to help me search and locate the code for plotting certain
-features. Hence, the remainder of this post is divided into sections by
-plots, each of which consists of (1) the code, (2) the output plot, and
-(3) a list of features presented in the plot.</p><h2 id=interaction-plots>Interaction Plots</h2><h3 id=features>Features</h3><ul><li>Legend outside of plotting region: <code>par()</code>, <code>legend()</code>, <code>mar</code>, <code>xpd</code>,
+dealing with complicated charts. Complexity in these charts can arise
+for many reasons. For one, it might simply result from the data
+structure when working with complex statistical models (e.g., multilevel
+models). Conventions in the workplace could be another source of
+complexity. For instance, tweaking a chart in R to replicate the one
+originally created in Excel could be extremely difficult, and it is
+nearly impossible to do so with higher-level plotting packages such as
+<code>ggplot2</code>. To approach the look of a chart created outside of R, life
+would be much easier if lower-level frameworks such as the base R
+plotting system are utilized.</p><p>Below is just a cumulation of charts I’ve created. It is intended to
+help me search and locate the code for plotting certain features in base
+R. The remainder of the post is divided into sections by charts, each of
+which consists of (1) the code, (2) the output chart, and (3) a list of
+features presented in the chart.</p><h2 id=interaction-plots>Interaction Plots</h2><h3 id=features>Features</h3><ul><li>Legend outside of plotting region: <code>par()</code>, <code>legend()</code>, <code>mar</code>, <code>xpd</code>,
 <code>inset</code></li><li>Shaded region: <code>polygon()</code></li><li>Custom axis (categorical axis): <code>axis()</code></li><li>text / label: <code>text()</code></li></ul><h3 id=code--plot>Code & Plot</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-r data-lang=r><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#a6e22e>library</span>(stom)
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#a6e22e>library</span>(dplyr)
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>
@@ -38,7 +34,7 @@ plots, each of which consists of (1) the code, (2) the output plot, and
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span><span style=color:#75715e>#### Annotations ####</span>
 </span></span><span style=display:flex><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span>(LABELS <span style=color:#f92672>=</span> <span style=color:#a6e22e>colnames</span>(d)[<span style=color:#ae81ff>-1</span>])
-</span></span></code></pre></div><pre><code># A tibble: 3 x 5
+</span></span></code></pre></div><pre><code># A tibble: 3 × 5
   Species      S.L   S.W   P.L   P.W
   &lt;fct&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 1 setosa      5.01  3.43  1.46 0.246
