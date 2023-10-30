@@ -75,7 +75,7 @@ projects:
           img: /project/dcardCorpus.png
         - name: "svg2png"
           tags: ['Web', 'JavaScript']
-          about: "A web page to batch convert SVG images to PNG images, with options to set resolution of the PNGs."
+          about: "A web page to batch convert SVG images to PNG images, with options to set the resolution of the PNGs."
           url: https://svg2png.yongfu.name/
           img: /project/svg2png.png
         - name: "Linguisticsdown"
@@ -149,7 +149,7 @@ Currently, I use R for my job. In my spare time, I play with stats models in R
 and [Stan][stan]. I guess I will keep working with **_statistics_** (hopefully,
 for empirical sciences) in the future. 
 
-At times when I feel burned out, I'll go hiking, diving, or travel to
+At times when I feel burned out, I'd go hiking, diving, or travel to
 a distant town.
 
 
