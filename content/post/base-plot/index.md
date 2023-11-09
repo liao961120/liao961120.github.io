@@ -1,5 +1,5 @@
 ---
-title: A Diary of R Charts
+title: A Diary of Charts
 subtitle: Some code sketches for Base R plotting
 description: "Base R, plot, graphics"
 date: '2023-10-27'
@@ -34,13 +34,66 @@ originally created in Excel could be extremely difficult, and it is
 nearly impossible to do so with higher-level plotting packages such as
 `ggplot2`. To approach the look of a chart created outside of R, life
 would be much easier if lower-level frameworks such as the base R
-plotting system are utilized.
+plotting system were utilized.
 
 Below is just a cumulation of charts I’ve created. It is intended to
 help me search and locate the code for plotting certain features in base
 R. The remainder of the post is divided into sections by charts, each of
 which consists of (1) the code, (2) the output chart, and (3) a list of
 features presented in the chart.
+
+## Scatter plots
+
+### Features
+
+- Text on plot margins: `mtext()`
+
+``` r
+#### Data ####
+set.seed(2023)
+subj_idx = 1:30
+gender = rep(1:2, each=15)
+heights = c(160, 175)[gender] + rnorm(30, sd=15)
+
+#### Plot ####
+ylim = c( min(heights)-5, max(heights)+5 )
+plot( 1, type="n", xlim=c(.5,30.5), ylim=ylim,
+      xlab="Subject Index", ylab="Height (cm)" )
+points(  1:15, heights[ 1:15], col=2, pch=19 )
+points( 16:30, heights[16:30], col=4, pch=19 )
+abline( v=15.5, col="grey", lty="dashed" )
+mtext( c("Girls","Boys"), at=c(7,23), col=c(2,4), padj=-.5 )
+```
+
+<img src="main_files/figure-commonmark/unnamed-chunk-1-1.svg"
+style="width:100.0%" data-fig-align="center" />
+
+## Bar Charts
+
+### Features
+
+- custom axis: `axis()`
+- axis label rotation (horizontal): `las = 1`
+- axis label padding adjustment: `hadj`, `padj`
+- number of digits: `spintf("%.2f", yseq)`
+
+### Code & Plot
+
+``` r
+yseq = seq(0, 1, .25)
+plot(1, type="n", xaxt='n', yaxt='n',
+     ylab = "Probability", xlab="",
+     xlim=c(-.7, 1.7), ylim=c(0, 1) )
+lines( c(0, 0), c(0, 0.25), lwd=12, col=2 )
+lines( c(1, 1), c(0, 0.75), lwd=12, col=2 )
+axis( 2, at=yseq, labels=sprintf("%.2f", yseq), las=1, hadj = .85 )
+axis( 1, at=0:1, padj = .5,
+      labels = c("0\n(tail)", "1\n(head)"), 
+)
+```
+
+<img src="main_files/figure-commonmark/unnamed-chunk-2-1.svg"
+style="width:100.0%" data-fig-align="center" />
 
 ## Interaction Plots
 
@@ -73,7 +126,7 @@ d
 (LABELS = colnames(d)[-1])
 ```
 
-    # A tibble: 3 × 5
+    # A tibble: 3 x 5
       Species      S.L   S.W   P.L   P.W
       <fct>      <dbl> <dbl> <dbl> <dbl>
     1 setosa      5.01  3.43  1.46 0.246
@@ -112,7 +165,7 @@ legend("right", legend=d$Species, inset=c(-.17,0), xpd=TRUE,
        y.intersp=1.8, box.col="transparent", bg="transparent" )
 ```
 
-<img src="main_files/figure-commonmark/unnamed-chunk-2-1.svg"
+<img src="main_files/figure-commonmark/unnamed-chunk-4-1.svg"
 style="width:100.0%" data-fig-align="center" />
 
 ## Density Plots
@@ -154,5 +207,5 @@ text( .5*(AVG+SD+.06), .035,
       labels = paste("SD =",round(SD,3)), col=4, cex=.8 )
 ```
 
-<img src="main_files/figure-commonmark/unnamed-chunk-3-1.svg"
+<img src="main_files/figure-commonmark/unnamed-chunk-5-1.svg"
 style="width:100.0%" data-fig-align="center" />
