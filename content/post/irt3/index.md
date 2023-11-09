@@ -412,7 +412,7 @@ fancy manner, and it looks scary only because it does many things at
 once. With some patience, you will be able to break down and understand
 the steps involved.
 
-#### Reconstructing Dropped Estimate
+#### Reconstructing Dropped Estimates
 
 Let’s first see how the contrast matrix reconstructs the dropped
 estimate from the sum-to-zero constrained model. I’ll start with a toy
@@ -468,7 +468,7 @@ Cmat %*% eff
     2  1.7
     3 -3.2
 
-#### Reconstructing Standard Error of Dropped Estimate
+#### Reconstructing Standard Error of Dropped Estimates
 
 The contrast matrix can similarly be applied to reconstruct the variance
 ( hence the standard error) of the dropped subject’s estimate. The
