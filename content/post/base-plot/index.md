@@ -209,3 +209,24 @@ text( .5*(AVG+SD+.06), .035,
 
 <img src="main_files/figure-commonmark/unnamed-chunk-5-1.svg"
 style="width:100.0%" data-fig-align="center" />
+
+## Combining Plots
+
+### Features
+
+- Plot panels: `par()` + `mfrow()`
+
+### Code & Plot
+
+``` r
+inner = c(4.1, 4.1, 1.8, .5)
+par( mfrow=c(2,2), oma=c(0,0,0,0), mar=inner )
+
+for ( i in 1:4 ) {
+    plot( 1, type="n", xlim=0:1, ylim=0:1, xlab="", ylab="" )
+    text( .5, .5, labels=paste("Plot",i), cex=2 )
+}
+```
+
+<img src="main_files/figure-commonmark/unnamed-chunk-6-1.svg"
+style="width:100.0%" data-fig-align="center" />
