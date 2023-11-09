@@ -2109,7 +2109,7 @@ title="Reconstructing dropped levels with the contrast matrix">
 fancy manner, and it looks scary only because it does many things at
 once. With some patience, you will be able to break down and understand
 the steps involved.&lt;/p>
-&lt;h4 id="reconstructing-dropped-estimate">Reconstructing Dropped Estimate&lt;/h4>
+&lt;h4 id="reconstructing-dropped-estimates">Reconstructing Dropped Estimates&lt;/h4>
 &lt;p>Let’s first see how the contrast matrix reconstructs the dropped
 estimate from the sum-to-zero constrained model. I’ll start with a toy
 example with only three subjects, $S_1, S_2, S_3$. The contrast matrix
@@ -2177,7 +2177,7 @@ $$&lt;/p>
 2 1.7
 3 -3.2
 &lt;/code>&lt;/pre>
-&lt;h4 id="reconstructing-standard-error-of-dropped-estimate">Reconstructing Standard Error of Dropped Estimate&lt;/h4>
+&lt;h4 id="reconstructing-standard-error-of-dropped-estimates">Reconstructing Standard Error of Dropped Estimates&lt;/h4>
 &lt;p>The contrast matrix can similarly be applied to reconstruct the variance
 ( hence the standard error) of the dropped subject’s estimate. The
 reconstruction is based on the &lt;strong>variance sum law&lt;/strong>,

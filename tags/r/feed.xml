@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>r on Yongfu's Blog</title><link>https://yongfu.name/tags/r/</link><description>Recent content in r on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/r/feed.xml" rel="self" type="application/rss+xml"/><item><title>A Diary of R Charts</title><link>https://yongfu.name/2023/10/27/base-plot/</link><pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/10/27/base-plot/</guid><description>&lt;p>My love for the base R plotting system has been growing since I started
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>r on Yongfu's Blog</title><link>https://yongfu.name/tags/r/</link><description>Recent content in r on Yongfu's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://yongfu.name/tags/r/feed.xml" rel="self" type="application/rss+xml"/><item><title>A Diary of Charts</title><link>https://yongfu.name/2023/10/27/base-plot/</link><pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/10/27/base-plot/</guid><description>&lt;p>My love for the base R plotting system has been growing since I started
 dealing with complicated charts. Complexity in these charts can arise
 for many reasons. For one, it might simply result from the data
 structure when working with complex statistical models (e.g., multilevel
@@ -8,14 +8,56 @@ originally created in Excel could be extremely difficult, and it is
 nearly impossible to do so with higher-level plotting packages such as
 &lt;code>ggplot2&lt;/code>. To approach the look of a chart created outside of R, life
 would be much easier if lower-level frameworks such as the base R
-plotting system are utilized.&lt;/p>
+plotting system were utilized.&lt;/p>
 &lt;p>Below is just a cumulation of charts I’ve created. It is intended to
 help me search and locate the code for plotting certain features in base
 R. The remainder of the post is divided into sections by charts, each of
 which consists of (1) the code, (2) the output chart, and (3) a list of
 features presented in the chart.&lt;/p>
-&lt;h2 id="interaction-plots">Interaction Plots&lt;/h2>
+&lt;h2 id="scatter-plots">Scatter plots&lt;/h2>
 &lt;h3 id="features">Features&lt;/h3>
+&lt;ul>
+&lt;li>Text on plot margins: &lt;code>mtext()&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>&lt;span style="color:#75715e">#### Data ####&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">set.seed&lt;/span>(&lt;span style="color:#ae81ff">2023&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span>subj_idx &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">30&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4&lt;/span>&lt;span>gender &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">rep&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>, each&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">15&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5&lt;/span>&lt;span>heights &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">160&lt;/span>, &lt;span style="color:#ae81ff">175&lt;/span>)[gender] &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">rnorm&lt;/span>(&lt;span style="color:#ae81ff">30&lt;/span>, sd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">15&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6&lt;/span>&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7&lt;/span>&lt;span>&lt;span style="color:#75715e">#### Plot ####&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8&lt;/span>&lt;span>ylim &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>( &lt;span style="color:#a6e22e">min&lt;/span>(heights)&lt;span style="color:#ae81ff">-5&lt;/span>, &lt;span style="color:#a6e22e">max&lt;/span>(heights)&lt;span style="color:#ae81ff">+5&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xlim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">.5&lt;/span>,&lt;span style="color:#ae81ff">30.5&lt;/span>), ylim&lt;span style="color:#f92672">=&lt;/span>ylim,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10&lt;/span>&lt;span> xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Subject Index&amp;#34;&lt;/span>, ylab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Height (cm)&amp;#34;&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11&lt;/span>&lt;span>&lt;span style="color:#a6e22e">points&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">15&lt;/span>, heights[ &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">15&lt;/span>], col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>, pch&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">19&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12&lt;/span>&lt;span>&lt;span style="color:#a6e22e">points&lt;/span>( &lt;span style="color:#ae81ff">16&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">30&lt;/span>, heights[16&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">30&lt;/span>], col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, pch&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">19&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13&lt;/span>&lt;span>&lt;span style="color:#a6e22e">abline&lt;/span>( v&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">15.5&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;grey&amp;#34;&lt;/span>, lty&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;dashed&amp;#34;&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14&lt;/span>&lt;span>&lt;span style="color:#a6e22e">mtext&lt;/span>( &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Girls&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;Boys&amp;#34;&lt;/span>), at&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">23&lt;/span>), col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>), padj&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">-.5&lt;/span> )
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="main_files/figure-commonmark/unnamed-chunk-1-1.svg"
+style="width:100.0%" data-fig-align="center" />&lt;/p>
+&lt;h2 id="bar-charts">Bar Charts&lt;/h2>
+&lt;h3 id="features-1">Features&lt;/h3>
+&lt;ul>
+&lt;li>custom axis: &lt;code>axis()&lt;/code>&lt;/li>
+&lt;li>axis label rotation (horizontal): &lt;code>las = 1&lt;/code>&lt;/li>
+&lt;li>axis label padding adjustment: &lt;code>hadj&lt;/code>, &lt;code>padj&lt;/code>&lt;/li>
+&lt;li>number of digits: &lt;code>spintf(&amp;quot;%.2f&amp;quot;, yseq)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h3 id="code--plot">Code &amp;amp; Plot&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>yseq &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">seq&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">.25&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">plot&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>, type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;n&amp;#34;&lt;/span>, xaxt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;n&amp;#39;&lt;/span>, yaxt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;n&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span> ylab &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Probability&amp;#34;&lt;/span>, xlab&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4&lt;/span>&lt;span> xlim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">-.7&lt;/span>, &lt;span style="color:#ae81ff">1.7&lt;/span>), ylim&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>) )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5&lt;/span>&lt;span>&lt;span style="color:#a6e22e">lines&lt;/span>( &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>), &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0.25&lt;/span>), lwd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">12&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6&lt;/span>&lt;span>&lt;span style="color:#a6e22e">lines&lt;/span>( &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>), &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0.75&lt;/span>), lwd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">12&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7&lt;/span>&lt;span>&lt;span style="color:#a6e22e">axis&lt;/span>( &lt;span style="color:#ae81ff">2&lt;/span>, at&lt;span style="color:#f92672">=&lt;/span>yseq, labels&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">sprintf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%.2f&amp;#34;&lt;/span>, yseq), las&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, hadj &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">.85&lt;/span> )
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8&lt;/span>&lt;span>&lt;span style="color:#a6e22e">axis&lt;/span>( &lt;span style="color:#ae81ff">1&lt;/span>, at&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, padj &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">.5&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9&lt;/span>&lt;span> labels &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;0\n(tail)&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;1\n(head)&amp;#34;&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10&lt;/span>&lt;span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="main_files/figure-commonmark/unnamed-chunk-2-1.svg"
+style="width:100.0%" data-fig-align="center" />&lt;/p>
+&lt;h2 id="interaction-plots">Interaction Plots&lt;/h2>
+&lt;h3 id="features-2">Features&lt;/h3>
 &lt;ul>
 &lt;li>Legend outside of plotting region: &lt;code>par()&lt;/code>, &lt;code>legend()&lt;/code>, &lt;code>mar&lt;/code>, &lt;code>xpd&lt;/code>,
 &lt;code>inset&lt;/code>&lt;/li>
@@ -23,7 +65,7 @@ features presented in the chart.&lt;/p>
 &lt;li>Custom axis (categorical axis): &lt;code>axis()&lt;/code>&lt;/li>
 &lt;li>text / label: &lt;code>text()&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="code--plot">Code &amp;amp; Plot&lt;/h3>
+&lt;h3 id="code--plot-1">Code &amp;amp; Plot&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(stom)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(dplyr)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span>
@@ -40,7 +82,7 @@ features presented in the chart.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14&lt;/span>&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15&lt;/span>&lt;span>&lt;span style="color:#75715e">#### Annotations ####&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16&lt;/span>&lt;span>(LABELS &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">colnames&lt;/span>(d)[&lt;span style="color:#ae81ff">-1&lt;/span>])
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 3 × 5
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code># A tibble: 3 x 5
 Species S.L S.W P.L P.W
 &amp;lt;fct&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
 1 setosa 5.01 3.43 1.46 0.246
@@ -76,16 +118,16 @@ Species S.L S.W P.L P.W
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26&lt;/span>&lt;span>&lt;span style="color:#a6e22e">legend&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;right&amp;#34;&lt;/span>, legend&lt;span style="color:#f92672">=&lt;/span>d&lt;span style="color:#f92672">$&lt;/span>Species, inset&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#a6e22e">c&lt;/span>(&lt;span style="color:#ae81ff">-.17&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>), xpd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">TRUE&lt;/span>,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27&lt;/span>&lt;span> col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#a6e22e">nrow&lt;/span>(d), pch&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#a6e22e">nrow&lt;/span>(d) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>, lwd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, cex&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">.9&lt;/span>,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28&lt;/span>&lt;span> y.intersp&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1.8&lt;/span>, box.col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;transparent&amp;#34;&lt;/span>, bg&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;transparent&amp;#34;&lt;/span> )
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="main_files/figure-commonmark/unnamed-chunk-2-1.svg"
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="main_files/figure-commonmark/unnamed-chunk-4-1.svg"
 style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;h2 id="density-plots">Density Plots&lt;/h2>
-&lt;h3 id="features-1">Features&lt;/h3>
+&lt;h3 id="features-3">Features&lt;/h3>
 &lt;ul>
 &lt;li>Line segments: &lt;code>segments()&lt;/code>&lt;/li>
 &lt;li>Density: &lt;code>density()&lt;/code>&lt;/li>
 &lt;li>text / label: &lt;code>text()&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;h3 id="code--plot-1">Code &amp;amp; Plot&lt;/h3>
+&lt;h3 id="code--plot-2">Code &amp;amp; Plot&lt;/h3>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-r" data-lang="r">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(stom)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2&lt;/span>&lt;span>&lt;span style="color:#a6e22e">library&lt;/span>(dplyr)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3&lt;/span>&lt;span>
@@ -112,7 +154,7 @@ style="width:100.0%" data-fig-align="center" />&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24&lt;/span>&lt;span>&lt;span style="color:#a6e22e">segments&lt;/span>( x0&lt;span style="color:#f92672">=&lt;/span>AVG&lt;span style="color:#f92672">+&lt;/span>SD, y0&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">.01&lt;/span>, y1&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">.03&lt;/span>, lwd&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>, col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span> )
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25&lt;/span>&lt;span>&lt;span style="color:#a6e22e">text&lt;/span>( &lt;span style="color:#ae81ff">.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>(AVG&lt;span style="color:#f92672">+&lt;/span>SD&lt;span style="color:#ae81ff">+.06&lt;/span>), &lt;span style="color:#ae81ff">.035&lt;/span>,
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26&lt;/span>&lt;span> labels &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">paste&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;SD =&amp;#34;&lt;/span>,&lt;span style="color:#a6e22e">round&lt;/span>(SD,&lt;span style="color:#ae81ff">3&lt;/span>)), col&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>, cex&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">.8&lt;/span> )
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="main_files/figure-commonmark/unnamed-chunk-3-1.svg"
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="main_files/figure-commonmark/unnamed-chunk-5-1.svg"
 style="width:100.0%" data-fig-align="center" />&lt;/p></description><category>r</category><category>stats</category></item><item><title>Beyond Item Response Theory</title><link>https://yongfu.name/2023/06/27/irt5/</link><pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/06/27/irt5/</guid><description>&lt;p>My previous four posts have focused on basic item response models&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.
 These models are commonly found in an educational testing context but
 are less often seen in clinical research settings where questionnaires
@@ -2224,7 +2266,7 @@ title="Reconstructing dropped levels with the contrast matrix">
 fancy manner, and it looks scary only because it does many things at
 once. With some patience, you will be able to break down and understand
 the steps involved.&lt;/p>
-&lt;h4 id="reconstructing-dropped-estimate">Reconstructing Dropped Estimate&lt;/h4>
+&lt;h4 id="reconstructing-dropped-estimates">Reconstructing Dropped Estimates&lt;/h4>
 &lt;p>Let’s first see how the contrast matrix reconstructs the dropped
 estimate from the sum-to-zero constrained model. I’ll start with a toy
 example with only three subjects, $S_1, S_2, S_3$. The contrast matrix
@@ -2292,7 +2334,7 @@ $$&lt;/p>
 2 1.7
 3 -3.2
 &lt;/code>&lt;/pre>
-&lt;h4 id="reconstructing-standard-error-of-dropped-estimate">Reconstructing Standard Error of Dropped Estimate&lt;/h4>
+&lt;h4 id="reconstructing-standard-error-of-dropped-estimates">Reconstructing Standard Error of Dropped Estimates&lt;/h4>
 &lt;p>The contrast matrix can similarly be applied to reconstruct the variance
 ( hence the standard error) of the dropped subject’s estimate. The
 reconstruction is based on the &lt;strong>variance sum law&lt;/strong>,
