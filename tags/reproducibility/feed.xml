@@ -365,7 +365,7 @@ understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref"
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>r</category><category>stats</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
-reproducibility for some time. I did not incorporate Make into my work however,
+reproducibility for some time. I did not incorporate Make into my work, however,
 since a simple build script written in Bash was sufficient. Everything was well
 in control, and I could structure the workflow to my will.&lt;/p>
 &lt;p>It was not until I started working in a company setting that I found most things
@@ -418,7 +418,7 @@ data). All data resulting from the computation in the current project are
 located in &lt;code>results/&lt;/code>. So ideally, you could delete &lt;code>results/&lt;/code> at any time
 without worry. A single command &lt;code>snakmake -c&lt;/code> should generate all the results
 from &lt;code>resources/&lt;/code>. The genius of this structure is that it eliminates the need
-of worrying about where to place newly arrived data, as commonly encountered in
+to worry about where to place newly arrived data, as commonly encountered in
 real-world situations (e.g., an analysis might require data that you did not
 foresee).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>├── .gitignore
@@ -444,8 +444,8 @@ annoying drawbacks&lt;/strong>.&lt;/p>
 &lt;p>Since in a &lt;code>Snakefile&lt;/code>, file paths of inputs and outputs are always
 repeated, it soon becomes annoying to type in paths starting with
 &lt;code>resources/...&lt;/code> and &lt;code>results/...&lt;/code>. In addition, &amp;ldquo;resources&amp;rdquo; and &amp;ldquo;results&amp;rdquo;
-have a common prefix, which often confuses me. It would be better off if the
-two terms are more readily distinguished visually.&lt;/p>
+have a common prefix, which often confuses me. It would be better if the
+two terms were more readily distinguished visually.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Confusing relative paths&lt;/strong>&lt;/p>
@@ -486,7 +486,7 @@ the user always invokes the command &lt;code>snakemake -c&lt;/code> in the proje
 &lt;p>The experience of using Snakemake on Windows is great overall. I ran into a
 few problems, but the problems were usually solvable. There is one particular
 problem that took me a while to solve. On Windows, the default shell executable
-used in Snakemake (and Python) is Cmd (or maybe Powershell). But since I am more
+used in Snakemake (and Python) is Cmd (or maybe Powershell). However, since I am more
 familiar with Bash and Unix tools, it is a real inconvenience. I had set up
 Git-Bash on the company&amp;rsquo;s Windows machine but then spent a long time figuring
 out how to set Git-Bash as the default shell in Snakemake. The information for
@@ -504,7 +504,7 @@ computers without additional configurations.&lt;/p>
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>&amp;ldquo;Good&amp;rdquo; conventions here, as opposed to naturally-resulting conventions without the consideration of reproducibility.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>&amp;ldquo;Good&amp;rdquo; conventions here, as opposed to naturally resulting conventions without the consideration of reproducibility.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>r</category><category>python</category><category>reproducibility</category></item></channel></rss>

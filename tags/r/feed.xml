@@ -3657,7 +3657,7 @@ understand these things.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref"
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>r</category><category>stats</category><category>psychology</category><category>reproducibility</category></item><item><title>A Minimalist Structure for Snakemake</title><link>https://yongfu.name/2023/02/15/snakemake/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/02/15/snakemake/</guid><description>&lt;p>I have &lt;a href="https://kbroman.org/minimal_make">heard of&lt;/a> the use of &lt;a href="https://www.gnu.org/software/make/">GNU Make&lt;/a> for enhancing
-reproducibility for some time. I did not incorporate Make into my work however,
+reproducibility for some time. I did not incorporate Make into my work, however,
 since a simple build script written in Bash was sufficient. Everything was well
 in control, and I could structure the workflow to my will.&lt;/p>
 &lt;p>It was not until I started working in a company setting that I found most things
@@ -3710,7 +3710,7 @@ data). All data resulting from the computation in the current project are
 located in &lt;code>results/&lt;/code>. So ideally, you could delete &lt;code>results/&lt;/code> at any time
 without worry. A single command &lt;code>snakmake -c&lt;/code> should generate all the results
 from &lt;code>resources/&lt;/code>. The genius of this structure is that it eliminates the need
-of worrying about where to place newly arrived data, as commonly encountered in
+to worry about where to place newly arrived data, as commonly encountered in
 real-world situations (e.g., an analysis might require data that you did not
 foresee).&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1&lt;/span>&lt;span>├── .gitignore
@@ -3736,8 +3736,8 @@ annoying drawbacks&lt;/strong>.&lt;/p>
 &lt;p>Since in a &lt;code>Snakefile&lt;/code>, file paths of inputs and outputs are always
 repeated, it soon becomes annoying to type in paths starting with
 &lt;code>resources/...&lt;/code> and &lt;code>results/...&lt;/code>. In addition, &amp;ldquo;resources&amp;rdquo; and &amp;ldquo;results&amp;rdquo;
-have a common prefix, which often confuses me. It would be better off if the
-two terms are more readily distinguished visually.&lt;/p>
+have a common prefix, which often confuses me. It would be better if the
+two terms were more readily distinguished visually.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Confusing relative paths&lt;/strong>&lt;/p>
@@ -3778,7 +3778,7 @@ the user always invokes the command &lt;code>snakemake -c&lt;/code> in the proje
 &lt;p>The experience of using Snakemake on Windows is great overall. I ran into a
 few problems, but the problems were usually solvable. There is one particular
 problem that took me a while to solve. On Windows, the default shell executable
-used in Snakemake (and Python) is Cmd (or maybe Powershell). But since I am more
+used in Snakemake (and Python) is Cmd (or maybe Powershell). However, since I am more
 familiar with Bash and Unix tools, it is a real inconvenience. I had set up
 Git-Bash on the company&amp;rsquo;s Windows machine but then spent a long time figuring
 out how to set Git-Bash as the default shell in Snakemake. The information for
@@ -3796,7 +3796,7 @@ computers without additional configurations.&lt;/p>
 &lt;hr>
 &lt;ol>
 &lt;li id="fn:1">
-&lt;p>&amp;ldquo;Good&amp;rdquo; conventions here, as opposed to naturally-resulting conventions without the consideration of reproducibility.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;p>&amp;ldquo;Good&amp;rdquo; conventions here, as opposed to naturally resulting conventions without the consideration of reproducibility.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description><category>r</category><category>python</category><category>reproducibility</category></item><item><title>我的 R 開放課程</title><link>https://yongfu.name/2021/06/03/my-r-course/</link><pubDate>Thu, 03 Jun 2021 00:00:00 +0000</pubDate><guid>https://yongfu.name/2021/06/03/my-r-course/</guid><description>&lt;p>這學期 (109-2) 第二次擔任課程助教，給大學部的同學們上 R 語言。第二次教學，在熱情上減了一半，在教材難度上增加了一半。大概是因為不喜歡重複做一樣的事，這次課程刻意補了上一次 (&lt;a href="https://rlads2019.github.io/lab/">108-1&lt;/a>) 懶得教&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>、沒時間教&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>、沒自信可以教&lt;sup id="fnref:3">&lt;a href="#fn:3" class="footnote-ref" role="doc-noteref">3&lt;/a>&lt;/sup>以及沒有能力教&lt;sup id="fnref:4">&lt;a href="#fn:4" class="footnote-ref" role="doc-noteref">4&lt;/a>&lt;/sup>的內容。有了這些新的內容，課程準備起來就比較提得起勁，畢竟知道在去年已經教過的內容上，現在的我實在很難超越當時的自己&lt;sup id="fnref:5">&lt;a href="#fn:5" class="footnote-ref" role="doc-noteref">5&lt;/a>&lt;/sup>。不過，在準備教材的同時，也可以看到自己這一陣子的轉變：對某些概念的認識更加地完整、思緒變得更複雜迅速有條理。能發現這些真的蠻開心的，至少腦袋還是有長一些。擴增教材的另一個目的，是為了補齊上一次未能 (學會然後) 教的缺憾，大概是一種想把圓畫完整的感覺，當然圓不可能畫得完美&lt;sup id="fnref:6">&lt;a href="#fn:6" class="footnote-ref" role="doc-noteref">6&lt;/a>&lt;/sup>，不過整體來說，完整的感覺還是大過缺憾許多，也蠻值得開心的。&lt;/p>
