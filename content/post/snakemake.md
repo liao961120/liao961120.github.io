@@ -10,7 +10,7 @@ date: '2023-02-15'
 ---
 
 I have [heard of][karl] the use of [GNU Make][make] for enhancing
-reproducibility for some time. I did not incorporate Make into my work however,
+reproducibility for some time. I did not incorporate Make into my work, however,
 since a simple build script written in Bash was sufficient. Everything was well
 in control, and I could structure the workflow to my will.
 
@@ -67,7 +67,7 @@ data). All data resulting from the computation in the current project are
 located in `results/`. So ideally, you could delete `results/` at any time
 without worry. A single command `snakmake -c` should generate all the results
 from `resources/`. The genius of this structure is that it eliminates the need
-of worrying about where to place newly arrived data, as commonly encountered in
+to worry about where to place newly arrived data, as commonly encountered in
 real-world situations (e.g., an analysis might require data that you did not
 foresee).
 
@@ -98,8 +98,8 @@ annoying drawbacks**.
     Since in a `Snakefile`, file paths of inputs and outputs are always
     repeated, it soon becomes annoying to type in paths starting with
     `resources/...` and `results/...`. In addition, "resources" and "results"
-    have a common prefix, which often confuses me. It would be better off if the
-    two terms are more readily distinguished visually. 
+    have a common prefix, which often confuses me. It would be better if the
+    two terms were more readily distinguished visually. 
 
 2. **Confusing relative paths**
     
@@ -144,7 +144,7 @@ The source code of this Snakemake workflow can be found
 The experience of using Snakemake on Windows is great overall. I ran into a
 few problems, but the problems were usually solvable. There is one particular
 problem that took me a while to solve. On Windows, the default shell executable
-used in Snakemake (and Python) is Cmd (or maybe Powershell). But since I am more
+used in Snakemake (and Python) is Cmd (or maybe Powershell). However, since I am more
 familiar with Bash and Unix tools, it is a real inconvenience. I had set up
 Git-Bash on the company's Windows machine but then spent a long time figuring
 out how to set Git-Bash as the default shell in Snakemake. The information for
@@ -163,7 +163,7 @@ if os.name == 'nt':
 ```
 
 
-[^convention]: "Good" conventions here, as opposed to naturally-resulting conventions without the consideration of reproducibility.
+[^convention]: "Good" conventions here, as opposed to naturally resulting conventions without the consideration of reproducibility.
 
 [karl]: https://kbroman.org/minimal_make
 [makeforwin]: http://gnuwin32.sourceforge.net/packages/make.htm
