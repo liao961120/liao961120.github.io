@@ -15,6 +15,10 @@ outputFormats:
 
 summaryLength: 80
 
+outputs:
+  home: ["html", "rss", "json"]
+
+
 menu:
   main:
     - name: "Home"
