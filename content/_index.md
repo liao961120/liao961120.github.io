@@ -23,6 +23,16 @@ education:
 projects:
     title: "Projects"
     items:
+        - name: "fundoc"
+          tags: ['R']
+          about: "Quick and dirty function documentation for non-package R projects."
+          url: https://github.com/liao961120/fundoc
+          img: /project/fundoc.png
+        - name: "stom"
+          tags: ['R']
+          about: "Personal package and utilities for statistical modeling with R and Stan."
+          url: https://github.com/liao961120/stom
+          img: /project/stom.png
         - name: "Book template for Pandoc"
           tags: ['Pandoc', 'JavaScript', 'CSS']
           about: "Recreation of bookdown bs4_book. Pure JavaScript for chapter navigation, searching, cross-reference, and more."
@@ -105,7 +115,7 @@ projects:
           img: /project/pttSlang.jpg
         - name: "Xaringan Chocolate"
           tags: ['R', 'CSS']
-          about: "CSS theme created for the slide making R package xaringan."
+          about: "CSS theme created for the slide-making R package xaringan."
           url: https://liao961120.github.io/slides/xaringan/
           img: /project/xaringan.png
         - name: "pttR"
