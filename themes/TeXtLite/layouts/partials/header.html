@@ -6,7 +6,7 @@
 
     <div class="site_nav">
         {{ range .Site.Menus.main }}
-        <span class="nav_link"><a href="{{ .URL }}">{{ .Name }}</a></span>
+        <span class="nav_link"><a href="{{ .URL }}">{{ .Name | safeHTML }}</a></span>
         {{ end }}
     </div>
 </div>

@@ -2,7 +2,7 @@
 title: Search
 ---
 
-<input type="search" id="search-input" data-info-init="Initializing... Please hold on."
+<input type="search" id="search-input" data-info-init="Initializing..."
   data-text-length=500 data-limit=100 data-delay=300>
 
 <div class="search-results">
