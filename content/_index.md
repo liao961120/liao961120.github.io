@@ -25,7 +25,7 @@ projects:
     items:
         - name: "fundoc"
           tags: ['R']
-          about: "Quick and dirty function documentation for non-package R projects."
+          about: "Quick and dirty function documentation for non-package projects."
           url: https://github.com/liao961120/fundoc
           img: /project/fundoc.png
         - name: "stom"
