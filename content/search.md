@@ -13,7 +13,7 @@ title: Search
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/fuse-search.min.js" defer></script>
+<script src="/js/fuse-search.js" defer></script>
 <script>
     // const options = {
     //     getFn: (obj, path) => {

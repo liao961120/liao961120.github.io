@@ -4,7 +4,7 @@
         {{- dict 
             "uri" $p.RelPermalink 
             "title" $p.Title 
-            "subtitle" $p.Params.subtitle
+            "subtitle" ( $p.Params.subtitle | string )
             "content" ($p.Plain | htmlUnescape | plainify) | jsonify 
         -}}
     {{- end -}}
