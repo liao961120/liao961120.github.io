@@ -107,7 +107,7 @@ p > code, li > code, a > code {
     margin-bottom: .45em;
     font-size: 1em;
 }
-.article_content, .tippy-box {
+.article_content, #TableOfContents {
     /* font-family: 'Libre Caslon Text', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif; */
     font-family: Palatino, "Book Antiqua", Georgia, serif;
 }

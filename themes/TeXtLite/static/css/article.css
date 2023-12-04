@@ -48,19 +48,19 @@
 
 /* left/right elements*/
 .side {
-  width: 310px;
+  width: 327px;
   margin: 0 auto;
 }
 .side-left {
   float: left;
   clear: left;
-  margin-left: calc(-310px - 2em);
+  margin-left: calc(-327px - 2em);
   position: sticky;
 }
 .side-right {
   float: right;
   clear: right;
-  margin-right: calc(-310px - 2.5em);
+  margin-right: calc(-327px - 2.5em);
 }
 .quote-left, .quote-right { width: 45%; }
 .embed-left, .embed-right {
