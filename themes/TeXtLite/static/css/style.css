@@ -620,3 +620,10 @@ footer .copyright {
 .sm .goat.svg-container > svg {
     max-height: 100px;
 }
+
+
+/* Pandoc CSL citation: fix overflow */
+.csl-entry a {
+    white-space: pre-wrap;
+    word-wrap: break-word; 
+}
