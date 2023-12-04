@@ -36,7 +36,7 @@ After uploading their Word documents to GD, users can &lt;a href="https://docs.t
 &lt;p>The figure below summarizes the flow of the app&amp;rsquo;s data:&lt;/p>
 &lt;div class="figure">
 &lt;img src="https://img.yongfu.name/posts/gloss-search-webbased.png" style="width:100%">
-&lt;p class="caption">Figure 1: The numbers annotated to the arrows indicate the order of the execution. Processes with annotated text appended with &lt;img src="https://img.yongfu.name/icon/user.png" style="display:inline;height:1em;width:auto;margin:0"> indicate that they are triggered by the user. Other processes proceed automatically.&lt;/p>
+&lt;p class="caption">Figure 1: The numbers annotated to the arrows indicate the order of the execution. Processes with annotated text appended with &lt;img src="https://img.yongfu.name/icon/user.png" style="display:inline;vertical-align:bottom;height:1em;margin:0"> indicate that they are triggered by the user. Other processes proceed automatically.&lt;/p>
 &lt;/div>
 &lt;h2 id="configuration-of-the-travis-build">Configuration of the Travis build&lt;/h2>
 &lt;p>Below is the partial configuration&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> of the Travis build that:&lt;/p>

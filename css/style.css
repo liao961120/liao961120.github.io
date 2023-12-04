@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap');
-
-  :root {
+:root {
     --skin: #F0D9CA;
     --landing-section-skin: #eccdb9;
     --header-text: rgba(255, 255, 255, 0.904);
@@ -27,6 +25,11 @@ body {
     background: var(--skin);
 }
 
+em {
+    /* boldface all emphasis */
+    font-weight: 900;
+}
+
 /* Inline code style */
 p > code, li > code, a > code {
     font-size: 0.85em;
@@ -37,28 +40,27 @@ p > code, li > code, a > code {
 
 /* Main */
 .main {
-    display: flex;
+    display: block;
     width: 80%;
     margin: 0.8em auto 2em auto;
     padding: 0 auto;
 }
 
 .main article.post {
-    width: 71%;
+    width: 60%;
     max-width: 80ch;
     margin: 0;
     padding-left: .34em;
-    /* padding-right: 2%; */
 }
 
-.main aside {
+/* .main aside {
     width: 25%;
     margin: 1% 0 0 0;
     padding: 0;
     font-size: .93em;
     max-height: 70vh;
     overflow-y: auto;
-}
+} */
 
 .article_header {
     margin: 1em 0 2em 0;
@@ -106,7 +108,8 @@ p > code, li > code, a > code {
     font-size: 1em;
 }
 .article_content, .tippy-box {
-    font-family: 'Libre Caslon Text', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif;
+    /* font-family: 'Libre Caslon Text', Optima, 'Lucida Sans', Calibri, Candara, Arial, 'Chinese-Custom', sans-serif; */
+    font-family: Palatino, "Book Antiqua", Georgia, serif;
 }
 .article_content p {
     font-size: .93em;
@@ -158,15 +161,6 @@ div.two-column > * {
     content: "References";
     display: block;
     /* font-style: italic; */
-    font-weight: bold;
-    font-size: 1.22em;
-    margin-top: 2.5em;
-    margin-bottom: -.4em;
-}
-div.footnotes::before {
-    content: "Notes";
-    display: block;
-    font-style: italic;
     font-weight: bold;
     font-size: 1.22em;
     margin-top: 2.5em;
@@ -522,7 +516,6 @@ footer .copyright {
     letter-spacing: .5px;
 }
 
-
 /* Box in article */
 .Box {
 	/* background: rgb(100, 209, 171); */
@@ -549,15 +542,9 @@ footer .copyright {
 }
 
 
-/* Katex */
-p:has( > span > span.katex-display) {
-    width: 100%;
-    overflow-x: auto;
-}
-
 
 /* Responsive design */
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1280px) {
     .article_content img, .article_content figure {
         width: 100%;
         display: block;
@@ -580,7 +567,7 @@ p:has( > span > span.katex-display) {
     }
     .main article.post {
         width: 100%;
-        max-width: 100%;
+        max-width: 80ch;
         margin: 0;
         padding: 0;
         padding-left: 0;
@@ -612,8 +599,12 @@ p:has( > span > span.katex-display) {
         position: relative !important;
         margin-left: 1.7em;
     }
+    /* Katex */
+    p:has( > span > span.katex-display) {
+        width: 100%;
+        overflow-x: auto;
+    }
 }
-
 
 /* GOAT Diagram */
 /* Default size */
@@ -628,11 +619,4 @@ p:has( > span > span.katex-display) {
 }
 .sm .goat.svg-container > svg {
     max-height: 100px;
-}
-
-/* ToolTip */
-.tippy-box {
-    font-size: .96em;
-    /* max-width: 45ch !important; */
-    /* padding: .0em .8em; */
 }
