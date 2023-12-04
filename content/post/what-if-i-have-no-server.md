@@ -32,7 +32,7 @@ The figure below summarizes the flow of the app's data:
 
 <div class="figure">
 	<img src="https://img.yongfu.name/posts/gloss-search-webbased.png" style="width:100%">
-	<p class="caption">Figure 1: The numbers annotated to the arrows indicate the order of the execution. Processes with annotated text appended with <img src="https://img.yongfu.name/icon/user.png" style="display:inline;height:1em;width:auto;margin:0"> indicate that they are triggered by the user. Other processes proceed automatically.</p>
+	<p class="caption">Figure 1: The numbers annotated to the arrows indicate the order of the execution. Processes with annotated text appended with <img src="https://img.yongfu.name/icon/user.png" style="display:inline;vertical-align:bottom;height:1em;margin:0"> indicate that they are triggered by the user. Other processes proceed automatically.</p>
 </div>
 
 

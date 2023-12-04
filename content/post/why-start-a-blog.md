@@ -5,6 +5,7 @@ date: '2017-11-26'
 tags:
 - thoughts
 title: Why start a Blog?
+katex: true
 ---
 
 
@@ -12,7 +13,7 @@ There are many reasons to start a blog. I was inspired by [this post](http://var
  
 
 ## Starting a Blog for Others
-I have been reluctant to share my ideas with others (partly because I'm shy), but my interest in human evolution led me to realize the importance of learning and cultural transmission in our species[^1]: *A hard-working but not-so-smart student can do much better than a genius who never learn.* 
+I have been reluctant to share my ideas with others (partly because I'm shy), but my interest in human evolution led me to realize the importance of learning and cultural transmission in our species[^1]: *A hard-working but not-so-smart student can do much better than a genius who never learns.* 
 
 I'm a not-so-smart student and have spent a large amount of time figuring out many things that turned out to be really simple while learning. I could have learned much more efficiently if someone had shared their experience with me (So that I don't have to start by, say, proving $1+1=2$). Now, I think I have some experiences worth sharing, and people might benefit from them.
 

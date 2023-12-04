@@ -23,11 +23,6 @@
                 </div>
                 {{ end }}
                 
-                <!-- <ul>
-                    {{ range .Site.Taxonomies.tags.pandoc }}
-                        <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
-                    {{ end }}
-                </ul> -->
                 <!-- Taxonomies -->
                 <div class="date">
                     <span class="inline-icon">{{ readFile "/themes/TeXtLite/static/gadget/calendar.svg" | safeHTML }}</span>
@@ -37,6 +32,15 @@
 
         </div>
 
+        {{ if .TableOfContents | strings.Count "<li>" }} <!-- Deal with empty toc -->
+            {{ .TableOfContents }}
+        {{ end }}
+        <!-- Patch to remove empty TOC <li> -->
+        <script>
+            document.querySelectorAll("#TableOfContents li").forEach( li => {
+                if (li.innerHTML == "") li.remove();
+            })
+        </script>
         <div class="article_content">
             {{ .Content }}
         </div>
@@ -65,35 +69,11 @@
             {{ end }}
         </div>
     </article>
-    <aside class="toc toc-right js-toc relative z-1 transition--300 absolute pa4 pt5 is-position-fixed"></aside>
-    <!-- <aside>{{ .TableOfContents }}</aside> -->
 </div>
 
-{{ if .Params.ignoreToc }}
-<script>
-    document.querySelectorAll("{{ .Params.ignoreToc }}").forEach(e => {
-        e.classList.add("ignoreToc")
-    })
-</script>
-{{ end }}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css">
-<script>
-    tocbot.init({
-        // Where to render the table of contents.
-        tocSelector: '.js-toc',
-        // Where to grab the headings to build the table of contents.
-        contentSelector: '.article_content',
-        ignoreSelector: '.Box h2, .Box h3, .Box h4, .Box h5, .Box h6, .ignoreToc',
-        // Which headings to grab inside of the contentSelector element.
-        headingSelector: 'h2, h3, h4',
-        scrollSmooth: false,
-        // For headings inside relative or absolute positioned containers within content.
-        hasInnerContainers: true,
-        collapseDepth: 3,
-    });
-</script>
+<script src="/js/sidenotes.js"></script>
+
 <script>
     // Place references at the end
     const ref = document.querySelector(".references");
@@ -101,14 +81,6 @@
        document.querySelector(".article_content").appendChild(ref);
 </script>
 <style>
-    ol.toc-list {
-        list-style-type: none;
-    }
-    aside {
-        position: fixed;
-        top: 15% !important;
-        right: 2%;
-    }
     .next-prev {
         margin-top: 2.5em;
         border-top: 2px solid rgba(173, 173, 173, 0.548);
@@ -137,5 +109,64 @@
         color: black;
         font-weight: 600;
     }
+</style>
+
+
+<!-- Katex copy button -->
+<script>
+    document.querySelectorAll("p").forEach(e => {
+        let c = e.innerText;
+        if ( c.startsWith("$$") && c.endsWith("$$") ) {
+            // Create container
+            let div = document.createElement("div");
+            let fake_btn = document.createElement("div");
+            fake_btn.className = "math-copy copy-button-div";
+            fake_btn.innerHTML = "&nbsp;";
+            // Place TeX source at element
+            fake_btn.setAttribute('data-texsrc', e.innerText.replace(/\$+$/g, '').replace(/^\$+/g, '').trim() );
+            // insert elements
+            div.append(fake_btn);
+            e.before(div);
+            div.append(e);
+            div.classList.add("fullwidth");
+        }
+    })
+</script>
+
+<!-- modified from https://cdn.jsdelivr.net/npm/@xiee/utils/js/copy-button.min.js -->
+<script>
+    (e => { const t = e.currentScript?.dataset; e.querySelectorAll(t?.selector || ".math-copy").forEach((t => { const o = e.createElement("span"), c = o.classList; function a(e) { c.add(e), setTimeout((() => c.remove(e)), 1e3) } o.className = "copy-button", o.onclick = () => navigator.clipboard.writeText(t.getAttribute("data-texsrc")).then((() => a("copy-success")), (() => a("copy-fail"))); const n = "CODE" === t.tagName && "PRE" === t?.parentNode.tagName ? t.parentNode : t; n.querySelector(".copy-button") || n.append(o), "static" === getComputedStyle(n).position && (n.style.position = "relative") })) })(document);
+</script>
+
+<!-- modified from https://cdn.jsdelivr.net/npm/@xiee/utils/css/copy-button.min.css -->
+<style>
+.copy-button {
+    /* position: absolute;
+    display: none; */
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    inset: 5px 5px auto auto;
+    width: 1em;
+    height: 1em;
+    border: 1px solid;
+    box-shadow: -3px 3px var(--header-background);
+}
+:hover>.copy-button {
+    display: inline-block
+}
+.copy-success {
+    box-shadow: none;
+    background-color: var(--header-background);
+        transition: box-shadow .3s ease-out, background-color .3s ease-out
+}
+.copy-fail {
+    border-style: dotted
+}
+.copy-button-div {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
 </style>
 {{ end }}
