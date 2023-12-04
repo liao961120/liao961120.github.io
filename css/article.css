@@ -60,7 +60,7 @@
 .side-right {
   float: right;
   clear: right;
-  margin-right: calc(-327px - 2.5em);
+  margin-right: calc(-327px - 5.2em);
 }
 .quote-left, .quote-right { width: 45%; }
 .embed-left, .embed-right {
