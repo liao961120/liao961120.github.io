@@ -57,7 +57,7 @@ In educational assessment, the goals are to assess some abilities such as mathem
 
 
 
-Addressing Subjectivity
+Addressing subjectivity
 -----------------------
 
 I used to be fascinated with psychologists' ideas of measuring abstract constructs through subjective reports. More recently, however, I feel we have been stumbling on subjectivity for too long. Subjective experiences are by nature vague. Vagueness, unfortunately, is detrimental to the progress of science. 
