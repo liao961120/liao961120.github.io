@@ -28,6 +28,11 @@ projects:
           about: "Quick and dirty function documentation for non-packaged R scripts."
           url: https://github.com/liao961120/fundoc
           img: /project/fundoc.png
+        - name: "OrdLogit"
+          tags: ['JavaScript', "CSS", "web"]
+          about: "Interactive visualization of ordered logistic regression."
+          url: https://yongfu.name/ordlogit
+          img: /project/ordlogit.png
         - name: "stom"
           tags: ['R']
           about: "Personal package and utilities for statistical modeling with R and Stan."
