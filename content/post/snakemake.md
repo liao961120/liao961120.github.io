@@ -42,13 +42,12 @@ totally worth it, however. Dealing with complex tasks requires a complicated
 framework. Often, these complications make sense (and are appreciated) only
 after we face real-world complexities. Going through [Snakemake's
 tutorial][tutor] and experimenting with it on the computer would be sufficient
-to get an average user started. It is not as complicated as it seems at first
-glance. 
+to get an average user started. It is not as complicated as it might seem. 
 
 
 ## Snakemake Recommended Workflow
 
-A great thing about Snakemake is that it is [opinionated][opinion]. This means
+A great thing about Snakemake is that it is opinionated. This means
 that certain conventions[^convention] are proposed, and most users would benefit
 from them since they spare the burden of planning and creating workflow
 structures.
@@ -174,4 +173,3 @@ if os.name == 'nt':
 [snk-rel-path]: https://snakemake.readthedocs.io/en/latest/project_info/faq.html#how-does-snakemake-interpret-relative-paths
 [minimal-snake]: https://github.com/liao961120/minimal-snake
 [shell-src]: https://snakemake.readthedocs.io/en/v6.15.2/_modules/snakemake/shell.html
-[opinion]: https://stackoverflow.com/a/82064
