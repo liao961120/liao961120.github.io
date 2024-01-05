@@ -219,7 +219,7 @@ logit(p)
      [1] -1.0 -0.9 -0.8 -0.7 -0.6 -0.5 -0.4 -0.3 -0.2 -0.1  0.0  0.1  0.2  0.3  0.4
     [16]  0.5  0.6  0.7  0.8  0.9  1.0
 
-Some arithmetics would get us from the logistic to the logit:
+Some algebra would get us from the logistic to the logit:
 
 $$
 \begin{aligned}

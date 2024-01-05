@@ -215,7 +215,7 @@ x = seq( -1, 1, by=0.1 )
 logit(p)
 ```
 
-Some arithmetics would get us from the logistic to the logit:
+Some algebra would get us from the logistic to the logit:
 
 $$
 \begin{aligned}
