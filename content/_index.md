@@ -9,9 +9,9 @@ institute: 'National Taiwan University'
 interests:
     title: "Research Interests" 
     items: 
-        - Interventions for Mental Health
-        - Statistics for Causal Inference
-        - Cultural Evolution
+        - Intervention
+        - Measurement
+        - Generative/Bayesian Modeling
         - Open Science
 education: 
     title: "Education"
@@ -161,11 +161,10 @@ scaffolded my way up in exploring new things. I was excited about the new world
 back then and was attracted to other languages. First, it was Python, then
 JavaScript and web development. I think I'm now settling down to **R**.
 Currently, I use R for my job. In my spare time, I play with stats models in R
-and [Stan][stan]. I guess I will keep working with **_statistics_** (hopefully,
-for empirical sciences) in the future. 
+and [Stan][stan]. I guess I'll keep working with stats and modeling in the 
+future (hopefully, for empirical sciences). 
 
-At times when I feel burned out, I'd go hiking, diving, or travel to
-a distant town.
+At times when feeling burned out, I'd go hiking or travel to a distant town.
 
 
 <!-- It wasn't easy to make up my mind about
