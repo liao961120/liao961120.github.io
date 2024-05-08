@@ -33,6 +33,11 @@ projects:
           about: "Quick and dirty function documentation for non-packaged R scripts."
           url: https://github.com/liao961120/fundoc
           img: /project/fundoc.png
+        - name: "intra"
+          tags: ['R', 'Stan', 'Stats']
+          about: "A modeling study exploring the impact of impurities in self-reported measurements within a longitudinal idiographic (N-of-1) context."
+          url: https://github.com/liao961120/intra
+          img: /project/intra.png
         - name: "OrdLogit"
           tags: ['JavaScript', "CSS", "web"]
           about: "Interactive visualization of ordered logistic regression."
