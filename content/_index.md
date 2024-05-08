@@ -11,7 +11,7 @@ interests:
     items: 
         - Intervention
         - Measurement
-        - Generative/Bayesian Modeling
+        - Generative Modeling
         - Open Science
 education: 
     title: "Education"
@@ -23,6 +23,11 @@ education:
 projects:
     title: "Projects"
     items:
+        - name: "nutrical"
+          tags: ['Python']
+          about: "How much homemade salad to eat for getting 3 grams of fiber? `nutrical` provides an intuitive OOP interface for answering this question."
+          url: https://github.com/liao961120/nutrical
+          img: /project/nutrical.jpg
         - name: "fundoc"
           tags: ['R']
           about: "Quick and dirty function documentation for non-packaged R scripts."
