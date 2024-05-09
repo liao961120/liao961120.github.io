@@ -25,7 +25,7 @@ projects:
     items:
         - name: "nutrical"
           tags: ['Python']
-          about: "How much homemade salad to eat for getting 3 grams of fiber? `nutrical` provides an intuitive OOP interface for answering this question."
+          about: "How much homemade salad to eat to get 3 grams of fiber? `nutrical` provides an intuitive OOP interface to answer questions like this."
           url: https://github.com/liao961120/nutrical
           img: /project/nutrical.jpg
         - name: "fundoc"
