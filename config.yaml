@@ -58,6 +58,7 @@ params:
       - utterances
 
 markup:
+  defaultMarkdownHandler: goldmark
   highlight:
     anchorLineNos: false
     codeFences: true
