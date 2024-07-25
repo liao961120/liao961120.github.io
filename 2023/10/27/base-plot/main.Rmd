@@ -24,6 +24,8 @@ editor:
    render-on-save: false
 ---
 
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
 	message = FALSE,
@@ -93,6 +95,41 @@ axis( 1, at=0:1, padj = .5,
       labels = c("0\n(tail)", "1\n(head)"), 
 )
 ```
+
+
+### Code & Plot
+
+```{r}
+set.seed(100)
+get_pois = function(lambda) {
+    x = rpois(1e5, lambda)
+    y = table(x)
+    x = names(y) |> as.integer()
+    y = as.vector(y / sum(y))
+    return(
+        list(x=x, y=y)
+    )    
+}
+lambdas = c(.8, 2.0, 3.0)
+dat = lapply(lambdas, \(lambda) get_pois(lambda))
+
+x.fct = c(-1, 0, 1) * .21
+cols = stom::vals2cols(seq(2,12,length=3))
+plot(1, type="n", xlim=range(dat[[3]]$x), ylim=range(dat[[1]]$y), las=1,
+     xlab = "Count", ylab="Probability")
+for (j in seq(dat)) {
+    x = dat[[j]]$x
+    y = dat[[j]]$y
+    for (i in seq(x)) {
+        x_ = rep(x[i], 2) + x.fct[j]
+        y_ = c(0, y[i])
+        lines(x_, y_, col=cols[j], lwd=8)
+    }
+}
+legend(9.8, .45, paste0("λ = ", lambdas), col=cols, lwd=8 )
+title(main = "Poisson Distributions")
+```
+
 
 
 Interaction Plots
