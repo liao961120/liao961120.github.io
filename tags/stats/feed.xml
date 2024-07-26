@@ -51,14 +51,14 @@ heights = c(160, 175)[gender] + rnorm(30, sd=15)
 ylim = c( min(heights)-5, max(heights)+5 )
 plot( 1, type=&amp;#34;n&amp;#34;, xlim=c(.5,30.5), ylim=ylim,
 xlab=&amp;#34;Subject Index&amp;#34;, ylab=&amp;#34;Height (cm)&amp;#34; )
-&lt;/code>&lt;/pre>&lt;p>
-&lt;img src="index__files/chunk-2-1.svg" alt="">
-&lt;/p>
-&lt;pre tabindex="0">&lt;code>points( 1:15, heights[ 1:15], col=2, pch=19 )
+points( 1:15, heights[ 1:15], col=2, pch=19 )
 points( 16:30, heights[16:30], col=4, pch=19 )
 abline( v=15.5, col=&amp;#34;grey&amp;#34;, lty=&amp;#34;dashed&amp;#34; )
 mtext( c(&amp;#34;Girls&amp;#34;,&amp;#34;Boys&amp;#34;), at=c(7,23), col=c(2,4), padj=-.5 )
-&lt;/code>&lt;/pre>&lt;h2 id="bar-charts">Bar Charts&lt;/h2>
+&lt;/code>&lt;/pre>&lt;p>
+&lt;img src="index__files/chunk-1-1.svg" alt="">
+&lt;/p>
+&lt;h2 id="bar-charts">Bar Charts&lt;/h2>
 &lt;h3 id="features-1">Features&lt;/h3>
 &lt;ul>
 &lt;li>custom axis: &lt;code>axis()&lt;/code>&lt;/li>
@@ -71,16 +71,16 @@ mtext( c(&amp;#34;Girls&amp;#34;,&amp;#34;Boys&amp;#34;), at=c(7,23), col=c(2,4)
 plot(1, type=&amp;#34;n&amp;#34;, xaxt=&amp;#39;n&amp;#39;, yaxt=&amp;#39;n&amp;#39;,
 ylab = &amp;#34;Probability&amp;#34;, xlab=&amp;#34;&amp;#34;,
 xlim=c(-.7, 1.7), ylim=c(0, 1) )
-&lt;/code>&lt;/pre>&lt;p>
-&lt;img src="index__files/chunk-3-1.svg" alt="">
-&lt;/p>
-&lt;pre tabindex="0">&lt;code>lines( c(0, 0), c(0, 0.25), lwd=12, col=2 )
+lines( c(0, 0), c(0, 0.25), lwd=12, col=2 )
 lines( c(1, 1), c(0, 0.75), lwd=12, col=2 )
 axis( 2, at=yseq, labels=sprintf(&amp;#34;%.2f&amp;#34;, yseq), las=1, hadj = .85 )
 axis( 1, at=0:1, padj = .5,
 labels = c(&amp;#34;0\n(tail)&amp;#34;, &amp;#34;1\n(head)&amp;#34;),
 )
-&lt;/code>&lt;/pre>&lt;h3 id="code--plot-1">Code &amp;amp; Plot&lt;/h3>
+&lt;/code>&lt;/pre>&lt;p>
+&lt;img src="index__files/chunk-2-1.svg" alt="">
+&lt;/p>
+&lt;h3 id="code--plot-1">Code &amp;amp; Plot&lt;/h3>
 &lt;pre tabindex="0">&lt;code>set.seed(100)
 get_pois = function(lambda) {
 x = rpois(1e5, lambda)
@@ -97,10 +97,7 @@ x.fct = c(-1, 0, 1) * .21
 cols = stom::vals2cols(seq(2,12,length=3))
 plot(1, type=&amp;#34;n&amp;#34;, xlim=range(dat[[3]]$x), ylim=range(dat[[1]]$y), las=1,
 xlab = &amp;#34;Count&amp;#34;, ylab=&amp;#34;Probability&amp;#34;)
-&lt;/code>&lt;/pre>&lt;p>
-&lt;img src="index__files/chunk-4-1.svg" alt="">
-&lt;/p>
-&lt;pre tabindex="0">&lt;code>for (j in seq(dat)) {
+for (j in seq(dat)) {
 x = dat[[j]]$x
 y = dat[[j]]$y
 for (i in seq(x)) {
@@ -111,7 +108,10 @@ lines(x_, y_, col=cols[j], lwd=8)
 }
 legend(9.8, .45, paste0(&amp;#34;λ = &amp;#34;, lambdas), col=cols, lwd=8 )
 title(main = &amp;#34;Poisson Distributions&amp;#34;)
-&lt;/code>&lt;/pre>&lt;h2 id="interaction-plots">Interaction Plots&lt;/h2>
+&lt;/code>&lt;/pre>&lt;p>
+&lt;img src="index__files/chunk-3-1.svg" alt="">
+&lt;/p>
+&lt;h2 id="interaction-plots">Interaction Plots&lt;/h2>
 &lt;h3 id="features-2">Features&lt;/h3>
 &lt;ul>
 &lt;li>Legend outside of plotting region: &lt;code>par()&lt;/code>, &lt;code>legend()&lt;/code>, &lt;code>mar&lt;/code>, &lt;code>xpd&lt;/code>, &lt;code>inset&lt;/code>&lt;/li>
@@ -172,10 +172,7 @@ d
 &lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code>#### Plot ####
 # c( b, l, t, r )
 par( mar=c(5.1, 4.1, 4.1, 8.1), xpd=F ) # Larger right margin for legend
-&lt;/code>&lt;/pre>&lt;p>
-&lt;img src="index__files/chunk-6-1.svg" alt="">
-&lt;/p>
-&lt;pre tabindex="0">&lt;code>plot( 1, type=&amp;#34;n&amp;#34;, xlim=c(.5, 4.5), ylim=c(0,7),
+plot( 1, type=&amp;#34;n&amp;#34;, xlim=c(.5, 4.5), ylim=c(0,7),
 xlab=&amp;#34;&amp;#34;, ylab=&amp;#34;Mean&amp;#34;,
 xaxt=&amp;#34;n&amp;#34;, yaxt=&amp;#34;n&amp;#34;) # disable x/y-axis
 # Shaded region (coordinates are specified (counter-)clockwise)
@@ -200,7 +197,10 @@ axis( 2, at=0:7, labels=sprintf(&amp;#34;%.1f&amp;#34;, 0:7), las=1 ) # rotated 
 legend(&amp;#34;right&amp;#34;, legend=d$Species, inset=c(-.17,0), xpd=TRUE,
 col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9,
 y.intersp=1.8, box.col=&amp;#34;transparent&amp;#34;, bg=&amp;#34;transparent&amp;#34; )
-&lt;/code>&lt;/pre>&lt;h2 id="density-plots">Density Plots&lt;/h2>
+&lt;/code>&lt;/pre>&lt;p>
+&lt;img src="index__files/chunk-5-1.svg" alt="">
+&lt;/p>
+&lt;h2 id="density-plots">Density Plots&lt;/h2>
 &lt;h3 id="features-3">Features&lt;/h3>
 &lt;ul>
 &lt;li>Line segments: &lt;code>segments()&lt;/code>&lt;/li>
@@ -222,10 +222,7 @@ SD = sd(X)
 #### Plot ####
 plot( density(X), ylim=c(0,.46),
 main = &amp;#34;A Standard Normal&amp;#34;, xlab = &amp;#34;X&amp;#34; )
-&lt;/code>&lt;/pre>&lt;p>
-&lt;img src="index__files/chunk-7-1.svg" alt="">
-&lt;/p>
-&lt;pre tabindex="0">&lt;code># Mean line segment
+# Mean line segment
 segments( x0=AVG, y0=0, y1=.43, col=2, lwd=3 )
 text( AVG, .46, labels = paste(&amp;#34;AVG:&amp;#34;,round(AVG,3)), col=2, cex=.8 )
 # SD line segment
@@ -234,7 +231,10 @@ segments( x0=AVG+.06, y0=.01, y1=.03, lwd=2, col=4 )
 segments( x0=AVG+SD, y0=.01, y1=.03, lwd=2, col=4 )
 text( .5*(AVG+SD+.06), .035,
 labels = paste(&amp;#34;SD =&amp;#34;,round(SD,3)), col=4, cex=.8 )
-&lt;/code>&lt;/pre>&lt;h2 id="combining-plots">Combining Plots&lt;/h2>
+&lt;/code>&lt;/pre>&lt;p>
+&lt;img src="index__files/chunk-6-1.svg" alt="">
+&lt;/p>
+&lt;h2 id="combining-plots">Combining Plots&lt;/h2>
 &lt;h3 id="features-4">Features&lt;/h3>
 &lt;ul>
 &lt;li>Plot panels: &lt;code>par()&lt;/code> + &lt;code>mfrow()&lt;/code>&lt;/li>
@@ -242,14 +242,13 @@ labels = paste(&amp;#34;SD =&amp;#34;,round(SD,3)), col=4, cex=.8 )
 &lt;h3 id="code--plot-4">Code &amp;amp; Plot&lt;/h3>
 &lt;pre tabindex="0">&lt;code>inner = c(4.1, 4.1, 1.8, .5)
 par( mfrow=c(2,2), oma=c(0,0,0,0), mar=inner )
-&lt;/code>&lt;/pre>&lt;p>
-&lt;img src="index__files/chunk-8-1.svg" alt="">
-&lt;/p>
-&lt;pre tabindex="0">&lt;code>for ( i in 1:4 ) {
+for ( i in 1:4 ) {
 plot( 1, type=&amp;#34;n&amp;#34;, xlim=0:1, ylim=0:1, xlab=&amp;#34;&amp;#34;, ylab=&amp;#34;&amp;#34; )
 text( .5, .5, labels=paste(&amp;#34;Plot&amp;#34;,i), cex=2 )
 }
-&lt;/code>&lt;/pre></description><category>r</category><category>stats</category></item><item><title>Beyond Item Response Theory</title><link>https://yongfu.name/2023/06/27/irt5/</link><pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/06/27/irt5/</guid><description>&lt;p>My previous four posts have focused on basic item response models&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.
+&lt;/code>&lt;/pre>&lt;p>
+&lt;img src="index__files/chunk-7-1.svg" alt="">
+&lt;/p></description><category>r</category><category>stats</category></item><item><title>Beyond Item Response Theory</title><link>https://yongfu.name/2023/06/27/irt5/</link><pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate><guid>https://yongfu.name/2023/06/27/irt5/</guid><description>&lt;p>My previous four posts have focused on basic item response models&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.
 These models are commonly found in an educational testing context but
 are less often seen in clinical research settings where questionnaires
 are used for the measuring and assessment of individuals’ conditions.
