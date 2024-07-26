@@ -7,11 +7,9 @@ litedown::reactor(
     message = FALSE,
     warning = FALSE,
     # attr.plot = ".fullwidth",
-    # dev = "svg",
-    results = "hold",
-    dev = svglite::svglite,
+    dev = svg,
     dev.args = list(bg = "transparent"),
     # wd = here::here(),
     comment = ""
 )
-litedown::fuse("main.Rmd", output="index.html")
+litedown::fuse("main.Rmd", output="index.md")

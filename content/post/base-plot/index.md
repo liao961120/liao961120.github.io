@@ -24,10 +24,6 @@ editor:
    render-on-save: false
 ---
 
-
-
-
-
 My love for the base R plotting system has been growing since I started dealing with complicated charts. Complexity in these charts can arise for many reasons. For one, it might simply result from the data structure when working with complex statistical models (e.g., multilevel models). Conventions in the workplace could be another source of complexity. For instance, tweaking a chart in R to replicate the one originally created in Excel could be extremely difficult, and it is nearly impossible to do so with higher-level plotting packages such as `ggplot2`. To approach the look of a chart created outside of R, life would be much easier if lower-level frameworks such as the base R plotting system were utilized. 
 
 Below is just a cumulation of charts I've created. It is intended to help me search and locate the code for plotting certain features in base R. The remainder of the post is divided into sections by charts, each of which consists of (1) the code, (2) the output chart, and (3) a list of features presented in the chart.
@@ -52,15 +48,12 @@ heights = c(160, 175)[gender] + rnorm(30, sd=15)
 ylim = c( min(heights)-5, max(heights)+5 )
 plot( 1, type="n", xlim=c(.5,30.5), ylim=ylim,
       xlab="Subject Index", ylab="Height (cm)" )
-```
-![](<index__files/chunk-2-1.svg>)
-
-``` {.r}
 points(  1:15, heights[ 1:15], col=2, pch=19 )
 points( 16:30, heights[16:30], col=4, pch=19 )
 abline( v=15.5, col="grey", lty="dashed" )
 mtext( c("Girls","Boys"), at=c(7,23), col=c(2,4), padj=-.5 )
 ```
+![](<index__files/chunk-1-1.svg>)
 
 
 Bar Charts
@@ -81,10 +74,6 @@ yseq = seq(0, 1, .25)
 plot(1, type="n", xaxt='n', yaxt='n',
      ylab = "Probability", xlab="",
      xlim=c(-.7, 1.7), ylim=c(0, 1) )
-```
-![](<index__files/chunk-3-1.svg>)
-
-``` {.r}
 lines( c(0, 0), c(0, 0.25), lwd=12, col=2 )
 lines( c(1, 1), c(0, 0.75), lwd=12, col=2 )
 axis( 2, at=yseq, labels=sprintf("%.2f", yseq), las=1, hadj = .85 )
@@ -92,6 +81,7 @@ axis( 1, at=0:1, padj = .5,
       labels = c("0\n(tail)", "1\n(head)"), 
 )
 ```
+![](<index__files/chunk-2-1.svg>)
 
 
 ### Code & Plot
@@ -115,10 +105,6 @@ x.fct = c(-1, 0, 1) * .21
 cols = stom::vals2cols(seq(2,12,length=3))
 plot(1, type="n", xlim=range(dat[[3]]$x), ylim=range(dat[[1]]$y), las=1,
      xlab = "Count", ylab="Probability")
-```
-![](<index__files/chunk-4-1.svg>)
-
-``` {.r}
 for (j in seq(dat)) {
     x = dat[[j]]$x
     y = dat[[j]]$y
@@ -131,6 +117,7 @@ for (j in seq(dat)) {
 legend(9.8, .45, paste0("λ = ", lambdas), col=cols, lwd=8 )
 title(main = "Poisson Distributions")
 ```
+![](<index__files/chunk-3-1.svg>)
 
 
 
@@ -183,10 +170,6 @@ d
 #### Plot ####
 #       c( b,   l,   t,   r )       
 par( mar=c(5.1, 4.1, 4.1, 8.1), xpd=F )  # Larger right margin for legend
-```
-![](<index__files/chunk-6-1.svg>)
-
-``` {.r}
 plot( 1, type="n", xlim=c(.5, 4.5), ylim=c(0,7),
       xlab="", ylab="Mean",
       xaxt="n", yaxt="n")  # disable x/y-axis
@@ -213,6 +196,7 @@ legend("right", legend=d$Species, inset=c(-.17,0), xpd=TRUE,
        col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9, 
        y.intersp=1.8, box.col="transparent", bg="transparent" )
 ```
+![](<index__files/chunk-5-1.svg>)
 
 
 Density Plots
@@ -246,10 +230,6 @@ SD  = sd(X)
 #### Plot ####
 plot( density(X), ylim=c(0,.46),
       main = "A Standard Normal", xlab = "X" )
-```
-![](<index__files/chunk-7-1.svg>)
-
-``` {.r}
 # Mean line segment
 segments( x0=AVG, y0=0, y1=.43, col=2, lwd=3 )
 text( AVG, .46, labels = paste("AVG:",round(AVG,3)), col=2, cex=.8 )
@@ -260,6 +240,7 @@ segments( x0=AVG+SD,  y0=.01, y1=.03,    lwd=2, col=4 )
 text( .5*(AVG+SD+.06), .035, 
       labels = paste("SD =",round(SD,3)), col=4, cex=.8 )
 ```
+![](<index__files/chunk-6-1.svg>)
 
 
 Combining Plots
@@ -275,13 +256,11 @@ Combining Plots
 ``` {.r}
 inner = c(4.1, 4.1, 1.8, .5)
 par( mfrow=c(2,2), oma=c(0,0,0,0), mar=inner )
-```
-![](<index__files/chunk-8-1.svg>)
 
-``` {.r}
 for ( i in 1:4 ) {
     plot( 1, type="n", xlim=0:1, ylim=0:1, xlab="", ylab="" )
     text( .5, .5, labels=paste("Plot",i), cex=2 )
 }
 ```
+![](<index__files/chunk-7-1.svg>)
 
