@@ -7,7 +7,7 @@ litedown::reactor(
     message = FALSE,
     warning = FALSE,
     # attr.plot = ".fullwidth",
-    dev = svg,
+    dev = svglite::svglite,
     dev.args = list(bg = "transparent"),
     # wd = here::here(),
     comment = ""
