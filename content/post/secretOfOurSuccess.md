@@ -46,7 +46,7 @@ title: 閱讀筆記：The Secret of Our Success
 
 在進行好幾回合後，獲利多者獲勝。這個遊戲叫做 [Matching Pennies](https://en.wikipedia.org/wiki/Matching_pennies) (下圖)，而玩這個遊戲時的最佳 (理性) 策略，無論你是 A 或是 B，就是**隨機**地選擇一隻手舉起。因為只要有一方的行為不是隨機的，對方就可以利用這個模式讓自己更容易 (或更不易) 與對方舉起同一隻手。人類在玩 Matching Pennies 時，通常不會 (或無法) 使用這種隨機策略，但其它動物如黑猩猩很快就會發現隨機是最佳策略並據此行動。
 
-![Matching Pennies Game](https://imgy.netlify.com/soos/matching-pennies.png)
+<img src="https://img.yongfu.name/soos/matching-pennies.png" alt="Matching Pennies Game" style="max-width:420px">
 
 獵人打獵時，其實就是在和獵物玩 Matching Pennies：獵人扮演的角色是 A (希望遇到獵物)，而獵物扮演的角色是 B (希望避開獵人)。因為人類心智上「無法將決策隨機化」的這個弱點，如果每次打獵都是由獵人決定打獵地區，長期下來獵物就能避開獵人。占卜在此能作為一種亂數產生機制 (例如，燒龜甲看其裂痕的形狀以決定打獵的地區)，幫助獵人隨機化決策，消弭獵人行為的可預測性。
 
