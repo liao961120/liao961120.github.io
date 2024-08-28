@@ -156,14 +156,14 @@ text( 1:4-.03, d[i,-1]-.45, labels = d[i,-1], cex=.9, col=i )
 # Axis
 axis( 1, at=1:4, tck=-.02, labels=LABELS )
 axis( 2, at=0:7, labels=sprintf(&amp;#34;%.1f&amp;#34;, 0:7), las=1 ) # rotated y-axis labels
-# Legend (outside of plotting region)
-legend(&amp;#34;right&amp;#34;, legend=d$Species, inset=c(-.17,0), xpd=TRUE,
-col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9,
-y.intersp=1.8, box.col=&amp;#34;transparent&amp;#34;, bg=&amp;#34;transparent&amp;#34; )
 &lt;/code>&lt;/pre>&lt;p>
 &lt;img src="index__files/chunk-5-1.svg" alt="">
 &lt;/p>
-&lt;h2 id="density-plots">Density Plots&lt;/h2>
+&lt;pre tabindex="0">&lt;code># Legend (outside of plotting region)
+legend(&amp;#34;right&amp;#34;, legend=d$Species, inset=c(-.17,0), xpd=TRUE,
+col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9,
+y.intersp=1.8, box.col=&amp;#34;transparent&amp;#34;, bg=&amp;#34;transparent&amp;#34; )
+&lt;/code>&lt;/pre>&lt;h2 id="density-plots">Density Plots&lt;/h2>
 &lt;h3 id="features-3">Features&lt;/h3>
 &lt;ul>
 &lt;li>Line segments: &lt;code>segments()&lt;/code>&lt;/li>

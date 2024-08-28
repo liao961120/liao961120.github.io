@@ -96,11 +96,11 @@ for ( i in 1:nrow(d) ) {
 # Axis
 axis( 1, at=1:4, tck=-.02, labels=LABELS )
 axis( 2, at=0:7, labels=sprintf(&#34;%.1f&#34;, 0:7), las=1 )  # rotated y-axis labels
-# Legend (outside of plotting region)
+</code></pre><p><img src=index__files/chunk-5-1.svg alt></p><pre tabindex=0><code># Legend (outside of plotting region)
 legend(&#34;right&#34;, legend=d$Species, inset=c(-.17,0), xpd=TRUE, 
        col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9, 
        y.intersp=1.8, box.col=&#34;transparent&#34;, bg=&#34;transparent&#34; )
-</code></pre><p><img src=index__files/chunk-5-1.svg alt></p><h2 id=density-plots>Density Plots</h2><h3 id=features-3>Features</h3><ul><li>Line segments: <code>segments()</code></li><li>Density: <code>density()</code></li><li>text / label: <code>text()</code></li></ul><h3 id=code--plot-3>Code & Plot</h3><pre tabindex=0><code>library(stom)
+</code></pre><h2 id=density-plots>Density Plots</h2><h3 id=features-3>Features</h3><ul><li>Line segments: <code>segments()</code></li><li>Density: <code>density()</code></li><li>text / label: <code>text()</code></li></ul><h3 id=code--plot-3>Code & Plot</h3><pre tabindex=0><code>library(stom)
 library(dplyr)
 
 #### Data ####
