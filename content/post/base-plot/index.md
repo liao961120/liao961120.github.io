@@ -191,12 +191,15 @@ for ( i in 1:nrow(d) ) {
 # Axis
 axis( 1, at=1:4, tck=-.02, labels=LABELS )
 axis( 2, at=0:7, labels=sprintf("%.1f", 0:7), las=1 )  # rotated y-axis labels
+```
+![](<index__files/chunk-5-1.svg>)
+
+``` {.r}
 # Legend (outside of plotting region)
 legend("right", legend=d$Species, inset=c(-.17,0), xpd=TRUE, 
        col=1:nrow(d), pch=1:nrow(d) + 2, lwd=4, cex=.9, 
        y.intersp=1.8, box.col="transparent", bg="transparent" )
 ```
-![](<index__files/chunk-5-1.svg>)
 
 
 Density Plots
