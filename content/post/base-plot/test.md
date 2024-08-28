@@ -1,0 +1,34 @@
+---
+title: A Diary of Charts
+subtitle: Some code sketches for Base R plotting
+description: "Base R, plot, graphics"
+date: '2023-10-27'
+aliases:
+    - /base-plot
+katex: true
+# draft: true
+ignoreToc: "h3,h4,h5,h6"
+tags:
+- r
+- stats
+format: 
+   gfm:
+      output-file: "index"
+      output-ext: "md"
+      variant: +yaml_metadata_block+raw_html
+      df-print: tibble
+# filters:
+  # - quarto
+  # - list-table.lua
+editor:
+   render-on-save: false
+bibliography: ["test.bib"]
+output:
+    litedown::html_format:
+        keep_md: true
+---
+
+
+
+[@borsboom2006]
+

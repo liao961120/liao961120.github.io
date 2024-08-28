@@ -1,0 +1,415 @@
+---
+references:
+- id: borsboom2006
+  abstract: >-
+    This paper analyzes the theoretical, pragmatic, and substantive factors that
+    have hampered the integration between psychology and psychometrics.
+    Theoretical  factors include the operationalist mode of thinking which is
+    common throughout  psychology, the dominance of classical test theory, and
+    the use of "construct  validity" as a catch-all category for a range of
+    challenging psychometric  problems. Pragmatic factors include the lack of
+    interest in mathematically  precise thinking in psychology, inadequate
+    representation of psychometric  modeling in major statistics programs, and
+    insufficient mathematical training in  the psychological curriculum.
+    Substantive factors relate to the absence of  psychological theories that
+    are sufficiently strong to motivate the structure of  psychometric models.
+    Following the identification of these problems, a number of  promising
+    recent developments are discussed, and suggestions are made to further  the
+    integration of psychology and psychometrics.
+  author:
+    - family: Borsboom
+      given: Denny
+  citation-key: borsboom2006
+  container-title: Psychometrika
+  container-title-short: Psychometrika
+  DOI: 10.1007/s11336-006-1447-6
+  event-place: United States
+  ISSN: 1860-0980 0033-3123
+  issue: '3'
+  issued:
+    - year: 2006
+      month: 9
+  language: eng
+  page: 425-440
+  PMCID: PMC2779444
+  PMID: '19946599'
+  publisher-place: United States
+  title: The attack of the psychometricians.
+  type: article-journal
+  volume: '71'
+
+- id: deboeckQuestioningPsychologicalConstructs2023
+  author:
+    - family: De Boeck
+      given: Paul
+    - family: Pek
+      given: Jolynn
+    - family: Walton
+      given: Katherine
+    - family: Wegener
+      given: Duane T.
+    - family: Turner
+      given: Brandon M.
+    - family: Andersen
+      given: Barbara L.
+    - family: Beauchaine
+      given: Theodore P.
+    - family: Lecavalier
+      given: Luc
+    - family: Myung
+      given: Jay I.
+    - family: Petty
+      given: Richard E.
+  citation-key: deboeckQuestioningPsychologicalConstructs2023
+  container-title: Psychological Inquiry
+  container-title-short: Psychological Inquiry
+  DOI: 10.1080/1047840X.2023.2274429
+  ISSN: 1047-840X
+  issue: '4'
+  issued:
+    - year: 2023
+      month: 10
+      day: 2
+  page: 239-257
+  publisher: Routledge
+  title: 'Questioning Psychological Constructs: Current Issues and Proposed Changes'
+  type: article-journal
+  URL: https://doi.org/10.1080/1047840X.2023.2274429
+  volume: '34'
+
+- id: deruiterAppealMethodologicalFusion2017
+  author:
+    - family: Ruiter
+      given: J. P.
+      non-dropping-particle: de
+    - family: Albert
+      given: Saul
+  citation-key: deruiterAppealMethodologicalFusion2017
+  container-title: Research on Language and Social Interaction
+  container-title-short: Research on Language and Social Interaction
+  DOI: 10.1080/08351813.2017.1262050
+  ISSN: 0835-1813
+  issue: '1'
+  issued:
+    - year: 2017
+      month: 1
+      day: 2
+  page: 90-107
+  publisher: Routledge
+  title: >-
+    An Appeal for a Methodological Fusion of Conversation Analysis and
+    Experimental Psychology
+  type: article-journal
+  URL: https://doi.org/10.1080/08351813.2017.1262050
+  volume: '50'
+
+- id: eronenCausalDiscoveryProblem2020
+  abstract: >-
+    Finding causes is a central goal in psychological research. In this paper, I
+    argue based on the interventionist approach to causal discovery that the
+    search for psychological causes faces great obstacles. Psychological
+    interventions are likely to be fat-handed: they change several variables
+    simultaneously, and it is not known to what extent such interventions give
+    leverage for causal inference. Moreover, due to problems of measurement, the
+    degree to which an intervention was fat-handed, or more generally, what the
+    intervention in fact did, is difficult to reliably estimate. A further
+    complication is that the causal findings in psychology are typically made at
+    the population level, and such findings do not allow inferences to
+    individual-level causal relationships. I also discuss the implications of
+    these problems for research, as well as various ways of addressing them,
+    such as focusing more on the discovery of robust but non-causal patterns.
+  author:
+    - family: Eronen
+      given: Markus I.
+  citation-key: eronenCausalDiscoveryProblem2020
+  container-title: New Ideas in Psychology
+  container-title-short: New Ideas in Psychology
+  DOI: 10.1016/j.newideapsych.2020.100785
+  ISSN: 0732-118X
+  issued:
+    - year: 2020
+      month: 12
+      day: 1
+  page: '100785'
+  title: Causal discovery and the problem of psychological interventions
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0732118X19301436
+  volume: '59'
+
+- id: eronenPhilosophyScienceFormalization2020
+  abstract: >-
+    One of the original aims of this journal was to promote theory in
+    psychology. Nowadays more and more psychological researchers are calling for
+    more theory development, and articles on the ?theory crisis? have also found
+    their way into mainstream journals. In this article, we provide a further
+    perspective to this theory debate. Over the past century, philosophy of
+    science has staged extensive discussions on the mathematization of nature
+    and on the role of mathematics in the development of theory and the
+    connection of theory to empirical facts. We show that these discussions are
+    highly relevant for the current debate in psychology. In particular, we
+    emphasize the importance of conceptual work in the process of
+    mathematization, and the role of mathematics in co-ordinating theory and
+    observations. We then discuss the implications that these points have for
+    statistically oriented psychology in general and for the recent theory
+    debate in psychology.
+  accessed:
+    - year: 2023
+      month: 9
+      day: 5
+  author:
+    - family: Eronen
+      given: Markus I.
+    - family: Romeijn
+      given: Jan-Willem
+  citation-key: eronenPhilosophyScienceFormalization2020
+  container-title: Theory & Psychology
+  DOI: 10.1177/0959354320969876
+  ISSN: 0959-3543
+  issue: '6'
+  issued:
+    - year: 2020
+      month: 12
+      day: 1
+  page: 786-799
+  publisher: SAGE Publications Ltd
+  title: Philosophy of science and the formalization of psychological theory
+  type: article-journal
+  URL: https://doi.org/10.1177/0959354320969876
+  volume: '30'
+
+- id: eronenTheoryCrisisPsychology2021
+  abstract: >-
+    Meehl argued in 1978 that theories in psychology come and go, with little
+    cumulative progress. We believe that this assessment still holds, as also
+    evidenced by increasingly common claims that psychology is facing a ?theory
+    crisis? and that psychologists should invest more in theory building. In
+    this article, we argue that the root cause of the theory crisis is that
+    developing good psychological theories is extremely difficult and that
+    understanding the reasons why it is so difficult is crucial for moving
+    forward in the theory crisis. We discuss three key reasons based on
+    philosophy of science for why developing good psychological theories is so
+    hard: the relative lack of robust phenomena that impose constraints on
+    possible theories, problems of validity of psychological constructs, and
+    obstacles to discovering causal relationships between psychological
+    variables. We conclude with recommendations on how to move past the theory
+    crisis.
+  accessed:
+    - year: 2023
+      month: 7
+      day: 5
+  author:
+    - family: Eronen
+      given: Markus I.
+    - family: Bringmann
+      given: Laura F.
+  citation-key: eronenTheoryCrisisPsychology2021
+  container-title: Perspectives on Psychological Science
+  container-title-short: Perspect Psychol Sci
+  DOI: 10.1177/1745691620970586
+  ISSN: 1745-6916
+  issue: '4'
+  issued:
+    - year: 2021
+  page: 779-788
+  publisher: SAGE Publications Inc
+  title: 'The Theory Crisis in Psychology: How to Move Forward'
+  type: article-journal
+  URL: https://doi.org/10.1177/1745691620970586
+  volume: '16'
+
+- id: frankenhuisStrategicAmbiguitySocial2022
+  author:
+    - family: Frankenhuis
+      given: Willem
+    - family: Panchanathan
+      given: Karthik
+    - family: Smaldino
+      given: Paul E
+  citation-key: frankenhuisStrategicAmbiguitySocial2022
+  container-title: Social Psychological Bulletin
+  DOI: https://doi.org/10.23668/psycharchives.8381
+  issued:
+    - year: 2022
+  publisher: PsychArchives
+  title: Strategic ambiguity in the social sciences
+  type: article-journal
+
+- id: friedTheoriesModelsWhat2020
+  author:
+    - family: Fried
+      given: Eiko I.
+  citation-key: friedTheoriesModelsWhat2020
+  container-title: Psychological Inquiry
+  container-title-short: Psychological Inquiry
+  DOI: 10.1080/1047840X.2020.1854011
+  ISSN: 1047-840X
+  issue: '4'
+  issued:
+    - year: 2020
+      month: 10
+      day: 1
+  page: 336-344
+  publisher: Routledge
+  title: >-
+    Theories and Models: What They Are, What They Are for, and What They Are
+    About
+  type: article-journal
+  URL: https://doi.org/10.1080/1047840X.2020.1854011
+  volume: '31'
+
+- id: hughesFunctionalcognitiveFrameworkPsychological2016
+  abstract: >-
+    Abstract The scientific goals, values and assumptions of functional and
+    cognitive researchers have propelled them down two very different scientific
+    pathways. Many have, and continue to argue, that these differences undermine
+    any potential communication and collaboration between the two traditions. We
+    explore a different view on this debate. Specifically, we focus on the
+    Functional-Cognitive (FC) framework, and in particular, the idea that
+    cognitive and functional researchers can and should interact to the benefit
+    of both. Our article begins with a short introduction to the FC framework.
+    We sweep aside misconceptions about the framework, present the original
+    version as it was outlined by De Houwer (2011) and then offer our most
+    recent thoughts on how it should be implemented. Thereafter, we reflect on
+    its strengths and weaknesses, clarify the functional (effect-centric vs.
+    analytic-abstractive) level and consider its many implications for cognitive
+    research and theorising. In the final section, we briefly review the
+    articles contained in this Special Issue. These contributions provide clear
+    examples of the conceptual, empirical and methodological developments that
+    can emerge when cognitive, clinical, personality and neuroscientists fully
+    engage with the functional-cognitive perspective.
+  accessed:
+    - year: 2023
+      month: 7
+      day: 5
+  author:
+    - family: Hughes
+      given: Sean
+    - family: De Houwer
+      given: Jan
+    - family: Perugini
+      given: Marco
+  citation-key: hughesFunctionalcognitiveFrameworkPsychological2016
+  container-title: International Journal of Psychology
+  container-title-short: International Journal of Psychology
+  DOI: 10.1002/ijop.12239
+  ISSN: 0020-7594
+  issue: '1'
+  issued:
+    - year: 2016
+  page: 4-14
+  publisher: John Wiley & Sons, Ltd
+  title: >-
+    The functional-cognitive framework for psychological research: Controversies
+    and resolutions
+  type: article-journal
+  URL: https://doi.org/10.1002/ijop.12239
+  volume: '51'
+
+- id: meehlTheoreticalRisksTabular2004
+  abstract: >-
+    Theories in “soft” areas of psychology lack the cumulative character of
+    scientific knowledge. They tend neither to be refuted nor corroborated, but
+    instead merely fade away as people lose interest. Even though intrinsic
+    subject matter difficulties (20 listed) contribute to this, the excessive
+    reliance on significance testing is partly responsible, being a poor way of
+    doing science. Karl Popper’s approach, with modifications, would be
+    prophylactic. Since the null hypothesis is quasi-always false, tables
+    summarizing research in terms of patterns of “significant differences” are
+    little more than complex, causally uninterpretable outcomes of statistical
+    power functions. Multiple paths to estimating numerical point values
+    (“consistency tests”) are better, even if approximate with rough tolerances;
+    and lacking this, ranges, orderings, second-order differences, curve peaks
+    and valleys, and function forms should be used. Such methods are usual in
+    developed sciences that seldom report statistical significance. Consistency
+    tests of a conjectural taxometric model yielded 94% success with zero false
+    negatives.
+  author:
+    - family: Meehl
+      given: Paul E
+  citation-key: meehlTheoreticalRisksTabular2004
+  container-title: Applied and Preventive Psychology
+  container-title-short: Applied and Preventive Psychology
+  DOI: 10.1016/j.appsy.2004.02.001
+  ISSN: 0962-1849
+  issue: '1'
+  issued:
+    - year: 2004
+      month: 6
+      day: 1
+  page: '1'
+  title: >-
+    Theoretical risks and tabular asterisks: Sir Karl, Sir Ronald, and the slow
+    progress of soft psychology
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0962184904000022
+  volume: '11'
+
+- id: muthukrishnaProblemTheory2019
+  abstract: >-
+    The replication crisis facing the psychological sciences is widely regarded
+    as rooted in methodological or statistical shortcomings. We argue that a
+    large part of the problem is the lack of a cumulative theoretical framework
+    or frameworks. Without an overarching theoretical framework that generates
+    hypotheses across diverse domains, empirical programs spawn and grow from
+    personal intuitions and culturally biased folk theories. By providing ways
+    to develop clear predictions, including through the use of formal modelling,
+    theoretical frameworks set expectations that determine whether a new finding
+    is confirmatory, nicely integrating with existing lines of research, or
+    surprising, and therefore requiring further replication and scrutiny. Such
+    frameworks also prioritize certain research foci, motivate the use diverse
+    empirical approaches and, often, provide a natural means to integrate across
+    the sciences. Thus, overarching theoretical frameworks pave the way toward a
+    more general theory of human behaviour. We illustrate one such a theoretical
+    framework: dual inheritance theory.
+  author:
+    - family: Muthukrishna
+      given: Michael
+    - family: Henrich
+      given: Joseph
+  citation-key: muthukrishnaProblemTheory2019
+  container-title: Nature Human Behaviour
+  container-title-short: Nature Human Behaviour
+  DOI: 10.1038/s41562-018-0522-1
+  ISSN: 2397-3374
+  issue: '3'
+  issued:
+    - year: 2019
+      month: 3
+      day: 1
+  page: 221-229
+  title: A problem in theory
+  type: article-journal
+  URL: https://doi.org/10.1038/s41562-018-0522-1
+  volume: '3'
+
+- id: shapiroTaleTwoExplanatory2019
+  abstract: >-
+    The development of a theory of mechanistic explanation has been a welcome
+    advance over previous theories of explanation, such as deductive nomological
+    explanation. However, despite the claims of some supporters of mechanistic
+    explanation, not all explanation in cognitive science is or should be
+    mechanistic. I defend the claim that functional analysis remains a distinct
+    and legitimate form of explanation within cognitive science.
+  accessed:
+    - year: 2023
+      month: 9
+      day: 7
+  author:
+    - family: Shapiro
+      given: Lawrence
+  citation-key: shapiroTaleTwoExplanatory2019
+  container-title: Theory & Psychology
+  DOI: 10.1177/0959354319866921
+  ISSN: 0959-3543
+  issue: '5'
+  issued:
+    - year: 2019
+      month: 10
+      day: 1
+  page: 719-735
+  publisher: SAGE Publications Ltd
+  title: A tale of two explanatory styles in cognitive psychology
+  type: article-journal
+  URL: https://doi.org/10.1177/0959354319866921
+  volume: '29'
+...
