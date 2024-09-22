@@ -5,13 +5,12 @@ aliases:
 avatar: https://img.yongfu.name/img/yongfu-crop-min.jpg
 name: "Yongfu Liao"
 position: ""  # To be filled in
-institute: 'National Taiwan University'
+institute: "Children's Hearing Foundation"
 interests:
     title: "Research Interests" 
     items: 
-        - Intervention
         - Measurement
-        - Generative Modeling
+        - Bayesian Modeling
         - Open Science
 education: 
     title: "Education"
