@@ -168,26 +168,10 @@ stats, books, and random thoughts.
 I began my journey of programming with [R][r] in 2017, and it has ever since
 scaffolded my way up in exploring new things. I was excited about the new world
 back then and was attracted to other languages. First, it was Python, then
-JavaScript and web development. I think I'm now settling down to **R**.
-Currently, I use R for my job. In my spare time, I play with stats models in R
-and [Stan][stan]. I guess I'll keep working with stats and modeling in the 
-future (hopefully, for empirical sciences). 
+JavaScript and web development. I think I've now settled on **R**.
+Currently, I primarily use R and [Stan][stan] to build Bayesian models for research. I guess I'll keep working with stats and modeling in the future. 
 
 At times when feeling burned out, I'd go hiking or travel to a distant town.
 
-
-<!-- It wasn't easy to make up my mind about
-what I would like to do, partly because programming is a lot of fun.
-
-The world of programming is fascinating because it is creative in nature.
-Creation brings about a sense of empowerment, which is addictive. The good part
-about creating things is that it motivates exploration. And exploration leads to
-learning. The dark side, however, is you might have gone too busy learning,
-leaving out of mind the search for an ultimate goal to live for. Hence, you
-often get overly excited about new fancy gadgets from the community. Or, maybe
-after an epiphany, found that you have lost, or might have never been certain
-of, the direction of your life. You believe in the value of programming, deeply.
-But you just have no idea of how it helps to create **_meaning_** in life.
- -->
 [r]: https://www.r-project.org
 [stan]: https://mc-stan.org
