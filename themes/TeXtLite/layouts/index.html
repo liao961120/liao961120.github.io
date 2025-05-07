@@ -49,6 +49,19 @@
             </div>
         </section>
 
+        <!-- Publications -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="left">
+                        <h2 id="publications">Publications</h2>
+                    </div>
+                    <div class="right">
+                        {{ readFile "publications/pub.html" | safeHTML }}
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section>
             <div class="container">
@@ -91,20 +104,6 @@
             </div>
         </section>
         {{ end }}
-
-        <!-- Publications -->
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="left">
-                        <h2 id="publications">Publications</h2>
-                    </div>
-                    <div class="right">
-                        {{ readFile "publications/pub.html" | safeHTML }}
-                    </div>
-                </div>
-            </div>
-        </section>
 
         {{- partial "footer.html" . -}}
 
