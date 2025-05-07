@@ -9,8 +9,8 @@ institute: "Children's Hearing Foundation"
 interests:
     title: "Research Interests" 
     items: 
-        - Measurement
-        - Bayesian Modeling
+        - Bayesian (Cognitive) Modeling
+        - Assessment
         - Open Science
 education: 
     title: "Education"
@@ -160,19 +160,23 @@ sections:
 
 ## About
 
-I share my inspirations here, mostly originating from, or during, the activities
-I enjoy. It started as a place for sharing programming-related knowledge and
-[open-source projects](#projects) I had worked on. Currently, I also write about
+I share my inspirations here, mostly originating from activities
+I enjoy. It started as a place to share programming-related knowledge and
+[open-source projects](#projects) I worked on. These days, I also write about
 stats, books, and random thoughts.
 
-I began my journey of programming with [R][r] in 2017, and it has ever since
-scaffolded my way up in exploring new things. I was excited about the new world
-back then and was attracted to other languages. First, it was Python, then
+I began my programming journey with [R][r] in 2017, and it has since
+scaffolded my way up in exploring new things. I was excited about this new world
+back then and was soon drawn to other languages. First, it was Python, then
 JavaScript and web development. I think I've now settled on **R**.
-Currently, I primarily use R and [Stan][stan] to build Bayesian models for research. 
-I guess I'll keep working with stats and modeling in the future. 
 
-At times when feeling burned out, I'd go hiking or travel to a distant town.
+Currently, I primarily use R and [Stan][stan] to build Bayesian models in research. 
+Part of my work also involves web development to help integrate research 
+findings into the rehabilitation services provided at our institute.
+I'll begin my graduate studies in Cognitive Psychology at 
+[Syracuse University](https://artsandsciences.syracuse.edu/psychology) in August 2025.
+
+Outside of work, I enjoy hiking and traveling to distant towns.
 
 [r]: https://www.r-project.org
 [stan]: https://mc-stan.org
