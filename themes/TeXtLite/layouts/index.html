@@ -63,6 +63,23 @@
             </div>
         </section>
 
+        <!-- Other Sections -->
+        {{ range .Params.sections }}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="left">
+                        <h2 id="{{ .title | urlize }}">{{ .title }}</h2>
+                    </div>
+                    <div class="right">
+                        {{ .about | markdownify }}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{ end }}
+
+        <!-- Opensource projects -->
         <section>
             <div class="container">
                 <div class="row">
@@ -90,20 +107,6 @@
             </div>
         </section>
 
-        {{ range .Params.sections }}
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="left">
-                        <h2 id="{{ .title | urlize }}">{{ .title }}</h2>
-                    </div>
-                    <div class="right">
-                        {{ .about | markdownify }}
-                    </div>
-                </div>
-            </div>
-        </section>
-        {{ end }}
 
         {{- partial "footer.html" . -}}
 
