@@ -169,7 +169,8 @@ I began my journey of programming with [R][r] in 2017, and it has ever since
 scaffolded my way up in exploring new things. I was excited about the new world
 back then and was attracted to other languages. First, it was Python, then
 JavaScript and web development. I think I've now settled on **R**.
-Currently, I primarily use R and [Stan][stan] to build Bayesian models for research. I guess I'll keep working with stats and modeling in the future. 
+Currently, I primarily use R and [Stan][stan] to build Bayesian models for research. 
+I guess I'll keep working with stats and modeling in the future. 
 
 At times when feeling burned out, I'd go hiking or travel to a distant town.
 

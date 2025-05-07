@@ -1,4 +1,5 @@
 ---
+title: "About"
 aliases:
     - /about.html
 ---
