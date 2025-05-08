@@ -158,23 +158,26 @@ sections:
         [lnk5]: https://rlads2021.github.io/archives
 ---
 
-I share my inspirations here, mostly originating from activities
-I enjoy. It started as a place to share programming-related knowledge and
+## About
+
+I share my inspirations here, mostly stemming from activities I enjoy. 
+It started as a place to share programming-related knowledge and the
 [open-source projects](#projects) I worked on. These days, I also write about
-stats, books, and random thoughts.
+statistics, books, and occasional reflections.
 
 I began my programming journey with [R][r] in 2017, and it has since
-scaffolded my way up in exploring new things. I was excited about this new world
-back then and was soon drawn to other languages. First, it was Python, then
+scaffolded my way up in exploring new things. I was excited by this new world
+back then and soon found myself drawn to other languages. First, it was Python, then
 JavaScript and web development. I think I've now settled on **R**.
 
-Currently, I primarily use R and [Stan][stan] to build Bayesian models in research. 
-Part of my work also involves web development to help integrate research 
-findings into the rehabilitation services provided at our institute.
+In my current position, I mostly work on Bayesian modeling (using R and [Stan][stan]) 
+in applied research settings, such as developing assessment tools for children.
+I also occasionally build web applications to help integrate research
+findings into the rehabilitation services offered at our institute. 
+Outside of work, I enjoy hiking and traveling to distant towns.
+
 I'll begin my graduate studies in Cognitive Psychology at 
 [Syracuse University](https://artsandsciences.syracuse.edu/psychology) in August 2025.
-
-Outside of work, I enjoy hiking and traveling to distant towns.
 
 [r]: https://www.r-project.org
 [stan]: https://mc-stan.org
