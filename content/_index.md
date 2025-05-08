@@ -158,8 +158,6 @@ sections:
         [lnk5]: https://rlads2021.github.io/archives
 ---
 
-## About
-
 I share my inspirations here, mostly stemming from activities I enjoy. 
 It started as a place to share programming-related knowledge and the
 [open-source projects](#projects) I worked on. These days, I also write about
