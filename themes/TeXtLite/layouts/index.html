@@ -23,7 +23,7 @@
                                 <h3>{{ .Params.interests.title }}</h3>
                                 <ul>
                                 {{ range .Params.interests.items }}
-                                    <li>{{ . | markdownify }}</li>
+                                    <li class="interest-item">{{ . | markdownify }}</li>
                                 {{ end }}
                                 </ul>
                             </div>
@@ -300,7 +300,11 @@
             margin: 0;
             list-style-type: square;
         }
+        div.right.bio {
+            margin-top: 8px;
+        }
         div.right.bio p {
+            font-size: 1em;
             margin-top: 0;
         }
         div.right.bio > h2 {
@@ -313,7 +317,7 @@
             margin-bottom: .5em;
         }
         div.bio > p {
-            text-align: justify;
+            text-align: left;
         }
         span.icon > svg {
             height: 1.2em;
@@ -335,10 +339,14 @@
         }
         ul.edu-list p.course {
             font-weight: 600;
+            font-size: 1em;
         }
         ul.edu-list p.institute {
             color: var(--grey-text);
             font-size: 0.88em;
+        }
+        .interest-item {
+            font-size: .92em;
         }
 
 
