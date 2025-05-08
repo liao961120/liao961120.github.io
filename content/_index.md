@@ -159,7 +159,7 @@ sections:
 ---
 
 I share my inspirations here, mostly stemming from activities I enjoy. 
-It started as a place to share programming-related knowledge and the
+It started as a place to document programming-related knowledge and the
 [open-source projects](#projects) I worked on. These days, I also write about
 statistics, books, and occasional reflections.
 
